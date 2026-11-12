@@ -168,4 +168,4 @@ if __name__ == "__main__":
     import lemma0_check_run as R
     names = sys.argv[1:] or [n for n in R.PARTS if n.startswith("sloppy") and "cylinder" not in n] + ["box", "wedge 10deg"]
     out = [check(R.PARTS[n](), n) for n in names]
-    json.dump(out, open("reintersect_result.json", "w"), indent=1, default=float)
+    json.dump(out, open("../results/reintersect_result.json", "w"), indent=1, default=float)

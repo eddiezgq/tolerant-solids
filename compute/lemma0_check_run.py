@@ -80,4 +80,4 @@ if __name__ == "__main__":
             print(f"== {n}: ERROR {type(ex).__name__}: {ex}")
             r = dict(name=n, error=str(ex))
         out.append(r)
-    json.dump(out, open("lemma0_check_result.json", "w"), indent=1, default=float)
+    json.dump(out, open("../results/lemma0_check_result.json", "w"), indent=1, default=float)

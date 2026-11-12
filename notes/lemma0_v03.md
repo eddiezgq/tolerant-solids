@@ -1,7 +1,9 @@
 # Lemma 0 (existence) v0.3, and an obstruction lemma (draft, 2026-11-12)
 
 **Status.** Draft v0.3.1: revised after one independent review
-([reviews/lemma0_v03_review.md](reviews/lemma0_v03_review.md); no fatal errors, gaps fixed below). It extends [lemma0_v02.md](lemma0_v02.md) after the hypothesis checks in
+([reviews/lemma0_v03_review.md](reviews/lemma0_v03_review.md)) and one independent code review with exact
+re-verification ([reviews/lemma0_v03_code_review.md](reviews/lemma0_v03_code_review.md)). Neither found a fatal
+error; the gaps they found are fixed below. It extends [lemma0_v02.md](lemma0_v02.md) after the hypothesis checks in
 [lemma0_check_report.md](lemma0_check_report.md). Three changes:
 1. Route A (the fan/cone construction of v0.2) with a variable tube radius (A') and with E3 replaced by the
    condition it is used for (E3').
@@ -66,8 +68,12 @@ homeomorphism extending the boundary map) is a realization.
 K (B4). Zones: h(v) = c_v ∈ Z(v), h(int e) ⊆ ℓ_e ⊆ Z(e), h(int f) ⊆ P̃_f ⊆ Z(f). □
 
 *Remarks.*
-- The content is that B1–B4 are checkable. For the sewn box and plate of the report they hold with margins 45%
-  (B1), 13% (B2, B3); B4 was checked with OpenCascade on the polyhedron in floating point, not with exact arithmetic.
+- The content is that B1–B4 are checkable. For the sewn box they hold with margins 45% (B1) and 13% (B2). The code
+  review re-checked B1–B4 on the sewn box in exact rational arithmetic, including B3 (by covering each new face with
+  convex pieces, each inside one zone) and B4 (all faces strictly convex, all 15 face pairs meet exactly in the
+  expected edge or not at all) ([../compute/checks/review_routeB_exact.py](../compute/checks/review_routeB_exact.py)).
+  The sampled B3 margin printed by reintersect_check.py is not meaningful (its grid is coarser than the strips it
+  should resolve) and is not quoted.
 - The proposition needs the three planes at each vertex to be independent; it does not apply when two faces at a
   vertex are coplanar.
 - For curved faces, the same idea uses surface–surface intersection curves; it then needs the PL step of v0.2 §5,
@@ -77,18 +83,20 @@ K (B4). Zones: h(v) = c_v ∈ Z(v), h(int e) ⊆ ℓ_e ⊆ Z(e), h(int f) ⊆ P�
 
 ## 3. Lemma O (obstruction)
 
-**Setting.** Two faces f ≠ g with planar data: P_f ⊆ Π_f, P_g ⊆ Π_g, with the planes not parallel.
+**Setting.** Two faces f ≠ g with planar data: P_f ⊆ Π_f, P_g ⊆ Π_g, with the planes not parallel. (P_f need not
+be a polygon: sewing stores many boundary curves as B-splines, and consecutive boundary curves miss each other by
+about 1e-15. Only the loop ℓ_f of O0 is used.)
 - λ = Π_f ∩ Π_g; α ∈ (0, π/2] is the angle between the planes; n_f, n_g are unit normals;
 - m_f is a unit vector in Π_f orthogonal to λ, and m_g likewise;
 - π_f is the orthogonal projection onto Π_f;
 - U_f = ⋃_{e<f} Z(e), which contains the zones of the vertices of f.
 
 **Lemma O.** Suppose there are X ∈ λ and ρ > 0 such that, for J_f = X + [−ρ, ρ] m_f and J_g = X + [−ρ, ρ] m_g:
-- **O0** (boundary of the patch) P_f is a polygon whose boundary is the closed curve formed by the arcs β_{f,e},
-  e < f, taken in the cyclic order of ∂f: consecutive arcs β_{f,e}, β_{f,e'} at a vertex v of f share an end point
-  c_{f,v} (the *corner* of P_f at v), and the resulting closed curve is simple. Moreover β_{f,e} ⊆ Z(e) and
-  c_{f,v} ∈ Z(v). The same holds for g;
-- **O1** J_f ⊆ int P_f; the same holds for g;
+- **O0** (boundary loop) β_{f,e} ⊆ Z(e) for every edge e of f, and at every vertex v of f the end points of the
+  two arcs of f at v lie in Z(v). Let ℓ_f be the closed loop formed by the arcs β_{f,e} in the cyclic order of ∂f,
+  where consecutive arcs at v are joined by the straight segment s_{f,v} between their end points; s_{f,v} ⊆ Z(v)
+  because the ball is convex. The same holds for g;
+- **O1** J_f ∩ ℓ_f = ∅, and the winding number of ℓ_f (in Π_f) about the points of J_f is odd; the same holds for g;
 - **O2** J_f ∩ cl π_f(U_f) = ∅ and J_g ∩ cl π_g(U_g) = ∅;
 - **O3** Z(e) is simply connected for every edge e of f or of g;
 - **O4** ρ sin α > τ_f cos α + τ_g and ρ sin α > τ_g cos α + τ_f.
@@ -106,16 +114,16 @@ Then the tolerant B-rep has no realization.
 **Step 2 (degree one).**
 - ∂f is a circle made of edges e < f and vertices. By O0, ∂P_f is a loop that runs through the same sequence of
   edge zones and vertex zones.
-- Build a homotopy H: ∂f × [0, 1] → U_f from h|_{∂f} to a parametrization of ∂P_f:
-  - at a vertex v, use the straight segment from h(v) to the corner of P_f at v (both lie in the ball Z(v));
-  - on an edge e from v to w, the boundary of the square ē × [0, 1] is already mapped into Z(e): h(ē) ⊆ Z(e),
-    β_{f,e} ⊆ Z(e) runs from c_{f,v} to c_{f,w} (O0), and the vertex segments lie in Z(v), Z(w) ⊆ Z(e). The four
-    paths close up because β_{f,e} ends exactly at the corners (O0). By O3 this loop is null-homotopic in Z(e), so H extends over the
+- Parametrize ℓ_f over ∂f: a small closed arc A_v ⊆ ∂f around each vertex v goes to s_{f,v}, and the rest of each
+  edge e goes to β_{f,e}. Build a homotopy H: ∂f × [0, 1] → U_f from h|_{∂f} to this parametrization:
+  - on A_v, h(A_v) ⊆ Z(e) ∪ Z(e') for the two edges at v, and s_{f,v} ⊆ Z(v). Shrink A_v so that h(A_v) ⊆ Z(v)
+    (h is continuous, h(v) ∈ Z(v), and Z(v) is open). Then use the straight-line homotopy inside the ball Z(v);
+  - on the rest of an edge e from v to w, the boundary of the square (ē ∖ (A_v ∪ A_w)) × [0, 1] is already mapped
+    into Z(e): h(ē) ⊆ Z(e), β_{f,e} ⊆ Z(e) (O0), and the two vertical sides are segments inside Z(v), Z(w) ⊆ Z(e).
+    By O3 this loop is null-homotopic in Z(e), so H extends over the
     square inside Z(e).
-- By O2, π_f ∘ H avoids every y ∈ J_f. So φ|_{∂f} and the boundary of the polygon P_f have the same winding number
-  around y.
-- By O0 the boundary of P_f is a simple closed polygon, and y ∈ int P_f (O1), so that winding number is ±1.
-- Hence the mod-2 degree of φ at y is 1. For y that is not the image of the 1-skeleton of a triangulation on which h
+- By O2, π_f ∘ H avoids every y ∈ J_f. So φ|_{∂f} and ℓ_f have the same winding number around y.
+- By O1 that winding number is odd. Hence the mod-2 degree of φ at y is 1. For y that is not the image of the 1-skeleton of a triangulation on which h
   is linear, #φ^{-1}(y) is odd. By Step 1, #(h(f̄) ∩ σ_y) is then odd.
 
 **Step 3 (a crossing arc in the slice).**
@@ -166,8 +174,11 @@ Then the tolerant B-rep has no realization.
    the capsule is not enough: if the balls meet each other but the three sets have no common point, Z(e) has the
    homotopy type of a circle.) The projection of a capsule of radius r onto a plane is a planar capsule of radius r, so O2 is a
    distance test. Results (double precision; not exact arithmetic):
-   - sewn wedge 30°: holds with ρ = 1.6e-3 against the 3.7e-7 that O4 needs; O0 margins 4.8% and 30%;
-   - sewn wedge 10°: holds with ρ = 0.016;
+   - sewn wedge 30°: the largest feasible ρ is 1.6e-3; the witness uses ρ = 8.1e-4 against the 3.7e-7 that O4
+     needs; O0 margins 4.8% (exactly 1 − 1/1.05, the sewing factor) and 30%;
+   - sewn wedge 10°: largest feasible ρ = 0.016, witness ρ = 8.0e-3;
+   - the code review re-verified both wedges independently in exact rational arithmetic (O2 margins 35% and 15% at
+     the 30° witness; [../compute/checks/review_lemmaO_exact.py](../compute/checks/review_lemmaO_exact.py));
    - sewn box, sewn plate, exact box and exact wedge: no witness. This is consistent: the first two are realized by
      Proposition B, and the last two by route A.
    Both sewn wedges pass BRepCheck_Analyzer and BRepAlgoAPI_Check.
@@ -193,5 +204,7 @@ Then the tolerant B-rep has no realization.
 - The winding number of a simple closed polygon about an interior point is ±1, and it is invariant under homotopies
   of the loop that avoid the point.
 - A PL map is linear on the simplices of some triangulation.
+- The mod-2 degree is invariant under homotopy of the boundary loop in the complement of the point (used in Step 2
+  together with the winding number).
 - Normal disks of radius below the reach of a C² curve are pairwise disjoint (Federer 1959).
 - The implicit function theorem (C¹ dependence of k_{f,e} on t).

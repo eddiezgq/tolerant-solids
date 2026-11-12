@@ -39,8 +39,8 @@ are sewn back with BRepBuilderAPI_Sewing (tolerance 4g). Sewing sets tau_e = 1.0
 | box, cylinder, pipe (cut), slot (cut), filleted box r=2, wedge 10 deg (exact) | valid / valid | > 10^7 | pass | - | box, wedge: pass |
 | L-shape, inner fillet 0.2 (fused) | valid / valid | > 10^8 | fail: 9 cusp vertices | fail | n/a (curved) |
 | L-shape, all edges filleted 0.5 | valid / valid | 1.05 | fail: V1(a) at 6 fillet edges | **pass** | n/a |
-| sloppy box g = 0.01, 0.1 | valid / valid | 1.05 | fail: V1(a) | fail: V1(a) | **pass**, margins: vertex 45%, edge 13%, face 13% |
-| sloppy plate t = 0.05, g = 0.01 | valid / **invalid** | 1.05 | fail: V1(a) | fail | **pass**, same margins |
+| sloppy box g = 0.01, 0.1 | valid / valid | 1.05 | fail: V1(a) | fail: V1(a) | **pass**, margins: vertex 45%, edge 13% |
+| sloppy plate t = 0.05, g = 0.01 | valid / **invalid** | 1.05 | fail: V1(a) | fail | **pass**, same margins (same random translations as the box) |
 | sloppy wedge 30 deg, g = 0.01 | valid / valid | 1.05 | fail: V1(a) | fail | fail: edge outside tube by 49% |
 | sloppy wedge 10 deg, g = 0.01 | valid / valid | 1.05 | fail: V1(a) | fail | fail: edge outside tube by 3x, vertex by 50% |
 | sloppy cylinder g = 0.01 | valid / valid | 1.05 | fail: V1(a) | fail | not implemented (curved) |
@@ -66,9 +66,12 @@ the sewn shell made into a solid.)
    three tubes of radius > dev must fit into a vertex ball of radius about tau_e, which is impossible for
    theta_v = 90 deg (needs tau_v > sqrt(3) dev). Along a straight sewn edge the deviation is constant, so A'
    does not help.
-5. **Re-intersection (route B) realizes the sewn box and plate** with 13% margin. So these models have
+5. **Re-intersection (route B) realizes the sewn box and plate** with 13% margin on the edges. (Revision after the
+   code review: the face check B3 in reintersect_check.py is sampled too coarsely to give a margin; B1–B4 for the
+   sewn box were re-verified exactly in compute/checks/review_routeB_exact.py.) So these models have
    realizations that v0.2 cannot produce.
-6. **Sewn sharp wedges: a candidate for "passes both OCC checks, has no realization".** On the 30 deg and 10 deg
+6. **Sewn sharp wedges: "passes both OCC checks, has no realization" (see Lemma O in lemma0_v03.md; reviewed once, the fixes not yet re-reviewed; the
+   hypotheses were re-verified in exact arithmetic).** Original finding: On the 30 deg and 10 deg
    sewn wedges, the two planar patches at the sharp edge cross each other along a line that lies outside the edge
    tube (by 49% and about 3x of tau_e) and outside all vertex balls. Both OCC checks accept the models.
    *Sketch, not proved:* outside the edge and vertex zones, h(f) lies in the tau_f-slab of P_f and has degree 1

@@ -17,10 +17,12 @@
     1.0033867779821863
    ],
    "alpha_deg": 30.00000000000001,
-   "rho": 0.0016170399414391955,
+   "rho": 0.0008085199707195978,
+   "rho_max_feasible": 0.0016170399414391955,
    "rho_needed": 3.732050807568876e-07,
-   "O4_margin": 0.9997692047851182
+   "O4_margin": 0.9995384095702364
   },
+  "polyline_error": 8.786586906450529e-13,
   "no_realization": true
  },
  {
@@ -41,10 +43,12 @@
     1.0033867779821863
    ],
    "alpha_deg": 10.0,
-   "rho": 0.01604837028088115,
+   "rho": 0.008024185140440575,
+   "rho_max_feasible": 0.01604837028088115,
    "rho_needed": 1.1430052302761345e-06,
-   "O4_margin": 0.9999287774889118
+   "O4_margin": 0.9998575549778237
   },
+  "polyline_error": 8.679972188967083e-14,
   "no_realization": true
  },
  {
@@ -54,6 +58,7 @@
   "O0_corner_margin": 0.16392546060741103,
   "O3": true,
   "witness": null,
+  "polyline_error": 1.7763568394002505e-15,
   "no_realization": false
  },
  {
@@ -63,6 +68,7 @@
   "O0_corner_margin": 0.16392546060739951,
   "O3": true,
   "witness": null,
+  "polyline_error": 8.881788432164979e-16,
   "no_realization": false
  },
  {
@@ -72,6 +78,7 @@
   "O0_corner_margin": 1.0,
   "O3": true,
   "witness": null,
+  "polyline_error": 0.0,
   "no_realization": false
  },
  {
@@ -81,6 +88,7 @@
   "O0_corner_margin": 1.0,
   "O3": true,
   "witness": null,
+  "polyline_error": 1.5265566588595902e-16,
   "no_realization": false
  }
 ]
