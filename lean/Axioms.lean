@@ -1,0 +1,3 @@
+import Tolerant
+#print axioms not_isCritical_of_conical
+#print axioms inner_sub_eq_norm_sq_of_conical

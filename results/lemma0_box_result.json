@@ -1,0 +1,38 @@
+{
+ "n_triangles": 216,
+ "dev": "sqrt(G^2+S^2) = 0.3606",
+ "zones_ok_exact": true,
+ "embedding_violations": 0,
+ "faces_are_disks": true,
+ "surface": {
+  "euler": 2,
+  "boundary_edges": 0,
+  "nonmanifold_edges": 0
+ },
+ "hypotheses": {
+  "E1 dev < rho < min(tau_e, reach)": [
+   0.36055512754639896,
+   0.5,
+   0.55,
+   "reach = inf (straight edges)"
+  ],
+  "E3 (90 deg edges) tau_e > dev / sin(45 deg)": [
+   0.55,
+   0.5099068413893353
+  ],
+  "exit points distinct": "c e_j - S e_k vs c e_k - S e_j, distinct since c != -S",
+  "V0 patch corner inside B(p_v, r_v), r_v = 0.45": [
+   0.41231056256176607,
+   0.45
+  ],
+  "V1(a) end disks disjoint: A >= max(r_v + rho, rho/sin45)": [
+   1.0,
+   0.95
+  ],
+  "W_v within B(p_v, tau_v): sqrt(A^2 + rho^2) < tau_v": [
+   1.118033988749895,
+   1.2
+  ],
+  "S1 thin features": "none (box side 10 >> 2 rho)"
+ }
+}

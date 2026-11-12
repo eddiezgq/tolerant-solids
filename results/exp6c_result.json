@@ -1,0 +1,976 @@
+[
+ {
+  "part": "box",
+  "tau": 1e-07,
+  "frac": 1e-07,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 4.5304,
+  "U": 5.0
+ },
+ {
+  "part": "box",
+  "tau": 0.5,
+  "frac": 0.1,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 4.5304,
+  "U": 5.0
+ },
+ {
+  "part": "box",
+  "tau": 1.25,
+  "frac": 0.25,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 4.5304,
+  "U": 5.0
+ },
+ {
+  "part": "box",
+  "tau": 2.5,
+  "frac": 0.5,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 4.5304,
+  "U": 5.0
+ },
+ {
+  "part": "box",
+  "tau": 3.75,
+  "frac": 0.75,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "已证成立",
+  "LB": 4.5304,
+  "U": 5.0
+ },
+ {
+  "part": "box",
+  "tau": 4.5,
+  "frac": 0.9,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "已证成立",
+  "LB": 4.5304,
+  "U": 5.0
+ },
+ {
+  "part": "box",
+  "tau": 5.5,
+  "frac": 1.1,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 4.5304,
+  "U": 5.0
+ },
+ {
+  "part": "box",
+  "tau": 7.5,
+  "frac": 1.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 4.5304,
+  "U": 5.0
+ },
+ {
+  "part": "plate",
+  "tau": 1e-07,
+  "frac": 1e-07,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.436,
+  "U": 0.5
+ },
+ {
+  "part": "plate",
+  "tau": 0.05,
+  "frac": 0.1,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.436,
+  "U": 0.5
+ },
+ {
+  "part": "plate",
+  "tau": 0.125,
+  "frac": 0.25,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.436,
+  "U": 0.5
+ },
+ {
+  "part": "plate",
+  "tau": 0.25,
+  "frac": 0.5,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.436,
+  "U": 0.5
+ },
+ {
+  "part": "plate",
+  "tau": 0.375,
+  "frac": 0.75,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "已证成立",
+  "LB": 0.436,
+  "U": 0.5
+ },
+ {
+  "part": "plate",
+  "tau": 0.45,
+  "frac": 0.9,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "算不出",
+  "LB": 0.436,
+  "U": 0.5
+ },
+ {
+  "part": "plate",
+  "tau": 0.55,
+  "frac": 1.1,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 0.436,
+  "U": 0.5
+ },
+ {
+  "part": "plate",
+  "tau": 0.75,
+  "frac": 1.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 0.436,
+  "U": 0.5
+ },
+ {
+  "part": "plate_t0.3",
+  "tau": 1e-07,
+  "frac": 1e-07,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.1369,
+  "U": 0.15
+ },
+ {
+  "part": "plate_t0.3",
+  "tau": 0.015,
+  "frac": 0.1,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.1369,
+  "U": 0.15
+ },
+ {
+  "part": "plate_t0.3",
+  "tau": 0.0375,
+  "frac": 0.25,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.1369,
+  "U": 0.15
+ },
+ {
+  "part": "plate_t0.3",
+  "tau": 0.075,
+  "frac": 0.5,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.1369,
+  "U": 0.15
+ },
+ {
+  "part": "plate_t0.3",
+  "tau": 0.11249999999999999,
+  "frac": 0.75,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "已证成立",
+  "LB": 0.1369,
+  "U": 0.15
+ },
+ {
+  "part": "plate_t0.3",
+  "tau": 0.135,
+  "frac": 0.9,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "算不出",
+  "LB": 0.1369,
+  "U": 0.15
+ },
+ {
+  "part": "plate_t0.3",
+  "tau": 0.165,
+  "frac": 1.1,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 0.1369,
+  "U": 0.15
+ },
+ {
+  "part": "plate_t0.3",
+  "tau": 0.22499999999999998,
+  "frac": 1.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 0.1369,
+  "U": 0.15
+ },
+ {
+  "part": "L-shape",
+  "tau": 1e-07,
+  "frac": 1e-07,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.8944,
+  "U": 1.0
+ },
+ {
+  "part": "L-shape",
+  "tau": 0.1,
+  "frac": 0.1,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.8944,
+  "U": 1.0
+ },
+ {
+  "part": "L-shape",
+  "tau": 0.25,
+  "frac": 0.25,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.8944,
+  "U": 1.0
+ },
+ {
+  "part": "L-shape",
+  "tau": 0.5,
+  "frac": 0.5,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.8944,
+  "U": 1.0
+ },
+ {
+  "part": "L-shape",
+  "tau": 0.75,
+  "frac": 0.75,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "已证成立",
+  "LB": 0.8944,
+  "U": 1.0
+ },
+ {
+  "part": "L-shape",
+  "tau": 0.9,
+  "frac": 0.9,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "算不出",
+  "LB": 0.8944,
+  "U": 1.0
+ },
+ {
+  "part": "L-shape",
+  "tau": 1.1,
+  "frac": 1.1,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 0.8944,
+  "U": 1.0
+ },
+ {
+  "part": "L-shape",
+  "tau": 1.5,
+  "frac": 1.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 0.8944,
+  "U": 1.0
+ },
+ {
+  "part": "slot_g0.2",
+  "tau": 1e-07,
+  "frac": 1e-07,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.0861,
+  "U": 0.1
+ },
+ {
+  "part": "slot_g0.2",
+  "tau": 0.010000000000000002,
+  "frac": 0.1,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.0861,
+  "U": 0.1
+ },
+ {
+  "part": "slot_g0.2",
+  "tau": 0.025,
+  "frac": 0.25,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.0861,
+  "U": 0.1
+ },
+ {
+  "part": "slot_g0.2",
+  "tau": 0.05,
+  "frac": 0.5,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.0861,
+  "U": 0.1
+ },
+ {
+  "part": "slot_g0.2",
+  "tau": 0.07500000000000001,
+  "frac": 0.75,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "已证成立",
+  "LB": 0.0861,
+  "U": 0.1
+ },
+ {
+  "part": "slot_g0.2",
+  "tau": 0.09000000000000001,
+  "frac": 0.9,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "算不出",
+  "LB": 0.0861,
+  "U": 0.1
+ },
+ {
+  "part": "slot_g0.2",
+  "tau": 0.11000000000000001,
+  "frac": 1.1,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 0.0861,
+  "U": 0.1
+ },
+ {
+  "part": "slot_g0.2",
+  "tau": 0.15000000000000002,
+  "frac": 1.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 0.0861,
+  "U": 0.1
+ },
+ {
+  "part": "cylinder",
+  "tau": 1e-07,
+  "frac": 1e-07,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 2.5121,
+  "U": 3.0
+ },
+ {
+  "part": "cylinder",
+  "tau": 0.30000000000000004,
+  "frac": 0.1,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 2.5121,
+  "U": 3.0
+ },
+ {
+  "part": "cylinder",
+  "tau": 0.75,
+  "frac": 0.25,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 2.5121,
+  "U": 3.0
+ },
+ {
+  "part": "cylinder",
+  "tau": 1.5,
+  "frac": 0.5,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 2.5121,
+  "U": 3.0
+ },
+ {
+  "part": "cylinder",
+  "tau": 2.25,
+  "frac": 0.75,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 2.5121,
+  "U": 3.0
+ },
+ {
+  "part": "cylinder",
+  "tau": 2.7,
+  "frac": 0.9,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "算不出",
+  "LB": 2.5121,
+  "U": 3.0
+ },
+ {
+  "part": "cylinder",
+  "tau": 3.3000000000000003,
+  "frac": 1.1,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 2.5121,
+  "U": 3.0
+ },
+ {
+  "part": "cylinder",
+  "tau": 4.5,
+  "frac": 1.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 2.5121,
+  "U": 3.0
+ },
+ {
+  "part": "Lfillet_r0.2",
+  "tau": 1e-07,
+  "frac": 1e-07,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证成立",
+  "LB": 0.8938,
+  "U": 1.0
+ },
+ {
+  "part": "Lfillet_r0.2",
+  "tau": 0.1,
+  "frac": 0.1,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证成立",
+  "LB": 0.8938,
+  "U": 1.0
+ },
+ {
+  "part": "Lfillet_r0.2",
+  "tau": 0.25,
+  "frac": 0.25,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证成立",
+  "LB": 0.8938,
+  "U": 1.0
+ },
+ {
+  "part": "Lfillet_r0.2",
+  "tau": 0.5,
+  "frac": 0.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证成立",
+  "LB": 0.8938,
+  "U": 1.0
+ },
+ {
+  "part": "Lfillet_r0.2",
+  "tau": 0.75,
+  "frac": 0.75,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证成立",
+  "LB": 0.8938,
+  "U": 1.0
+ },
+ {
+  "part": "Lfillet_r0.2",
+  "tau": 0.9,
+  "frac": 0.9,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "算不出",
+  "LB": 0.8938,
+  "U": 1.0
+ },
+ {
+  "part": "Lfillet_r0.2",
+  "tau": 1.1,
+  "frac": 1.1,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 0.8938,
+  "U": 1.0
+ },
+ {
+  "part": "Lfillet_r0.2",
+  "tau": 1.5,
+  "frac": 1.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": 0.8938,
+  "U": 1.0
+ },
+ {
+  "part": "long_cyl",
+  "tau": 1e-07,
+  "frac": 1e-07,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 3.0
+ },
+ {
+  "part": "long_cyl",
+  "tau": 0.30000000000000004,
+  "frac": 0.1,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 3.0
+ },
+ {
+  "part": "long_cyl",
+  "tau": 0.75,
+  "frac": 0.25,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 3.0
+ },
+ {
+  "part": "long_cyl",
+  "tau": 1.5,
+  "frac": 0.5,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 3.0
+ },
+ {
+  "part": "long_cyl",
+  "tau": 2.25,
+  "frac": 0.75,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 3.0
+ },
+ {
+  "part": "long_cyl",
+  "tau": 2.7,
+  "frac": 0.9,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 3.0
+ },
+ {
+  "part": "long_cyl",
+  "tau": 3.3000000000000003,
+  "frac": 1.1,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证不成立",
+  "LB": null,
+  "U": 3.0
+ },
+ {
+  "part": "long_cyl",
+  "tau": 4.5,
+  "frac": 1.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": null,
+  "U": 3.0
+ },
+ {
+  "part": "pipe",
+  "tau": 1e-07,
+  "frac": 1e-07,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 1.0
+ },
+ {
+  "part": "pipe",
+  "tau": 0.1,
+  "frac": 0.1,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 1.0
+ },
+ {
+  "part": "pipe",
+  "tau": 0.25,
+  "frac": 0.25,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 1.0
+ },
+ {
+  "part": "pipe",
+  "tau": 0.5,
+  "frac": 0.5,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 1.0
+ },
+ {
+  "part": "pipe",
+  "tau": 0.75,
+  "frac": 0.75,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 1.0
+ },
+ {
+  "part": "pipe",
+  "tau": 0.9,
+  "frac": 0.9,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 1.0
+ },
+ {
+  "part": "pipe",
+  "tau": 1.1,
+  "frac": 1.1,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "已证不成立",
+  "LB": null,
+  "U": 1.0
+ },
+ {
+  "part": "pipe",
+  "tau": 1.5,
+  "frac": 1.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": null,
+  "U": 1.0
+ },
+ {
+  "part": "torus",
+  "tau": 1e-07,
+  "frac": 1e-07,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 0.5
+ },
+ {
+  "part": "torus",
+  "tau": 0.05,
+  "frac": 0.1,
+  "brepcheck": true,
+  "bop": true,
+  "bop_status": [],
+  "collar": "算不出",
+  "LB": null,
+  "U": 0.5
+ },
+ {
+  "part": "torus",
+  "tau": 0.125,
+  "frac": 0.25,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect"
+  ],
+  "collar": "算不出",
+  "LB": null,
+  "U": 0.5
+ },
+ {
+  "part": "torus",
+  "tau": 0.25,
+  "frac": 0.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect"
+  ],
+  "collar": "算不出",
+  "LB": null,
+  "U": 0.5
+ },
+ {
+  "part": "torus",
+  "tau": 0.375,
+  "frac": 0.75,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect"
+  ],
+  "collar": "算不出",
+  "LB": null,
+  "U": 0.5
+ },
+ {
+  "part": "torus",
+  "tau": 0.45,
+  "frac": 0.9,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect"
+  ],
+  "collar": "算不出",
+  "LB": null,
+  "U": 0.5
+ },
+ {
+  "part": "torus",
+  "tau": 0.55,
+  "frac": 1.1,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect"
+  ],
+  "collar": "已证不成立",
+  "LB": null,
+  "U": 0.5
+ },
+ {
+  "part": "torus",
+  "tau": 0.75,
+  "frac": 1.5,
+  "brepcheck": true,
+  "bop": false,
+  "bop_status": [
+   "SelfIntersect",
+   "TooSmallEdge"
+  ],
+  "collar": "已证不成立",
+  "LB": null,
+  "U": 0.5
+ }
+]

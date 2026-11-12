@@ -1,0 +1,3 @@
+   ... 200000 boxes, key=0.00002, heap=255913, 494s
+   ... 400000 boxes, key=0.00233, heap=75529, 927s
+Lfillet_r0.2   tris=   96 exact(smooth)=1.0   no critical value in (0, 0.8938) [first uncertified leaf] at [1.064 2.131 0.975]  boxes=504652 cone=137163 lp=304203 1239s

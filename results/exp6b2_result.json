@@ -1,0 +1,45 @@
+{
+ "RI": 1.0,
+ "RO": 6.0,
+ "H": 40.0,
+ "TAU": 1.3,
+ "EPS": 0.005,
+ "max_dist_to_nominal_inner_face": 0.9827187287790283,
+ "max_dist_seam_to_nominal_seam": 0.7629736312282079,
+ "zones_ok": true,
+ "flare_heights_increasing": true,
+ "eps_times_curvature_max": 0.311635649401433,
+ "close_far_pairs_in_thin_tube": 0,
+ "thin_tube_min_nonlocal_centreline_dist": 0.03644364591751904,
+ "thin_tube_embedded": true,
+ "thin_part_z_range": [
+  18.61,
+  21.268124999758616
+ ],
+ "flare_z_ranges": [
+  [
+   12.61,
+   18.61
+  ],
+  [
+   21.268124999758616,
+   27.268124999758616
+  ]
+ ],
+ "thin_clear_of_flares": true,
+ "max_radius_of_realized_inner_surface": 1.0491669771639502,
+ "clear_of_outer_face": true,
+ "knot_view_rotation_seed": 7,
+ "knot_scale_factor": 100.0,
+ "alexander_realization2": "2.9999999999999996",
+ "determinant_realization2": 3,
+ "alexander_nominal": "1",
+ "determinant_nominal": 1,
+ "occ_brepcheck_valid": true,
+ "occ_bop_check_valid": true,
+ "occ_bop_status": [],
+ "window_vs_pi_over_kappa": [
+  0.04,
+  0.05040489847076121
+ ]
+}

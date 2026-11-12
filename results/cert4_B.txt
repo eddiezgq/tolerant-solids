@@ -1,0 +1,10 @@
+   ... 200000 boxes, key=0.00000, heap=285625, 619s
+   ... 400000 boxes, key=0.03175, heap=107457, 1157s
+cylinder       tris=  248 exact(smooth)=3.0   no critical value in (0, 2.5121) [first uncertified leaf] at [ 0.135 -0.133  2.742]  boxes=536250 cone=155117 lp=314056 1599s
+   ... 200000 boxes, key=0.00000, heap=873785, 754s
+   ... 400000 boxes, key=0.00000, heap=1153065, 1279s
+   ... 600000 boxes, key=0.00000, heap=1178777, 1654s
+   ... 800000 boxes, key=0.00003, heap=1020617, 2020s
+   ... 1000000 boxes, key=0.00017, heap=830073, 2469s
+   ... 1200000 boxes, key=0.00030, heap=632361, 2826s
+   ... 1400000 boxes, key=0.00042, heap=433657, 3105s

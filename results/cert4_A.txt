@@ -1,0 +1,9 @@
+   ... 200000 boxes, key=0.05194, heap=164945, 469s
+   ... 400000 boxes, key=0.07597, heap=716937, 1278s
+   ... 600000 boxes, key=0.07597, heap=516937, 1492s
+slot_g0.2      tris=   28 exact(smooth)=0.1   no critical value in (0, 0.0861) [first uncertified leaf] at [0.008 4.995 2.096]  boxes=733448 cone=31611 lp=562219 1645s
+   ... 200000 boxes, key=0.01118, heap=266457, 514s
+   ... 400000 boxes, key=0.02759, heap=703801, 1247s
+   ... 600000 boxes, key=0.03059, heap=790985, 1647s
+   ... 800000 boxes, key=0.03059, heap=590985, 1844s
+plate_t0.1     tris=   12 exact(smooth)=0.05  no critical value in (0, 0.0365) [first uncertified leaf] at [0.044 3.956 0.054]  boxes=932098 cone=65984 lp=692240 1998s

@@ -1,0 +1,1062 @@
+[
+ {
+  "name": "plate",
+  "exact": 0.5,
+  "valid": true,
+  "n_faces": 6,
+  "min_dist_nonadjacent": 1.0,
+  "half_min_dist": 0.5,
+  "min_curv_radius": null,
+  "euler0": 2,
+  "offsets": {
+   "-0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 10.546875
+   },
+   "-0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 6.125000000000002
+   },
+   "-0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 2.6406249999999996
+   },
+   "-0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.9610000000000002
+   },
+   "-0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.09060100000000007
+   },
+   "-1.01": {
+    "status": "empty result"
+   },
+   "-1.10": {
+    "status": "empty result"
+   },
+   "-1.50": {
+    "status": "empty result"
+   },
+   "+0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 22.449967714472407
+   },
+   "+0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 29.83259577509663
+   },
+   "+0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 38.19697143766914
+   },
+   "+0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 43.707256121555005
+   },
+   "+0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 47.1959660139098
+   },
+   "+1.01": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 47.9901263335261
+   },
+   "+1.10": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 51.64989594983976
+   },
+   "+1.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 69.67145868262065
+   }
+  }
+ },
+ {
+  "name": "box",
+  "exact": 5.0,
+  "valid": true,
+  "n_faces": 6,
+  "min_dist_nonadjacent": 10.0,
+  "half_min_dist": 5.0,
+  "min_curv_radius": null,
+  "euler0": 2,
+  "offsets": {
+   "-0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 421.875
+   },
+   "-0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 124.99999999999997
+   },
+   "-0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 15.624999999999996
+   },
+   "-0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.9999999999999998
+   },
+   "-0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.0009999999999999894
+   },
+   "-1.01": {
+    "status": "empty result"
+   },
+   "-1.10": {
+    "status": "empty result"
+   },
+   "-1.50": {
+    "status": "empty result"
+   },
+   "+0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 1905.4433865616732
+   },
+   "+0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 3154.49846929017
+   },
+   "+0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 4796.2526359099475
+   },
+   "+0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 5990.221044956192
+   },
+   "+0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 6787.35358880297
+   },
+   "+1.01": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 6973.018342159619
+   },
+   "+1.10": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 7847.905304247742
+   },
+   "+1.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 12568.58347228887
+   }
+  }
+ },
+ {
+  "name": "L-shape",
+  "exact": 1.0,
+  "valid": true,
+  "n_faces": 14,
+  "min_dist_nonadjacent": 2.0,
+  "half_min_dist": 1.0,
+  "min_curv_radius": null,
+  "euler0": 2,
+  "offsets": {
+   "-0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 39.39511892218149
+   },
+   "-0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 17.053650459150635
+   },
+   "-0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 4.185356766544467
+   },
+   "-0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.6827654975296136
+   },
+   "-0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.010614625201083264
+   },
+   "-1.01": {
+    "status": "empty result"
+   },
+   "-1.10": {
+    "status": "empty result"
+   },
+   "-1.50": {
+    "status": "empty result"
+   },
+   "+0.25": {
+    "status": "empty result"
+   },
+   "+0.50": {
+    "status": "empty result"
+   },
+   "+0.75": {
+    "status": "empty result"
+   },
+   "+0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 267.2805612070864
+   },
+   "+0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 293.5857282655038
+   },
+   "+1.01": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 299.6073287649116
+   },
+   "+1.10": {
+    "status": "empty result"
+   },
+   "+1.50": {
+    "status": "empty result"
+   }
+  }
+ },
+ {
+  "name": "slot_g0.2",
+  "exact": 0.1,
+  "valid": true,
+  "n_faces": 10,
+  "min_dist_nonadjacent": 0.20000000000000018,
+  "half_min_dist": 0.10000000000000009,
+  "min_curv_radius": null,
+  "euler0": 2,
+  "offsets": {
+   "-0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 386.0875441103426
+   },
+   "-0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 376.30962279091176
+   },
+   "-0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 366.66540556601853
+   },
+   "-0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 360.94270771857407
+   },
+   "-0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 357.5319749482209
+   },
+   "-1.01": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 356.7763602407561
+   },
+   "-1.10": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 353.3865431042798
+   },
+   "-1.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 338.52667370167694
+   },
+   "+0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 406.02842486777797
+   },
+   "+0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 416.1539254784744
+   },
+   "+0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 426.37684096095273
+   },
+   "+0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 432.5574903905309
+   },
+   "+0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 436.2828023826934
+   },
+   "+1.01": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 437.0741337165117
+   },
+   "+1.10": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 440.4666897574164
+   },
+   "+1.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 455.6761856332132
+   }
+  }
+ },
+ {
+  "name": "cylinder",
+  "exact": 3.0,
+  "valid": true,
+  "n_faces": 3,
+  "min_dist_nonadjacent": 10.0,
+  "half_min_dist": 5.0,
+  "min_curv_radius": 3.0,
+  "euler0": 2,
+  "offsets": {
+   "-0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 135.1866588747858
+   },
+   "-0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 49.48008429403925
+   },
+   "-0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 9.719302272043421
+   },
+   "-0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 1.3006193585861723
+   },
+   "-0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.011479379556217294
+   },
+   "-1.01": {
+    "status": "empty result"
+   },
+   "-1.10": {
+    "status": "empty result"
+   },
+   "-1.50": {
+    "status": "empty result"
+   },
+   "+0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 502.62007102900947
+   },
+   "+0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 801.7525106473647
+   },
+   "+0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 1190.743532884013
+   },
+   "+0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 1471.6810619684225
+   },
+   "+0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 1658.556051285581
+   },
+   "+1.01": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 1702.0136775369062
+   },
+   "+1.10": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 1906.4812572060214
+   },
+   "+1.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 3002.8968473623695
+   }
+  }
+ },
+ {
+  "name": "plate_t0.3",
+  "exact": 0.15,
+  "valid": true,
+  "n_faces": 6,
+  "min_dist_nonadjacent": 0.3,
+  "half_min_dist": 0.15,
+  "min_curv_radius": null,
+  "euler0": 2,
+  "offsets": {
+   "-0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 3.4662656249999997
+   },
+   "-0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 2.223374999999999
+   },
+   "-0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 1.0687968750000003
+   },
+   "-0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.4173869999999997
+   },
+   "-0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.04113662700000004
+   },
+   "-1.01": {
+    "status": "empty result"
+   },
+   "-1.10": {
+    "status": "empty result"
+   },
+   "-1.50": {
+    "status": "empty result"
+   },
+   "+0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 6.216889171309048
+   },
+   "+0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 7.708440258275862
+   },
+   "+0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 9.275978620459927
+   },
+   "+0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 10.2535268794514
+   },
+   "+0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 10.853534549845515
+   },
+   "+1.01": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 10.988250506197588
+   },
+   "+1.10": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 11.600714434483882
+   },
+   "+1.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 14.44777094610816
+   }
+  }
+ },
+ {
+  "name": "plate_t0.1",
+  "exact": 0.05,
+  "valid": true,
+  "n_faces": 6,
+  "min_dist_nonadjacent": 0.1,
+  "half_min_dist": 0.05,
+  "min_curv_radius": null,
+  "euler0": 2,
+  "offsets": {
+   "-0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 1.185046875
+   },
+   "-0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.7801250000000002
+   },
+   "-0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.3851406249999999
+   },
+   "-0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.15288099999999993
+   },
+   "-0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.01521780100000001
+   },
+   "-1.01": {
+    "status": "empty result"
+   },
+   "-1.10": {
+    "status": "empty result"
+   },
+   "-1.50": {
+    "status": "empty result"
+   },
+   "+0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 2.0239842586237184
+   },
+   "+0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 2.4559697632243096
+   },
+   "+0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 2.896005598341337
+   },
+   "+0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 3.16391167887038
+   },
+   "+0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 3.3260593175866586
+   },
+   "+1.01": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 3.36223542470424
+   },
+   "+1.10": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 3.52567378676228
+   },
+   "+1.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 4.264905966405008
+   }
+  }
+ },
+ {
+  "name": "Lfillet_r0.2",
+  "exact": 1.0,
+  "valid": true,
+  "n_faces": 15,
+  "min_dist_nonadjacent": 0.08284271247461902,
+  "half_min_dist": 0.04142135623730951,
+  "min_curv_radius": 0.2,
+  "euler0": 2,
+  "offsets": {
+   "-0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 39.44018530786802
+   },
+   "-0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 17.10515489993525
+   },
+   "-0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 4.221839078766901
+   },
+   "-0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.6999336444578184
+   },
+   "-0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.012485953216257487
+   },
+   "-1.01": {
+    "status": "empty result"
+   },
+   "-1.10": {
+    "status": "empty result"
+   },
+   "-1.50": {
+    "status": "empty result"
+   },
+   "+0.25": {
+    "status": "empty result"
+   },
+   "+0.50": {
+    "status": "empty result"
+   },
+   "+0.75": {
+    "status": "empty result"
+   },
+   "+0.90": {
+    "status": "empty result"
+   },
+   "+0.99": {
+    "status": "empty result"
+   },
+   "+1.01": {
+    "status": "empty result"
+   },
+   "+1.10": {
+    "status": "empty result"
+   },
+   "+1.50": {
+    "status": "empty result"
+   }
+  }
+ },
+ {
+  "name": "Lfillet_r0.05",
+  "exact": 1.0,
+  "valid": true,
+  "n_faces": 15,
+  "min_dist_nonadjacent": 0.0207106781186546,
+  "half_min_dist": 0.0103553390593273,
+  "min_curv_radius": 0.05,
+  "euler0": 2,
+  "offsets": {
+   "-0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 39.403971247941335
+   },
+   "-0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 17.06491705557227
+   },
+   "-0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 4.193672587712816
+   },
+   "-0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.6867356315067608
+   },
+   "-0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.01105026692938643
+   },
+   "-1.01": {
+    "status": "empty result"
+   },
+   "-1.10": {
+    "status": "empty result"
+   },
+   "-1.50": {
+    "status": "empty result"
+   },
+   "+0.25": {
+    "status": "empty result"
+   },
+   "+0.50": {
+    "status": "empty result"
+   },
+   "+0.75": {
+    "status": "empty result"
+   },
+   "+0.90": {
+    "status": "empty result"
+   },
+   "+0.99": {
+    "status": "empty result"
+   },
+   "+1.01": {
+    "status": "empty result"
+   },
+   "+1.10": {
+    "status": "empty result"
+   },
+   "+1.50": {
+    "status": "empty result"
+   }
+  }
+ },
+ {
+  "name": "filleted",
+  "exact": 5.0,
+  "valid": true,
+  "n_faces": 26,
+  "min_dist_nonadjacent": 2.82842712474619,
+  "half_min_dist": 1.414213562373095,
+  "min_curv_radius": 2.0,
+  "euler0": 2,
+  "offsets": {
+   "-0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 411.57577148524103
+   },
+   "-0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 124.99999999999997
+   },
+   "-0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 15.624999999999996
+   },
+   "-0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.9999999999999998
+   },
+   "-0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 0.0009999999999999892
+   },
+   "-1.01": {
+    "status": "done",
+    "valid": true,
+    "shells": 8,
+    "euler": 8,
+    "volume": 3.48099999999999
+   },
+   "-1.10": {
+    "status": "done",
+    "valid": true,
+    "shells": 8,
+    "euler": 8,
+    "volume": 25.000000000000014
+   },
+   "-1.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 8,
+    "euler": 8,
+    "volume": 5.000000000000006
+   },
+   "+0.25": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 1659.0886170124422
+   },
+   "+0.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 2714.8140296446395
+   },
+   "+0.75": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 4123.968615805688
+   },
+   "+0.90": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 5159.5277230445
+   },
+   "+0.99": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 5854.8288448239055
+   },
+   "+1.01": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 6017.17324290228
+   },
+   "+1.10": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 6784.008429403923
+   },
+   "+1.50": {
+    "status": "done",
+    "valid": true,
+    "shells": 1,
+    "euler": 2,
+    "volume": 10962.88126758535
+   }
+  }
+ }
+]

@@ -1,0 +1,7 @@
+plate          tris=   12 exact(smooth)=0.5   no critical value in (0, 0.4360) [first uncertified leaf] at [0.477 0.477 0.477]  boxes=31298 cone=2456 lp=23776 62s
+box            tris=   12 exact(smooth)=5.0   no critical value in (0, 4.5304) [first uncertified leaf] at [4.828 4.828 4.828]  boxes=6066 cone=680 lp=4626 11s
+L-shape        tris=   28 exact(smooth)=1.0   no critical value in (0, 0.8944) [first uncertified leaf] at [1.064 1.928 0.975]  boxes=31962 cone=4583 lp=23190 103s
+   ... 200000 boxes, key=0.10749, heap=88745, 466s
+   ... 400000 boxes, key=0.12874, heap=580969, 1229s
+   ... 600000 boxes, key=0.12874, heap=380969, 1439s
+plate_t0.3     tris=   12 exact(smooth)=0.15  no critical value in (0, 0.1369) [first uncertified leaf] at [0.145 0.145 0.146]  boxes=638002 cone=24048 lp=491332 1481s

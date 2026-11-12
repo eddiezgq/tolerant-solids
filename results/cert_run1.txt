@@ -1,0 +1,1 @@
+box a=10                 tris=   12 exact(smooth)=5.0  certified: no critical value in [0.2, 0.1836); worst box at [9.807 9.807 9.807]  boxes=2843737 leaves=883938 6474s

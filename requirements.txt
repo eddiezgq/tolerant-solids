@@ -1,0 +1,4 @@
+cadquery-ocp==8.0.1.1.0
+numpy==2.5.4
+scipy==1.18.1
+pyknotid==0.5.3

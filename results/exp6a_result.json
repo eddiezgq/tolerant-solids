@@ -1,0 +1,24 @@
+{
+ "found": true,
+ "theta_deg": 150,
+ "faces_A": [
+  0,
+  4,
+  3
+ ],
+ "faces_B": [
+  1,
+  2,
+  5
+ ],
+ "linking": -1,
+ "dist_boundaries": 0.4037077440438991,
+ "inner_margin": 1.5086387116404654,
+ "tau": 0.08074154880877982,
+ "two_tau_less_than_dist": true,
+ "brepcheck_valid": true,
+ "bop_valid": false,
+ "bop_status": [
+  "BOPAlgo_SelfIntersect"
+ ]
+}
