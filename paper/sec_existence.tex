@@ -61,35 +61,17 @@ V1(b) and P0 are not consequences of local data. In the models of Section~\ref{s
 only for the gapped cube, implicitly, through an exact check that the constructed surface is embedded. The
 sampled checker does not test V1(b), P0, E2.3 beyond S1(d), or S1(e) for adjacent faces.
 
-\begin{theorem}[Existence by fans and cones; conditional, proof outline]\label{thm:lemma0}
+\begin{theorem}[Existence by fans and cones; conditional]\label{thm:lemma0}
 Under E1--E3$'$, V0, V1, S1 and P0, the tolerant B-rep has a realization.
 \end{theorem}
-\begin{proof}[Construction and proof outline]
-\begin{enumerate}
-\item \emph{Vertices and edges.} Put $h(v)=p_v$. On $[a_e,b_e]$, let $h(e)$ follow $\gamma_e$.
-\item \emph{Fans.} In each disk $D_e(t)$, the radius from $\gamma_e(t)$ to $k_{f,e}(t)$ is assigned to $f$; these
-radii form the fan strip $F_{f,e}$.
-\item \emph{Faces away from the vertices.} Outside the vertex regions, the face is $Q_f\cup\bigcup_eF_{f,e}$.
-\item \emph{Vertex regions.} Inside $W_v$, take the cone from $p_v$ over $\lambda_v$.
-\item \emph{Injectivity.}
-  \begin{itemize}
-  \item The disks $D_e(t)$ are pairwise disjoint (E1 and the reach), and within one disk there are two radii meeting
-  only at the centre (E3$'$).
-  \item Nothing else enters the tubes or vertex regions (S1, P0, and E2.3 for $Q_f\cap F_{f,e}=k_{f,e}$).
-  \item The cone is injective by star-shapedness and V1(b).
-  \end{itemize}
-\item \emph{Cell structure and zones.} The pieces of a face glue to a closed disk with boundary $h(\partial f)$, in
-the order forced by P0 and V1(b). Each piece lies in the zone of its cell with a positive margin.
-\item \emph{PL step.} The map is bi-Lipschitz: every crease has a positive opening angle, and at points where three
-or more pieces meet, the tangent cone is an embedded disk. A fine secant approximation on a shape-regular
-triangulation is then injective and stays in the zones.
-\end{enumerate}
-\draftnote{The full argument for steps 5--7 is in the repository (\texttt{notes/lemma0\_v02.md} \S\S4--5, with the
-changes of \texttt{lemma0\_v03.md} \S1); it should be written out here. One gap is open: the apex estimate in the PL
-step quotes a curvature $\kappa_\lambda$ of $\lambda_v$, but $\lambda_v$ is only $C^1$. Standard facts used without
-separate checking: disjointness of normal disks below the reach~\cite{Federer59}, the implicit function theorem, and
-the secant (vertex-interpolation) approximation estimates for $C^1$ maps on shape-regular triangulations.}
-\end{proof}
+The proof is in Appendix~\ref{sec:proof51}. In outline:
+\begin{itemize}
+\item $h$ follows $\gamma_e$ along the edges and puts fans of radii in the normal disks.
+\item The patches, with their collars removed, are kept away from the tubes.
+\item Cones over the curves $\lambda_v$ fill the vertex regions.
+\item Injectivity comes from the disjoint normal disks, E3$'$, star-shapedness and S1/P0.
+\item The resulting map is bi-Lipschitz, so a fine secant approximation is a PL realization.
+\end{itemize}
 
 \begin{example}
 On a cube whose faces are pulled apart by gaps, the construction was carried out exactly in rational

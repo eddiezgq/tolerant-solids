@@ -21,26 +21,65 @@ are pairwise disjoint. Then the collar condition of Section~\ref{sec:uniqueness}
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-(a), in outline.
-\begin{itemize}
-\item \emph{Small radii.} $d_M$ is semialgebraic (Tarski--Seidenberg), proper and nonnegative with zero set $M$,
-so it is a ``rug function'' in the sense of Durfee. Working in a large simplicial cube, Durfee's
-Propositions~3.5 and~3.7~\cite{Durfee83} give, for small $\delta$, a homeomorphism of $\bar N_\delta(M)$ onto a PL
-regular neighbourhood of $M$, relative to $M$. A regular neighbourhood of a closed orientable surface in $\R^3$ is a
-product.
-\item \emph{Larger radii.} The region $\{\delta\le d_M\le r\}$ contains no critical point, so it is a product of a
-level set with $[\delta,r]$, by the isotopy lemma of Chazal and Lieutier~\cite[Prop.~3.4]{ChazalLieutier07}.
-\item \emph{Gluing.} Glue the two products along the level $d_M=\delta$.
-\end{itemize}
-\draftnote{Two steps are only outlined here, and the details are in the repository's review of Lemma~1.
-First, Prop.~3.4 is stated for the distance to the complement of a bounded open set; it is applied to $d_M$ on both
-sides of $M$. Second, the gluing needs two more lines.}
+Write $d=d_M$. By the Jordan--Brouwer separation theorem, $\R^3\setminus M$ has two components, a bounded one
+$\Omega_-$ and an unbounded one $\Omega_+$.
 
-(a$'$) \draftnote{Not yet written. The planned route: by (a), $\inter\bar N_r(M)$ is a 3-manifold homeomorphic
-to $M\times(-1,1)$, hence PL-homeomorphic to it \cite{Moise77} \unverified{Moise, ch.~35 or~36, uniqueness of PL structures on
-3-manifolds, including the noncompact case}; a PL product between two levels then contains $\bar N_d(M)$. Remaining to write: (a) in full, the citation for the uniqueness of PL structures, and the choice of
-two levels containing $\bar N_d(M)$ (possible since $\bar N_d(M)$ is compact). Until then, Lemma~\ref{lem:collar}(b),
-and with it the reduction of the collar condition to a distance bound, is conditional on (a) and (a$'$).}
+(a) \emph{Step 1: small radii.}
+\begin{itemize}
+\item $d$ is semialgebraic (Tarski--Seidenberg), proper and nonnegative, with zero set the compact set $M$. So it is a
+\emph{rug function} in the sense of Durfee~\cite[Def.~3.1]{Durfee83}.
+\item Work in a large simplicial cube containing $\bar N_r(M)$, triangulated so that $M$ is a subcomplex. By Durfee's
+Propositions~3.5 and~3.7~\cite{Durfee83}, for small $\delta>0$ there is a homeomorphism, fixing $M$, of $\bar N_\delta(M)$
+onto a PL regular neighbourhood $R$ of $M$.
+\item $M$ is a closed orientable surface in $\R^3$, hence two-sided, so $R\cong M\times[-1,1]$ with $M$ going to
+$M\times\{0\}$. Hence $\bar N_\delta(M)\cong M\times[-1,1]$ rel $M$. Its frontier $S_\delta=\{d=\delta\}$ has two
+components $S_\delta^\pm=S_\delta\cap\Omega_\pm$, corresponding to $M\times\{\pm1\}$.
+\end{itemize}
+
+\emph{Step 2: the two shells.} Let $A_\pm=\{x\in\Omega_\pm:\delta\le d(x)\le r\}$.
+\begin{itemize}
+\item \emph{Inner side.} Put $O=\Omega_-$. It is bounded and open, and for $x\in O$ the distance to $O^c$ equals
+$d(x)$, with the same nearest points (they lie on $\partial O=M$). So the critical points of the distance to $O^c$
+in $O$ are exactly the critical points of $d$ in $\Omega_-$. The criticality notions agree:
+\cite{ChazalLieutier07} use the vanishing of the generalized gradient, which holds iff $x\in\conv\Gamma(x)$
+(see~\cite[\S2.1]{CCSL09dcg}).
+\item Since $r<\wfs(M)$, the shell $A_-$ contains no critical point. The isotopy lemma~\cite[Prop.~3.4]{ChazalLieutier07}
+gives a homeomorphism $A_-\cong S^-_\delta\times[\delta,r]$.
+\item \emph{Outer side.} Put $O=\Omega_+\cap B(0,\mathcal R)$ with $\mathcal R$ large. For $x\in O$ the distance to
+$O^c$ is $\min(d(x),\mathcal R-|x|)$. Take $\mathcal R$ larger than $2r$ plus the largest $|y|$, $y\in M$. Then the
+points of $O$ with distance to $O^c$ in $[\delta,r]$ form two disjoint pieces: $A_+$, where the distance equals $d$,
+and a shell near the sphere $|x|=\mathcal R$, where it equals $\mathcal R-|x|$.
+\item Neither piece contains a critical point. In $A_+$ this is because $r<\wfs$. Near the sphere the only nearest
+point is the radial projection.
+\item So Prop.~3.4 gives a homeomorphism of the union with a product. Its restriction to the component $A_+$ gives
+$A_+\cong S^+_\delta\times[\delta,r]$.
+\end{itemize}
+
+\emph{Step 3: gluing.}
+\begin{itemize}
+\item A homeomorphism between manifolds with boundary maps boundary components to boundary components. So the
+homeomorphism of Step~2 takes $S^\pm_\delta$, a boundary component of $A_\pm$, onto one end of the product. Composing
+with a flip of $[\delta,r]$ if necessary, and with the inverse of its restriction to $S^\pm_\delta$, we get
+$A_\pm\cong S^\pm_\delta\times[0,1]$ with $S^\pm_\delta$ going to $S^\pm_\delta\times\{0\}$.
+\item Then $\bar N_r(M)=\bar N_\delta(M)\cup A_+\cup A_-$ is $M\times[-1,1]$ with a product collar attached to each
+boundary component along that component. That is homeomorphic to $M\times[-2,2]\cong M\times[-1,1]$, with $M$ still
+going to $M\times\{0\}$.
+\end{itemize}
+
+(a$'$) The interior of $\bar N_r(M)$ is $N_r(M)$: a point with $d=r$ is not critical, so $d$ takes larger values
+arbitrarily near it.
+\begin{itemize}
+\item By (a), $N_r(M)$ is homeomorphic to $M\times(-1,1)$.
+\item Both are PL 3-manifolds: $N_r(M)$ as an open subset of $\R^3$, and $M\times(-1,1)$ with the product structure.
+By Moise's theorem that homeomorphic 3-manifolds are PL homeomorphic~\cite{Moise77} \unverified{Moise, ch.~35 or~36;
+the noncompact case}, there is a PL homeomorphism $g\colon M\times(-1,1)\to N_r(M)$.
+\item $g^{-1}(\bar N_d(M))$ is compact, so it lies in $M\times[-a,a]$ for some $a<1$. Take $a<b<1$ and
+$U=g(M\times[-b,b])$.
+\item Then $U$ is a compact PL submanifold, $U\cong_{PL}M\times[-1,1]$, $\bar N_d(M)\subseteq g(M\times(-b,b))=\inter U$,
+and $U\subseteq N_r(M)=\inter\bar N_r(M)$.
+\item The homeomorphism $g$ need not send $M$ to a level, which is why the collar condition of
+Section~\ref{sec:uniqueness} does not ask for that.
+\end{itemize}
 
 (b) The zones lie in $N_d(M)\subseteq\inter U$, and $M\subseteq N_d(M)\subseteq\inter U$. The $U_i$ are pairwise
 disjoint because they lie in the disjoint sets $\bar N_r(M_i)$. It remains to show that the inclusion
@@ -53,8 +92,11 @@ so a surjection from one onto an isomorphic copy is an isomorphism. Hence $\pi_1
 \item $M$ and $U\simeq M$ are aspherical, so by Whitehead's theorem the inclusion is a homotopy equivalence.
 \end{itemize}
 This uses (a) as well as (a$'$), and it uses the genus hypothesis: for a sphere the argument fails.
-Standard facts used without separate checking: Tarski--Seidenberg, regular-neighbourhood theory, that surface groups
-are Hopfian (they are residually finite), asphericity of closed surfaces of positive genus, and Whitehead's theorem.
+Standard facts used without separate checking against a source: the Jordan--Brouwer separation theorem,
+Tarski--Seidenberg, regular-neighbourhood theory (the regular neighbourhood of a two-sided closed surface is a product),
+invariance of boundary for topological manifolds, attaching a product collar along a boundary component, that surface
+groups are Hopfian (they are residually finite), asphericity of closed surfaces of positive genus, and Whitehead's
+theorem.
 \end{proof}
 
 \subsection{An explicit lower bound for polyhedral surfaces}

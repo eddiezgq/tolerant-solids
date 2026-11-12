@@ -43,17 +43,17 @@ $h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$, where $\Z(\sigma)$
   \end{itemize}
 \item \textbf{The collar condition} (Section~\ref{sec:collar}).
   \begin{itemize}
-  \item The collar condition should follow from a distance bound below the weak feature size $\wfs(M)$ of a
-  reference surface $M$ (Lemma~\ref{lem:collar}). Its topological part is given in outline, and a PL-taming step is
-  still to be written.
+  \item The collar condition follows from a distance bound below the weak feature size $\wfs(M)$ of a reference
+  surface $M$ (Lemma~\ref{lem:collar}). One step relies on Moise's theorem on PL structures of 3-manifolds, whose
+  citation is still to be checked against the original.
   \item For a polyhedral $M$ we prove $\wfs(M)\ge\lambda(M)>0$, where $\lambda$ is defined from the conical radii of
   $M$ (Corollary~\ref{cor:lambda}). The underlying cone lemma is machine-checked in Lean~4 with Mathlib.
   \item We compute lower bounds for $\wfs(M)$ with an octree search, up to stated floating-point qualifications.
   \end{itemize}
 \item \textbf{Existence} (Section~\ref{sec:existence}). There are two constructions:
   \begin{itemize}
-  \item fans in the normal disks of the edges, with cones at the vertices. This is a conditional theorem, with a
-  proof outline and one open gap (Theorem~\ref{thm:lemma0}). Its hypotheses are local conditions on edges and
+  \item fans in the normal disks of the edges, with cones at the vertices. This is a conditional theorem
+  (Theorem~\ref{thm:lemma0}), proved in Appendix~\ref{sec:proof51}. Its hypotheses are local conditions on edges and
   vertices, global disjointness conditions (S1), and two non-local topological conditions (V1(b), P0).
   \item re-intersection of the face surfaces, for sharp edges with tight tolerances (Propositions~\ref{prop:B}
   and~\ref{prop:Bprime}; the curved case is a sketch).
@@ -128,7 +128,7 @@ argument.
 \item \emph{Uniqueness.} Theorem~\ref{thm:uniqueness} applies known 3-manifold topology (Waldhausen;
 compare~\cite{CCS05}). What is specific is the set-up for tolerant B-reps: per-cell zones, cell-respecting
 realizations, the carrier lemma giving $\pi_1$-isomorphism in place of separation, and the collar obtained from
-$\wfs$ (conditional on Lemma~\ref{lem:collar}(a$'$)).
+$\wfs$.
 \item \emph{Weak feature size.} Positivity of $\wfs$ for compact semialgebraic sets is known: di Rocco, Eklund and
 Gäfvert~\cite[Thm.~2.5]{dREG22} state it and attribute it to Fu~\cite{Fu85} \unverified{Fu's paper}. For subanalytic sets,
 Chazal and Lieutier~\cite[Prop.~3.6]{ChazalLieutier07} prove it for bounded open sets; the extension to compact sets
