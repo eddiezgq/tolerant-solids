@@ -134,4 +134,4 @@ Assume the carrier condition, the collar condition with pairwise disjoint collar
 - Step (a) no longer uses the Kneser inequality.
 - The cost is that the collar must be built around φ_i, and most of the weight falls on Waldhausen's Proposition 3.1, whose proof in the original is brief.
 - The sphere case and isotopy as embeddings still need Kneser-type facts.
-- Section 4 of the experiments shows that the collar hypothesis cannot be dropped. In [../compute/exp6b2.py](../compute/exp6b2.py), a model that passes both OpenCascade checks has two realizations whose solids are not even homeomorphic.
+- Experiment 6b shows that the collar hypothesis cannot be dropped. In [../compute/exp6b2.py](../compute/exp6b2.py), a model that passes both OpenCascade checks has two realizations whose solids are not even homeomorphic.
