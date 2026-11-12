@@ -32,28 +32,34 @@
 \title[Realizations of tolerant B-reps]{When does a tolerant B-rep define a solid?\\
 Existence, non-existence and uniqueness of realizations}
 \author{Guoqing (Eddie) Zhang}
-\date{Draft, 12 November 2026. Not for circulation.}
+\date{Draft v0.2, 12 November 2026. Not for circulation.}
 
 \begin{document}
 
 \begin{abstract}
-Boundary representations in CAD kernels carry tolerances: edge curves, the boundary curves of the adjacent
-faces, and vertex points do not fit together exactly, and the solid they describe is only implied. We make this
-precise. A \emph{realization} of a tolerant B-rep is a PL embedding of its cell complex whose cells stay in their
-tolerance zones. We prove three kinds of results.
-(1) \emph{Uniqueness:} if every shell has genus at least one, the carriers of the cells are contractible, and each
-shell has a product collar containing its zones, then all realizations are ambient isotopic, and so are the solids
-they bound. The collar condition reduces to a distance bound below the weak feature size of a reference surface,
-and for polyhedral reference surfaces we give an explicit lower bound for the weak feature size in terms of
+Boundary representations in CAD kernels carry tolerances. Edge curves, the boundary curves of the adjacent faces,
+and vertex points do not fit together exactly, and the solid they describe is only implied. We make this precise.
+A \emph{realization} of a tolerant B-rep is a PL embedding of its cell complex whose cells stay in their tolerance
+zones.
+
+\emph{Uniqueness.} Suppose every shell has genus at least one, the carriers of the cells are contractible, and each
+shell has a product collar containing its zones and a reference surface, with the collars pairwise disjoint. Then
+the images of all realizations are ambient isotopic, and so are the solids they bound. The collar condition follows
+from a distance bound below the weak feature size of a reference surface, modulo a PL-taming step still to be
+written. For polyhedral reference surfaces we give an explicit lower bound for the weak feature size in terms of
 conical radii; the key lemma is machine-checked in Lean.
-(2) \emph{Existence:} under computable local hypotheses there is a realization, built either by fans in the
-normal disks of the edges with cones at the vertices, or, for sharp edges with tight tolerances, by
-re-intersecting the face surfaces.
-(3) \emph{Non-existence:} if two planar patches cross transversally away from the shadows of all edge and vertex
-zones, there is no realization.
-Experiments with OpenCascade show that its validity checks do not decide any of these questions. In particular,
-an ordinary sewing operation produces a wedge that passes both of OpenCascade's checks and has no realization,
-and a thick pipe that passes both checks has two realizations whose solids are not homeomorphic.
+
+\emph{Existence.} Two constructions give a realization under stated hypotheses. The first uses fans in the normal
+disks of the edges and cones at the vertices; it is a conditional theorem whose hypotheses include two non-local
+ones, and its proof is given in outline. The second, for sharp edges with tight tolerances, re-intersects the face
+surfaces.
+
+\emph{Non-existence.} Under explicit conditions, if two planar patches cross transversally away from the shadows of
+all edge and vertex zones, there is no realization.
+
+\emph{Experiments.} OpenCascade's validity checks decide none of these questions. An ordinary sewing operation
+produces a wedge that passes both of OpenCascade's checks and has no realization. A thick pipe that passes both
+checks has two realizations whose solids are not homeomorphic.
 \end{abstract}
 
 \maketitle

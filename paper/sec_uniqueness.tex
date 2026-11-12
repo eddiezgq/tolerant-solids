@@ -4,15 +4,18 @@
 \begin{itemize}
 \item \textbf{Carrier condition.} $\C(v)$ is path-connected for every vertex $v$, and $\pi_k(\C(\sigma))=0$ for
 every $k$-cell $\sigma$ with $k\ge1$. Contractible carriers suffice.
-\item \textbf{Collar condition.} For each shell $K_i$ there are a compact PL submanifold $U_i\subset\R^3$ and a
-PL homeomorphism $U_i\cong M_i\times[-1,1]$ with these properties:
+\item \textbf{Collar condition.} For each shell $K_i$ there are a compact PL submanifold $U_i\subset\R^3$, a
+closed surface $M_i$, a PL homeomorphism $\Psi_i\colon U_i\to M_i\times[-1,1]$, and a carried PL embedding
+$\varphi_i\colon|K_i|\to\R^3$ (a \emph{reference}), with these properties:
   \begin{itemize}
-  \item $M_i\times\{0\}$ is the image of a carried PL embedding $\varphi_i\colon|K_i|\to\R^3$ (a \emph{reference
-  surface});
   \item all zones of the cells of $K_i$ lie in $\inter U_i$;
+  \item $\varphi_i(|K_i|)\subseteq\inter U_i$, and the inclusion $\varphi_i(|K_i|)\hookrightarrow U_i$ is a homotopy
+  equivalence;
   \item the $U_i$ are pairwise disjoint.
   \end{itemize}
-\item \textbf{Genus.} Each $M_i$ has genus at least one.
+  (The reference need not be a level $\Psi_i^{-1}(M_i\times\{t\})$. This weaker form is what
+  Lemma~\ref{lem:collar} can deliver.)
+\item \textbf{Genus.} Each $|K_i|$ has genus at least one.
 \end{itemize}
 
 \subsection{Lemmas}
@@ -48,44 +51,47 @@ $\inter U_i$, and the inclusion $G\hookrightarrow U_i$ is a homotopy equivalence
 \begin{itemize}
 \item By Lemma~\ref{lem:carrier} on $K_i$, $h$ and $\varphi_i$ are homotopic through maps with image in
 $\bigcup\C(\sigma)\subseteq\inter U_i$, so the homotopy takes place in $U_i$.
-\item $\varphi_i\colon|K_i|\to U_i$ is a homeomorphism onto $M_i\times\{0\}$ followed by inclusion, which is a
-homotopy equivalence. Hence so is $h\colon|K_i|\to U_i$.
+\item $\varphi_i\colon|K_i|\to U_i$ is a homeomorphism onto $\varphi_i(|K_i|)$ followed by the inclusion, which is a
+homotopy equivalence by the collar condition. Hence so is $h\colon|K_i|\to U_i$.
 \item Since $h$ is a homeomorphism onto $G$, the inclusion $G\hookrightarrow U_i$, which equals $h\circ h^{-1}$,
 is a homotopy equivalence.
 \end{itemize}
 \end{proof}
 
 \begin{lemma}[Horizontality]\label{lem:horizontal}
-Under the hypotheses of Lemma~\ref{lem:separation}, if $M_i$ is not a sphere, there is an ambient isotopy of
-$\R^3$, supported in $U_i$ and fixed on $\partial U_i$, that carries $G$ to $M_i\times\{0\}$.
+Let $U\cong_{\Psi}M\times[-1,1]$ be as in the collar condition, with $M$ not a sphere, and let $G\subset\inter U$
+be a closed PL surface whose inclusion into $U$ is a homotopy equivalence. Then there is an ambient isotopy of
+$\R^3$, supported in $U$ and fixed on $\partial U$, that carries $G$ to $\Psi^{-1}(M\times\{0\})$.
 \end{lemma}
 \begin{proof}
 \begin{enumerate}
 \item[(a)] \emph{$G$ is incompressible.}
   \begin{itemize}
-  \item By Lemma~\ref{lem:separation}, $\pi_1(G)\to\pi_1(U_i)$ is an isomorphism.
-  \item The boundary of a compressing disk would be a curve that is essential in $G$ and null-homotopic in $U_i$,
+  \item By hypothesis, $\pi_1(G)\to\pi_1(U)$ is an isomorphism.
+  \item The boundary of a compressing disk would be a curve that is essential in $G$ and null-homotopic in $U$,
   which this rules out. That is incompressibility in the sense of Waldhausen~\cite[p.~58]{Waldhausen68}.
-  \item Case (b) of that definition concerns spheres and does not arise. We do not use the converse direction,
-  which needs the loop theorem.
+  \item $G\simeq U\simeq M$, so $G$ is not a sphere and case (b) of that definition does not arise. We do not use the
+  converse direction, which needs the loop theorem.
   \item $G$ is a closed orientable surface in an orientable 3-manifold, hence two-sided, and it is disjoint from
-  $\partial U_i$; so it satisfies Waldhausen's conventions~\cite[\S0]{Waldhausen68}.
+  $\partial U$; so it satisfies Waldhausen's conventions~\cite[\S0]{Waldhausen68}.
   \end{itemize}
 \item[(b)] \emph{$G$ can be made horizontal.}
   \begin{itemize}
-  \item Apply Waldhausen's Proposition~3.1~\cite[pp.~65--66]{Waldhausen68} to $U_i=M_i\times I$ ($M_i$ orientable,
+  \item Apply Waldhausen's Proposition~3.1~\cite[pp.~65--67]{Waldhausen68} to $U\cong M\times I$ ($M$ orientable,
   not a sphere) and the incompressible surface $G$. Since $\partial G=\emptyset$, the condition
   ``$\partial G\subseteq F\times1$'' holds vacuously.
-  \item It gives an isotopy, constant on $\partial U_i$, from $G$ to a surface $G'$ whose projection
-  $p\colon G'\to M_i$ is a homeomorphism onto its image.
-  \item $p(G')$ is open (invariance of domain) and closed in the connected surface $M_i$, so $p(G')=M_i$.
-  Hence $G'$ is the graph of a function $s\colon M_i\to(-1,1)$.
+  \item It gives an isotopy, constant on $\partial U$, from $G$ to a surface $G'$ whose projection
+  $p\colon G'\to M$ is a homeomorphism onto its image.
+  \item $p(G')$ is open (invariance of domain) and closed in the connected surface $M$, so $p(G')=M$. Hence $G'$ is
+  the graph of a function $s\colon M\to(-1,1)$.
+  \item Waldhausen's proof of Proposition~3.1 is brief and uses the irreducibility of $F\times I$
+  \unverified{irreducibility of $F\times I$; to be checked in Hempel, ch.~10, or Moise, ch.~35}.
   \end{itemize}
 \item[(c)] \emph{Flatten.} The PL homeomorphisms of the fibres $\{x\}\times[-1,1]$ that fix both ends and send $s(x)$
-to $(1-t)s(x)$, $t\in[0,1]$, give an ambient isotopy of $U_i$, fixed on $\partial U_i$, from $G'$ to
-$M_i\times\{0\}$. This isotopy is topological. Alternatively, the region between $G'$ and $M_i\times\{0\}$ is a
+to $(1-t)s(x)$, $t\in[0,1]$, give an ambient isotopy of $U$, fixed on $\partial U$, from $G'$ to
+$\Psi^{-1}(M\times\{0\})$. This isotopy is topological. Alternatively, the region between $G'$ and the level is a
 product region, so the two surfaces are parallel~\cite[p.~58]{Waldhausen68}.
-\item[(d)] Both isotopies are fixed on $\partial U_i$ and extend by the identity to $\R^3$.
+\item[(d)] Both isotopies are fixed on $\partial U$ and extend by the identity to $\R^3$.
 \end{enumerate}
 \end{proof}
 
@@ -94,19 +100,22 @@ product region, so the two surfaces are parallel~\cite[p.~58]{Waldhausen68}.
 \begin{theorem}[Uniqueness]\label{thm:uniqueness}
 Assume the carrier condition, the collar condition, and that every shell has genus at least one. Then:
 \begin{enumerate}
-\item the image of any realization is ambient isotopic to $\bigcup_i M_i\times\{0\}$;
+\item the image of any realization is ambient isotopic to $\bigcup_i\Psi_i^{-1}(M_i\times\{0\})$;
 \item the images of any two realizations are ambient isotopic;
 \item the solids they bound (Definition~\ref{def:solid}) are ambient isotopic.
 \end{enumerate}
 \end{theorem}
 \begin{proof}
 \begin{itemize}
-\item Apply Lemma~\ref{lem:horizontal} shell by shell. The supports $U_i$ are pairwise disjoint, so the
-isotopies can be run simultaneously. Their end map is a homeomorphism $\Phi$ of $\R^3$ with $\Phi(G_i)=M_i$ for
-every $i$.
-\item By the Jordan--Brouwer separation theorem each closed surface separates $\R^3$ into two components. $\Phi$
-maps the bounded component of $\R^3\setminus G_j$ onto the bounded component of $\R^3\setminus M_j$. So depth is
-preserved, and $\Phi$ maps the solid bounded by the $G_j$ onto the solid bounded by the $M_j$.
+\item By Lemma~\ref{lem:separation}, each $G_i=h(|K_i|)$ satisfies the hypotheses of Lemma~\ref{lem:horizontal} in
+$U_i$. Apply that lemma shell by shell. The supports $U_i$ are pairwise disjoint, so the isotopies $\Phi^i$ can be
+run simultaneously; their end map is a homeomorphism $\Phi$ of $\R^3$.
+\item $\Phi(G_j)=\Psi_j^{-1}(M_j\times\{0\})$ for every $j$: on $U_j$, every $\Phi^i$ with $i\ne j$ is the identity,
+because its support $U_i$ is disjoint from $U_j$.
+\item By the Jordan--Brouwer separation theorem each closed surface separates $\R^3$ into a bounded and an unbounded
+component. A homeomorphism of $\R^3$ maps sets with compact closure to sets with compact closure, so $\Phi$ maps the
+bounded component of $\R^3\setminus G_j$ onto the bounded component of $\R^3\setminus\Phi(G_j)$. So depth is
+preserved, and $\Phi$ maps the solid bounded by the $G_j$ onto the solid bounded by the levels.
 \item For two realizations with maps $\Phi$ and $\Phi'$, use $\Phi'^{-1}\circ\Phi$.
 \end{itemize}
 \end{proof}
@@ -115,7 +124,15 @@ preserved, and $\Phi$ maps the solid bounded by the $G_j$ onto the solid bounded
 \begin{itemize}
 \item \emph{What is not covered.} Spheres (genus 0) are excluded, and the isotopy is of images, not of
 embeddings.
+\item \emph{Relation to Chazal--Cohen-Steiner.} Chazal and Cohen-Steiner~\cite[Thm.~2.1]{CCS05} prove that a compact
+orientable surface $S'\cong S$ lying in a thickening of $S$ and separating its sides is isotopic to $S$ in the
+thickening. Lemmas~\ref{lem:separation} and~\ref{lem:horizontal} play the same role here. What is specific to
+tolerant B-reps is the set-up: per-cell zones, cell-respecting realizations, the carrier lemma, and $\pi_1$ in place
+of separation, which the carrier lemma provides.
 \item \emph{The collar condition cannot be dropped.} The thick pipe of Section~\ref{sec:experiments} passes both
 OpenCascade checks and has two realizations whose solids are not even homeomorphic.
+\item \emph{Standard facts used without separate checking against a source:} continuity of cell-by-cell extension,
+orientability of closed surfaces in $\R^3$, invariance of domain, the Jordan--Brouwer separation theorem, and that
+the fibrewise flattening is an ambient isotopy.
 \end{itemize}
 \end{remark}

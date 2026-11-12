@@ -2,90 +2,134 @@
 
 \subsection{The problem}
 A solid in a CAD kernel is stored as a boundary representation: a cell complex (faces, edges, vertices) with
-geometry attached to each cell. Each face carries a trimmed patch of a surface, each edge a 3D curve together
-with one parameter-space curve (pcurve) for every adjacent face, and each vertex a point. In floating point,
-and after modelling operations such as Booleans, fillets, offsets and sewing, these data do not agree: the
-images of the pcurves on the surfaces miss the 3D edge curve, and the edge curves miss the vertex points. Kernels
-in the tradition of Jackson~\cite{Jackson95} therefore attach a tolerance to every vertex, edge and face, and
-regard the data as consistent when the deviations lie within the tolerances. OpenCascade, for instance, requires
-the pcurve images to lie within the edge tolerance of the 3D curve, and the edge ends within the vertex tolerance
-of the vertex point~\cite{OCCT}.
+geometry attached to each cell.
+\begin{itemize}
+\item Each face carries a trimmed patch of a surface.
+\item Each edge carries a 3D curve, together with one parameter-space curve (pcurve) for every adjacent face.
+\item Each vertex carries a point.
+\end{itemize}
+In floating point, and after operations such as Booleans, fillets, offsets and sewing, these data do not agree.
+The images of the pcurves on the surfaces miss the 3D edge curve, and the edge curves miss the vertex points.
+Jackson's local-tolerance approach~\cite{Jackson95}, the published description of Parasolid's, attaches a
+tolerance to every vertex, edge and face. The data count as consistent when the deviations lie within the
+tolerances. OpenCascade, for instance, requires the pcurve images to lie within the edge tolerance of the 3D curve,
+and the edge ends within the vertex tolerance of the vertex point~\cite{OCCT}.
 
-What solid does such a model describe? Qi and Shapiro~\cite{QiShapiro06b} describe the conventional answer
-as: the representation is valid if there exists an exact solid in the tolerance zones. Two questions follow.
+What solid does such a model describe? Qi and Shapiro~\cite{QiShapiro06b} describe the conventional answer: the
+representation is valid if there exists an exact solid, with the same boundary combinatorial structure, in the
+tolerance zones. This raises two questions:
 \begin{enumerate}
-\item \emph{Existence.} Is there an embedded surface that respects all the tolerances?
-\item \emph{Uniqueness.} If there is more than one, do they all bound the same solid up to ambient isotopy?
+\item \emph{Existence.} Is there an embedded surface, with the given cell structure, that respects all the
+tolerances?
+\item \emph{Uniqueness.} If there are several, do they all bound the same solid up to ambient isotopy?
 \end{enumerate}
 Downstream algorithms (Booleans, offsets, meshing, analysis) implicitly assume both answers are yes.
 
 \subsection{What we prove}
-We call an embedding as in (1) a \emph{realization}, and make it precise in Section~\ref{sec:setting}: a PL
-embedding $h$ of the cell complex $K$ with $h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$, where
-$\Z(\sigma)$ is the tolerance zone of $\sigma$.
+We call an embedding as in (1) a \emph{realization}: a PL embedding $h$ of the cell complex $K$ with
+$h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$, where $\Z(\sigma)$ is the tolerance zone of $\sigma$
+(Section~\ref{sec:setting}).
+
 \begin{itemize}
-\item \textbf{Uniqueness} (Theorem~\ref{thm:uniqueness}). Suppose the carriers of the cells are contractible, each
-shell has a product collar that contains its zones, and every shell has genus at least one. Then any two
-realizations are ambient isotopic, and so are the solids they bound. The proof combines a carrier lemma (a
-cellular homotopy argument) with Waldhausen's theorem that incompressible surfaces in a product $F\times I$ are
-horizontal~\cite[Prop.~3.1]{Waldhausen68}.
-\item \textbf{The collar condition is computable} (Section~\ref{sec:collar}). It holds when all zones lie within
-distance $d$ of a reference surface $M$ with $d<\wfs(M)$, the weak feature size. For a polyhedral $M$ we prove
-$\wfs(M)\ge\lambda(M)>0$, where $\lambda$ is defined from the conical radii of $M$ (Corollary~\ref{cor:lambda}). The
-underlying cone lemma is machine-checked in Lean~4 with Mathlib. We also give a certified octree computation of
-a lower bound for $\wfs(M)$.
-\item \textbf{Existence} (Section~\ref{sec:existence}). There are two constructions, each under computable
-hypotheses:
+\item \textbf{Uniqueness} (Theorem~\ref{thm:uniqueness}).
   \begin{itemize}
-  \item fans in the normal disks of the edges, with cones at the vertices (Theorem~\ref{thm:lemma0});
-  \item re-intersection of the face surfaces, for sharp edges with tight tolerances (Propositions~\ref{prop:B}
-  and~\ref{prop:Bprime}).
+  \item \emph{Hypotheses:} the carriers of the cells are contractible; each shell has a product collar that contains
+  its zones and a carried reference surface; the collars are pairwise disjoint; and every shell has genus at least
+  one.
+  \item \emph{Conclusion:} the \emph{images} of any two realizations are ambient isotopic, and so are the solids they
+  bound.
+  \item \emph{Method:} a carrier lemma (a cellular homotopy argument), combined with Waldhausen's theorem that
+  incompressible surfaces in a product $F\times I$ can be made horizontal~\cite[Prop.~3.1]{Waldhausen68}.
   \end{itemize}
-\item \textbf{Non-existence} (Theorem~\ref{thm:obstruction}). If two planar patches cross transversally away from
-the projections (``shadows'') of all edge and vertex zones, there is no realization.
+\item \textbf{The collar condition} (Section~\ref{sec:collar}).
+  \begin{itemize}
+  \item The collar condition follows from a distance bound below the weak feature size $\wfs(M)$ of a reference
+  surface $M$. This step is conditional on a PL-taming step that is still to be written (Lemma~\ref{lem:collar}).
+  \item For a polyhedral $M$ we prove $\wfs(M)\ge\lambda(M)>0$, where $\lambda$ is defined from the conical radii of
+  $M$ (Corollary~\ref{cor:lambda}). The underlying cone lemma is machine-checked in Lean~4 with Mathlib.
+  \item We compute lower bounds for $\wfs(M)$ with an octree search, up to stated floating-point qualifications.
+  \end{itemize}
+\item \textbf{Existence} (Section~\ref{sec:existence}). There are two constructions:
+  \begin{itemize}
+  \item fans in the normal disks of the edges, with cones at the vertices. This is a conditional theorem, with a
+  proof outline and one open gap (Theorem~\ref{thm:lemma0}). Its hypotheses are computable local conditions together
+  with two non-local ones.
+  \item re-intersection of the face surfaces, for sharp edges with tight tolerances (Propositions~\ref{prop:B}
+  and~\ref{prop:Bprime}; the curved case is a sketch).
+  \end{itemize}
+\item \textbf{Non-existence} (Theorem~\ref{thm:obstruction}). Under explicit conditions, if two planar patches cross
+transversally away from the projections (``shadows'') of all edge and vertex zones, there is no realization.
 \end{itemize}
 
 \subsection{What the experiments show}
 In OpenCascade~8.0.1 (Section~\ref{sec:experiments}):
 \begin{itemize}
 \item \texttt{BRepCheck\_Analyzer} accepts models regardless of the size of the tolerances.
-\item \texttt{BRepAlgoAPI\_Check} gives false alarms on realizable models, and misses models whose tolerances
-exceed the weak feature size.
-\item A thick pipe that passes both checks has two realizations whose solids are not homeomorphic: one ties a
-trefoil into the hole.
+\item \texttt{BRepAlgoAPI\_Check} gives false alarms on realizable models, and accepts models whose tolerances
+exceed the weak feature size of the nominal surface. Among them is a thick pipe with two realizations whose solids
+are not homeomorphic: one ties a trefoil into the hole.
 \item Sewing a wedge whose faces are slightly displaced produces a model that passes both checks and, by
 Theorem~\ref{thm:obstruction}, has no realization. The hypotheses were verified in exact rational arithmetic.
 \end{itemize}
 
 \subsection{Related work}
-\begin{itemize}
-\item \emph{Tolerances in practice.} Segal~\cite{Segal90} and Jackson~\cite{Jackson95} introduced vertex and
-edge tolerances into polyhedral and B-rep modelling; Jackson's paper is the basis of the local-tolerance
-approach used by commercial kernels.
-\item \emph{Rigorous validity, without tolerances.} Sakkalis, Shen and Patrikalakis~\cite{SSP01} study interval
-solids: boxes covering the boundary of a known exact solid, up to homeomorphism.
-\item \emph{Global tolerances.} Qi and Shapiro~\cite{QiShapiro06} develop $\varepsilon$-solidity, a theory with
-a single global tolerance that does not require an exact solid to exist~\cite{QiShapiro06b}. Shapiro~\cite{Shapiro08}
-studies homotopy conditions for tolerant geometric queries.
-\item \emph{Constructing an exact solid.} Andersson, Stewart and Zidani~\cite{ASZ07} and Stewart and
-Zidani~\cite{SZ08} construct a solid from inconsistent trimmed-patch data by perturbing the patches (Whitney
-extension, transfinite interpolation). They \emph{assume} that the perturbed patches form an embedded surface:
-ASZ say that adjacent patches need an a posteriori check~\cite[pp.~819--820]{ASZ07}, and SZ make a similar
-assumption~\cite[p.~188]{SZ08}.
-\item \emph{Isotopy of approximations.} The weak feature size and its stability theory are due to Chazal and
-Lieutier~\cite{ChazalLieutier07}; reach is due to Federer~\cite{Federer59}.
-\end{itemize}
-Not yet read: Andersson, Peters and Stewart~\cite{APS00} on equivalence of topological form; \unverified{the
-2006 paper of Andersson, Stewart and Zidani}.
 
-\emph{Novelty, stated cautiously.}
+\subsubsection*{Tolerant modelling}
 \begin{itemize}
-\item Theorem~\ref{thm:uniqueness} applies Waldhausen's theorem; the new part is the set-up (zones, carriers,
-collars) that makes it applicable to tolerant B-reps.
-\item Positivity of $\wfs$ for compact semialgebraic sets is known: di Rocco, Eklund and
-Gäfvert~\cite[Thm.~2.5]{dREG22} state it and attribute it to Fu~\cite{Fu85} \unverified{Fu's paper}. We did not find the explicit bound $\lambda(M)$ in the literature we checked. That does not make it
-new.
-\item The existence results derive the embedding from checkable hypotheses rather than assuming it. As far as
-we have read, this is new; it remains to be checked against~\cite{APS00} and the 2006 ASZ paper.
-\item We did not find an obstruction result like Theorem~\ref{thm:obstruction} in the literature we read.
+\item Segal~\cite{Segal90} assigned a tolerance to every vertex, edge and face of polyhedral models.
+\item Jackson~\cite{Jackson95} gave the local-tolerance B-rep approach.
+\item Milenkovic~\cite{Milenkovic88} proved, in the plane and with a uniform $\varepsilon$, that normalized data have an
+exact realization within $\varepsilon/2$.
+\item Sakkalis, Shen and Patrikalakis~\cite{SSP01} study interval solids: boxes covering the boundary of a known exact
+solid, up to homeomorphism. Sakkalis, Peters and Bisceglio~\cite[Thm.~10]{SPB04} prove ambient isotopy for a closed
+surface inside a normal tube of a smooth closed surface that meets each normal fibre once.
+\item Qi and Shapiro~\cite{QiShapiro06} develop $\varepsilon$-solidity, which does not require an exact solid to
+exist~\cite{QiShapiro06b}.
+\item Shapiro~\cite{Shapiro08} gives conditions under which the union of the tolerance zones is homotopy equivalent
+to the cell complex. In~\S5.2 he notes that this homotopy condition alone does not make a valid boundary
+representation, and that it is ``not immediately clear'' how to extend the notion of separation used for isotopy
+results to unions of tolerance zones. That is the question addressed here.
+\end{itemize}
+
+\subsubsection*{Constructing an exact solid}
+\begin{itemize}
+\item Andersson, Stewart and Zidani~\cite{ASZ07} and Stewart and Zidani~\cite{SZ08} construct a solid from
+inconsistent trimmed-patch data by perturbation (Whitney extension, transfinite interpolation). They \emph{assume}
+that the perturbed patches embed:
+  \begin{itemize}
+  \item ASZ say that adjacent patches need an a posteriori check~\cite[pp.~819--820]{ASZ07};
+  \item SZ make a similar assumption~\cite[p.~188]{SZ08}, and derive a normal-vector bound intended to exclude
+  extraneous intersections.
+  \end{itemize}
+\item In an earlier paper~\cite{ASZ06}, the same authors give checkable conditions under which a single composite
+parametric surface on a common parameter domain is injective, by a degree argument. They note that separately
+trimmed B-rep faces would need extra inside/outside information~\cite[\S3.7]{ASZ06}.
+\end{itemize}
+
+\subsubsection*{Isotopy}
+\begin{itemize}
+\item The weak feature size and the isotopy of offsets below it are studied by Chazal and
+Lieutier~\cite{ChazalLieutier07} and by Chazal, Cohen-Steiner and Lieutier~\cite{CCSL09dcg}.
+\item Chazal and Cohen-Steiner~\cite[Thm.~2.1]{CCS05} prove that a surface homeomorphic to $S$, lying in a thickening
+of $S$ and separating its sides, is isotopic to $S$. This is close to the topological core of our uniqueness
+argument.
+\item Andersson, Peters and Stewart~\cite{APS00} treat equivalence of topological form for curvilinear objects;
+\unverified{we have not read its content}.
+\end{itemize}
+
+\subsection{Novelty, stated cautiously}
+\begin{itemize}
+\item \emph{Uniqueness.} Theorem~\ref{thm:uniqueness} applies known 3-manifold topology (Waldhausen;
+compare~\cite{CCS05}). What is specific is the set-up for tolerant B-reps: per-cell zones, cell-respecting
+realizations, the carrier lemma giving $\pi_1$-isomorphism in place of separation, and the collar obtained from
+$\wfs$.
+\item \emph{Weak feature size.} Positivity of $\wfs$ for compact semialgebraic sets is known: di Rocco, Eklund and
+Gäfvert~\cite[Thm.~2.5]{dREG22} state it and attribute it to Fu~\cite{Fu85} \unverified{Fu's paper}. Positivity also
+follows for subanalytic sets from~\cite{ChazalLieutier07}. We did not find the explicit bound $\lambda(M)$ in the
+literature we checked. That does not make it new.
+\item \emph{Existence.} As far as we have read, the closest prior results are Milenkovic's planar existence theorem
+and the injectivity conditions of~\cite{ASZ06} for one composite patch. We did not find existence results for 3D
+B-reps with per-cell (vertex, edge, face) tolerance zones that derive the embedding of the whole cell complex from
+checkable hypotheses.
+\item \emph{Obstruction.} We did not find a result like Theorem~\ref{thm:obstruction} in the literature we read.
 \end{itemize}

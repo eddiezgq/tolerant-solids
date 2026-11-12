@@ -1,58 +1,91 @@
 \section{Existence}\label{sec:existence}
 
-We give two constructions. Both turn computable hypotheses on the data into a realization. Neither assumes that
-some perturbed surface embeds.
+We give two constructions that turn hypotheses on the data into a realization. Neither assumes that a perturbed
+surface embeds as a whole. Theorem~\ref{thm:lemma0} does assume (P0) that each original patch is embedded, and two
+of its hypotheses are non-local.
 
 \subsection{Fans and cones}\label{sec:fans}
 
+\subsubsection*{Setting}
+$K$ is regular (every face a disk bounded by a single wire). For B-rep complexes:
+\begin{itemize}
+\item at a seam edge, E3$'$ below refers to the two sheets of the face;
+\item at a closed edge, V1 counts edge ends;
+\item for a face with inner wires, P0 becomes ``$Q_f$ is homeomorphic to the face''.
+\end{itemize}
+$\mathrm{dev}^*_e(t)$ is the deviation of the boundary points $b_{f,e}(t)=\partial P_f\cap\Pi(t)$ from $\gamma_e(t)$ in
+the normal plane $\Pi(t)$; it is at most $\mathrm{dev}_e$.
+
 \subsubsection*{Auxiliary sets}
 \begin{itemize}
-\item \emph{Normal disks.} For an edge $e$, choose a $C^1$ radius function $\rho_e(t)$ and parameters
-$0<a_e<b_e<1$. $D_e(t)$ is the closed disk of radius $\rho_e(t)$ in the normal plane $\Pi(t)$ of $\gamma_e$ at
-$\gamma_e(t)$, and $T_e=\bigcup_{t\in[a_e,b_e]}D_e(t)$.
+\item \emph{Normal disks.} For an edge $e$, choose parameters $0<a_e<b_e<1$ and a $C^1$ radius function $\rho_e(t)$.
+$\rho_e$ is constant on the stubs $[t_v,a_e]$, $[b_e,t_w]$ and on a neighbourhood of $a_e$ and $b_e$; here $t_v$ is
+the last parameter with $\gamma_e(t)\in B(p_v,r_v)$. $D_e(t)$ is the closed disk of radius $\rho_e(t)$ in $\Pi(t)$
+centred at $\gamma_e(t)$, and $T_e=\bigcup_{t\in[a_e,b_e]}D_e(t)$.
 \item \emph{Vertex regions.} For a vertex $v$, choose $r_v$. The vertex region $W_v$ is the union of the ball
-$B(p_v,r_v)$ and, for each edge $e$ at $v$, the disks $D_e(t)$ for $t$ between the end at $v$ and $a_e$ (or
-$b_e$).
+$B(p_v,r_v)$ and, for each edge $e$ at $v$, the disks $D_e(t)$ for $t$ between $t_v$ and $a_e$ (or $b_e$).
 \end{itemize}
 
 \subsubsection*{Hypotheses}
-The full statements, with the constants, are in the repository (\texttt{notes/lemma0\_v02.md},
-\texttt{notes/lemma0\_v03.md}). In summary:
+E1--E3$'$ are required on $[t_v,t_w]$, the stubs included.
 \begin{description}
-\item[E1] $\mathrm{dev}^*_e(t)<\rho_e(t)<\min(\tau_e,\operatorname{reach}\gamma_e)$, where $\mathrm{dev}^*_e(t)$ is
-the deviation measured in the normal plane. $\rho_e$ is constant on the stubs near the vertices.
-\item[E2] Each adjacent face crosses the wall of $T_e$ exactly once in every normal plane. Sufficient conditions
-are given in terms of the angle between $\gamma_e'$ and the face, the curvature of the face, and a no-return
-distance.
-\item[E3$'$] In every normal plane, the exit points $k_{f,e}(t)$, $k_{g,e}(t)$ of the two face sections are
-distinct. (E3 is an explicit sufficient condition: the angle between the sections exceeds
-$\varepsilon_f+\varepsilon_g$, where $\varepsilon=\arcsin\bigl((\mathrm{dev}^*+k\ell^2/2)/\rho\bigr)$.)
-\item[V0, V1] The edge ends and patch corners at $v$ lie in $B(p_v,r_v)$. $W_v$ is strictly star-shaped from
-$p_v$ and lies in $\Z(v)$. The construction meets $\partial W_v$ in one simple closed curve $\lambda_v$, in the
-cyclic order of the link of $v$; this part is checked computationally.
-\item[S1, P0] Separation of the $T_e$, the $W_v$ and the patches, and each patch with its collar removed is a
-disk. These are checked computationally.
+\item[E1] $\mathrm{dev}^*_e(t)<\rho_e(t)<\min(\tau_e,\operatorname{reach}\gamma_e|_{[a_e,b_e]})$.
+\item[E2] For every face $f>e$:
+  \begin{enumerate}
+  \item $\psi_f<\pi/2$, where $\psi_f$ is the largest angle between $\gamma_e'$ and $T P_f$ inside the tube;
+  and $\rho_e k_f<1$, where $k_f=\kappa_f/\cos\psi_f$;
+  \item $t\mapsto\pi_e(\beta_{f,e}(t))$ is strictly monotone. A sufficient condition is $L_e+\kappa_\gamma
+  \mathrm{dev}^*_e<1$, where $L_e$ is the arc-length Lipschitz constant of $\beta_{f,e}-\gamma_e$;
+  \item \emph{no return:} $\dist(\gamma_e(t),P_f\setminus C_f)>\rho_e(t)$. Here $C_f$ is the union of the section
+  arcs of $P_f$ from $b_{f,e}$ to their exit points, of length at most
+  $\ell_f=(\mathrm{dev}^*+\sqrt{\mathrm{dev}^{*2}+\mu\rho^2})/\mu$ with $\mu=1-\rho k_f$.
+  \end{enumerate}
+\item[E3$'$] The exit points $k_{f,e}(t)$ and $k_{g,e}(t)$ of the two face sections on $\partial D_e(t)$ are distinct.
+A sufficient condition (E3) is $\alpha_e(t)>\varepsilon_f+\varepsilon_g$, with
+$\varepsilon=\arcsin\min\{1,(\mathrm{dev}^*_e+k\ell^2/2)/\rho_e\}$. Here $\alpha_e$ is the angle between the inward
+tangents of the two sections.
+\item[V0] $\gamma_e$'s end at $v$ and the corners of the patches at $v$ lie in $\inter B(p_v,r_v)$.
+\item[V1] (a) $W_v$ is strictly star-shaped with respect to $p_v$, and $W_v\subseteq\inter\Z(v)$.
+(b) \emph{(non-local)} The construction outside $W_v$ meets $\partial W_v$ transversally in one simple closed curve
+$\lambda_v$. Each incident edge contributes one point and each incident face one arc, in the cyclic order of the
+link of $v$.
+\item[S1] (a) The $W_v$ are pairwise disjoint. (b) The $T_e$ are pairwise disjoint. (c) $\gamma_e$ and $T_e$ miss $W_w$
+for $w\notin\partial e$. (d) $P_f$ misses $T_e$ for $e\not<f$, and misses $W_v$ for $v\not<f$. (e) Outside
+$\bigcup T\cup\bigcup W$, the patch pieces are pairwise disjoint. (f) $T_e\cap W_v=D_e(a_e)$ for $v<e$, and each
+piece outside $W_v$ meets $W_v$ only in $\lambda_v$.
+\item[P0] \emph{(non-local)} Each $P_f$ is embedded, and $P_f\cap(\bigcup T\cup\bigcup W)$ is a collar of $\partial
+P_f$, so that $Q_f=P_f\setminus\inter(\bigcup T\cup\bigcup W)$ is a closed disk.
 \end{description}
+V1(b) and P0 are not consequences of local data. In the models of Section~\ref{sec:experiments} they were verified
+only for the gapped cube, implicitly, through an exact check that the constructed surface is embedded. The
+sampled checker does not test V1(b), P0, E2.3 beyond S1(d), or S1(e) for adjacent faces.
 
-\begin{theorem}[Existence by fans and cones]\label{thm:lemma0}
+\begin{theorem}[Existence by fans and cones; conditional, proof outline]\label{thm:lemma0}
 Under E1--E3$'$, V0, V1, S1 and P0, the tolerant B-rep has a realization.
 \end{theorem}
 \begin{proof}[Construction and proof outline]
 \begin{enumerate}
 \item \emph{Vertices and edges.} Put $h(v)=p_v$. On $[a_e,b_e]$, let $h(e)$ follow $\gamma_e$.
-\item \emph{Fans.} In each disk $D_e(t)$, the radius from $\gamma_e(t)$ to $k_{f,e}(t)$ is assigned to $f$. These
-radii sweep out the fan strip $F_{f,e}$.
-\item \emph{Faces away from the vertices.} Outside the vertex regions, the face is $Q_f\cup\bigcup_eF_{f,e}$, where
-$Q_f$ is $P_f$ with the tubes and vertex regions removed.
+\item \emph{Fans.} In each disk $D_e(t)$, the radius from $\gamma_e(t)$ to $k_{f,e}(t)$ is assigned to $f$; these
+radii form the fan strip $F_{f,e}$.
+\item \emph{Faces away from the vertices.} Outside the vertex regions, the face is $Q_f\cup\bigcup_eF_{f,e}$.
 \item \emph{Vertex regions.} Inside $W_v$, take the cone from $p_v$ over $\lambda_v$.
-\item \emph{Injectivity and zones.} The disks $D_e(t)$ are disjoint (E1). Within one disk there are two radii
-meeting only at the centre (E3$'$). Nothing else enters the tubes or vertex regions (S1, P0). The cone is
-injective by star-shapedness. Each piece lies in the zone of its cell with a positive margin.
-\item \emph{PL step.} The resulting map is bi-Lipschitz: every crease has a positive opening angle, and at points
-where three pieces meet the tangent cone is an embedded disk. A fine secant (vertex-interpolating) approximation
-on a shape-regular triangulation is then injective and stays in the zones.
+\item \emph{Injectivity.}
+  \begin{itemize}
+  \item The disks $D_e(t)$ are pairwise disjoint (E1 and the reach), and within one disk there are two radii meeting
+  only at the centre (E3$'$).
+  \item Nothing else enters the tubes or vertex regions (S1, P0, and E2.3 for $Q_f\cap F_{f,e}=k_{f,e}$).
+  \item The cone is injective by star-shapedness and V1(b).
+  \end{itemize}
+\item \emph{Cell structure and zones.} The pieces of a face glue to a closed disk with boundary $h(\partial f)$, in
+the order forced by P0 and V1(b). Each piece lies in the zone of its cell with a positive margin.
+\item \emph{PL step.} The map is bi-Lipschitz: every crease has a positive opening angle, and at points where three
+or more pieces meet, the tangent cone is an embedded disk. A fine secant approximation on a shape-regular
+triangulation is then injective and stays in the zones.
 \end{enumerate}
-Two independent reviews of v0.2 and three of v0.3 found no fatal error.
+\draftnote{The full argument for steps 5--7 is in the repository (\texttt{notes/lemma0\_v02.md} \S\S4--5, with the
+changes of \texttt{lemma0\_v03.md} \S1); it should be written out here. One gap is open: the apex estimate in the PL
+step quotes a curvature $\kappa_\lambda$ of $\lambda_v$, but $\lambda_v$ is only $C^1$.}
 \end{proof}
 
 \begin{example}
@@ -64,7 +97,7 @@ arithmetic: 216 triangles, with zone membership and embeddedness checked exactly
 \subsection{Re-intersection}
 
 \begin{proposition}[Planar, degree three]\label{prop:B}
-Suppose every face is planar, $P_f\subseteq\Pi_f$, and every vertex lies on exactly three faces whose planes are
+Suppose every face is a disk bounded by a single wire and is planar, $P_f\subseteq\Pi_f$, and every vertex lies on exactly three faces whose planes are
 independent. Let $c_v$ be the common point of the three planes, $\ell_e=[c_v,c_w]$ for an edge $e=vw$, and
 $\tilde P_f$ the polygon on the $c$'s of the vertices of $f$, in the order of $\partial f$. Assume:
 \begin{itemize}
@@ -89,7 +122,7 @@ B-rep complex, respecting seams and closed edges). Assume:
 \end{itemize}
 Then a realization exists.
 \end{proposition}
-\begin{proof}
+\begin{proof}[Proof sketch]
 \begin{itemize}
 \item Take $|K|$ to be the re-trimmed surface with its cells, and $h_0$ the identity.
 \item By compactness, $h_0(\bar\sigma)$ has a positive margin $m$ inside the open zone $\Z(\sigma)$.
@@ -104,9 +137,11 @@ distance to $h_0$ is below the bi-Lipschitz constant, and it stays in the zones 
 \begin{itemize}
 \item The re-trimmed model can be computed by extending the face surfaces and rebuilding the solid
 (OpenCascade's \texttt{BOPAlgo\_MakerVolume}). The hypotheses are then checked on samples
-(\texttt{compute/reintersect\_curved.py}).
-\item For the planar case, the hypotheses of Proposition~\ref{prop:B} for the sewn box were also re-checked in
-exact rational arithmetic, including embeddedness.
+(\texttt{compute/reintersect\_curved.py}), except the vertex part of the transversality hypothesis, which is not
+checked. That matters for the cylinder and the pipe, whose seam vertices lie on only two surfaces. The PL step is
+not carried out.
+\item For the planar case, the hypotheses of Proposition~\ref{prop:B} for the sewn box and the sewn plate were also
+re-checked in exact rational arithmetic, including embeddedness.
 \item Results are in Section~\ref{sec:experiments}.
 \end{itemize}
 \end{remark}

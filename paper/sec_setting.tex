@@ -5,8 +5,11 @@ $K$ is a finite CW complex whose underlying space $|K|$ is a disjoint union of c
 $|K_1|,\dots,|K_n|$ (the \emph{shells}). We write $\tau\le\sigma$ when $\tau$ is a face of $\sigma$ (including
 $\tau=\sigma$). For the uniqueness theorem we assume $K$ is \emph{regular}: every closed cell $\bar\sigma$ is a
 ball whose boundary is a subcomplex. B-rep complexes with seam edges, closed edges or faces with holes are not
-regular, and must first be subdivided. The existence constructions work directly on B-rep complexes; we say so
-where it matters.
+regular, and must first be subdivided. A new cell inherits the zone of the open cell of $K$ that contains it.
+This keeps the zones monotone, and a realization of the original model is a realization of the subdivision, since
+$h(\inter\sigma')\subseteq h(\inter\sigma)\subseteq\Z(\sigma)$ for a new cell $\sigma'\subseteq\sigma$. $|K|$ carries
+the PL structure of the order complex of its face poset. The existence results say where they apply to B-rep
+complexes directly.
 
 \subsection{Geometric data and zones}
 \begin{itemize}
@@ -16,8 +19,10 @@ where it matters.
 $\tau_f$. The boundary of $P_f$ consists of the images $\beta_{f,e}=S_f\circ(\text{pcurve})$ of the pcurves of the
 edges $e<f$.
 \end{itemize}
-The \emph{deviation} of $e$ is $\mathrm{dev}_e=\max_{f>e}\max_t|\beta_{f,e}(t)-\gamma_e(t)|$. OpenCascade
-requires $\mathrm{dev}_e\le\tau_e$.
+The \emph{deviation} of $e$ is $\mathrm{dev}_e=\max_{f>e}\max_t|\beta_{f,e}(t)-\gamma_e(t)|$, measured at equal
+parameters. OpenCascade's SameParameter property asks for $\mathrm{dev}_e\le\tau_e$ in this sense; its format
+specification defines the edge tolerance as a one-sided distance from the pcurve images to the 3D
+curve~\cite{OCCT}.
 
 \begin{definition}[Zones]\label{def:zones}
 We use \emph{augmented} open zones:
@@ -38,8 +43,8 @@ $h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$.
 \begin{remark}\label{rem:opencell}
 \begin{itemize}
 \item \emph{Open-cell condition.} We require only $h(\inter\sigma)\subseteq\Z(\sigma)$. The closed-cell
-condition $h(\bar\sigma)\subseteq N(\sigma)$, with unaugmented neighbourhoods, can fail for every candidate when
-vertex tolerances exceed edge tolerances, which is the usual ordering. With augmented zones the open-cell
+condition with unaugmented neighbourhoods, $h(\bar\sigma)\subseteq N_{\tau_\sigma}(\cdot)$, usually fails for every
+candidate, mainly because face tolerances are tiny: $h(v)$ would have to lie within $\tau_f$ of every incident patch. With augmented zones the open-cell
 condition implies $h(\bar\sigma)\subseteq\Z(\sigma)$, since $\bar\sigma$ is the union of the open cells
 $\tau\le\sigma$.
 \item \emph{Tameness.} Requiring $h$ to be PL rules out wild embeddings such as Alexander's horned sphere.

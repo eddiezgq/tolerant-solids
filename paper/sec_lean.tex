@@ -24,3 +24,12 @@ are convex \\
 
 The statements are for an arbitrary real inner product space. Criticality is formalized as
 $0\in\conv\{p-x:x\text{ nearest}\}$.
+
+\emph{How the Lean statements correspond to the paper.}
+\begin{itemize}
+\item The hypothesis \texttt{LocallyConicalAt M a r} is radial closure of $M$ inside the open ball $B(a,r)$. The
+paper's definition of $\rho(a)$ implies it for $r<\rho(a)$; the two are not the same statement.
+\item Lean's \texttt{Carried} is pointwise on open cells. By \texttt{carrier\_mono} it agrees with the paper's
+closed-cell definition.
+\item Positivity of $\lambda(M)$ for polyhedra (Corollary~\ref{cor:lambda}) is proved on paper only.
+\end{itemize}

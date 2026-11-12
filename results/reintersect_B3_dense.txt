@@ -1,0 +1,15 @@
+== sloppy box g=0.01
+new face 5 (old 2): dense B3 margin 0.3450 at ('walk', array([0.0035, 0.0048, 0.0127]))
+dense B3 margin (0.05909039235888403, ('walk', array([9.9942, 9.9987, 0.0141])))
+== sloppy plate t=0.05 g=0.01
+new face 5 (old 2): dense B3 margin 0.3450 at ('walk', array([0.0035, 0.0048, 0.0127]))
+dense B3 margin (0.05909039235888178, ('walk', array([3.9942, 3.9987, 0.007 ])))
+== sloppy cylinder g=0.01
+new face 2 (old 1): dense B3 margin 0.0851 at ('walk', array([-1.6058,  2.5324,  9.9967]))
+dense B3 margin (0.04979827985020395, ('walk', array([-1.2088e+00,  2.7475e+00,  5.0000e-04])))
+== sloppy cylinder g=0.05
+new face 2 (old 1): dense B3 margin 0.1121 at ('walk', array([-0.4426, -2.9485,  9.996 ]))
+dense B3 margin (0.08927211355825446, ('walk', array([-2.9058, -0.7014,  0.0243])))
+== sloppy pipe g=0.01
+new face 3 (old 3): dense B3 margin 0.0676 at ('walk', array([ 0.19  ,  0.9763, 39.9921]))
+dense B3 margin (0.05094359444564178, ('walk', array([ 5.3755, -2.6612, 39.9944])))

@@ -37,7 +37,7 @@ are sewn back with BRepBuilderAPI_Sewing (tolerance 4g). Sewing sets tau_e = 1.0
 | Model | OCC: BRepCheck / BOP check | tau_e / dev (min) | Route A (v0.2) | Route A with A' | Route B |
 | --- | --- | --- | --- | --- | --- |
 | box, cylinder, pipe (cut), slot (cut), filleted box r=2, wedge 10 deg (exact) | valid / valid | > 10^7 | pass | - | box, wedge: pass |
-| L-shape, inner fillet 0.2 (fused) | valid / valid | > 10^8 | fail: 9 cusp vertices | fail | n/a (curved) |
+| L-shape, inner fillet 0.2 (fused) | valid / valid | > 10^8 | fail: 2 cusp vertices (9 V1(a) failures in all) | fail | n/a (curved) |
 | L-shape, all edges filleted 0.5 | valid / valid | 1.05 | fail: V1(a) at 6 fillet edges | **pass** | n/a |
 | sloppy box g = 0.01, 0.1 | valid / valid | 1.05 | fail: V1(a) | fail: V1(a) | **pass**, margins: vertex 45%, edge 13% |
 | sloppy plate t = 0.05, g = 0.01 | valid / **invalid** | 1.05 | fail: V1(a) | fail | **pass**, same margins (same random translations as the box) |

@@ -136,8 +136,9 @@ Then the tolerant B-rep has a realization.
 This is a sampled, double-precision check; the PL step is not carried out; the vertex part of T is not checked.
 The review ([reviews/lemma0_v03_Bprime_review.md](reviews/lemma0_v03_Bprime_review.md)) found that the first
 version of the checker overstated the face-strip margins: it measured distances to a 200-point polyline, and it
-skips the corners. The face-strip margins in the table are the reviewer's dense re-check with exact projections
-and corner grids ([../compute/checks/review_B2_B3dense.py](../compute/checks/review_B2_B3dense.py)). The vertex and
+skips the corners. The face-strip margins in the table are the smaller of the corrected checker's value (exact projections) and the
+reviewer's dense re-check with corner grids ([../compute/checks/review_B2_B3dense.py](../compute/checks/review_B2_B3dense.py),
+output in [../results/reintersect_B3_dense.txt](../results/reintersect_B3_dense.txt)). The vertex and
 edge margins were confirmed exactly, for the sewn cylinder also analytically (circles and seam points from the
 plane and cylinder equations). The review also found that the first T measure missed folds (it read 170° on a 10°
 knife edge); it now uses min(φ, π − φ) over interior samples.
@@ -147,7 +148,7 @@ knife edge); it now uses min(φ, π − φ) over interior samples.
 | sewn cylinder g = 0.01 | yes | 55% / 35% / 5.0% | 90° | pass |
 | sewn cylinder g = 0.05 | yes | 55% / 11% / 8.9% | 90° | pass |
 | sewn pipe (cylinder minus cylinder) g = 0.01 | yes | 53% / 16% / 5.1% | 90° | pass |
-| sewn box g = 0.01 | yes | 45% / 13% / 5.9% | 90° | pass (agrees with the planar check) |
+| sewn box g = 0.01 | yes | 45% / 13% / 4.9% | 90° | pass (agrees with the planar check) |
 | sewn wedge 30° g = 0.01 | yes | 32% / −49% / 10% | 30° | fail B2 (consistent with Lemma O) |
 | exact cylinder, exact box | yes | 100% | 90° | pass |
 | sewn filleted box g = 0.001 | **no** (3 faces instead of 26) | – | – | not applicable |

@@ -3,32 +3,56 @@
 \subsection{Weak feature size}
 Let $M\subset\R^3$ be compact, $d(p)=\dist(p,M)$, and let $\Gamma(p)$ be the set of nearest points of $p$ in $M$.
 A point $p\notin M$ is \emph{critical} if $0\in\conv\{p-x:x\in\Gamma(p)\}$. The \emph{weak feature size}
-$\wfs(M)$ is the infimum of the positive critical values of $d$~\cite{ChazalLieutier07}. Unlike the reach, it
+$\wfs(M)$ is the infimum of the positive critical values of $d$~\cite[\S2.2]{CCSL09dcg}; see also
+\cite{ChazalLieutier07}. Unlike the reach, it
 stays positive at sharp edges and small fillets. A surface with a concave edge has reach $0$, and a fillet of
 radius $r$ caps the reach at $r$.
 
 \begin{lemma}[Collar]\label{lem:collar}
-Let $M$ be a closed PL surface in $\R^3$, and let $0<r<\wfs(M)$.
+Let $M$ be a closed connected PL surface in $\R^3$ of genus at least one, and let $0<d<r<\wfs(M)$.
 \begin{enumerate}
-\item[(a)] The closed $r$-neighbourhood $\bar N_r(M)$ is PL-homeomorphic to $M\times[-1,1]$, with $M$ going to
+\item[(a)] The closed neighbourhood $\bar N_r(M)$ is homeomorphic to $M\times[-1,1]$, with $M$ going to
 $M\times\{0\}$.
-\item[(b)] Suppose every zone of every cell of a shell lies in $N_d(M)$ for some $d<r$, $M$ is the image of a
-carried PL embedding of that shell, and the neighbourhoods $\bar N_r(M_i)$ of different shells are pairwise
-disjoint. Then the collar condition of Section~\ref{sec:uniqueness} holds with $U_i=\bar N_r(M_i)$.
+\item[(a$'$)] There is a compact PL submanifold $U$ with $\bar N_d(M)\subseteq\inter U$, $U\subseteq\inter\bar
+N_r(M)$ and $U\cong_{PL}M\times[-1,1]$.
+\item[(b)] Suppose (a$'$) holds. Suppose further that $M=\varphi(|K_i|)$ for a carried PL embedding $\varphi$ of a
+shell, that every zone of a cell of that shell lies in $N_d(M)$, and that the sets $\bar N_r(M_i)$ of different shells
+are pairwise disjoint. Then the collar condition of Section~\ref{sec:uniqueness} holds, with $U_i=U$.
 \end{enumerate}
 \end{lemma}
-\begin{proof}[Proof sketch]
+\begin{proof}
+(a), in outline.
 \begin{itemize}
-\item \emph{Small radii.} For small $\delta>0$, $\bar N_\delta(M)$ is a regular neighbourhood of $M$ relative to
-$M$, by Durfee's theorem on neighbourhoods of semialgebraic sets~\cite[Props.~3.5,~3.7]{Durfee83}. A regular
-neighbourhood of a closed orientable surface in $\R^3$ is a product.
-\item \emph{Larger radii.} The region $\{\delta\le d\le r\}$ contains no critical point, so it is a product of
-a level set with $[\delta,r]$, by the isotopy lemma of Chazal and Lieutier~\cite[Prop.~3.4]{ChazalLieutier07}.
-\item \emph{Gluing.} Gluing the two products gives (a). Part (b) follows directly.
+\item \emph{Small radii.} $d_M$ is semialgebraic (Tarski--Seidenberg), proper and nonnegative with zero set $M$,
+so it is a ``rug function'' in the sense of Durfee. Working in a large simplicial cube, Durfee's
+Propositions~3.5 and~3.7~\cite{Durfee83} give, for small $\delta$, a homeomorphism of $\bar N_\delta(M)$ onto a PL
+regular neighbourhood of $M$, relative to $M$. A regular neighbourhood of a closed orientable surface in $\R^3$ is a
+product.
+\item \emph{Larger radii.} The region $\{\delta\le d_M\le r\}$ contains no critical point, so it is a product of a
+level set with $[\delta,r]$, by the isotopy lemma of Chazal and Lieutier~\cite[Prop.~3.4]{ChazalLieutier07}.
+\item \emph{Gluing.} Glue the two products along the level $d_M=\delta$.
 \end{itemize}
-\draftnote{The application of~\cite[Prop.~3.4]{ChazalLieutier07}, which is stated for distance to the
-complement of a bounded open set, to $d=\dist(\cdot,M)$ is spelled out in the repository notes (review of Lemma~1); it should be written out here. The PL (rather than
-topological) form of (a) also needs a sentence.}
+\draftnote{Two steps are only outlined here, and the details are in the repository's review of Lemma~1.
+First, Prop.~3.4 is stated for the distance to the complement of a bounded open set; it is applied to $d_M$ on both
+sides of $M$. Second, the gluing needs two more lines.}
+
+(a$'$) \draftnote{Not yet written. We expect it to follow from (a) by taming: a topological product collar in a
+3-manifold contains a PL one between any two of its levels \unverified{Moise, ch.~35, uniqueness of PL structures on
+3-manifolds}. Until this is written and checked, Lemma~\ref{lem:collar}(b), and with it the reduction of the
+collar condition to a distance bound, is conditional on (a$'$).}
+
+(b) The zones lie in $N_d(M)\subseteq\inter U$, and $M\subseteq N_d(M)\subseteq\inter U$. The $U_i$ are pairwise
+disjoint because they lie in the disjoint sets $\bar N_r(M_i)$. It remains to show that the inclusion
+$M\hookrightarrow U$ is a homotopy equivalence.
+\begin{itemize}
+\item By (a), the composite $M\hookrightarrow U\hookrightarrow\bar N_r(M)$ is a homotopy equivalence. So
+$\pi_1(U)\to\pi_1(\bar N_r(M))$ is onto.
+\item Both groups are isomorphic to $\pi_1(M)$, a surface group of genus at least one. Surface groups are Hopfian,
+so a surjection from one onto an isomorphic copy is an isomorphism. Hence $\pi_1(M)\to\pi_1(U)$ is an isomorphism.
+\item $M$ and $U\simeq M$ are aspherical, so by Whitehead's theorem the inclusion is a homotopy equivalence.
+\end{itemize}
+Standard facts used without separate checking: Tarski--Seidenberg, regular-neighbourhood theory, that surface groups
+are Hopfian (they are residually finite), asphericity of closed surfaces of positive genus, and Whitehead's theorem.
 \end{proof}
 
 \subsection{An explicit lower bound for polyhedral surfaces}
@@ -58,7 +82,8 @@ $0<d(p)<\lambda(M)$, so $\wfs(M)\ge\lambda(M)$. If $M$ is a finite union of tria
 \begin{itemize}
 \item \emph{The bound.} Given $p$ with $d(p)<\lambda$ and $x\in\Gamma(p)$, pick $a$ with
 $\rho(a)/2-|x-a|>d(p)$. Then $|p-a|<\rho(a)/2$, and Lemma~\ref{lem:cone} applies.
-\item \emph{Positivity.} For a polyhedron, $\rho(a)>0$ for every $a$. The function $g(x)=\sup_a(\rho(a)/2-|x-a|)$
+\item \emph{Positivity.} For a polyhedron, $\rho(a)>0$ for every $a$, by the local conical structure of
+polyhedra (standard; not separately checked against a source). The function $g(x)=\sup_a(\rho(a)/2-|x-a|)$
 is $1$-Lipschitz and finite, since $\rho\le\operatorname{diam}M$, and $g(x)\ge\rho(x)/2>0$. $M$ is compact, so
 $\min g>0$.
 \end{itemize}
@@ -68,24 +93,28 @@ Lemma~\ref{lem:cone} and the pointwise form of Corollary~\ref{cor:lambda} are ma
 Mathlib, for subsets of an arbitrary real inner product space (Appendix~\ref{sec:lean}).
 
 \subsection{A certified lower bound for $\wfs$}
-For a triangulated reference surface we certify ``no critical value in $(0,L)$'' with a best-first octree:
+For a triangulated reference surface $M_{PL}$ we compute $L$ with ``no critical value in $(c\cdot\mathrm{tol},L)$''
+by a best-first octree. We call $L$ \emph{certified} in this qualified sense only: the computation is in double
+precision; containment of a point in a feature is decided with a tolerance $\mathrm{tol}=10^{-10}$ times the model
+size; and the search is restricted to distances below a cut-off $R$.
 \begin{itemize}
 \item \emph{Boxes near $M$} are certified by Lemma~\ref{lem:cone}, using a lower bound for $\rho(a)$ at a
 candidate point $a$. The bound comes from the distance from $a$ to the nearest feature (planar region, boundary
-segment, vertex) that does not contain $a$.
+segment, vertex) that does not contain $a$. It is sound for planar regions whose directed boundary segments cover
+their boundary, after a global coplanarity re-check of each merged region.
 \item \emph{Boxes farther away} are certified by a direction test: a small linear program finds a unit vector $u$
 with $\langle u,p-x\rangle>0$ for all candidate nearest points $x$ of all points $p$ of the box. The candidates
 are the projections of the box centre onto the relevant features.
 \item \emph{Stopping rule.} The search stops at the first box that is too small to split further and cannot be
 certified. Its distance from $M$ is the certified bound $L$.
 \end{itemize}
-The computation is in double precision, not interval arithmetic. Table~\ref{tab:wfs} lists the results.
+Table~\ref{tab:wfs} lists the results.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{lcc}
 \toprule
-Part & exact $\wfs$ & certified lower bound \\
+Part & exact $\wfs$ (smooth part) & certified lower bound for $M_{PL}$ \\
 \midrule
 cube, side 10 & 5 & 4.530 \\
 plate $4\times4\times1$ & 0.5 & 0.436 \\
@@ -96,6 +125,7 @@ block with slot of width 0.2 & 0.1 & 0.086 \\
 cylinder $R=3$, $H=10$ & 3 & 2.512 \\
 \bottomrule
 \end{tabular}
-\caption{Certified lower bounds for $\wfs$ of the triangulated parts. The inner fillet caps the reach at
-$0.2$ but leaves the certified $\wfs$ bound unchanged.}\label{tab:wfs}
+\caption{Lower bounds for $\wfs$ of the triangulated parts, certified in the qualified sense above. The exact
+column is the $\wfs$ of the smooth part; for a triangulated cylinder $\wfs(M_{PL})$ is slightly below $3$. The inner
+fillet caps the reach at $0.2$ but leaves the bound unchanged.}\label{tab:wfs}
 \end{table}
