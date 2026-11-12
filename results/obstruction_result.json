@@ -1,0 +1,86 @@
+[
+ {
+  "name": "sloppy wedge 30deg g=0.01",
+  "applicable": true,
+  "O0_dev_margin": 0.04761904760221655,
+  "O0_corner_margin": 0.30169742588300363,
+  "O3": true,
+  "witness": {
+   "edge": 0,
+   "faces": [
+    0,
+    2
+   ],
+   "X": [
+    0.011477607977211963,
+    0.006294750979236055,
+    1.0033867779821863
+   ],
+   "alpha_deg": 30.00000000000001,
+   "rho": 0.0016170399414391955,
+   "rho_needed": 3.732050807568876e-07,
+   "O4_margin": 0.9997692047851182
+  },
+  "no_realization": true
+ },
+ {
+  "name": "sloppy wedge 10deg g=0.01",
+  "applicable": true,
+  "O0_dev_margin": 0.04761904761827849,
+  "O0_corner_margin": 0.3016974258819872,
+  "O3": true,
+  "witness": {
+   "edge": 0,
+   "faces": [
+    0,
+    2
+   ],
+   "X": [
+    0.025337334554485794,
+    0.006514241226167061,
+    1.0033867779821863
+   ],
+   "alpha_deg": 10.0,
+   "rho": 0.01604837028088115,
+   "rho_needed": 1.1430052302761345e-06,
+   "O4_margin": 0.9999287774889118
+  },
+  "no_realization": true
+ },
+ {
+  "name": "sloppy box g=0.01",
+  "applicable": true,
+  "O0_dev_margin": 0.0476190476153631,
+  "O0_corner_margin": 0.16392546060741103,
+  "O3": true,
+  "witness": null,
+  "no_realization": false
+ },
+ {
+  "name": "sloppy plate t=0.05 g=0.01",
+  "applicable": true,
+  "O0_dev_margin": 0.04761904760010521,
+  "O0_corner_margin": 0.16392546060739951,
+  "O3": true,
+  "witness": null,
+  "no_realization": false
+ },
+ {
+  "name": "box",
+  "applicable": true,
+  "O0_dev_margin": 1.0,
+  "O0_corner_margin": 1.0,
+  "O3": true,
+  "witness": null,
+  "no_realization": false
+ },
+ {
+  "name": "wedge 10deg",
+  "applicable": true,
+  "O0_dev_margin": 0.9999999822364316,
+  "O0_corner_margin": 1.0,
+  "O3": true,
+  "witness": null,
+  "no_realization": false
+ }
+]
