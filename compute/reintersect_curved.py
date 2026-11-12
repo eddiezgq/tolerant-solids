@@ -14,8 +14,12 @@
        original trimmed patch (UV classification against the original face, same surface); every point on the way
        must be in the original patch, in Z(e) of an edge of the face, or in Z(v) of a vertex of the face.
    B4  the new solid passes BRepCheck_Analyzer and BRepAlgoAPI_Check;
-   T   transversality: the minimum angle between the two surface normals along each new edge (an edge between a
-       face and itself, a seam, is skipped), reported for Proposition B' (notes/lemma0_v03.md).
+   T   transversality: min over interior samples of min(phi, pi - phi), phi = angle between the two faces' inward
+       in-plane tangents at a new edge; it is 0 both for tangent continuation (phi = pi) and for a fold (phi = 0).
+       Seams are skipped. The vertex tangent-cone part of T is NOT checked.
+Distances to an original edge are measured to a 2000-point polyline of it, minus the measured chord error, so
+they are conservative. B3 skips 0.5% of each boundary curve at each end and samples 80 points per curve; a denser
+re-check with exact distances is in checks/review_B2_B3dense.py (second review).
 Margins are reported as min over samples of (zone radius - distance) / zone radius.
 """
 import sys, math, json
@@ -127,13 +131,22 @@ def check(shape, name, verbose=True):
     # B1
     b1 = min((M.tv[vmap[i]] - np.linalg.norm(N.p[i] - M.p[vmap[i]])) / M.tv[vmap[i]] for i in range(len(N.Vx)))
     # B2
-    Gold = [L.edge_samples(M, k)["G"] for k in range(len(M.E))]
+    def fine_poly(e, n=2000):
+        c = BRepAdaptor_Curve(e)
+        ts = np.linspace(c.FirstParameter(), c.LastParameter(), 2 * n + 1)
+        P = np.array([L.V(c.Value(t)) for t in ts])
+        Pe, Po = P[::2], P[1::2]
+        a, b = Pe[:-1], Pe[1:]; ab = b - a
+        t = np.clip(np.einsum('ij,ij->i', Po - a, ab) / np.maximum(np.einsum('ij,ij->i', ab, ab), 1e-300), 0, 1)
+        err = np.max(np.linalg.norm(Po - (a + t[:, None] * ab), axis=1))
+        return Pe, err
+    Gold, Gerr = zip(*[fine_poly(e) for e in M.E])
     def dist_poly(x, G):
         a, b = G[:-1], G[1:]; ab = b - a
         t = np.clip(np.einsum('ij,ij->i', x - a, ab) / np.maximum(np.einsum('ij,ij->i', ab, ab), 1e-300), 0, 1)
         return np.min(np.linalg.norm(x - (a + t[:, None] * ab), axis=1))
     def ze_slack(x, k):
-        s = (M.te[k] - dist_poly(x, Gold[k])) / M.te[k]
+        s = (M.te[k] - dist_poly(x, Gold[k]) - Gerr[k]) / M.te[k]   # polyline distance can exceed the true one by <= err
         for v in M.ev[k]:
             s = max(s, (M.tv[v] - np.linalg.norm(x - M.p[v])) / M.tv[v])
         return s
@@ -183,8 +196,9 @@ def check(shape, name, verbose=True):
     for i in range(len(N.E)):
         sides = Nsm[i]["sides"]
         if len(sides) == 2 and sides[0]["face"] != sides[1]["face"]:
-            for a, b in zip(sides[0]["u"], sides[1]["u"]):
-                tmin = min(tmin, math.pi - math.acos(np.clip(a @ b, -1, 1)))   # 0 when the faces are tangent
+            for a, b in list(zip(sides[0]["u"], sides[1]["u"]))[2:-2]:     # interior samples
+                phi = math.acos(np.clip(a @ b, -1, 1))
+                tmin = min(tmin, phi, math.pi - phi)    # 0 for tangent continuation and for a fold
     res.update(B1_margin=b1, B2_margin=b2, B3_margin=b3, B4=bool(b4), transversality_min_deg=math.degrees(tmin), walked=walked,
                unreached=unreached[:10], n_unreached=len(unreached))
     for k, ok in (("B1", b1 > 0), ("B2", b2 > 0), ("B3", b3 > 0), ("B4", b4), ("T", tmin > 1e-6)):
