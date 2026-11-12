@@ -1,6 +1,12 @@
 # Lemma 0 (existence), draft v0.2 (11-12). Revised after two reviews (lemma0_v0_review.md, lemma0_v01_review.md).
 
-Status: conditional existence theorem. V1 and P0 are non-local hypotheses that are checked computationally; they are not derived from local data. With them, the second review found no counterexample.
+**Corrections (2026-11-12, after the review of the paper draft).** V1(b) and P0 have NOT been checked
+computationally on OpenCascade models (see lemma0_check_report.md §1); they were verified only on the gapped cube,
+implicitly, through the exact embedding check. Andersson–Stewart–Zidani 2006 HAS been read (session literature
+notes); see the paper's related-work section. The v0.3 changes (variable radius constant near the vertices, E3')
+are in lemma0_v03.md §1. Open: the apex estimate in §5 quotes a curvature κ_λ of λ_v, which is only C¹.
+
+Status: conditional existence theorem. V1 and P0 are non-local hypotheses; they are not derived from local data. With them, the second review found no counterexample.
 
 ## 0. Setting
 - K is a finite regular CW complex whose shells are closed surfaces. Section 6 discusses B-rep complexes with seams, closed edges and multi-wire faces.
@@ -147,5 +153,5 @@ Status: conditional existence theorem. V1 and P0 are non-local hypotheses that a
 3. **Thin features.** S1(d) excludes walls and slivers thinner than about 2ρ.
 4. **Literature.**
    - ASZ 2007 (pp. 819–820) and Stewart–Zidani 2008 (p. 188) assume that the perturbed patches embed; ASZ says adjacent patches need a posteriori verification.
-   - APS 2000 and ASZ 2006 have not been read yet. Do not claim novelty before reading them.
+   - APS 2000 has not been read yet (ASZ 2006 has; see the correction at the top). Do not claim novelty before reading APS 2000.
 5. **Output.** h is the reference surface M for Lemma 1. Each closed cell lies in its carrier.

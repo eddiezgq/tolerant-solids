@@ -52,8 +52,8 @@ $h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$, where $\Z(\sigma)$
 \item \textbf{Existence} (Section~\ref{sec:existence}). There are two constructions:
   \begin{itemize}
   \item fans in the normal disks of the edges, with cones at the vertices. This is a conditional theorem, with a
-  proof outline and one open gap (Theorem~\ref{thm:lemma0}). Its hypotheses are computable local conditions together
-  with two non-local ones.
+  proof outline and one open gap (Theorem~\ref{thm:lemma0}). Its hypotheses are local conditions on edges and
+  vertices, global disjointness conditions (S1), and two non-local topological conditions (V1(b), P0).
   \item re-intersection of the face surfaces, for sharp edges with tight tolerances (Propositions~\ref{prop:B}
   and~\ref{prop:Bprime}; the curved case is a sketch).
   \end{itemize}
@@ -82,13 +82,16 @@ Theorem~\ref{thm:obstruction}, has no realization. The hypotheses were verified 
 exact realization within $\varepsilon/2$.
 \item Sakkalis, Shen and Patrikalakis~\cite{SSP01} study interval solids: boxes covering the boundary of a known exact
 solid, up to homeomorphism. Sakkalis, Peters and Bisceglio~\cite[Thm.~10]{SPB04} prove ambient isotopy for a closed
-surface inside a normal tube of a smooth closed surface that meets each normal fibre once.
+surface that lies inside a normal tube of a smooth closed surface and meets each normal fibre once. The tube radius
+there is bounded by curvature and by a double-normal distance.
 \item Qi and Shapiro~\cite{QiShapiro06} develop $\varepsilon$-solidity, which does not require an exact solid to
 exist~\cite{QiShapiro06b}.
 \item Shapiro~\cite{Shapiro08} gives conditions under which the union of the tolerance zones is homotopy equivalent
-to the cell complex. In~\S5.2 he notes that this homotopy condition alone does not make a valid boundary
-representation, and that it is ``not immediately clear'' how to extend the notion of separation used for isotopy
-results to unions of tolerance zones. That is the question addressed here.
+to the cell complex. In~\S5.2 (p.~178) he notes that the homotopy condition alone is not sufficient, since a valid
+boundary representation must also be an orientable 2-cycle separating space. It is ``not immediately clear'' how to
+extend these notions to unions of tolerance zones, though the notion of separation used in isotopy results is likely
+to be useful. He also treats the containment of the exact cells in their zones as a much stronger demand.
+Realizations satisfy exactly that containment.
 \end{itemize}
 
 \subsubsection*{Constructing an exact solid}
@@ -109,7 +112,9 @@ trimmed B-rep faces would need extra inside/outside information~\cite[\S3.7]{ASZ
 \subsubsection*{Isotopy}
 \begin{itemize}
 \item The weak feature size and the isotopy of offsets below it are studied by Chazal and
-Lieutier~\cite{ChazalLieutier07} and by Chazal, Cohen-Steiner and Lieutier~\cite{CCSL09dcg}.
+Lieutier~\cite{ChazalLieutier07} and by Chazal, Cohen-Steiner and Lieutier~\cite{CCSL09dcg}. The latter
+also prove isotopy of offset level sets of general compact sets under Hausdorff
+perturbation~\cite[Thms.~4.2,~4.3]{CCSL09cg}.
 \item Chazal and Cohen-Steiner~\cite[Thm.~2.1]{CCS05} prove that a surface homeomorphic to $S$, lying in a thickening
 of $S$ and separating its sides, is isotopic to $S$. This is close to the topological core of our uniqueness
 argument.
@@ -122,10 +127,11 @@ argument.
 \item \emph{Uniqueness.} Theorem~\ref{thm:uniqueness} applies known 3-manifold topology (Waldhausen;
 compare~\cite{CCS05}). What is specific is the set-up for tolerant B-reps: per-cell zones, cell-respecting
 realizations, the carrier lemma giving $\pi_1$-isomorphism in place of separation, and the collar obtained from
-$\wfs$.
+$\wfs$ (conditional on Lemma~\ref{lem:collar}(a$'$)).
 \item \emph{Weak feature size.} Positivity of $\wfs$ for compact semialgebraic sets is known: di Rocco, Eklund and
-Gäfvert~\cite[Thm.~2.5]{dREG22} state it and attribute it to Fu~\cite{Fu85} \unverified{Fu's paper}. Positivity also
-follows for subanalytic sets from~\cite{ChazalLieutier07}. We did not find the explicit bound $\lambda(M)$ in the
+Gäfvert~\cite[Thm.~2.5]{dREG22} state it and attribute it to Fu~\cite{Fu85} \unverified{Fu's paper}. For subanalytic sets,
+Chazal and Lieutier~\cite[Prop.~3.6]{ChazalLieutier07} prove it for bounded open sets; the extension to compact sets
+is stated in their \S4.3 without proof. We did not find the explicit bound $\lambda(M)$ in the
 literature we checked. That does not make it new.
 \item \emph{Existence.} As far as we have read, the closest prior results are Milenkovic's planar existence theorem
 and the injectivity conditions of~\cite{ASZ06} for one composite patch. We did not find existence results for 3D

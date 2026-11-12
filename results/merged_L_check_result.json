@@ -1,0 +1,460 @@
+[
+ {
+  "name": "L: fuse -> unify -> inner fillet 0.2",
+  "faces": 9,
+  "edges": 21,
+  "vertices": 14,
+  "tau_v": [
+   1e-07,
+   1.0000000000000002e-07
+  ],
+  "tau_e": [
+   1e-07,
+   1e-07
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 1,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 90.0,
+    "reach": 0.2,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 3,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 4,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 5,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 6,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 7,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 8,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 9,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 10,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 11,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 90.0,
+    "reach": 0.2,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 12,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 13,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 14,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 15,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 16,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 17,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 18,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 19,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 20,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   }
+  ],
+  "fails": [],
+  "ok": true
+ },
+ {
+  "name": "L: fuse -> inner fillet 0.2 -> unify",
+  "faces": 9,
+  "edges": 21,
+  "vertices": 14,
+  "tau_v": [
+   1e-07,
+   1e-06
+  ],
+  "tau_e": [
+   1e-07,
+   1e-07
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 1,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 3,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 4,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 5,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 6,
+    "tau_e": 1e-07,
+    "dev": 6.280369834735101e-16,
+    "ratio": 159226291.8131443,
+    "alpha_min_deg": 90.0,
+    "reach": 0.2,
+    "rho": 7.73952656910222e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 7,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 8,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 9,
+    "tau_e": 1e-07,
+    "dev": 6.280369834735101e-16,
+    "ratio": 159226291.8131443,
+    "alpha_min_deg": 90.0,
+    "reach": 0.2,
+    "rho": 7.73952656910222e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 10,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 11,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 12,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 13,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 14,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 15,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 16,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 17,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 18,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 19,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 20,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   }
+  ],
+  "fails": [],
+  "ok": true
+ }
+]

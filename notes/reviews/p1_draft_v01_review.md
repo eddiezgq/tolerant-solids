@@ -363,3 +363,171 @@ My rerun confirms the axiom claim. The build log in the scratchpad dated 11-11 s
    - narrow the novelty claims.
 6. **Abstract and intro:** say "images" in the uniqueness claim (#4).
 7. **Minor items:** #3 and #7–#18.
+
+---
+
+# Follow-up on v0.2
+
+Second pass on draft v0.2 (commit 84b718f), 2026-11-12. The draft was not edited.
+
+**Read:** every `paper/sec_*.tex`, `p1.tex`, the commit diff, `results/reintersect_B3_dense.txt`, and the changed notes and README.
+
+**Checked the new text against:**
+- for Shapiro 2008 §5.2, the original text (`pdfs/shapiro2008_chapter.txt`, p. 178);
+- for SPB04 (Thm 10, C1/C2, Cor. 8) and ASZ06, `read2_B.md`;
+- for CCS05, `lit_A4_isotopy.md` §3 and `cite_audit_web.md` line 114;
+- for Milenkovic, `cite_audit_local.md` and `cite_audit_web.md`;
+- for CCSL09 DCG §2.2, `lemma1_multishell_review.md` S2.
+
+**Verdict.** All 18 findings are addressed, in full or in part.
+- The new mathematics in §3 and in Lemma 4.1(b) is **correct**. A few small statements are missing; they are listed below.
+- No new fatal or major problem was found.
+- What remains open is flagged honestly in the draft: Lemma 4.1(a′), the outline of Lemma 4.1(a), and the apex gap in Theorem 5.1.
+- Three small new imprecisions were introduced: in the Shapiro paraphrase, the SPB04 paraphrase, and the CL07 positivity sentence.
+- The repository notes now lag the paper: `uniqueness_v01.md` still has the old collar condition, and `lemma0_v02.md` has stale statements.
+
+## F1. Status of the 18 findings
+
+| # | Status | Where / remark |
+|---|---|---|
+| 1 Collar | **Fixed, with a step openly conditional.** | `sec_uniqueness.tex` lines 7–17: weakened collar condition. Lines 61–96: Lemma 3.3. `sec_collar.tex` lines 149–194: (a) is now topological; (a′) is an explicit `\draftnote` saying (b) is conditional on it. Abstract (`p1.tex` lines 47–49) and intro (lines 46–47) say "modulo a PL-taming step". Still outlined: the two steps of (a) noted at lines 173–175. See F2 for the new mathematics. |
+| 2 Theorem 5.1 | **Fixed** (a)–(g). | `sec_existence.tex` lines 75–155. All hypotheses are stated, including E2.1–E2.3, the stubs, ρ constant near a_e and b_e, the full S1 and P0, and the B-rep setting. Lines 125–127: V1(b) and P0 are declared non-local and verified only on the gapped cube. Title line 129: "conditional, proof outline". Lines 152–154: the apex gap. The review-count sentence is removed. Residual minor point: intro line 55 and abstract call the rest "computable local conditions", but S1(b), (d) and (e) are global (pairwise-disjointness) conditions. Computable, yes; local, no. Say "computable conditions, two of them non-local in the stronger sense". |
+| 3 Prop. B′ | **Fixed.** | Line 191: "Proof sketch". Lines 205–208: vertex part of T not checked, PL step not carried out. The "pass (curved)" caveat is in the text below Table 3 (line 110), not in the table itself. Acceptable, but a table footnote would be safer. |
+| 4 "Images" | **Fixed.** | `p1.tex` line 47; intro line 39. |
+| 5 Existence novelty | **Fixed.** | Intro lines 130–133, with Milenkovic and ASZ06. |
+| 6 Related work | **Mostly fixed.** | CCS05, SPB04, Shapiro 2008 and ASZ06 added (intro lines 77–118; `sec_uniqueness.tex` remark, lines 127–131). Not added: Chazal–Cohen-Steiner–Lieutier, *Comput. Geom.* 42 (2009), Thms 4.2/4.3 (isotopy of offset level sets under Hausdorff perturbation). The DCG 2009 paper cited instead is a different one. Minor now that CCS05 is cited. Wording issues are in F3. |
+| 7 "Certified" | **Fixed.** | `sec_collar.tex` lines 234–237; Table 2 caption; intro line 50. |
+| 8 OCC findings | **Fixed.** | Table 1 rows 5–6 relabelled (lines 32–34); intro lines 68–70. |
+| 9 Subdivision | **Fixed, one point to add.** | `sec_setting.tex` lines 8–11. The inheritance rule keeps monotonicity, as claimed. But the **carrier condition must then be checked on the subdivided complex**. A new edge inside a face f has carrier Z(f), so subdividing faces adds the hypothesis π₁(Z(f)) = 0. The original condition asks only π₂(Z(f)) = 0 for faces. Contractible zones cover it, but say so. |
+| 10 Theorem 3.4 proof | **Fixed.** | Lines 113–118. Irreducibility of F×I is marked `\unverified` (line 88). |
+| 11 Standard facts | **Mostly fixed.** | Lists added in §3 (remark), §4 (Lemma 4.1 proof, Cor. 4.4), §6 (remark). The fan construction has no list: Federer for disjointness of normal disks, the implicit function theorem, the secant/bi-Lipschitz approximation. Minor. |
+| 12 wfs definition | **Fixed.** | `sec_collar.tex` lines 143–145. |
+| 13 Imprecise statements | **Fixed** (all five). | `sec_setting.tex` lines 22–25, 45–49; Prop. 5.2, line 166; `sec_collar.tex` lines 240–242; Table 2 header and caption. |
+| 14 Twisted prism | **Fixed.** | `sec_experiments.tex` lines 42–50: the convexity argument. |
+| 15 Review sentences | **Fixed.** | Removed from §5 and §6. |
+| 16 Lean appendix | **Fixed.** | `sec_lean.tex`, new paragraph. |
+| 17 Abstract obstruction | **Fixed.** | `p1.tex` line 57: "Under explicit conditions". |
+| 18 Genus on \|K_i\| | **Fixed.** | `sec_uniqueness.tex` line 18. See F2 for the consequence. |
+
+## F2. The new mathematics
+
+### F2.1 Weakened collar condition, Lemmas 3.2–3.3, Theorem 3.4 (`sec_uniqueness.tex`). Correct; three statements missing (minor)
+**What is correct.**
+- **Lemma 3.2.** The carrier homotopy h ≃ φ_i lies in int U_i. Hence h: |K_i| → U_i is homotopic to φ_i, a homeomorphism onto φ_i(|K_i|) followed by an inclusion that is a homotopy equivalence by hypothesis. So h is a homotopy equivalence, and so is G ↪ U_i = h∘h⁻¹.
+- **Lemma 3.3.** Its hypothesis is now intrinsic (G ↪ U a homotopy equivalence). It isotopes G straight to the level Ψ⁻¹(M×0). This is simpler than review #8's "apply to G and to the reference, then compose", and equally valid. The reference surface is needed only to obtain the homotopy equivalence in Lemma 3.2.
+- **Theorem 3.4.** Correct. The added lines on Φ(G_j) and on bounded components are right.
+
+**Missing statements.**
+1. **M_i is not a sphere.** The genus hypothesis is now on |K_i|, but Lemma 3.3 assumes "M not a sphere". The proof of Theorem 3.4 should say why the two agree: |K_i| ≅ φ_i(|K_i|) ≃ U_i ≃ M_i, and closed surfaces are determined by π₁. So M_i is not a sphere.
+2. **M_i is orientable.** Waldhausen's Prop. 3.1 requires F orientable. Here M_i × [−1,1] ≅ U_i ⊂ R³ is orientable, so M_i is. One line, in (b) of Lemma 3.3.
+3. **M_i is connected.** The collar condition says only "a closed surface M_i". Connectedness follows from U_i ≃ |K_i|, which is connected, but state it or put it in the definition. The flattening step (c), "p(G′) open and closed in the connected surface M", uses it.
+
+### F2.2 Lemma 4.1(b): π₁-surjectivity, Hopficity, asphericity, Whitehead (`sec_collar.tex` lines 182–193). Correct
+Step by step:
+- **The composite M ↪ U ↪ N̄_r(M) is literally the inclusion M ↪ N̄_r(M)**, since U ⊆ N̄_r(M) by (a′).
+  - By (a), a homeomorphism N̄_r → M×[−1,1] takes M *onto* M×{0}. Under it, the inclusion becomes the level inclusion, which is a homotopy equivalence. So the composite is one.
+  - "Onto" is automatic: an injective map of a closed connected surface into a connected closed surface is onto, by invariance of domain. Writing "M onto M×{0}" removes the question. This answers the coordinator's point: nothing is missing, but say "onto".
+- **π₁(U) → π₁(N̄_r) is onto.** It follows from the composite π₁(M) → π₁(U) → π₁(N̄_r) being an isomorphism. Base points can be taken on M ⊂ U.
+- **Hopficity step.**
+  - π₁(U) ≅ π₁(M) by (a′), because U ≅ M×[−1,1] with the *same* M.
+  - π₁(N̄_r) ≅ π₁(M) by (a).
+  - For a surjection f: G₁ → G₂ with G₁ ≅ G₂ ≅ G Hopfian, take an isomorphism α: G₂ → G₁. Then α∘f is a surjective endomorphism of G₁, hence injective, so f is injective.
+  - Closed orientable surface groups are finitely generated and residually finite, hence Hopfian (Mal'cev). The genus-0 case is trivial in any case.
+  - Then π₁(M) → π₁(U) is an isomorphism, because the composite with the isomorphism π₁(U) → π₁(N̄_r) is one.
+- **Whitehead step.**
+  - M and U are compact polyhedra, so CW complexes, and both are connected: U ≅ M×I with M connected, as Lemma 4.1 assumes.
+  - πₙ = 0 for n ≥ 2 on both sides: closed surfaces of positive genus are aspherical, and U ≃ M.
+  - The inclusion induces isomorphisms on all πₙ, so it is a homotopy equivalence.
+
+The coordinator asked whether U is connected: yes, by the above.
+
+**Two minor points.**
+- **The argument is more general than needed.** Under the review-#8 construction, U′ = Ψ⁻¹(M×[−c,c]) for a PL homeomorphism Ψ of int N_r. There U′ ↪ int N_r is a homotopy equivalence trivially, and two-out-of-three suffices. The Hopfian argument covers any U as in (a′), which is a sensible choice while (a′) is unwritten. Keep it.
+- **The conditional note understates the dependency.** (b) depends on (a), which is itself only outlined (draft note, lines 173–175), as well as on (a′). The (a′) note says only "(b) … is conditional on (a′)". Say "on (a′) and on the details of (a)".
+
+**The (a′) sketch, line 177.** The note says "a topological product collar in a 3-manifold contains a PL one between any two of its levels". As phrased this is not obviously a standard statement. The cleaner route is review #8's:
+1. int N_r(M) is an open subset of R³, hence a PL 3-manifold.
+2. It is homeomorphic to M×(−1,1) by (a).
+3. By Moise, it is PL-homeomorphic to M×(−1,1).
+4. Take U′ = Ψ⁻¹(M×[−c,c]), with c < 1 chosen so that N̄_d ⊂ int U′ (possible because N̄_d is compact in int N_r).
+
+The draft rightly marks this `\unverified`. Prefer this wording when (a′) is written.
+
+### F2.3 Subdivision (`sec_setting.tex` lines 8–11)
+Correct as far as it goes; see F1 #9 for the additional carrier hypothesis.
+
+## F3. New related-work and novelty text (`sec_intro.tex` lines 75–135)
+
+| Claim | Source check | Verdict |
+|---|---|---|
+| Milenkovic: in the plane, with uniform ε, normalized data have an exact realization within ε/2 | `cite_audit_local`: p. 388 "polygonal path does not stray further than ½ε"; title and venue correct (`cite_audit_web`, `pdfs/88a47791…`) | **OK.** Optionally add "(p. 388)" |
+| SPB04 Thm 10: ambient isotopy for a closed surface in a normal tube of a smooth closed surface that meets each normal fibre once | `read2_B.md` §3: Thm 10, PDF-checked. F is a compact nonsingular 2-manifold and **ρ is as in Cor. 8**, i.e. satisfies C1 (no principal curvature ±1/ρ) and 2ρ < c (the double-normal constant). Conclusion "W is ambient isotopic to F". Title "Isotopic approximations and interval solids" correct | **Minor:** add "of a radius ρ bounded by curvature and the double-normal distance". Without it, "normal tube" reads as any tube |
+| Shapiro 2008 §5.2 | Original p. 178: "the homotopy condition alone is not sufficient. A valid boundary representation is also an orientable 2-cycle that separates … It is not immediately clear how to extend **these notions** to the union of tolerant zones … but it is likely that **the notion of separation used to establish conditions for curve and surface isotopy** … will be useful." | **Minor imprecision.** What is "not immediately clear" is how to extend *orientable separating 2-cycle* to the union of zones. The isotopy literature's separation notion is what he expects to be *useful*. The draft merges the two. Suggested: "…notes that the homotopy condition alone is not sufficient, since a valid boundary representation must also be an orientable 2-cycle separating space; it is 'not immediately clear' how to extend these notions to unions of tolerance zones, though the notion of separation used in isotopy results 'will likely be useful' (p. 178)." Note also that the next paragraph treats containment \|σ\| ⊆ Z_σ as a much stronger demand with "no formal arguments either for or against". Realizations satisfy exactly that containment, so it is worth one clause |
+| ASZ06: checkable injectivity conditions for one composite parametric surface on a common domain, by a degree argument; §3.7 inside/outside information | `read2_B.md` §4: Thms 4.1/5.1, the degree argument (Lemma 4.1, Deimling); §3.7 quoted. Title "Conditions for use of …" and 23(7) match `cite_audit_web` A | **OK** |
+| SZ08: derive a normal-vector bound intended to exclude extraneous intersections | `lemma0_v0_review` Q4: p. 191 bound; p. 188 quote | **OK** |
+| CCS05 Thm 2.1, intro and §3 remark ("isotopic to S in the thickening") | `lit_A4` §3: conference and report versions, Thm 2.1, conclusion "S′ is isotopic to S in M" with M the thickening; hypotheses: S, S′ compact orientable surfaces in R³, S′ ≅ S. The journal version was not read; the bibliography entry marks its numbering `\unverified` | **OK.** The `\unverified` mark is on the bibliography entry, so it shows once. Consider also tagging the in-text "Thm. 2.1" |
+| CCSL09dcg §2.2: definition of wfs; offsets isotopic below wfs (Lemma 2.1) | lemma1 review S2: §2.2 and Lemma 2.1 verified; bibliography matches `cite_audit_web` A (DCG 41(3):461–479) | **OK** |
+| "Positivity also follows for subanalytic sets from [CL07]" | CL07 Prop. 3.6 is for **bounded open** sets. For a compact set it needs the §4.3 extension, which CL07 states without proof (lemma1 review S1, #6) | **Minor:** cite "[CL07, Prop. 3.6 with §4.3]" and say that §4.3 is stated without proof there, or that it is applied to the two sides as in Lemma 4.1(a) |
+| Novelty, uniqueness: "collar obtained from wfs" | That step is conditional on (a′) | **Minor:** add "(conditionally, Lemma 4.1)" |
+| Novelty, existence | Supported by the reading notes | **OK** |
+
+## F4. Numbers (§C) and citations (§D), revisited
+
+**Numbers.**
+
+| Item | Status |
+|---|---|
+| 9 → 2 cusp vertices (`sec_experiments.tex` line 89; check report) | **Fixed** |
+| "Passes after merging coplanar faces" | **Not fixed.** The merged run is still not in `results/` |
+| Sewn-plate face margin, 5.9% | **Fixed.** `results/reintersect_B3_dense.txt` gives 0.0591 for the plate |
+| Face margins in Table 3 | **Fixed.** The caption rule "smaller of the checker value and the dense re-check" reproduces every entry: box min(4.9, 5.9) = 4.9; cylinder 0.01 min(8.4, 5.0); cylinder 0.05 min(9.4, 8.9); pipe min(5.2, 5.1); plate dense only, 5.9. `lemma0_v03.md` updated to match. Neither value is certified, so the margins remain sampled, as the caption says |
+| 0.84 → 0.85 | **Fixed** (line 113) |
+| Factor 1.05 | **Fixed** (lines 10–12) |
+| Gauss integral −1.000000009 | **Not fixed.** `exp6a_result.json` still has only `linking: -1`. Add the value or cite `task6_claims.md` |
+| Window < π/κ_max | **Fixed** (line 58) |
+| "Largest feasible ρ at the positions searched" | **Fixed** (line 71) |
+| Six shells | **Fixed** (line 123) |
+| Sewn plate exact re-check (`sec_open`) | **Fixed** |
+| README "14 models", "checked computationally" | **Fixed** in the README |
+
+**Stale notes, outside the paper.**
+- `notes/lemma0_v02.md` lines 3, 44 and 66 still say V1(b) and P0 are "checked computationally".
+- `notes/lemma0_v02.md` line 150 still says ASZ 2006 is unread.
+- `notes/uniqueness_v01.md` still states the old collar condition (M_i×{0} = image of φ_i) and the old Lemma 3.
+- The README says the uniqueness proof has had "two independent reviews". Those reviews were of the old version. The v0.2 collar condition and Lemma 4.1(b) have had only this pass.
+
+**Citations.**
+
+| Item | Status |
+|---|---|
+| Jackson "commercial kernels" | **Fixed** (line 13) |
+| OCCT section | **Fixed** (bibliography line 39) |
+| OCC "small enough" quotation | **Fixed** (deleted) |
+| Qi–Shapiro combinatorial-structure clause | **Fixed** (line 19) |
+| Qi–Shapiro "single global" | **Fixed** (phrase dropped) |
+| Shapiro 2008 | **Partly fixed:** see F3 |
+| SZ08 normal-vector bound | **Fixed** |
+| CL07 definition and "due to" | **Fixed** |
+| Waldhausen pp. 65–67 | **Fixed** |
+| dREG22 title | **Fixed** |
+| ASZ06 | **Fixed:** bibliography entry and discussion |
+| Maehara | Still `\unverified`, no bibliography entry; acceptable while unread |
+| repo "(public repository)" | **Not verified by this referee.** Confirm the repository is public before circulation |
+| PL Schoenflies and knot exterior | **Fixed** (marked) |
+| Draft-note check list | **Fixed** (`sec_open.tex`) |
+
+## F5. New overclaims
+
+None of major severity. Minor items:
+1. **"Computable local conditions"** (intro line 55): S1 is global. See F1 #2.
+2. **The SPB04 and Shapiro paraphrases**: see F3.
+3. **"Positivity also follows for subanalytic sets from [CL07]"**: see F3.
+4. **Novelty, uniqueness: "the collar obtained from wfs"**: add "conditionally".
+5. **`sec_existence.tex` line 69**: "Neither assumes that a perturbed surface embeds as a whole". That is true of the fan construction, which assumes only that each patch embeds (P0). Proposition B′ assumes the whole re-trimmed model embeds (C, "bounding a solid"). The re-trimmed model is a re-intersected rather than perturbed surface, so the sentence is literally true, but a reader comparing with ASZ will read it as "derives embedding". Add "Proposition 5.3 assumes the re-trimmed model is embedded, which is checked computationally".
+
+## Remaining to do, in priority order
+1. **Theorem 3.4 proof:** add three lines (M_i not a sphere, M_i orientable, M_i connected; F2.1).
+2. **Lemma 4.1:** say "onto M×{0}" in (a); say that (b) depends on (a) and (a′); use the Moise route for (a′) when it is written (F2.2).
+3. **Subdivision:** state that the carrier condition is checked on the subdivided complex (F1 #9).
+4. **Related-work wording:** fix the Shapiro, SPB04 and CL07 sentences (F3).
+5. **Results and notes:** add the merged-L run and the Gauss value to `results/`; update `uniqueness_v01.md` and `lemma0_v02.md`; have the new §3/§4.1(b) text reviewed once more independently, as the project rules require for new proof text.

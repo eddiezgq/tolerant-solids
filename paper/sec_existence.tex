@@ -2,7 +2,8 @@
 
 We give two constructions that turn hypotheses on the data into a realization. Neither assumes that a perturbed
 surface embeds as a whole. Theorem~\ref{thm:lemma0} does assume (P0) that each original patch is embedded, and two
-of its hypotheses are non-local.
+of its hypotheses are non-local. Propositions~\ref{prop:B} and~\ref{prop:Bprime} assume that the re-trimmed model is
+embedded, which is checked computationally on the model itself.
 
 \subsection{Fans and cones}\label{sec:fans}
 
@@ -85,7 +86,9 @@ triangulation is then injective and stays in the zones.
 \end{enumerate}
 \draftnote{The full argument for steps 5--7 is in the repository (\texttt{notes/lemma0\_v02.md} \S\S4--5, with the
 changes of \texttt{lemma0\_v03.md} \S1); it should be written out here. One gap is open: the apex estimate in the PL
-step quotes a curvature $\kappa_\lambda$ of $\lambda_v$, but $\lambda_v$ is only $C^1$.}
+step quotes a curvature $\kappa_\lambda$ of $\lambda_v$, but $\lambda_v$ is only $C^1$. Standard facts used without
+separate checking: disjointness of normal disks below the reach~\cite{Federer59}, the implicit function theorem, and
+the secant (vertex-interpolation) approximation estimates for $C^1$ maps on shape-regular triangulations.}
 \end{proof}
 
 \begin{example}

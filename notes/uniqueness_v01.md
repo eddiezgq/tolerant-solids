@@ -1,5 +1,11 @@
 # Uniqueness of realizations of a tolerant B-rep (genus ≥ 1): proof draft v0.1
 
+**Superseded in part (2026-11-12, paper draft v0.2, `paper/sec_uniqueness.tex`).** After the review of the paper
+draft (reviews/p1_draft_v01_review.md, finding 1), the collar condition was weakened: the reference
+φ_i(|K_i|) need only lie in int U_i with the inclusion a homotopy equivalence, not be the level M_i × {0}. Lemma 3 is
+applied to any surface G in int U_i whose inclusion is a homotopy equivalence, and the genus condition is stated on
+|K_i|. The text below is the earlier version.
+
 **Status (2026-11-12).** Draft. It has had two independent reviews: [reviews/proof_v0_review.md](reviews/proof_v0_review.md) and [reviews/lemma1_multishell_review.md](reviews/lemma1_multishell_review.md). No fatal errors were found, and all the corrections they asked for are made here. The multi-shell argument in Section 5 has also been reviewed and found correct. This is the English version of the text in the phase-1 working document. [proof_v0.md](proof_v0.md) is the earlier v0.
 
 Not covered here:
