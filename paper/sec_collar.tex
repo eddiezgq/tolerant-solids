@@ -1,4 +1,4 @@
-\section{The collar condition is computable}\label{sec:collar}
+\section{From the weak feature size to the collar condition}\label{sec:collar}
 
 \subsection{Weak feature size}
 Let $M\subset\R^3$ be compact, $d(p)=\dist(p,M)$, and let $\Gamma(p)$ be the set of nearest points of $p$ in $M$.
@@ -37,9 +37,10 @@ First, Prop.~3.4 is stated for the distance to the complement of a bounded open 
 sides of $M$. Second, the gluing needs two more lines.}
 
 (a$'$) \draftnote{Not yet written. The planned route: by (a), $\inter\bar N_r(M)$ is a 3-manifold homeomorphic
-to $M\times(-1,1)$, hence PL-homeomorphic to it \unverified{Moise, ch.~35, uniqueness of PL structures on
-3-manifolds}; a PL product between two levels then contains $\bar N_d(M)$. Until this is written and checked, Lemma~\ref{lem:collar}(b), and with it the reduction of the
-collar condition to a distance bound, is conditional on (a$'$).}
+to $M\times(-1,1)$, hence PL-homeomorphic to it \cite{Moise77} \unverified{Moise, ch.~35 or~36, uniqueness of PL structures on
+3-manifolds, including the noncompact case}; a PL product between two levels then contains $\bar N_d(M)$. Remaining to write: (a) in full, the citation for the uniqueness of PL structures, and the choice of
+two levels containing $\bar N_d(M)$ (possible since $\bar N_d(M)$ is compact). Until then, Lemma~\ref{lem:collar}(b),
+and with it the reduction of the collar condition to a distance bound, is conditional on (a) and (a$'$).}
 
 (b) The zones lie in $N_d(M)\subseteq\inter U$, and $M\subseteq N_d(M)\subseteq\inter U$. The $U_i$ are pairwise
 disjoint because they lie in the disjoint sets $\bar N_r(M_i)$. It remains to show that the inclusion
@@ -51,6 +52,7 @@ $\pi_1(U)\to\pi_1(\bar N_r(M))$ is onto.
 so a surjection from one onto an isomorphic copy is an isomorphism. Hence $\pi_1(M)\to\pi_1(U)$ is an isomorphism.
 \item $M$ and $U\simeq M$ are aspherical, so by Whitehead's theorem the inclusion is a homotopy equivalence.
 \end{itemize}
+This uses (a) as well as (a$'$), and it uses the genus hypothesis: for a sphere the argument fails.
 Standard facts used without separate checking: Tarski--Seidenberg, regular-neighbourhood theory, that surface groups
 are Hopfian (they are residually finite), asphericity of closed surfaces of positive genus, and Whitehead's theorem.
 \end{proof}
@@ -108,7 +110,9 @@ are the projections of the box centre onto the relevant features.
 \item \emph{Stopping rule.} The search stops at the first box that is too small to split further and cannot be
 certified. Its distance from $M$ is the certified bound $L$.
 \end{itemize}
-Table~\ref{tab:wfs} lists the results.
+Table~\ref{tab:wfs} lists the results. Lemma~\ref{lem:collar} needs no critical value in $(0,r]$. The computed
+bound covers $(c\cdot\mathrm{tol},L)$; the interval $(0,c\cdot\mathrm{tol}]$ is covered by
+Corollary~\ref{cor:lambda} whenever $\lambda(M)>c\cdot\mathrm{tol}$, which we have not checked separately.
 
 \begin{table}[h]
 \centering

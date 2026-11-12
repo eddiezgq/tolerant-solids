@@ -34,8 +34,8 @@ $h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$, where $\Z(\sigma)$
 \item \textbf{Uniqueness} (Theorem~\ref{thm:uniqueness}).
   \begin{itemize}
   \item \emph{Hypotheses:} the carriers of the cells are contractible; each shell has a product collar that contains
-  its zones and a carried reference surface; the collars are pairwise disjoint; and every shell has genus at least
-  one.
+  its zones and a carried reference surface whose inclusion is a homotopy equivalence; the collars are pairwise
+  disjoint; and every shell has genus at least one.
   \item \emph{Conclusion:} the \emph{images} of any two realizations are ambient isotopic, and so are the solids they
   bound.
   \item \emph{Method:} a carrier lemma (a cellular homotopy argument), combined with Waldhausen's theorem that
@@ -43,8 +43,9 @@ $h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$, where $\Z(\sigma)$
   \end{itemize}
 \item \textbf{The collar condition} (Section~\ref{sec:collar}).
   \begin{itemize}
-  \item The collar condition follows from a distance bound below the weak feature size $\wfs(M)$ of a reference
-  surface $M$. This step is conditional on a PL-taming step that is still to be written (Lemma~\ref{lem:collar}).
+  \item The collar condition should follow from a distance bound below the weak feature size $\wfs(M)$ of a
+  reference surface $M$ (Lemma~\ref{lem:collar}). Its topological part is given in outline, and a PL-taming step is
+  still to be written.
   \item For a polyhedral $M$ we prove $\wfs(M)\ge\lambda(M)>0$, where $\lambda$ is defined from the conical radii of
   $M$ (Corollary~\ref{cor:lambda}). The underlying cone lemma is machine-checked in Lean~4 with Mathlib.
   \item We compute lower bounds for $\wfs(M)$ with an octree search, up to stated floating-point qualifications.
