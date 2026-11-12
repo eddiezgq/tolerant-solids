@@ -141,3 +141,16 @@ theorem not_isCritical_of_conical {M : Set E} {a p : E} {r : ℝ}
     intro h; apply hp; rw [sub_eq_zero.mp h]; exact hx.1
   rw [real_inner_comm, inner_sub_eq_norm_sq_of_conical hcone ha hpa hx]
   positivity
+
+/-- **Corollary B (pointwise form).** Suppose the nearest point `x` of `p ∉ M` has a conical
+neighbourhood that reaches past `p`: there are `a ∈ M` and `r` with `M` conical at `a` in radius
+`r`, and `‖x - a‖ + δ < r / 2`, where `δ ≥ ‖p - x‖`. Then `p` is not critical.
+Hence `wfs(M) ≥ λ(M) = inf_x sup_a (ρ(a)/2 - ‖x - a‖)`. -/
+theorem not_isCritical_of_conicalCover {M : Set E} {p x : E} {δ : ℝ} (hp : p ∉ M)
+    (hx : IsNearest M p x) (hδ : ‖p - x‖ ≤ δ)
+    (hcov : ∃ a ∈ M, ∃ r : ℝ, LocallyConicalAt M a r ∧ ‖x - a‖ + δ < r / 2) :
+    ¬ IsCritical M p := by
+  obtain ⟨a, ha, r, hc, hlt⟩ := hcov
+  apply not_isCritical_of_conical hc ha _ hp
+  have := norm_sub_le_norm_sub_add_norm_sub p x a
+  linarith
