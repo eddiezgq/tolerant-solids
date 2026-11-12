@@ -1,0 +1,73 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+
+% Drafting markers. \unverified marks a citation or statement that has not been checked against the
+% original source; every one must be resolved (checked, or removed) before submission.
+\newcommand{\unverified}[1]{\textcolor{red}{[#1 --- not yet checked against the original]}}
+\newcommand{\draftnote}[1]{\textcolor{orange!70!black}{[Draft note: #1]}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathcal{Z}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\wfs}{\operatorname{wfs}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\inter}{\operatorname{int}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\conv}{\operatorname{conv}}
+
+\title[Realizations of tolerant B-reps]{When does a tolerant B-rep define a solid?\\
+Existence, non-existence and uniqueness of realizations}
+\author{Guoqing (Eddie) Zhang}
+\date{Draft, 12 November 2026. Not for circulation.}
+
+\begin{document}
+
+\begin{abstract}
+Boundary representations in CAD kernels carry tolerances: edge curves, the boundary curves of the adjacent
+faces, and vertex points do not fit together exactly, and the solid they describe is only implied. We make this
+precise. A \emph{realization} of a tolerant B-rep is a PL embedding of its cell complex whose cells stay in their
+tolerance zones. We prove three kinds of results.
+(1) \emph{Uniqueness:} if every shell has genus at least one, the carriers of the cells are contractible, and each
+shell has a product collar containing its zones, then all realizations are ambient isotopic, and so are the solids
+they bound. The collar condition reduces to a distance bound below the weak feature size of a reference surface,
+and for polyhedral reference surfaces we give an explicit lower bound for the weak feature size in terms of
+conical radii; the key lemma is machine-checked in Lean.
+(2) \emph{Existence:} under computable local hypotheses there is a realization, built either by fans in the
+normal disks of the edges with cones at the vertices, or, for sharp edges with tight tolerances, by
+re-intersecting the face surfaces.
+(3) \emph{Non-existence:} if two planar patches cross transversally away from the shadows of all edge and vertex
+zones, there is no realization.
+Experiments with OpenCascade show that its validity checks do not decide any of these questions. In particular,
+an ordinary sewing operation produces a wedge that passes both of OpenCascade's checks and has no realization,
+and a thick pipe that passes both checks has two realizations whose solids are not homeomorphic.
+\end{abstract}
+
+\maketitle
+
+\input{sec_intro}
+\input{sec_setting}
+\input{sec_uniqueness}
+\input{sec_collar}
+\input{sec_existence}
+\input{sec_obstruction}
+\input{sec_experiments}
+\input{sec_open}
+\appendix
+\input{sec_lean}
+\input{sec_biblio}
+
+\end{document}

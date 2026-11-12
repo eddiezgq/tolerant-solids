@@ -1,0 +1,112 @@
+\section{Existence}\label{sec:existence}
+
+We give two constructions. Both turn computable hypotheses on the data into a realization. Neither assumes that
+some perturbed surface embeds.
+
+\subsection{Fans and cones}\label{sec:fans}
+
+\subsubsection*{Auxiliary sets}
+\begin{itemize}
+\item \emph{Normal disks.} For an edge $e$, choose a $C^1$ radius function $\rho_e(t)$ and parameters
+$0<a_e<b_e<1$. $D_e(t)$ is the closed disk of radius $\rho_e(t)$ in the normal plane $\Pi(t)$ of $\gamma_e$ at
+$\gamma_e(t)$, and $T_e=\bigcup_{t\in[a_e,b_e]}D_e(t)$.
+\item \emph{Vertex regions.} For a vertex $v$, choose $r_v$. The vertex region $W_v$ is the union of the ball
+$B(p_v,r_v)$ and, for each edge $e$ at $v$, the disks $D_e(t)$ for $t$ between the end at $v$ and $a_e$ (or
+$b_e$).
+\end{itemize}
+
+\subsubsection*{Hypotheses}
+The full statements, with the constants, are in the repository (\texttt{notes/lemma0\_v02.md},
+\texttt{notes/lemma0\_v03.md}). In summary:
+\begin{description}
+\item[E1] $\mathrm{dev}^*_e(t)<\rho_e(t)<\min(\tau_e,\operatorname{reach}\gamma_e)$, where $\mathrm{dev}^*_e(t)$ is
+the deviation measured in the normal plane. $\rho_e$ is constant on the stubs near the vertices.
+\item[E2] Each adjacent face crosses the wall of $T_e$ exactly once in every normal plane. Sufficient conditions
+are given in terms of the angle between $\gamma_e'$ and the face, the curvature of the face, and a no-return
+distance.
+\item[E3$'$] In every normal plane, the exit points $k_{f,e}(t)$, $k_{g,e}(t)$ of the two face sections are
+distinct. (E3 is an explicit sufficient condition: the angle between the sections exceeds
+$\varepsilon_f+\varepsilon_g$, where $\varepsilon=\arcsin\bigl((\mathrm{dev}^*+k\ell^2/2)/\rho\bigr)$.)
+\item[V0, V1] The edge ends and patch corners at $v$ lie in $B(p_v,r_v)$. $W_v$ is strictly star-shaped from
+$p_v$ and lies in $\Z(v)$. The construction meets $\partial W_v$ in one simple closed curve $\lambda_v$, in the
+cyclic order of the link of $v$; this part is checked computationally.
+\item[S1, P0] Separation of the $T_e$, the $W_v$ and the patches, and each patch with its collar removed is a
+disk. These are checked computationally.
+\end{description}
+
+\begin{theorem}[Existence by fans and cones]\label{thm:lemma0}
+Under E1--E3$'$, V0, V1, S1 and P0, the tolerant B-rep has a realization.
+\end{theorem}
+\begin{proof}[Construction and proof outline]
+\begin{enumerate}
+\item \emph{Vertices and edges.} Put $h(v)=p_v$. On $[a_e,b_e]$, let $h(e)$ follow $\gamma_e$.
+\item \emph{Fans.} In each disk $D_e(t)$, the radius from $\gamma_e(t)$ to $k_{f,e}(t)$ is assigned to $f$. These
+radii sweep out the fan strip $F_{f,e}$.
+\item \emph{Faces away from the vertices.} Outside the vertex regions, the face is $Q_f\cup\bigcup_eF_{f,e}$, where
+$Q_f$ is $P_f$ with the tubes and vertex regions removed.
+\item \emph{Vertex regions.} Inside $W_v$, take the cone from $p_v$ over $\lambda_v$.
+\item \emph{Injectivity and zones.} The disks $D_e(t)$ are disjoint (E1). Within one disk there are two radii
+meeting only at the centre (E3$'$). Nothing else enters the tubes or vertex regions (S1, P0). The cone is
+injective by star-shapedness. Each piece lies in the zone of its cell with a positive margin.
+\item \emph{PL step.} The resulting map is bi-Lipschitz: every crease has a positive opening angle, and at points
+where three pieces meet the tangent cone is an embedded disk. A fine secant (vertex-interpolating) approximation
+on a shape-regular triangulation is then injective and stays in the zones.
+\end{enumerate}
+Two independent reviews of v0.2 and three of v0.3 found no fatal error.
+\end{proof}
+
+\begin{example}
+On a cube whose faces are pulled apart by gaps, the construction was carried out exactly in rational
+arithmetic: 216 triangles, with zone membership and embeddedness checked exactly
+(\texttt{compute/lemma0\_box.py}).
+\end{example}
+
+\subsection{Re-intersection}
+
+\begin{proposition}[Planar, degree three]\label{prop:B}
+Suppose every face is planar, $P_f\subseteq\Pi_f$, and every vertex lies on exactly three faces whose planes are
+independent. Let $c_v$ be the common point of the three planes, $\ell_e=[c_v,c_w]$ for an edge $e=vw$, and
+$\tilde P_f$ the polygon on the $c$'s of the vertices of $f$, in the order of $\partial f$. Assume:
+\begin{itemize}
+\item $c_v\in\Z(v)$, $\ell_e\subseteq\Z(e)$ and $\tilde P_f\subseteq\Z(f)$;
+\item the $\tilde P_f$ are simple polygons that meet exactly in their common edges and vertices.
+\end{itemize}
+Then the cellular map onto $\bigcup\tilde P_f$ is a realization.
+\end{proposition}
+\begin{proof}
+It is a PL homeomorphism onto $\bigcup\tilde P_f$, and each cell lands in its zone.
+\end{proof}
+
+\begin{proposition}[Curved, transversal]\label{prop:Bprime}
+Suppose every face lies on a $C^2$ surface $S_f$, and there is a \emph{re-trimmed model}: patches $\tilde P_f\subseteq
+S_f$, curves $\tilde\gamma_e$ and points $c_v$ bounding a solid, whose cell structure is isomorphic to $K$ (as a
+B-rep complex, respecting seams and closed edges). Assume:
+\begin{itemize}
+\item the closed cells lie in their zones;
+\item the cells are $C^2$ up to the boundary, the curves are regular, and there are no cusp corners;
+\item the surfaces meet at a positive angle along every non-seam edge;
+\item at every vertex the tangent cone is an embedded PL disk.
+\end{itemize}
+Then a realization exists.
+\end{proposition}
+\begin{proof}
+\begin{itemize}
+\item Take $|K|$ to be the re-trimmed surface with its cells, and $h_0$ the identity.
+\item By compactness, $h_0(\bar\sigma)$ has a positive margin $m$ inside the open zone $\Z(\sigma)$.
+\item $h_0$ is bi-Lipschitz: within a cell by regularity, across an edge by the positive crease angle, and at a
+vertex by the tangent-cone condition.
+\item A secant approximation on a fine shape-regular curved triangulation is injective once its Lipschitz
+distance to $h_0$ is below the bi-Lipschitz constant, and it stays in the zones once its distance is below $m$.
+\end{itemize}
+\end{proof}
+
+\begin{remark}[Checking the hypotheses]
+\begin{itemize}
+\item The re-trimmed model can be computed by extending the face surfaces and rebuilding the solid
+(OpenCascade's \texttt{BOPAlgo\_MakerVolume}). The hypotheses are then checked on samples
+(\texttt{compute/reintersect\_curved.py}).
+\item For the planar case, the hypotheses of Proposition~\ref{prop:B} for the sewn box were also re-checked in
+exact rational arithmetic, including embeddedness.
+\item Results are in Section~\ref{sec:experiments}.
+\end{itemize}
+\end{remark}

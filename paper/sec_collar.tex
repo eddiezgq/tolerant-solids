@@ -1,0 +1,101 @@
+\section{The collar condition is computable}\label{sec:collar}
+
+\subsection{Weak feature size}
+Let $M\subset\R^3$ be compact, $d(p)=\dist(p,M)$, and let $\Gamma(p)$ be the set of nearest points of $p$ in $M$.
+A point $p\notin M$ is \emph{critical} if $0\in\conv\{p-x:x\in\Gamma(p)\}$. The \emph{weak feature size}
+$\wfs(M)$ is the infimum of the positive critical values of $d$~\cite{ChazalLieutier07}. Unlike the reach, it
+stays positive at sharp edges and small fillets. A surface with a concave edge has reach $0$, and a fillet of
+radius $r$ caps the reach at $r$.
+
+\begin{lemma}[Collar]\label{lem:collar}
+Let $M$ be a closed PL surface in $\R^3$, and let $0<r<\wfs(M)$.
+\begin{enumerate}
+\item[(a)] The closed $r$-neighbourhood $\bar N_r(M)$ is PL-homeomorphic to $M\times[-1,1]$, with $M$ going to
+$M\times\{0\}$.
+\item[(b)] Suppose every zone of every cell of a shell lies in $N_d(M)$ for some $d<r$, $M$ is the image of a
+carried PL embedding of that shell, and the neighbourhoods $\bar N_r(M_i)$ of different shells are pairwise
+disjoint. Then the collar condition of Section~\ref{sec:uniqueness} holds with $U_i=\bar N_r(M_i)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}[Proof sketch]
+\begin{itemize}
+\item \emph{Small radii.} For small $\delta>0$, $\bar N_\delta(M)$ is a regular neighbourhood of $M$ relative to
+$M$, by Durfee's theorem on neighbourhoods of semialgebraic sets~\cite[Props.~3.5,~3.7]{Durfee83}. A regular
+neighbourhood of a closed orientable surface in $\R^3$ is a product.
+\item \emph{Larger radii.} The region $\{\delta\le d\le r\}$ contains no critical point, so it is a product of
+a level set with $[\delta,r]$, by the isotopy lemma of Chazal and Lieutier~\cite[Prop.~3.4]{ChazalLieutier07}.
+\item \emph{Gluing.} Gluing the two products gives (a). Part (b) follows directly.
+\end{itemize}
+\draftnote{The application of~\cite[Prop.~3.4]{ChazalLieutier07}, which is stated for distance to the
+complement of a bounded open set, to $d=\dist(\cdot,M)$ is spelled out in the repository notes (review of Lemma~1); it should be written out here. The PL (rather than
+topological) form of (a) also needs a sentence.}
+\end{proof}
+
+\subsection{An explicit lower bound for polyhedral surfaces}
+For $a\in M$, the \emph{conical radius} $\rho(a)$ is the supremum of the $r>0$ such that $M\cap B(a,r)=C\cap
+B(a,r)$ for some closed cone $C$ with apex $a$.
+
+\begin{lemma}[Cone lemma]\label{lem:cone}
+Let $a\in M$, $r<\rho(a)$, and $p\notin M$ with $|p-a|<r/2$. Then every nearest point $x\in\Gamma(p)$ satisfies
+$\langle p-x,\,p-a\rangle=|p-x|^2$. In particular $p$ is not critical.
+\end{lemma}
+\begin{proof}
+\begin{itemize}
+\item \emph{Nearest points lie in the ball.} $d(p)\le|p-a|<r/2$, so every $x\in\Gamma(p)$ has $|x-a|<r$.
+\item \emph{The ray through $x$ stays in $M$.} The points $y_s=a+s(x-a)$, for $s$ near $1$, lie in the cone and
+in $B(a,r)$, hence in $M$. So $s\mapsto|p-y_s|^2$ has a local minimum at $s=1$, which gives $\langle
+p-x,x-a\rangle=0$.
+\item \emph{Conclusion.} $\langle p-x,p-a\rangle=|p-x|^2+\langle p-x,x-a\rangle=d(p)^2>0$ for all
+$x\in\Gamma(p)$. So $0$ is not in the convex hull of the vectors $p-x$.
+\end{itemize}
+\end{proof}
+
+\begin{corollary}\label{cor:lambda}
+Let $\lambda(M)=\inf_{x\in M}\sup_{a\in M}\bigl(\rho(a)/2-|x-a|\bigr)$. Then $d$ has no critical point $p$ with
+$0<d(p)<\lambda(M)$, so $\wfs(M)\ge\lambda(M)$. If $M$ is a finite union of triangles, $\lambda(M)>0$.
+\end{corollary}
+\begin{proof}
+\begin{itemize}
+\item \emph{The bound.} Given $p$ with $d(p)<\lambda$ and $x\in\Gamma(p)$, pick $a$ with
+$\rho(a)/2-|x-a|>d(p)$. Then $|p-a|<\rho(a)/2$, and Lemma~\ref{lem:cone} applies.
+\item \emph{Positivity.} For a polyhedron, $\rho(a)>0$ for every $a$. The function $g(x)=\sup_a(\rho(a)/2-|x-a|)$
+is $1$-Lipschitz and finite, since $\rho\le\operatorname{diam}M$, and $g(x)\ge\rho(x)/2>0$. $M$ is compact, so
+$\min g>0$.
+\end{itemize}
+\end{proof}
+
+Lemma~\ref{lem:cone} and the pointwise form of Corollary~\ref{cor:lambda} are machine-checked in Lean~4 with
+Mathlib, for subsets of an arbitrary real inner product space (Appendix~\ref{sec:lean}).
+
+\subsection{A certified lower bound for $\wfs$}
+For a triangulated reference surface we certify ``no critical value in $(0,L)$'' with a best-first octree:
+\begin{itemize}
+\item \emph{Boxes near $M$} are certified by Lemma~\ref{lem:cone}, using a lower bound for $\rho(a)$ at a
+candidate point $a$. The bound comes from the distance from $a$ to the nearest feature (planar region, boundary
+segment, vertex) that does not contain $a$.
+\item \emph{Boxes farther away} are certified by a direction test: a small linear program finds a unit vector $u$
+with $\langle u,p-x\rangle>0$ for all candidate nearest points $x$ of all points $p$ of the box. The candidates
+are the projections of the box centre onto the relevant features.
+\item \emph{Stopping rule.} The search stops at the first box that is too small to split further and cannot be
+certified. Its distance from $M$ is the certified bound $L$.
+\end{itemize}
+The computation is in double precision, not interval arithmetic. Table~\ref{tab:wfs} lists the results.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Part & exact $\wfs$ & certified lower bound \\
+\midrule
+cube, side 10 & 5 & 4.530 \\
+plate $4\times4\times1$ & 0.5 & 0.436 \\
+plate $4\times4\times0.3$ & 0.15 & 0.137 \\
+L-shape (wall 2) & 1 & 0.894 \\
+L-shape, inner fillet 0.2 & 1 & 0.894 \\
+block with slot of width 0.2 & 0.1 & 0.086 \\
+cylinder $R=3$, $H=10$ & 3 & 2.512 \\
+\bottomrule
+\end{tabular}
+\caption{Certified lower bounds for $\wfs$ of the triangulated parts. The inner fillet caps the reach at
+$0.2$ but leaves the certified $\wfs$ bound unchanged.}\label{tab:wfs}
+\end{table}

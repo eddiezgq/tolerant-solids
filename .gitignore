@@ -2,3 +2,10 @@ __pycache__/
 *.pyc
 lean/.lake/
 occ/
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+*.out
+*.toc
+paper/build.log

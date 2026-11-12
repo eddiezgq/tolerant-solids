@@ -1,0 +1,94 @@
+\section{An obstruction}\label{sec:obstruction}
+
+\subsection{Setting}
+\begin{itemize}
+\item $f\ne g$ are faces whose closed cells are disks bounded by single wires.
+\item Their data are planar: $P_f\subseteq\Pi_f$ and $P_g\subseteq\Pi_g$, with the planes not parallel.
+\item $\lambda=\Pi_f\cap\Pi_g$, and $\alpha\in(0,\pi/2]$ is the angle between the planes.
+\item $n_f,n_g$ are unit normals, and $m_f$ is a unit vector in $\Pi_f$ orthogonal to $\lambda$ (likewise $m_g$).
+\item $\pi_f$ is the orthogonal projection onto $\Pi_f$, and $U_f=\bigcup_{e<f}\Z(e)$, which contains the zones
+of the vertices of $f$.
+\item $\ell_f$ is the boundary loop of $f$: the arcs $\beta_{f,e}$ in the cyclic order of $\partial f$, with
+consecutive arcs joined by the segment between their end points.
+\end{itemize}
+
+\begin{theorem}[Obstruction]\label{thm:obstruction}
+Suppose there are $X\in\lambda$ and $\rho>0$ such that, with $J_f=X+[-\rho,\rho]m_f$ and $J_g=X+[-\rho,\rho]m_g$:
+\begin{description}
+\item[O0] $\beta_{f,e}\subseteq\Z(e)$ for every edge $e$ of $f$, and at every vertex $v$ of $f$ the end points of
+the two arcs of $f$ at $v$ lie in $\Z(v)$; likewise for $g$.
+\item[O1] $J_f\cap\ell_f=\emptyset$, and the winding number of $\ell_f$ in $\Pi_f$ about the points of $J_f$ is
+odd; likewise for $g$.
+\item[O2] $J_f\cap\cl\,\pi_f(U_f)=\emptyset$ and $J_g\cap\cl\,\pi_g(U_g)=\emptyset$.
+\item[O3] $\Z(e)$ is simply connected for every edge $e$ of $f$ or $g$.
+\item[O4] $\rho\sin\alpha>\tau_f\cos\alpha+\tau_g$ and $\rho\sin\alpha>\tau_g\cos\alpha+\tau_f$.
+\end{description}
+Then the tolerant B-rep has no realization.
+\end{theorem}
+
+\begin{proof}
+Suppose $h$ is a realization, and let $\varphi=\pi_f\circ h|_{\bar f}$.
+
+\emph{Step 1: over $J_f$, $h(\bar f)$ lies in the slab.}
+\begin{itemize}
+\item Let $y\in J_f$. We have $h(\bar f)\subseteq\Z(f)=N_{\tau_f}(P_f)\cup U_f$, and by O2 no point of $U_f$ lies over
+$y$.
+\item Since $P_f\subseteq\Pi_f$, $\pi_f^{-1}(y)\cap N_{\tau_f}(P_f)\subseteq\sigma_y:=y+(-\tau_f,\tau_f)n_f$.
+\item So $h(\bar f)\cap\pi_f^{-1}(y)=h(\bar f)\cap\sigma_y$. These points are images of interior points of $f$,
+because $h(\partial f)\subseteq U_f$.
+\end{itemize}
+
+\emph{Step 2: degree one.}
+\begin{itemize}
+\item Parametrize $\ell_f$ over $\partial f$: a small arc $A_v$ around each vertex goes to the joining segment, and
+the rest of each edge goes to $\beta_{f,e}$. Shrink $A_v$ until $h(A_v)\subseteq\Z(v)$.
+\item Build a homotopy in $U_f$ from $h|_{\partial f}$ to this parametrization:
+  \begin{itemize}
+  \item on $A_v$, the straight-line homotopy inside the convex ball $\Z(v)$;
+  \item on the rest of an edge $e$, the boundary of the square is mapped into $\Z(e)$ (by O0, monotonicity, and
+  $h(\bar e)\subseteq\Z(e)$), so it extends over the square by O3.
+  \end{itemize}
+\item By O2 the projected homotopy avoids every $y\in J_f$. So $\varphi|_{\partial f}$ and $\ell_f$ have the same
+winding number about $y$, which is odd by O1. Hence the mod-2 degree of $\varphi$ at $y$ is $1$.
+\item Fix a triangulation of $\bar f$ on which $h$ is linear. For $y\notin\varphi(\text{1-skeleton})$, which
+excludes only finitely many points of $J_f$ once the slice in Step 3 is generic, $\#(h(\bar f)\cap\sigma_y)$ is
+odd.
+\end{itemize}
+
+\emph{Step 3: a crossing arc.}
+\begin{itemize}
+\item Let $\Sigma$ be the plane through $X$ orthogonal to $\lambda$; it contains $n_f,m_f,n_g,m_g$.
+\item Move $X$ along $\lambda$ and shrink $\rho$ slightly to generic values; O1, O2 and O4 are open conditions.
+Genericity means: $\Sigma$ contains no vertex of the triangulations and meets their edges transversally, and the
+lines $\langle x-X,m_f\rangle=\pm\rho$, $\langle x-X,m_g\rangle=\pm\rho$ contain no vertex.
+\item In $\Sigma$, the rectangle $R_f=J_f+[-\tau_f,\tau_f]n_f$ meets $h(\bar f)$ in a compact 1-manifold $M_f$.
+\item $M_f$ misses $h(\partial f)$, since $\pi_f(R_f)=J_f$ and O2 holds. It misses the long sides of $R_f$, by
+Step 1. So its boundary lies on the two short sides.
+\item A generic fibre $\sigma_y$ meets $M_f$ an odd number of times (Step 2). Circle components, and arcs with both
+ends on one short side, meet it an even number of times.
+\item Hence some arc $a_f\subseteq M_f$ joins the two short sides of $R_f$. Likewise there is an arc $a_g$ for $g$.
+\end{itemize}
+
+\emph{Step 4: the arcs meet.}
+\begin{itemize}
+\item In $\Sigma$, use the coordinates $u=\langle x-X,n_f\rangle$ and $w=\langle x-X,n_g\rangle$.
+\item On the short sides of $R_f$, $|w|\ge\rho\sin\alpha-\tau_f\cos\alpha>\tau_g$ by O4, with opposite signs on
+the two sides. So $a_f$ contains a sub-arc in the parallelogram $Q=\{|u|\le\tau_f,|w|\le\tau_g\}$ joining
+$w=-\tau_g$ to $w=\tau_g$. Symmetrically, $a_g$ contains a sub-arc in $Q$ joining $u=-\tau_f$ to $u=\tau_f$.
+\item By O4, $Q$ lies in both rectangles.
+\item Two paths in a square joining the two pairs of opposite sides intersect
+\unverified{Maehara 1984, cited for this square lemma}. So $h(\bar f)\cap h(\bar g)\ne\emptyset$ at a point that is
+the image of interior points of both $f$ and $g$ (Step 1). This contradicts injectivity.
+\end{itemize}
+\end{proof}
+
+\begin{remark}
+\begin{itemize}
+\item \emph{Which hypotheses bind.} Face tolerances are tiny (OpenCascade's default is $10^{-7}$), so O4 is mild.
+The binding conditions are O1 and O2: the patches must cross away from the shadows of the edge and vertex zones.
+\item \emph{Curved patches.} The proof uses planarity in Steps 1 and 2. A version for $C^2$ patches with $\tau_f$
+below their reach should follow with tubular coordinates; it is not written.
+\item \emph{Review.} The proof was reviewed twice independently; the second review found the proof correct and
+one gap in the statement, now fixed (the single-wire assumption).
+\end{itemize}
+\end{remark}

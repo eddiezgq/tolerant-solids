@@ -1,0 +1,61 @@
+\section{Tolerant B-reps and realizations}\label{sec:setting}
+
+\subsection{Complexes}
+$K$ is a finite CW complex whose underlying space $|K|$ is a disjoint union of closed connected surfaces
+$|K_1|,\dots,|K_n|$ (the \emph{shells}). We write $\tau\le\sigma$ when $\tau$ is a face of $\sigma$ (including
+$\tau=\sigma$). For the uniqueness theorem we assume $K$ is \emph{regular}: every closed cell $\bar\sigma$ is a
+ball whose boundary is a subcomplex. B-rep complexes with seam edges, closed edges or faces with holes are not
+regular, and must first be subdivided. The existence constructions work directly on B-rep complexes; we say so
+where it matters.
+
+\subsection{Geometric data and zones}
+\begin{itemize}
+\item Each vertex $v$ has a point $p_v$ and a tolerance $\tau_v$.
+\item Each edge $e$ has a $C^2$ curve $\gamma_e\colon[0,1]\to\R^3$ and a tolerance $\tau_e$.
+\item Each face $f$ has a $C^2$ surface $S_f$, a compact trimmed patch $P_f\subseteq S_f$, and a tolerance
+$\tau_f$. The boundary of $P_f$ consists of the images $\beta_{f,e}=S_f\circ(\text{pcurve})$ of the pcurves of the
+edges $e<f$.
+\end{itemize}
+The \emph{deviation} of $e$ is $\mathrm{dev}_e=\max_{f>e}\max_t|\beta_{f,e}(t)-\gamma_e(t)|$. OpenCascade
+requires $\mathrm{dev}_e\le\tau_e$.
+
+\begin{definition}[Zones]\label{def:zones}
+We use \emph{augmented} open zones:
+\begin{itemize}
+\item $\Z(v)=B(p_v,\tau_v)$;
+\item $\Z(e)=N_{\tau_e}(\gamma_e)\cup\bigcup_{v<e}\Z(v)$;
+\item $\Z(f)=N_{\tau_f}(P_f)\cup\bigcup_{e<f}\Z(e)$.
+\end{itemize}
+Here $N_r$ is the open $r$-neighbourhood. Augmentation makes $\Z$ monotone: $\tau\le\sigma$ implies
+$\Z(\tau)\subseteq\Z(\sigma)$.
+\end{definition}
+
+\begin{definition}[Realization]\label{def:realization}
+A \emph{realization} of the tolerant B-rep $T=(K,\text{data},\tau)$ is a PL embedding $h\colon|K|\to\R^3$ with
+$h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$.
+\end{definition}
+
+\begin{remark}\label{rem:opencell}
+\begin{itemize}
+\item \emph{Open-cell condition.} We require only $h(\inter\sigma)\subseteq\Z(\sigma)$. The closed-cell
+condition $h(\bar\sigma)\subseteq N(\sigma)$, with unaugmented neighbourhoods, can fail for every candidate when
+vertex tolerances exceed edge tolerances, which is the usual ordering. With augmented zones the open-cell
+condition implies $h(\bar\sigma)\subseteq\Z(\sigma)$, since $\bar\sigma$ is the union of the open cells
+$\tau\le\sigma$.
+\item \emph{Tameness.} Requiring $h$ to be PL rules out wild embeddings such as Alexander's horned sphere.
+\end{itemize}
+\end{remark}
+
+\begin{definition}[Carriers]
+The \emph{carrier} of a cell is $\C(\sigma)=\bigcup_{\tau\le\sigma}\Z(\tau)$. For augmented zones
+$\C(\sigma)=\Z(\sigma)$. A continuous map $g\colon|K|\to\R^3$ is \emph{carried} if $g(\bar\sigma)\subseteq
+\C(\sigma)$ for every $\sigma$. By Remark~\ref{rem:opencell}, every realization is carried.
+\end{definition}
+
+\begin{definition}[Solid]\label{def:solid}
+Let $S_1,\dots,S_n\subset\R^3$ be pairwise disjoint closed surfaces. The \emph{depth} of a point $x\notin\bigcup S_j$
+is the number of $j$ for which $x$ lies in the bounded component of $\R^3\setminus S_j$. The solid bounded by
+the $S_j$ is the closure of the set of points of odd depth.
+\end{definition}
+This matches the usual B-rep convention of outer shells and cavities when the shells are consistently oriented;
+a consistency check of the orientation is separate.

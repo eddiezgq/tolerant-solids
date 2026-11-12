@@ -1,0 +1,26 @@
+\section{Formal verification in Lean}\label{sec:lean}
+
+The following are proved in Lean~4 with Mathlib (repository directory \texttt{lean/}). The build has no
+\texttt{sorry}, and the results depend only on the axioms \texttt{propext}, \texttt{Classical.choice} and
+\texttt{Quot.sound}.
+
+\begin{center}\small
+\begin{tabular}{p{6.6cm}p{6.4cm}}
+\toprule
+Lean statement & Content \\
+\midrule
+\texttt{inner\_eq\_zero\_of\_conical} & at a nearest point $x$, $\langle p-x,x-a\rangle=0$ (Lemma~\ref{lem:cone}) \\
+\texttt{inner\_sub\_eq\_norm\_sq\_of\_conical} & $\langle p-x,p-a\rangle=|p-x|^2$ \\
+\texttt{not\_isCritical\_of\_conical} & $p$ is not critical (Lemma~\ref{lem:cone}) \\
+\texttt{not\_isCritical\_of\_conicalCover} & pointwise form of Corollary~\ref{cor:lambda} \\
+\texttt{carrier\_mono}, \texttt{carrier\_eq\_zone\_of\_mono} & carriers are monotone, and equal the zones when the
+zones are augmented \\
+\texttt{carried\_of\_realization}, \texttt{image\_closedCell\_subset\_carrier} & realizations are carried \\
+\texttt{carried\_straightLine}, \texttt{continuous\_straightLine} & Lemma~\ref{lem:carrier} when the carriers
+are convex \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The statements are for an arbitrary real inner product space. Criticality is formalized as
+$0\in\conv\{p-x:x\text{ nearest}\}$.

@@ -1,0 +1,115 @@
+\section{Experiments with OpenCascade}\label{sec:experiments}
+
+\subsection{Set-up}
+\begin{itemize}
+\item \emph{Software.} All experiments use OpenCascade 8.0.1 through \texttt{cadquery-ocp}. Scripts and results are
+in the repository~\cite{repo}.
+\item \emph{The two checks.} ``BRepCheck'' is \texttt{BRepCheck\_Analyzer(shape).IsValid()}. ``BOP check'' is
+\texttt{BRepAlgoAPI\_Check(shape, true, true)}, which also tests geometry and self-interference.
+\item \emph{Sewn models} imitate imported data. Every face of an exact part is moved by a random vector of length
+between $g/2$ and $g$, and the faces are sewn back with \texttt{BRepBuilderAPI\_Sewing} at tolerance $4g$. Sewing
+sets each edge tolerance to $1.05$ times the measured deviation.
+\item \emph{Scope.} These are a few parts in one kernel version, not a survey of industrial models.
+\end{itemize}
+
+\subsection{The checks do not decide existence or uniqueness}
+Table~\ref{tab:occ} summarises.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{>{\raggedright}p{4.4cm}cc>{\raggedright\arraybackslash}p{5.0cm}}
+\toprule
+Model & BRepCheck & BOP check & What is true \\
+\midrule
+twisted triangular prism, two faces with linked boundaries ($\tau=0.081$) & valid & self-intersection & no
+realization (linking number $-1$) \\
+thick pipe, tolerance $1.3\times$ hole radius & valid & valid & two realizations with non-homeomorphic solids
+(knot determinant $3$ vs.\ $1$) \\
+sewn wedges, $30^\circ$ and $10^\circ$, $g=0.01$ & valid & valid & no realization
+(Theorem~\ref{thm:obstruction}) \\
+sewn plate, thickness $0.05$, $g=0.01$ & valid & invalid & realizable (Proposition~\ref{prop:B}) \\
+filleted L-shape, $\tau=0.1<\wfs=1$ & valid & self-intersection & collar condition certified \\
+long cylinder, tolerance above $\wfs$ & valid & valid & collar condition fails for the nominal surface \\
+\bottomrule
+\end{tabular}
+\caption{OpenCascade's checks against what the theory shows.}\label{tab:occ}
+\end{table}
+
+\subsubsection*{Twisted prism}
+\begin{itemize}
+\item Two non-adjacent triangular faces have boundary loops with linking number $-1$ (by crossing count, and by
+the Gauss integral: $-1.000000009$). The loops are farther apart than $2\tau$.
+\item In any realization, the image boundary loops stay in disjoint tubular neighbourhoods and are homotopic to
+the cores, so they are still linked. Hence each meets the other's face, contradicting embeddedness.
+\end{itemize}
+
+\subsubsection*{Knotted pipe}
+\begin{itemize}
+\item One realization keeps the nominal geometry. The other replaces the inner face by a thin tube, of radius
+$0.005$, around a centreline that follows a long trefoil.
+\item The script checks the zones (maximum distance $0.983\le1.3$), embeddedness ($\varepsilon\kappa_{\max}=0.31$;
+non-local distance $0.036>2\varepsilon$) and the knot (determinant $3$).
+\item The second solid is the exterior of a knotted arc in a ball, whose fundamental group is non-abelian. The
+nominal solid is a solid torus. So the two solids are not homeomorphic.
+\item This shows that the collar hypothesis of Theorem~\ref{thm:uniqueness} cannot be dropped. Here
+$\wfs\le1<1.3$.
+\end{itemize}
+
+\subsubsection*{Sewn wedges}
+\begin{itemize}
+\item At the knife edge of the sewn wedges, the two planar patches cross along a line that lies outside the edge
+tube, by $49\%$ ($30^\circ$) and about $3\times$ ($10^\circ$) of $\tau_e$.
+\item The hypotheses of Theorem~\ref{thm:obstruction} hold. For the $30^\circ$ wedge the largest feasible $\rho$
+is $1.6\cdot10^{-3}$, while O4 needs only $3.7\cdot10^{-7}$; for the $10^\circ$ wedge it is $1.6\cdot10^{-2}$.
+\item An independent check in exact rational arithmetic confirmed all of O0--O4 for both wedges.
+\item On the sewn box and plate and on the exact box and wedge, the checker finds no crossing witness, consistent
+with their being realizable.
+\end{itemize}
+
+\subsection{Which construction applies}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{>{\raggedright}p{4.0cm}>{\raggedright}p{2.8cm}>{\raggedright}p{2.6cm}>{\raggedright\arraybackslash}p{4.0cm}}
+\toprule
+Model & fans (Thm.~\ref{thm:lemma0}) & re-intersection & margins of re-intersection (vertex / edge / face) \\
+\midrule
+exact box, cylinder, pipe, slot, filleted box, $10^\circ$ wedge & pass & pass where applicable & --- \\
+L-shape, all edges filleted 0.5 & pass with variable radius$^*$ & not applicable & --- \\
+L-shape fused, inner fillet 0.2 & fails (9 cusp vertices); passes after merging coplanar faces & not applicable & --- \\
+sewn box $g=0.01$ & fails at vertices & pass & 45\% / 13\% / 5.9\% \\
+sewn plate $g=0.01$ & fails at vertices & pass & 45\% / 13\% / 5.9\% \\
+sewn cylinder $g=0.01$ & fails at vertices & pass (curved) & 55\% / 35\% / 5.0\% \\
+sewn cylinder $g=0.05$ & fails at vertices & pass (curved) & 55\% / 11\% / 8.9\% \\
+sewn pipe $g=0.01$ & fails at vertices & pass (curved) & 53\% / 16\% / 5.1\% \\
+sewn wedges & fails at vertices & fails (edge outside tube) & no realization (Thm.~\ref{thm:obstruction}) \\
+sewn filleted box $g=0.001$ & fails at vertices & not applicable (tangent faces) & open \\
+\bottomrule
+\end{tabular}
+\caption{Constructions on exact and sewn models (sampled checks, double precision). $^*$Provisional: the checker
+does not yet implement the constant radius near the vertices. Face margins are an independent dense re-check
+with exact projections.}\label{tab:constr}
+\end{table}
+
+\begin{itemize}
+\item \emph{Why the fans fail on sewn data.} The fan construction fails at the vertices of sewn models. Sewing sets
+$\tau_e=1.05\,\mathrm{dev}_e$, and the tube radius must exceed the deviation; but at a corner of a box three tubes of
+radius greater than $\mathrm{dev}$ do not fit disjointly into a vertex ball of radius about $\tau_e$.
+\item \emph{Re-intersection.} Re-intersection avoids this, but needs transversal faces.
+\item \emph{Sewn models with tangent edges remain open.} On the sewn filleted box, OpenCascade sets each vertex
+tolerance equal to the largest incident edge tolerance, the patch corners lie up to $0.84\,\tau_v$ from the vertex
+point, and none of our vertex constructions fits.
+\end{itemize}
+
+\subsection{Other observations}
+\begin{itemize}
+\item \emph{Thickness heuristics.} Half the minimum distance between non-adjacent faces is a common estimate of the
+safe tolerance. It overestimates the cylinder (5 against $\wfs=3$), and underestimates an L-shape with a $0.05$
+inner fillet by a factor of about $97$.
+\item \emph{Offsets.} In its default mode, \texttt{BRepOffsetAPI\_MakeOffsetShape} returned solids with wrong
+volume (errors from $44\%$ to over a thousandfold) for a filleted box at offsets within the $\wfs$-safe range, and
+BRepCheck accepted them. The documentation asks only for a ``small enough'' offset.
+\item \emph{Public documentation.} We did not find a check that tolerances leave the topology unchanged in the
+public documentation of OpenCascade, or in third-party documentation of ACIS and Parasolid. That says only that
+the documentation does not mention one.
+\end{itemize}

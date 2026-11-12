@@ -1,0 +1,121 @@
+\section{Uniqueness for shells of positive genus}\label{sec:uniqueness}
+
+\subsection{Hypotheses}
+\begin{itemize}
+\item \textbf{Carrier condition.} $\C(v)$ is path-connected for every vertex $v$, and $\pi_k(\C(\sigma))=0$ for
+every $k$-cell $\sigma$ with $k\ge1$. Contractible carriers suffice.
+\item \textbf{Collar condition.} For each shell $K_i$ there are a compact PL submanifold $U_i\subset\R^3$ and a
+PL homeomorphism $U_i\cong M_i\times[-1,1]$ with these properties:
+  \begin{itemize}
+  \item $M_i\times\{0\}$ is the image of a carried PL embedding $\varphi_i\colon|K_i|\to\R^3$ (a \emph{reference
+  surface});
+  \item all zones of the cells of $K_i$ lie in $\inter U_i$;
+  \item the $U_i$ are pairwise disjoint.
+  \end{itemize}
+\item \textbf{Genus.} Each $M_i$ has genus at least one.
+\end{itemize}
+
+\subsection{Lemmas}
+
+\begin{lemma}[Carrier lemma]\label{lem:carrier}
+Under the carrier condition, any two carried maps $f,g\colon|K|\to\R^3$ are homotopic by a homotopy $H$ with
+$H(\bar\sigma\times I)\subseteq\C(\sigma)$ for every $\sigma$.
+\end{lemma}
+\begin{proof}
+Define $H$ on $|K|\times\{0,1\}\cup|K^{(k)}|\times I$ by induction on $k$, keeping $H(\bar\sigma\times I)
+\subseteq\C(\sigma)$, with $H(\cdot,0)=f$ and $H(\cdot,1)=g$.
+\begin{itemize}
+\item $k=0$: for a vertex $v$, the points $f(v),g(v)$ lie in the path-connected set $\C(v)$; join them by a
+path in $\C(v)$.
+\item $k\ge1$: let $\sigma$ be a $k$-cell. $\bar\sigma\times I$ is a $(k+1)$-ball whose boundary
+$\bar\sigma\times\{0,1\}\cup\partial\bar\sigma\times I$ is a $k$-sphere, and $H$ is already defined on it:
+  \begin{itemize}
+  \item on $\bar\sigma\times\{0,1\}$ it is $f$ or $g$, with image in $\C(\sigma)$;
+  \item on $\partial\bar\sigma\times I$ it is defined by induction, with image in
+  $\bigcup_{\tau<\sigma}\C(\tau)\subseteq\C(\sigma)$.
+  \end{itemize}
+  Since $\pi_k(\C(\sigma))=0$, $H$ extends over $\bar\sigma\times I$ with image in $\C(\sigma)$.
+\end{itemize}
+The pieces agree on common boundaries, and a finite union of closed sets glued continuously gives a continuous
+$H$.
+\end{proof}
+
+\begin{lemma}[Separation]\label{lem:separation}
+Assume the carrier and collar conditions, and let $h$ be a realization. Then $G=h(|K_i|)$ is a closed surface in
+$\inter U_i$, and the inclusion $G\hookrightarrow U_i$ is a homotopy equivalence.
+\end{lemma}
+\begin{proof}
+\begin{itemize}
+\item By Lemma~\ref{lem:carrier} on $K_i$, $h$ and $\varphi_i$ are homotopic through maps with image in
+$\bigcup\C(\sigma)\subseteq\inter U_i$, so the homotopy takes place in $U_i$.
+\item $\varphi_i\colon|K_i|\to U_i$ is a homeomorphism onto $M_i\times\{0\}$ followed by inclusion, which is a
+homotopy equivalence. Hence so is $h\colon|K_i|\to U_i$.
+\item Since $h$ is a homeomorphism onto $G$, the inclusion $G\hookrightarrow U_i$, which equals $h\circ h^{-1}$,
+is a homotopy equivalence.
+\end{itemize}
+\end{proof}
+
+\begin{lemma}[Horizontality]\label{lem:horizontal}
+Under the hypotheses of Lemma~\ref{lem:separation}, if $M_i$ is not a sphere, there is an ambient isotopy of
+$\R^3$, supported in $U_i$ and fixed on $\partial U_i$, that carries $G$ to $M_i\times\{0\}$.
+\end{lemma}
+\begin{proof}
+\begin{enumerate}
+\item[(a)] \emph{$G$ is incompressible.}
+  \begin{itemize}
+  \item By Lemma~\ref{lem:separation}, $\pi_1(G)\to\pi_1(U_i)$ is an isomorphism.
+  \item The boundary of a compressing disk would be a curve that is essential in $G$ and null-homotopic in $U_i$,
+  which this rules out. That is incompressibility in the sense of Waldhausen~\cite[p.~58]{Waldhausen68}.
+  \item Case (b) of that definition concerns spheres and does not arise. We do not use the converse direction,
+  which needs the loop theorem.
+  \item $G$ is a closed orientable surface in an orientable 3-manifold, hence two-sided, and it is disjoint from
+  $\partial U_i$; so it satisfies Waldhausen's conventions~\cite[\S0]{Waldhausen68}.
+  \end{itemize}
+\item[(b)] \emph{$G$ can be made horizontal.}
+  \begin{itemize}
+  \item Apply Waldhausen's Proposition~3.1~\cite[pp.~65--66]{Waldhausen68} to $U_i=M_i\times I$ ($M_i$ orientable,
+  not a sphere) and the incompressible surface $G$. Since $\partial G=\emptyset$, the condition
+  ``$\partial G\subseteq F\times1$'' holds vacuously.
+  \item It gives an isotopy, constant on $\partial U_i$, from $G$ to a surface $G'$ whose projection
+  $p\colon G'\to M_i$ is a homeomorphism onto its image.
+  \item $p(G')$ is open (invariance of domain) and closed in the connected surface $M_i$, so $p(G')=M_i$.
+  Hence $G'$ is the graph of a function $s\colon M_i\to(-1,1)$.
+  \end{itemize}
+\item[(c)] \emph{Flatten.} The PL homeomorphisms of the fibres $\{x\}\times[-1,1]$ that fix both ends and send $s(x)$
+to $(1-t)s(x)$, $t\in[0,1]$, give an ambient isotopy of $U_i$, fixed on $\partial U_i$, from $G'$ to
+$M_i\times\{0\}$. This isotopy is topological. Alternatively, the region between $G'$ and $M_i\times\{0\}$ is a
+product region, so the two surfaces are parallel~\cite[p.~58]{Waldhausen68}.
+\item[(d)] Both isotopies are fixed on $\partial U_i$ and extend by the identity to $\R^3$.
+\end{enumerate}
+\end{proof}
+
+\subsection{The theorem}
+
+\begin{theorem}[Uniqueness]\label{thm:uniqueness}
+Assume the carrier condition, the collar condition, and that every shell has genus at least one. Then:
+\begin{enumerate}
+\item the image of any realization is ambient isotopic to $\bigcup_i M_i\times\{0\}$;
+\item the images of any two realizations are ambient isotopic;
+\item the solids they bound (Definition~\ref{def:solid}) are ambient isotopic.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+\item Apply Lemma~\ref{lem:horizontal} shell by shell. The supports $U_i$ are pairwise disjoint, so the
+isotopies can be run simultaneously. Their end map is a homeomorphism $\Phi$ of $\R^3$ with $\Phi(G_i)=M_i$ for
+every $i$.
+\item By the Jordan--Brouwer separation theorem each closed surface separates $\R^3$ into two components. $\Phi$
+maps the bounded component of $\R^3\setminus G_j$ onto the bounded component of $\R^3\setminus M_j$. So depth is
+preserved, and $\Phi$ maps the solid bounded by the $G_j$ onto the solid bounded by the $M_j$.
+\item For two realizations with maps $\Phi$ and $\Phi'$, use $\Phi'^{-1}\circ\Phi$.
+\end{itemize}
+\end{proof}
+
+\begin{remark}
+\begin{itemize}
+\item \emph{What is not covered.} Spheres (genus 0) are excluded, and the isotopy is of images, not of
+embeddings.
+\item \emph{The collar condition cannot be dropped.} The thick pipe of Section~\ref{sec:experiments} passes both
+OpenCascade checks and has two realizations whose solids are not even homeomorphic.
+\end{itemize}
+\end{remark}

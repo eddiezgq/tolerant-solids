@@ -1,0 +1,27 @@
+\section{Limitations and open problems}\label{sec:open}
+
+\begin{enumerate}
+\item \textbf{Spheres.} Theorem~\ref{thm:uniqueness} excludes shells of genus $0$. Waldhausen's horizontality
+argument does not apply to them. The PL Schoenflies theorem should give the sphere case under the same
+hypotheses; this is not written.
+\item \textbf{Embeddings.} We prove that the images of realizations are ambient isotopic, not that the embeddings
+are isotopic as maps. The two differ by a self-homeomorphism of the surface.
+\item \textbf{Tight vertices.} We do not know whether sewn models with tangent edges and OpenCascade's vertex
+tolerances (equal to the largest incident edge tolerance) have realizations. Two directions are open: a vertex
+construction that uses the edge tubes as well as the ball, or a vertex version of the obstruction.
+\item \textbf{Mixed vertices.} Vertices where tangent and sharp edges meet need a construction combining fans and
+re-intersection.
+\item \textbf{Curved obstruction.} Theorem~\ref{thm:obstruction} is stated for planar patches.
+\item \textbf{Rigour of the computations.}
+  \begin{itemize}
+  \item The $\wfs$ bounds and the hypothesis checks use double precision and sampling. Exceptions: the gapped-cube
+  construction, and the exact re-verification of the sewn wedges and the sewn box.
+  \item Interval arithmetic and a compiled implementation are needed for industrial models.
+  \end{itemize}
+\item \textbf{Formalization.} The carrier lemma in general (contractible carriers), Waldhausen's theorem and the
+existence constructions are not formalized.
+\end{enumerate}
+
+\draftnote{Before submission: check against the originals Moise (Geometric Topology in Dimensions 2 and 3,
+ch.~17, 35), Hempel (3-Manifolds, ch.~6, 10), Fu (1985), Maehara (1984), Andersson--Peters--Stewart (2000) and
+Andersson--Stewart--Zidani (2006). Revise the novelty statements in Section~\ref{sec:intro} accordingly.}
