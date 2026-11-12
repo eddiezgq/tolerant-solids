@@ -99,11 +99,21 @@ $h(f)$ is a closed disk with $\partial h(f)=\bigcup_{e<f}h(e)$.
 We build a polyhedral domain and a homeomorphism onto the union of the pieces that is $C^1$, with injective
 differential, on each closed domain cell (except at the apexes), and that agrees on shared edges.
 
-\emph{Domain.} Let $L$ be a polyhedral subdivision of $|K|$ with one 2-cell for each fan, each $Q_f$ and each sector,
-in the incidence pattern of the image pieces. The sector cells are cones from the vertex $v$ over a polygonal arc of
-the link of $v$; that arc has a vertex at the preimage of every corner of $\lambda_v$.
+\emph{Domain.} Let $L$ be a polyhedral subdivision of $|K|$ with 2-cells for the fans, for the pieces $Q_f$ and for the
+sectors, in the incidence pattern of the image pieces. Each sector is subdivided into \emph{sub-cones}: cones from the
+vertex $v$ over one segment of a polygonal arc of the link of $v$. That arc has a vertex at the preimage of every corner
+of $\lambda_v$, so the image of a sub-cone is the cone over a $C^1$ piece of $\lambda_v$.
 
-\emph{Fans.} Use the chart $(t,\sigma)\mapsto\gamma_e(t)+\sigma(k_{f,e}(t)-\gamma_e(t))$ on $[a_e,b_e]\times[0,1]$.
+\emph{The parametrization $\phi$.} Fix once and for all a parametrization $\phi$ of $\lambda_v$ by the polygonal link,
+$C^1$ with $\phi'\ne0$ on each link segment, such that:
+\begin{itemize}
+\item on each end radius $[\gamma_e(a_e),k_{f,e}(a_e)]$ it is affine in the fan parameter $\sigma$;
+\item on each arc $A_{f,v}$ it is some fixed $C^1$ regular parametrization.
+\end{itemize}
+The maps below all use this $\phi$.
+
+\emph{Fans.} Use the chart $(t,\sigma)\mapsto\gamma_e(t)+\sigma(k_{f,e}(t)-\gamma_e(t))$ on $[a_e,b_e]\times[0,1]$,
+precomposed with a bilinear map from the quadrilateral domain cell onto this rectangle.
 \begin{itemize}
 \item It is $C^1$ (since $k_{f,e}$ is).
 \item Its differential is injective: $\partial_\sigma=k-\gamma\in\Pi(t)$ is nonzero, and $\partial_t$ has
@@ -111,23 +121,21 @@ $\gamma'$-component at least $1-\sigma\kappa_\gamma\rho_e>0$.
 \item It fixes the parametrization of the crease $k_{f,e}$ by $t$, and that of the end radius at $t=a_e$ by $\sigma$.
 \end{itemize}
 
-\emph{Sectors.} On the cone from $v$ over a link arc, map $v+s(y-v)$ to $p_v+s(\phi(y)-p_v)$.
-\begin{itemize}
-\item $\phi$ maps the link arc onto $\Lambda_{f,v}$ and is $C^1$ with $\phi'\ne0$ on each link segment between
-consecutive corners.
-\item On the end radii, $\phi$ is chosen to agree with the fan parametrization by $\sigma$. On $A_{f,v}$, it agrees with
-the parametrization used for $Q_f$ below.
-\end{itemize}
+\emph{Sectors.} On each sub-cone, map $v+s(y-v)$ to $p_v+s(\phi(y)-p_v)$. This map is $C^1$ up to the boundary
+away from $v$, with injective differential, because $\phi'\ne0$ and $\phi'$ is transverse to the rays (V1(a)). It agrees
+with the fan on the end radii (both affine in $\sigma$), and with the map on $Q_f$ along $A_{f,v}$ (both use $\phi$).
 
 \emph{$Q_f$.} In the parameter domain of $P_f$, $\partial Q_f$ is a piecewise $C^1$ curve. Its pieces are $k_{f,e}$,
-parametrized by $t$, and $A_{f,v}$, parametrized by the restriction of $\phi$. Its corners are at the points
-$k_{f,e}(a_e)$ and at the junction crossings.
+parametrized by $t$, and $A_{f,v}$, parametrized by $\phi$. Its corners are at the points $k_{f,e}(a_e)$ and at the
+junction crossings.
 \begin{itemize}
-\item Subdivide $Q_f$ into curved triangles, so that the boundary pieces and their prescribed parametrizations are
-edges of the subdivision.
-\item On each curved triangle, use a transfinite (blending-function) interpolation map from a straight triangle with
-the prescribed edge maps~\cite{GordonHall73} \unverified{Gordon--Hall blending maps: $C^1$ up to the boundary and
-invertible for sufficiently fine subdivision}.
+\item Subdivide $Q_f$ into curved triangles, each with at most one curved edge. The curved edges are pieces of
+$\partial Q_f$ with their prescribed parametrizations, and the corners of $\partial Q_f$ are vertices. Triangulate the
+domain cell of $Q_f$ in $L$ to match.
+\item On each curved triangle, use a transformation from a straight triangle that reproduces the prescribed
+parametrization on the curved edge and is affine on the straight edges~\cite{Lenoir86}. Such maps are $C^1$ up to the
+boundary and invertible for a fine enough subdivision \unverified{Lenoir's construction: regularity up to the corners and
+invertibility}.
 \item Composed with the chart of $P_f$, this gives maps that are $C^1$ up to the boundary, have injective
 differential, and agree on shared edges.
 \end{itemize}
@@ -150,7 +158,10 @@ equivalent to the extrinsic one, and in it a Lipschitz bound on each cell is a g
   \item Along $\gamma_e$ (two fans): E3$'$ and compactness.
   \item Along $\partial W_v$ (cone and outside piece): the cone's half-tangent $p_v-x$ points strictly into $W_v$ (strict
   star-shapedness, V1(a)), and the outside piece leaves strictly outward (transversality, V1(b)). For a fan, the
-  tangent plane along the end radius contains $k'$ or $\gamma'$, neither of which lies in $\Pi(a_e)$.
+  tangent plane along the end radius contains $\partial_t=(1-\sigma)\gamma'+\sigma k'$, which does not lie in $\Pi(a_e)$.
+  \item Along the rays from $p_v$ to a corner of $\lambda_v$ (between two sub-cones): by homogeneity, the opening angle
+  along the ray is constant away from $p_v$, and it is positive because the radial projection of $\lambda_v$ to the unit
+  sphere about $p_v$ has no fold at the corner (see the corner arguments below and V1(a)).
   \end{itemize}
 \item \emph{At $k(a_e)$} (fan, $Q_f$ and two cone sub-sectors). Here $\rho_e'(a_e)=0$, so $k'\perp\hat r$. Let
 $Q=\{\langle\cdot,\gamma'\rangle\le0,\langle\cdot,\hat r\rangle\le0\}$ and $w=p_v-k(a_e)$; then $w\in\inter Q$ by strict
@@ -164,15 +175,22 @@ star-shapedness.
   only the rays $k'$ (fan and $Q_f$), $-\hat r$ (fan and cone), $w$ (between the two cone sub-sectors) and $-k'$ (cone
   and $Q_f$). The two cone sub-sectors do not fold: if $-\hat r$, $w$, $-k'$ were coplanar, then $w\in\inter Q$ would
   force $w=-a\hat r-bk'$ with $a,b>0$, strictly between them. Hence the tangent cone is an embedded disk.
-\item \emph{At $\gamma(a_e)$} (two fans and the adjacent cone sectors). The fans lie in
-$\{\langle\cdot,\gamma'\rangle\ge0\}$, and the cone sectors in $\{\langle\cdot,\gamma'\rangle\le0\}$ with
-$\langle p_v-\gamma(a_e),\gamma'\rangle<0$. They share only the rays $\hat r_f\ne\hat r_g$ (E3$'$).
+\item \emph{At $\gamma(a_e)$} (two fans and the adjacent cone sub-cones). The fans lie in
+$\{\langle\cdot,\gamma'\rangle\ge0\}$, and the cone sub-cones in $\{\langle\cdot,\gamma'\rangle\le0\}$ with
+$\langle p_v-\gamma(a_e),\gamma'\rangle<0$. They share only the rays $\hat r_f\ne\hat r_g$ (E3$'$). The two cone
+sub-cones, $\mathrm{span}^+(\hat r_f,w)$ and $\mathrm{span}^+(w,\hat r_g)$ with $w=p_v-\gamma(a_e)$, do not fold onto each
+other, because $\hat r_f\ne\hat r_g$ and both are orthogonal to $\gamma'$ while $w$ is not.
 \item \emph{At a junction crossing $x$ of $\lambda_v$.} The tangent cone $T_x$ of $W_v$ at $x$ is the union of two
 half-spaces, since $W_v$ is a union of two convex sets near $x$. Let $\ell_1,\ell_2$ be the half-tangents of $\lambda_v$
 at $x$, one in each face of $T_x$.
   \begin{itemize}
-  \item Strict star-shapedness gives $w=p_v-x\in\inter T_x$, so the two cone sub-sectors $\mathrm{span}^+(\ell_1,w)$
-  and $\mathrm{span}^+(w,\ell_2)$ lie in $T_x$.
+  \item The cone sub-cones near $x$ consist of segments from $p_v$ to points of $\lambda_v$. By strict star-shapedness
+  these segments run into $W_v$, so the sub-cones lie in $W_v$ near $x$. Their tangent sectors
+  $\mathrm{span}^+(\ell_1,w)$ and $\mathrm{span}^+(w,\ell_2)$, with $w=p_v-x$, therefore lie in $T_x$. (This uses
+  star-shapedness itself, not the convexity of $T_x$, which fails.)
+  \item The two sub-cones do not fold: projected along $w$, the half-tangents $\ell_1,\ell_2$ point in different
+  directions, because the radial projection of $\lambda_v$ is locally injective (each ray meets $\partial W_v$ once,
+  V1(a)) and $\lambda_v$ is transverse to the rays.
   \item By the transversality in V1(b), the tangent sector of the outside piece lies in the closure of the complement
   of $T_x$.
   \end{itemize}
@@ -196,8 +214,9 @@ equal to $h$ at the vertices.
 \item \emph{Off the sectors.} $h$ is $C^1$ up to the boundary on each closed triangle. The standard per-triangle
 estimate gives $\operatorname{Lip}(S-h)\le C\,\omega(Dh,\mathrm{mesh})/\sin\theta_{\min}$, where $\omega$ is a modulus
 of continuity and $\theta_{\min}$ is bounded below by shape regularity.
-\item \emph{On a radial triangle $(v,y_0,y_1)$.} Its base lies on one link segment. Write $y=(1-u)y_0+uy_1$, with $u$
-proportional to arc length and $\tau$ the unit vector of the base.
+\item \emph{On a radial triangle $(v,y_0,y_1)$.} Its base lies on one link segment. Write $y=(1-u)y_0+uy_1$ with
+$u\in[0,1]$, let $\ell=|y_1-y_0|$, and let $\tau$ be the unit vector of the base; derivatives of $e$ below are with
+respect to arc length $\ell u$.
   \begin{itemize}
   \item A point $x=v+s(y-v)$ has barycentric coordinates $(1-s,\,s(1-u),\,su)$. So $S(x)=p_v+s(\hat\phi(y)-p_v)$,
   where $\hat\phi$ is the linear interpolation of $\phi$ on the base, and
@@ -205,8 +224,8 @@ proportional to arc length and $\tau$ the unit vector of the base.
   (S-h)(x)=s\,e(y),\qquad e=\hat\phi-\phi .
   \]
   This is exactly homogeneous of degree one in $s$.
-  \item Differentiating: $\partial_s x=y-v$ gives $\partial_s(S-h)=e(y)$, and $\partial_u x$ (a multiple $s\tau$ of
-  $\tau$) gives $D(S-h)\cdot\tau=e'$, with no division by the distance to the apex.
+  \item Differentiating: $\partial_s x=y-v$ gives $\partial_s(S-h)=e(y)$. And $\partial_u x=s\ell\tau$ while
+  $\partial_u(S-h)=s\ell e'$, so $D(S-h)\cdot\tau=e'$, with no division by the distance to the apex.
   \item Hence $\|D(S-h)\|\le(|e|/|y-v|+|e'|)/\sin\beta$, where $\beta$ is the angle between the ray $y-v$ and the base.
   $\beta$ is bounded below by the fixed domain geometry, since the link is transverse to the rays.
   \item Since $\hat\phi'$ is the mean of $\phi'$ over the base, $|e'|\le\omega(\phi',\mathrm{mesh})$ and
@@ -228,5 +247,6 @@ enough triangulation:
 \emph{Standard facts used without separate checking against a source:} disjointness of normal disks below the
 reach~\cite{Federer59}; the implicit function theorem; gluing disks along boundary arcs; the per-triangle
 secant-approximation estimate for $C^1$ maps; bi-Lipschitz equivalence of the intrinsic and extrinsic metrics on a
-compact polyhedron; that an injective, locally bi-Lipschitz map of a compact space is bi-Lipschitz; and the blending
+compact polyhedron; that a map whose tangent cones are embedded disks with positive opening angles is locally
+bi-Lipschitz; that an injective, locally bi-Lipschitz map of a compact space is bi-Lipschitz; and the curved-triangle
 maps cited above.

@@ -61,8 +61,9 @@ $R^{-1}(\delta)=S^+_\delta\sqcup\{|x|=\mathcal R-\delta\}$ has exactly two compo
 The components of the product are $C\times[\delta,r]$ for the two components $C$. The shell near the sphere is one
 component of the union, so $A_+$ is the other: $A_+\cong C\times[\delta,r]$ with $C$ connected. Step~3 shows that
 $C\cong S^+_\delta$.
-\item We use Prop.~3.4 for the closed shell $\{\delta\le R\le r\}$. If the original states it for a half-open shell,
-apply it with a slightly larger $r'<\wfs$ and restrict \unverified{exact form of~\cite[Prop.~3.4]{ChazalLieutier07}}.
+\item We use Prop.~3.4 in its closed-shell form $\{\rho_1\le R\le\rho_2\}$, as quoted above
+\unverified{exact form of~\cite[Prop.~3.4]{ChazalLieutier07}; if the original only treats a half-open shell, the
+argument needs its level-preserving (flow) form}.
 \end{itemize}
 
 \emph{Step 3: gluing.}
@@ -73,8 +74,9 @@ boundary is its frontier in $\R^3$.
   \item Points with $\delta<d<r$ are interior points.
   \item A point with $d=\delta$ is a limit of points with $d<\delta$: move along the segment to a nearest point.
   \item A point $x$ with $d=r$ is a limit of points with $d>r$. Since $x$ is not critical, there is a unit vector $u$
-  with $\langle u,x-y\rangle>0$ for all $y\in\Gamma(x)$, and the one-sided derivative of $d$ in direction $u$ is
-  $\min_{y\in\Gamma(x)}\langle u,(x-y)/|x-y|\rangle>0$.
+  with $\langle u,x-y\rangle>0$ for all $y\in\Gamma(x)$. The one-sided derivative of $d$ in direction $u$ is
+  $\min_{y\in\Gamma(x)}\langle u,(x-y)/|x-y|\rangle>0$ (standard formula for the directional derivative of a distance
+  function; not separately checked against a source).
   \end{itemize}
   So $\partial A_\pm=S^\pm_\delta\sqcup S^\pm_r$, and the connected closed set $S^\pm_\delta$ is one boundary component.
   Every boundary component of $C\times[\delta,r]$ is a copy of $C$, so $C\cong S^\pm_\delta$.

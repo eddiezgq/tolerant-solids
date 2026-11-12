@@ -332,3 +332,170 @@ B3 is a sign or wording error in a key sentence and must be corrected, though th
 - **Lemma 4.1:** accept after minor revision (A1, A2, A3, A7 short additions; two source checks).
 - **Appendix A:** major revision. B1, B2 and B7 are each fixable with standard tools. B3 and B5 are local corrections.
   After that, Theorem 5.1 (for regular K) is proved at the level of rigour of the rest of the paper.
+
+---
+
+# Follow-up on v0.5
+
+I read the revised `sec_collar.tex` (Lemma 4.1), `sec_existence.tex` §5.1 and `sec_proof51.tex`. Line numbers refer to
+the v0.5 files.
+
+## Status of the v0.4 findings
+
+| Item | Status | Where / comment |
+| --- | --- | --- |
+| A1 (outer side, which component) | **Fixed** | collar l.59–63, completed in Step 3, l.80. Correct. |
+| A2 (∂A± = level sets) | **Fixed** | collar l.70–80. Correct. |
+| A3 (Durfee; sides of N̄_δ; δ < r) | **Fixed in the text, source check pending** | l.32–41. The argument for the two sides is correct. The `\unverified` tag on Durfee's regularity and on "rel M" remains, as it should. |
+| A4 (form of CL07 Prop. 3.4) | **Partly fixed** | l.64–65. The new fallback is invalid; see N4. |
+| A5 (criticality notions) | No change needed | — |
+| A6 (Moise, noncompact case) | **Fixed, tag pending** | l.95–96. Moise 1952 is now cited. |
+| A7 (inter N̄_r = N_r) | **Fixed** | l.75–77 and l.90–91. The proof is given. The derivative formula for d should be added to the list of standard facts or cited (N9). |
+| A8 (wording; where genus is used) | **Fixed** | Genus is now assumed only in (b), l.18. (a) and (a′) are correct for a sphere too. |
+| B1 (construction of h) | **Largely fixed** | proof51 l.98–136. Residual issues: N1 and N5. |
+| B2 (corners of λ_v; junctions) | **Fixed in substance** | l.34–42 and l.170–179; V1(b) strengthened (existence l.51–56). The justification at the junctions has a gap (N2). |
+| B3 (quarter-space sentence) | **Fixed** | l.155–166. Correct, including the shared rays and the no-fold argument. |
+| B4 (shape-regular vs radial) | **Fixed** | l.186–193. |
+| B5 (apex derivative) | **Fixed** | l.199–217. Correct; notation remark in N6. |
+| B6 (intrinsic metric) | **Fixed** | l.139–140 and l.218–222. |
+| B7 (scope: seams, closed edges, inner wires) | **Fixed** | existence l.11–15. The scope is now restricted and stated honestly. |
+| B8 ("strictly star-shaped" undefined) | **Fixed, with a new overclaim** | existence l.48–50; see N3. |
+| B9 (creases on ∂W_v need V1(b)) | **Fixed** | l.151–153. Wording remark in N7. |
+| B10 (two arcs named A_{f,v}) | **Fixed** | l.14–19. A_{f,v} and Λ_{f,v} are now used consistently. |
+| B11 (smaller points) | **Fixed** | Injectivity on ∂T/∂W: l.70–72. Convexity computation: l.5–9, correct; it also gives ⟨c′,r̂⟩ > 0 strictly. Apex: l.180–183. "Per corner": l.78. Crease along k: l.147–149. |
+
+## Checks of the new text
+
+**Edge agreement of the cell maps (the main question).** I checked every kind of shared edge.
+- *Fan / Q_f along k_{f,e}.* Both cells use the parametrization t ↦ k(t) (l.111, l.122–123). They agree.
+- *Fan / sector along the end radius at a_e.* The fan gives σ ↦ γ(a_e) + σ(k(a_e) − γ(a_e)), which is affine. φ is
+  chosen to equal it (l.118). They agree.
+- *Q_f / sector along A_{f,v}.* Both use φ. The definition is circular as written: l.118–119 says φ "agrees with the
+  parametrization used for Q_f", and l.123 says Q_f uses "the restriction of φ". Harmless, but write it as one choice:
+  first fix φ on A_{f,v} as any C¹ regular parametrization that is affine in the domain link coordinate on each
+  segment, and then use it on both sides.
+- *Sector_f / sector_g along the stub [p_v, γ_e(a_e)].* Both cells are radial over the same link vertex y_e, so both
+  give s ↦ p_v + s(γ_e(a_e) − p_v). They agree.
+- *Fan_f / fan_g along γ_e.* Both give σ = 0, t ↦ γ_e(t). They agree if the two domain cells induce the same affine t
+  on their common edge. Say so.
+- *Domain fan cell.* The chart is defined on the rectangle [a_e,b_e]×[0,1]. The domain cell of L is a convex
+  quadrilateral, so precompose with a bilinear diffeomorphism. It is affine on each edge, so edge agreement survives.
+  One sentence.
+
+With these, the cell maps glue to a homeomorphism. Each cell map is injective, and the image pieces meet exactly
+according to the cell structure.
+
+**Fan differential (l.109–110).** Correct. With k = γ + ρu and ρ′ = 0 or not, ⟨k′,γ′⟩ ≥ 1 − ρκ, so
+⟨∂_t, γ′⟩ = 1 + σ(⟨k′,γ′⟩ − 1) ≥ 1 − σρκ > 0. Also ∂_σ ∈ Π(t) is nonzero and orthogonal to γ′.
+
+**Exit points (l.5–9).** Correct. While |c| ≤ ρ we have (|c|²/2)″ ≥ 1 − ρk_f > 0, so |c|² is strictly convex up to the
+first hit. Its derivative there is at least (ρ² − dev*²)/(2σ*) > 0, which gives ⟨c′,r̂⟩ > 0 strictly. E2.3 excludes
+re-entry. The C¹ dependence on t then follows from the implicit function theorem.
+
+**Revised apex estimate (l.199–217).** Correct.
+- The barycentric computation and (S−h) = s·e(y) are right, because the base lies on one link segment.
+- ∂_s(S−h) = e(y) and D(S−h)·τ = de/d(arc length).
+- The bound ‖D(S−h)‖ ≤ (|e|/|y−v| + |e′|)/sin β is right, with β bounded below by the domain geometry.
+- |e′| ≤ ω and |e| ≤ mesh·ω.
+- D(S−h) is constant along rays, so the bound holds uniformly up to the apex, and Lip(S−h) → 0.
+
+**Junction crossings (l.170–179).** The conclusion is right, but one step is unjustified (N2).
+
+## New findings
+
+**N1. Sector cells are not C¹ on the whole closed cell (minor).**
+- l.99–100 claims h is "C¹, with injective differential, on each closed domain cell (except at the apexes)". A sector
+  cell is the cone over a link arc that contains corners: k_{f,e}(a_e), the junction crossings, and k_{f,e′}(a_{e′}).
+  The radial map is only piecewise C¹ there. It is C¹ on each sub-cone over one link segment, and it has creases along
+  the rays from v to the corner preimages.
+- These rays are creases of h. They are not in the crease list (l.145–154), and neither are the stub rays between
+  sector_f and sector_g.
+- Fix: make the sub-cones the cells of L. Note that along a ray the tangent half-planes are constant, by homogeneity.
+  So the no-fold argument at the corner x (or at γ(a_e) for a stub ray) gives the positive opening angle along the
+  whole open ray.
+- The radial map has injective differential on each sub-cone, since φ′(y) is not parallel to φ(y) − p_v. That is
+  transversality of λ_v to the rays, including for the end radii, where w has a γ′-component. Say so.
+
+**N2. Junction crossings: "w ∈ inter T_x, so the sub-sectors lie in T_x" is a non sequitur (minor).**
+T_x = H₁ ∪ H₂ is not convex.
+- *Counterexample to the inference.* Take ℓ₁ ∈ ∂H₁ with ℓ₁ ∉ H₂, and w ∈ inter H₂ with w ∉ H₁. Then span⁺(ℓ₁, w)
+  contains vectors in the open wedge ∁H₁ ∩ ∁H₂.
+- *Correct reason.* Star-shapedness itself: each segment [p_v, y], for y ∈ λ_v near x, lies in W_v. So the tangent cone
+  span⁺(ℓᵢ, w) of the cone surface lies in T_x. Equivalently, this forces w ∈ H₁ ∩ H₂.
+- *Consequence.* With w ∈ H₁ ∩ H₂, each sub-sector meets the face where its half-tangent lies only along ℓᵢ. The
+  outside sector, P ∩ (closed complementary wedge), is the convex sector between ℓ₁ and ℓ₂. So the only shared rays are
+  ℓ₁ and ℓ₂.
+- *Missing no-fold step.* The no-fold of the two cone sub-sectors is not argued at the junction, and not at γ(a_e)
+  either.
+  - At the junction, ℓ₁ and ℓ₂ span the tangent plane P of the outside piece. If w ∈ P, then w lies outside the convex
+    sector between ℓ₁ and ℓ₂, because that sector is in the closed complement of T_x and w ∈ inter T_x. So w is
+    strictly between them on the reflex side, and there is no fold.
+  - At γ(a_e), r̂_f and r̂_g lie in Π while w₀ ∉ Π. No fold.
+- Add these two sentences.
+
+**N3. V1(a): the parenthetical "so each ray from p_v meets ∂W_v once" does not follow from the local definition (minor
+logically, easy fix).**
+- At a junction point x, T_x is a union of two half-spaces. Both p_v − x and x − p_v can then lie in T_x, so the ray
+  through x can graze ∂W_v at x and stay inside W_v. That gives two points of ∂W_v on one ray. Both the injectivity of
+  the cone map (l.61–62) and the cone construction use "once".
+- I believe the local condition at nearby smooth points rules out the transversal-grazing case. The tangential case is
+  not obviously excluded, and the text gives no argument either way.
+- Fix: make the global property part of the hypothesis: "each ray from p_v meets ∂W_v in exactly one point".
+  Equivalently, add "x − p_v ∉ T_x" to the local condition. The checker can test this directly.
+
+**N4. Collar l.64–65: the half-open fallback is invalid as stated (minor).**
+"Apply it with a slightly larger r′ < wfs and restrict" works only if the homeomorphism is level-preserving.
+Restricting an arbitrary homeomorphism {δ ≤ R ≤ r′} ≅ C × [δ, r′] to {δ ≤ R ≤ r} gives no product structure. That is
+exactly the issue A1/A2 worked around. Fix: either rely on the closed-shell form, if that is what CL07 states (keep the
+tag), or cite the fact that CL07's homeomorphism is built by integrating a flow along which R is strictly increasing.
+That makes it level-preserving, and then restriction is fine.
+
+**N5. Q_f cells: the Gordon–Hall citation and the domain side (minor; tag already present).**
+- Triangular transfinite (Boolean-sum) interpolants with three curved edges can have singular or non-C¹ derivatives
+  at the vertices. "C¹ up to the boundary" at a corner of ∂Q_f is the delicate point.
+- Safer construction: refine so that each curved triangle has at most one curved edge. Two triangles meet at every
+  corner of ∂Q_f, so this is always possible. Then use the one-curved-edge maps of Lenoir (SIAM J. Numer. Anal. 23,
+  1986) or Bernardi (SIAM J. Numer. Anal. 26, 1989). These are C^m up to the boundary and invertible for fine
+  subdivisions, given C¹ edge data.
+- Note that the corner angles of Q_f at junction crossings lie in (0, π). The complement of W_v is locally a convex
+  wedge, and transversality of P_f excludes 0. So the corner triangles are non-degenerate.
+- State also that the domain Q_f cell of L is triangulated by straight triangles with the same combinatorics as the
+  curved subdivision, so L is refined accordingly. At present l.102 has a single 2-cell for Q_f, and l.126 subdivides
+  only the image.
+
+**N6. Apex notation (minor).**
+u is "proportional to arc length", but ∂_u x = s(y₁ − y₀) = s|y₁ − y₀|τ, not sτ. Then D(S−h)·τ is the derivative of
+e with respect to arc length, and the bound |e′| ≤ ω(φ′, mesh) is for that derivative. Define ′ as d/d(arc length),
+or take u to be arc length.
+
+**N7. Fan tangent plane along the end radius (minor).**
+l.153 says the tangent plane "contains k′ or γ′". It contains ∂_t = γ′ + σ(k′ − γ′), which is neither in general.
+Write instead: it contains ∂_t, whose γ′-component is at least 1 − σρκ > 0, so the plane is not Π(a_e).
+
+**N8. From "tangent cone is an embedded disk" to local bi-Lipschitz (minor).**
+This step needs a stated fact: a map that is C¹ up to a point on each of finitely many closed domain sectors, and whose
+piecewise-linear tangent map at that point is injective, is bi-Lipschitz near the point. It requires one-sided C¹ up to
+the corner on each sector, which is where N5 matters. Add it to the list of standard facts at l.228–232.
+
+**N9. Collar l.75–77 (minor).** The one-sided derivative formula d′(x; u) = min_{y∈Γ(x)} ⟨u, (x−y)/|x−y|⟩ should be
+cited (e.g. Lieutier 2004, Lemma 1) or listed among the standard facts.
+
+## Overclaims
+- None at the level of the theorems. Theorem 5.1 is now stated for regular K only. Lemma 4.1's genus hypothesis sits
+  where it is used.
+- The two small overclaims are the V1(a) parenthetical (N3) and the half-open fallback in the collar proof (N4).
+
+## Verdict on v0.5
+- **Lemma 4.1:** accept, subject to the three source checks already tagged: Durfee's regularity and "rel M", the exact
+  form of CL07 Prop. 3.4, and Moise for the noncompact case. N4 must be fixed if the CL07 statement is half-open. N9 is
+  cosmetic.
+- **Appendix A:** minor revision. The piecewise construction of h now closes: the cell maps agree on every shared edge
+  (modulo the two one-line clarifications above). The tangent-cone arguments at k(a_e) and γ(a_e) are correct. The
+  revised apex estimate is correct. What remains is local:
+  - N1: make the sub-cones the cells, and treat the corner rays as creases by homogeneity;
+  - N2: correct the junction justification and add the no-fold sentences;
+  - N3: state ray-once as a hypothesis;
+  - N5: one-curved-edge elements and the domain triangulation;
+  - N6–N8: notation and a standard fact.
+
+  None of these threatens the theorem.
