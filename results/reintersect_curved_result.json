@@ -1,0 +1,118 @@
+[
+ {
+  "name": "sloppy cylinder g=0.01",
+  "fails": [],
+  "vol_ratio": 0.999759285082293,
+  "C_combinatorics": true,
+  "B1_margin": 0.5461338012908772,
+  "B2_margin": 0.3493801975567334,
+  "B3_margin": 0.08448682419619548,
+  "B4": true,
+  "transversality_min_deg": 90.0,
+  "walked": 1679,
+  "unreached": [],
+  "n_unreached": 0,
+  "ok": true
+ },
+ {
+  "name": "sloppy cylinder g=0.05",
+  "fails": [],
+  "vol_ratio": 0.9979469407226471,
+  "C_combinatorics": true,
+  "B1_margin": 0.5473449341364955,
+  "B2_margin": 0.10742012299134276,
+  "B3_margin": 0.09447914857521762,
+  "B4": true,
+  "transversality_min_deg": 90.0,
+  "walked": 1482,
+  "unreached": [],
+  "n_unreached": 0,
+  "ok": true
+ },
+ {
+  "name": "sloppy pipe g=0.01",
+  "fails": [],
+  "vol_ratio": 0.9999009447830819,
+  "C_combinatorics": true,
+  "B1_margin": 0.525109040698187,
+  "B2_margin": 0.16175514686118414,
+  "B3_margin": 0.05183448785844649,
+  "B4": true,
+  "transversality_min_deg": 90.0,
+  "walked": 2795,
+  "unreached": [],
+  "n_unreached": 0,
+  "ok": true
+ },
+ {
+  "name": "sloppy box g=0.01",
+  "fails": [],
+  "vol_ratio": 1.000764654907589,
+  "C_combinatorics": true,
+  "B1_margin": 0.45503006749263986,
+  "B2_margin": 0.1306655393277023,
+  "B3_margin": 0.04918101657852795,
+  "B4": true,
+  "transversality_min_deg": 90.0,
+  "walked": 12000,
+  "unreached": [],
+  "n_unreached": 0,
+  "ok": true
+ },
+ {
+  "name": "sloppy wedge 30deg g=0.01",
+  "fails": [
+   "B2"
+  ],
+  "vol_ratio": 0.9989483420530048,
+  "C_combinatorics": true,
+  "B1_margin": 0.3192523665365611,
+  "B2_margin": -0.49432626153248016,
+  "B3_margin": 0.10206003124760876,
+  "B4": true,
+  "transversality_min_deg": 29.999999999999993,
+  "walked": 5840,
+  "unreached": [],
+  "n_unreached": 0,
+  "ok": false
+ },
+ {
+  "name": "cylinder",
+  "fails": [],
+  "vol_ratio": 1.0,
+  "C_combinatorics": true,
+  "B1_margin": 0.9999999926521191,
+  "B2_margin": 0.9999999721778907,
+  "B3_margin": Infinity,
+  "B4": true,
+  "transversality_min_deg": 90.0,
+  "walked": 480,
+  "unreached": [],
+  "n_unreached": 0,
+  "ok": true
+ },
+ {
+  "name": "box",
+  "fails": [],
+  "vol_ratio": 1.0,
+  "C_combinatorics": true,
+  "B1_margin": 1.0,
+  "B2_margin": 1.0,
+  "B3_margin": Infinity,
+  "B4": true,
+  "transversality_min_deg": 90.0,
+  "walked": 1920,
+  "unreached": [],
+  "n_unreached": 0,
+  "ok": true
+ },
+ {
+  "name": "sloppy filleted box g=0.001",
+  "fails": [
+   "C"
+  ],
+  "vol_ratio": 9.512924578939183e-10,
+  "C_combinatorics": false,
+  "ok": false
+ }
+]
