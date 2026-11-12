@@ -17,8 +17,8 @@
    T   transversality: min over interior samples of min(phi, pi - phi), phi = angle between the two faces' inward
        in-plane tangents at a new edge; it is 0 both for tangent continuation (phi = pi) and for a fold (phi = 0).
        Seams are skipped. The vertex tangent-cone part of T is NOT checked.
-Distances to an original edge are measured to a 2000-point polyline of it, minus the measured chord error, so
-they are conservative. B3 skips 0.5% of each boundary curve at each end and samples 80 points per curve; a denser
+Distances to an original edge are exact projections onto its 3D curve (GeomAPI_ProjectPointOnCurve, restricted to
+the edge's parameter range, end points included). B3 skips 0.5% of each boundary curve at each end and samples 80 points per curve; a denser
 re-check with exact distances is in checks/review_B2_B3dense.py (second review).
 Margins are reported as min over samples of (zone radius - distance) / zone radius.
 """
@@ -131,22 +131,27 @@ def check(shape, name, verbose=True):
     # B1
     b1 = min((M.tv[vmap[i]] - np.linalg.norm(N.p[i] - M.p[vmap[i]])) / M.tv[vmap[i]] for i in range(len(N.Vx)))
     # B2
-    def fine_poly(e, n=2000):
+    from OCP.GeomAPI import GeomAPI_ProjectPointOnCurve
+    from OCP.Geom import Geom_TrimmedCurve
+    def edge_curve(e):
         c = BRepAdaptor_Curve(e)
-        ts = np.linspace(c.FirstParameter(), c.LastParameter(), 2 * n + 1)
-        P = np.array([L.V(c.Value(t)) for t in ts])
-        Pe, Po = P[::2], P[1::2]
-        a, b = Pe[:-1], Pe[1:]; ab = b - a
-        t = np.clip(np.einsum('ij,ij->i', Po - a, ab) / np.maximum(np.einsum('ij,ij->i', ab, ab), 1e-300), 0, 1)
-        err = np.max(np.linalg.norm(Po - (a + t[:, None] * ab), axis=1))
-        return Pe, err
-    Gold, Gerr = zip(*[fine_poly(e) for e in M.E])
+        a, b = c.FirstParameter(), c.LastParameter()
+        h = BRep_Tool.Curve_s(e, 0.0, 1.0)     # located 3D curve
+        return h, a, b, L.V(c.Value(a)), L.V(c.Value(b))
+    Ecur = [edge_curve(e) for e in M.E]
+    def dist_edge(x, k):
+        h, a, b, pa, pb = Ecur[k]
+        d = min(np.linalg.norm(x - pa), np.linalg.norm(x - pb))
+        pr = GeomAPI_ProjectPointOnCurve(gp_Pnt(*x), h, a, b)
+        for i in range(1, pr.NbPoints() + 1):
+            d = min(d, pr.Distance(i))
+        return d
     def dist_poly(x, G):
         a, b = G[:-1], G[1:]; ab = b - a
         t = np.clip(np.einsum('ij,ij->i', x - a, ab) / np.maximum(np.einsum('ij,ij->i', ab, ab), 1e-300), 0, 1)
         return np.min(np.linalg.norm(x - (a + t[:, None] * ab), axis=1))
     def ze_slack(x, k):
-        s = (M.te[k] - dist_poly(x, Gold[k]) - Gerr[k]) / M.te[k]   # polyline distance can exceed the true one by <= err
+        s = (M.te[k] - dist_edge(x, k)) / M.te[k]
         for v in M.ev[k]:
             s = max(s, (M.tv[v] - np.linalg.norm(x - M.p[v])) / M.tv[v])
         return s
