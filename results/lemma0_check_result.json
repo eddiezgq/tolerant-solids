@@ -3436,5 +3436,900 @@
    ]
   ],
   "ok": false
+ },
+ {
+  "name": "sloppy cylinder g=0.05",
+  "faces": 3,
+  "edges": 3,
+  "vertices": 2,
+  "tau_v": [
+   0.04470054602232269,
+   0.04542881740750325
+  ],
+  "tau_e": [
+   1e-07,
+   0.04542881740750325
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 0.04470054602232269,
+    "dev": 0.04258617343039459,
+    "ratio": 1.0496492739687908,
+    "alpha_min_deg": 90.0,
+    "reach": 2.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 1,
+    "tau_e": 1e-07,
+    "dev": 7.355227538141662e-16,
+    "ratio": 135957724.59986404,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 8.377333804724382e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 0.04542881740750325,
+    "dev": 0.043267300627720565,
+    "ratio": 1.0499572829463237,
+    "alpha_min_deg": 90.0,
+    "reach": 2.9999999999999996,
+    "rho": null,
+    "via": null
+   }
+  ],
+  "fails": [
+   [
+    "V1a",
+    "e0",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e2",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ]
+  ],
+  "ok": false
+ },
+ {
+  "name": "sloppy pipe g=0.01",
+  "faces": 4,
+  "edges": 6,
+  "vertices": 4,
+  "tau_v": [
+   0.005476300855179261,
+   0.017029022243806678
+  ],
+  "tau_e": [
+   1e-07,
+   0.017029022243806678
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 0.011772133176293572,
+    "dev": 0.011212679235735252,
+    "ratio": 1.0498947601011646,
+    "alpha_min_deg": 90.0,
+    "reach": 5.999999999999999,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 1,
+    "tau_e": 1e-07,
+    "dev": 1.4693107841523556e-15,
+    "ratio": 68059120.69698034,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 1.1850623102864057e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 0.017029022243806678,
+    "dev": 0.01622169313477574,
+    "ratio": 1.0497684860836258,
+    "alpha_min_deg": 90.0,
+    "reach": 5.999999999999999,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 3,
+    "tau_e": 0.005476300855179261,
+    "dev": 0.005220965695480862,
+    "ratio": 1.0489057340329606,
+    "alpha_min_deg": 89.9999999999999,
+    "reach": 0.9999999999999998,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 4,
+    "tau_e": 0.015890219943741547,
+    "dev": 0.015141250533752945,
+    "ratio": 1.0494654921876496,
+    "alpha_min_deg": 90.0,
+    "reach": 0.9999999999999998,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 5,
+    "tau_e": 1e-07,
+    "dev": 2.445960101127298e-16,
+    "ratio": 408837412.9811514,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 4.824288455696415e-12,
+    "via": "E3"
+   }
+  ],
+  "fails": [
+   [
+    "V1a",
+    "e0",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e2",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e3",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e4",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ]
+  ],
+  "ok": false
+ },
+ {
+  "name": "sloppy filleted box g=0.001",
+  "faces": 26,
+  "edges": 48,
+  "vertices": 24,
+  "tau_v": [
+   0.0008335360372692896,
+   0.0018791768945822962
+  ],
+  "tau_e": [
+   0.00018753902652756188,
+   0.0018791768945822962
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 0.0008335360372692896,
+    "dev": 0.0007938438450175775,
+    "ratio": 1.0500000000010496,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 1,
+    "tau_e": 0.0007116643852268411,
+    "dev": 0.0006777756049779439,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 2,
+    "tau_e": 0.0012744334153536017,
+    "dev": 0.001213746109860573,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 3,
+    "tau_e": 0.000956144368942689,
+    "dev": 0.0009106136847073229,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 4,
+    "tau_e": 0.0006215508665238196,
+    "dev": 0.0005919532062137039,
+    "ratio": 1.049999999999038,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 5,
+    "tau_e": 0.0014766051001823444,
+    "dev": 0.0014062905716020488,
+    "ratio": 1.0500000000001373,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 6,
+    "tau_e": 0.0011834800764581148,
+    "dev": 0.0011271238823410616,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 7,
+    "tau_e": 0.0006420657951189605,
+    "dev": 0.0006115674441005485,
+    "ratio": 1.0498691539463272,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 8,
+    "tau_e": 0.000450821465713803,
+    "dev": 0.00042935377688700524,
+    "ratio": 1.0499999999591187,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 9,
+    "tau_e": 0.0013256951423278917,
+    "dev": 0.0012625668022366665,
+    "ratio": 1.0499999999836775,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 10,
+    "tau_e": 0.001324360459034076,
+    "dev": 0.0012612956752705484,
+    "ratio": 1.0500000000000003,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 11,
+    "tau_e": 0.0012717779917352581,
+    "dev": 0.00121121713498596,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 12,
+    "tau_e": 0.0010423909830028447,
+    "dev": 0.0009927533171455666,
+    "ratio": 1.0499999999999998,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 13,
+    "tau_e": 0.0013921051095078228,
+    "dev": 0.0013258464960679655,
+    "ratio": 1.0499745737054471,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 14,
+    "tau_e": 0.001084210319465436,
+    "dev": 0.0010325835601733872,
+    "ratio": 1.0499976576068866,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 15,
+    "tau_e": 0.0010421486298356276,
+    "dev": 0.0009925225046064964,
+    "ratio": 1.0499999999987975,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 16,
+    "tau_e": 0.0010714251815334003,
+    "dev": 0.0010204049347915449,
+    "ratio": 1.0500000000022325,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 17,
+    "tau_e": 0.0014895145159602675,
+    "dev": 0.0014186201549398901,
+    "ratio": 1.0499741673438874,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 18,
+    "tau_e": 0.001261551927511757,
+    "dev": 0.0012014780262016732,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 19,
+    "tau_e": 0.001320036496728794,
+    "dev": 0.0012571776159321848,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 20,
+    "tau_e": 0.0015334779977672769,
+    "dev": 0.0014604552359711311,
+    "ratio": 1.0499999999983494,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 21,
+    "tau_e": 0.0009920701769376363,
+    "dev": 0.0009448287400081001,
+    "ratio": 1.049999999924993,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 22,
+    "tau_e": 0.0018791768945822962,
+    "dev": 0.001789692280553701,
+    "ratio": 1.0500000000005085,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 23,
+    "tau_e": 0.0005968647270733825,
+    "dev": 0.0005684425972127452,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 24,
+    "tau_e": 0.0008778632766228515,
+    "dev": 0.0008360602634503347,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 25,
+    "tau_e": 0.0013578007838313845,
+    "dev": 0.0012931436036489375,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 26,
+    "tau_e": 0.0009306917808583637,
+    "dev": 0.0008863731246270131,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 27,
+    "tau_e": 0.0014923648632958622,
+    "dev": 0.0014212998698065209,
+    "ratio": 1.0499999999993073,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 28,
+    "tau_e": 0.0014604853435606557,
+    "dev": 0.0013909384224387196,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 29,
+    "tau_e": 0.0012118621934883382,
+    "dev": 0.001154154470013275,
+    "ratio": 1.049999999977819,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 30,
+    "tau_e": 0.0012922836810701176,
+    "dev": 0.0012307463629239214,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 31,
+    "tau_e": 0.0011224537097253597,
+    "dev": 0.0010690035330709656,
+    "ratio": 1.0500000000007912,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 32,
+    "tau_e": 0.0005754494283052524,
+    "dev": 0.0005481118807898422,
+    "ratio": 1.0498758528569316,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 33,
+    "tau_e": 0.0005032467481524619,
+    "dev": 0.00047935130287694915,
+    "ratio": 1.0498495469441684,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 34,
+    "tau_e": 0.0012330915147231256,
+    "dev": 0.0011743728711961269,
+    "ratio": 1.0499999999720637,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 35,
+    "tau_e": 0.0012911879385312755,
+    "dev": 0.0012297027986012147,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 36,
+    "tau_e": 0.0014247825916293318,
+    "dev": 0.0013569358015518822,
+    "ratio": 1.0499999999998935,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 37,
+    "tau_e": 0.00018753902652756188,
+    "dev": 0.000178636066186764,
+    "ratio": 1.0498385378207435,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 0.00018304457888726586,
+    "via": "E3"
+   },
+   {
+    "edge": 38,
+    "tau_e": 0.0006845036696342007,
+    "dev": 0.0006519082567944768,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 39,
+    "tau_e": 0.0013462093955782255,
+    "dev": 0.0012821041862739317,
+    "ratio": 1.0499999999926661,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 40,
+    "tau_e": 0.001524442669845002,
+    "dev": 0.0014518501617786592,
+    "ratio": 1.0499999999844403,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 41,
+    "tau_e": 0.00032446537833732346,
+    "dev": 0.0003090146460355461,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 42,
+    "tau_e": 0.0007169732229331365,
+    "dev": 0.0006828316408887013,
+    "ratio": 1.05,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 43,
+    "tau_e": 0.0014789956491586345,
+    "dev": 0.00140856728492178,
+    "ratio": 1.049999999993444,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 44,
+    "tau_e": 0.0012286720007441277,
+    "dev": 0.0011703143181437143,
+    "ratio": 1.0498649650744913,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 45,
+    "tau_e": 0.00032962502231617273,
+    "dev": 0.00031392859268158235,
+    "ratio": 1.0500000000016285,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 46,
+    "tau_e": 0.0016311526963469992,
+    "dev": 0.001553513487636599,
+    "ratio": 1.0499765269682433,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 47,
+    "tau_e": 0.001373161323744763,
+    "dev": 0.0013078420393721666,
+    "ratio": 1.0499443223311227,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": null,
+    "via": null
+   }
+  ],
+  "fails": [
+   [
+    "V1a",
+    "e0",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e1",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e2",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e3",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e4",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e5",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e6",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e7",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e8",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e9",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e10",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e11",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e12",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e13",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e14",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e15",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e16",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e17",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e18",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e19",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e20",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e21",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e22",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e23",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e24",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e25",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e26",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e27",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e28",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e29",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e30",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e31",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e32",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e33",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e34",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e35",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e36",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e38",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e39",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e40",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e41",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e42",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e43",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e44",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e45",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e46",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e47",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ]
+  ],
+  "ok": false
  }
 ]
