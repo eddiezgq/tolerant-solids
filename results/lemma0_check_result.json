@@ -1,0 +1,3440 @@
+[
+ {
+  "name": "box",
+  "faces": 6,
+  "edges": 12,
+  "vertices": 8,
+  "tau_v": [
+   1e-07,
+   1e-07
+  ],
+  "tau_e": [
+   1e-07,
+   1e-07
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 1,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 3,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 4,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 5,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 6,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 7,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 8,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 9,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 10,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 11,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   }
+  ],
+  "fails": [],
+  "ok": true
+ },
+ {
+  "name": "cylinder",
+  "faces": 3,
+  "edges": 3,
+  "vertices": 2,
+  "tau_v": [
+   1e-07,
+   1e-07
+  ],
+  "tau_e": [
+   1e-07,
+   1e-07
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": 2.9999999999999996,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 1,
+    "tau_e": 1e-07,
+    "dev": 7.347880794884119e-16,
+    "ratio": 136093661.27662808,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 8.373138438393829e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": 2.9999999999999996,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   }
+  ],
+  "fails": [],
+  "ok": true
+ },
+ {
+  "name": "pipe(cut)",
+  "faces": 4,
+  "edges": 6,
+  "vertices": 4,
+  "tau_v": [
+   1e-07,
+   1e-07
+  ],
+  "tau_e": [
+   1e-07,
+   1e-07
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": 5.999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 1,
+    "tau_e": 1e-07,
+    "dev": 1.4695761589768238e-15,
+    "ratio": 68046830.63831404,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 1.185169591772428e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": 5.999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 3,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": 0.9999999999999998,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 4,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": 0.9999999999999998,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 5,
+    "tau_e": 1e-07,
+    "dev": 2.4492935982947064e-16,
+    "ratio": 408280983.82988423,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 4.827582986443516e-12,
+    "via": "E3"
+   }
+  ],
+  "fails": [],
+  "ok": true
+ },
+ {
+  "name": "slot_g0.2",
+  "faces": 10,
+  "edges": 24,
+  "vertices": 16,
+  "tau_v": [
+   1e-07,
+   1.5e-07
+  ],
+  "tau_e": [
+   1e-07,
+   1.5e-07
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 1,
+    "tau_e": 1.5e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 1.5e-13,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 1.5e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 1.5e-13,
+    "via": "E3"
+   },
+   {
+    "edge": 3,
+    "tau_e": 1.5e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 1.5e-13,
+    "via": "E3"
+   },
+   {
+    "edge": 4,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 5,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 6,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 7,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 8,
+    "tau_e": 1.5e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 1.5e-13,
+    "via": "E3"
+   },
+   {
+    "edge": 9,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 10,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 11,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 12,
+    "tau_e": 1.5e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 1.5e-13,
+    "via": "E3"
+   },
+   {
+    "edge": 13,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 14,
+    "tau_e": 1.5e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 1.5e-13,
+    "via": "E3"
+   },
+   {
+    "edge": 15,
+    "tau_e": 1.5e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 1.5e-13,
+    "via": "E3"
+   },
+   {
+    "edge": 16,
+    "tau_e": 1.5e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 1.5e-13,
+    "via": "E3"
+   },
+   {
+    "edge": 17,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 18,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 19,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 20,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 21,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 22,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 23,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   }
+  ],
+  "fails": [],
+  "ok": true
+ },
+ {
+  "name": "filleted box r2",
+  "faces": 26,
+  "edges": 48,
+  "vertices": 24,
+  "tau_v": [
+   1.0000000000000002e-07,
+   1.0000000000000002e-07
+  ],
+  "tau_e": [
+   1e-07,
+   1e-07
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 1,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 3,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 4,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 5,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 6,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 7,
+    "tau_e": 1e-07,
+    "dev": 8.308148362110449e-16,
+    "ratio": 120363762.94873704,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 8.904841364617806e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 8,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 9,
+    "tau_e": 1e-07,
+    "dev": 8.005932084973442e-16,
+    "ratio": 124907379.85111414,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 8.740974442991267e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 10,
+    "tau_e": 1e-07,
+    "dev": 1.8444410139024814e-15,
+    "ratio": 54216968.30977494,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.3281296939426597e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 11,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 12,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 13,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 14,
+    "tau_e": 1e-07,
+    "dev": 1.831026719408895e-15,
+    "ratio": 54614167.52688497,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.3232791497433254e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 15,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 16,
+    "tau_e": 1e-07,
+    "dev": 8.308148362110449e-16,
+    "ratio": 120363762.94873704,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 8.904841364617806e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 17,
+    "tau_e": 1e-07,
+    "dev": 1.8444410139024814e-15,
+    "ratio": 54216968.30977494,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.3281296939426597e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 18,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 19,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 20,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 21,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 22,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 23,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 6.5053142582800245e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 24,
+    "tau_e": 1e-07,
+    "dev": 1.8444410139024814e-15,
+    "ratio": 54216968.30977494,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.3281296939426597e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 25,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 26,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 27,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 28,
+    "tau_e": 1e-07,
+    "dev": 2.5219419200973697e-15,
+    "ratio": 39651983.73646095,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.5536239412791582e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 29,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 30,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 31,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 32,
+    "tau_e": 1e-07,
+    "dev": 8.005932084973442e-16,
+    "ratio": 124907379.85111414,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 8.740974442991267e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 33,
+    "tau_e": 1e-07,
+    "dev": 1.831026719408895e-15,
+    "ratio": 54614167.52688497,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.3232791497433254e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 34,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 35,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 36,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 37,
+    "tau_e": 1e-07,
+    "dev": 1.831026719408895e-15,
+    "ratio": 54614167.52688497,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.3232791497433254e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 38,
+    "tau_e": 1e-07,
+    "dev": 1.8444410139024814e-15,
+    "ratio": 54216968.30977494,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.3281296939426597e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 39,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 40,
+    "tau_e": 1e-07,
+    "dev": 1.831026719408895e-15,
+    "ratio": 54614167.52688497,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.3232791497433254e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 41,
+    "tau_e": 1e-07,
+    "dev": 2.5121479338940403e-15,
+    "ratio": 39806572.953286074,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.550596688992221e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 42,
+    "tau_e": 1e-07,
+    "dev": 2.5219419200973697e-15,
+    "ratio": 39651983.73646095,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.5536239412791582e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 43,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 44,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 45,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 46,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 47,
+    "tau_e": 1e-07,
+    "dev": 2.5121479338940403e-15,
+    "ratio": 39806572.953286074,
+    "alpha_min_deg": 180.0,
+    "reach": 1.9999999999999996,
+    "rho": 1.550596688992221e-11,
+    "via": "E3"
+   }
+  ],
+  "fails": [],
+  "ok": true
+ },
+ {
+  "name": "L inner fillet 0.2",
+  "faces": 15,
+  "edges": 33,
+  "vertices": 20,
+  "tau_v": [
+   1e-07,
+   1e-06
+  ],
+  "tau_e": [
+   1e-07,
+   1e-06
+  ],
+  "theta_min_deg": 0.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 1,
+    "tau_e": 1e-06,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 2,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 3,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 4,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 5,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 6,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 7,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 8,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 9,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 90.0,
+    "reach": 0.2,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 10,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 11,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 12,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 13,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 14,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 15,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 16,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 17,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 18,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 19,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 20,
+    "tau_e": 1e-07,
+    "dev": 4.440892098500626e-16,
+    "ratio": 225179981.3685248,
+    "alpha_min_deg": 90.0,
+    "reach": 0.2,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 21,
+    "tau_e": 1e-06,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 22,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 23,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 24,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 25,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 26,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 27,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 28,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 29,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 30,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 31,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 32,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   }
+  ],
+  "fails": [
+   [
+    "V1a",
+    "v0",
+    "cusp vertex (theta_v = 0)"
+   ],
+   [
+    "V1a",
+    "v5",
+    "cusp vertex (theta_v = 0)"
+   ],
+   [
+    "V1a",
+    "e0",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e1",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e5",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e7",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e9",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e20",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e21",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ]
+  ],
+  "ok": false
+ },
+ {
+  "name": "L all fillets 0.5",
+  "faces": 48,
+  "edges": 92,
+  "vertices": 46,
+  "tau_v": [
+   1.0000000000000002e-07,
+   0.01014446850427623
+  ],
+  "tau_e": [
+   1e-07,
+   0.004302458382297353
+  ],
+  "theta_min_deg": 32.481636590528474,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 1,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 3,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 4,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 5,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 6,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 7,
+    "tau_e": 1e-07,
+    "dev": 2.0770370905276122e-16,
+    "ratio": 481455051.79494816,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 4.444692602812981e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 8,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 9,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 10,
+    "tau_e": 1e-07,
+    "dev": 2.830524433501838e-16,
+    "ratio": 353291421.251867,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 5.190647155254872e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 11,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 12,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 13,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 14,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 15,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 16,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 17,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 18,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 19,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 20,
+    "tau_e": 1e-07,
+    "dev": 1.7798229048217483e-15,
+    "ratio": 56185365.256896235,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.3045991416902058e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 21,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 22,
+    "tau_e": 1e-07,
+    "dev": 1.7798229048217483e-15,
+    "ratio": 56185365.256896235,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.3045991416902058e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 23,
+    "tau_e": 1e-07,
+    "dev": 2.0770370905276122e-16,
+    "ratio": 481455051.79494816,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 4.444692602812981e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 24,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 25,
+    "tau_e": 0.004302458381798226,
+    "dev": 0.004100843561834166,
+    "ratio": 1.0491642309500548,
+    "alpha_min_deg": 177.3203559669167,
+    "reach": 0.47502300224175853,
+    "rho": 0.004202663114673863,
+    "via": "E3 var"
+   },
+   {
+    "edge": 26,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 27,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 28,
+    "tau_e": 1e-07,
+    "dev": 2.830524433501838e-16,
+    "ratio": 353291421.251867,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 5.190647155254872e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 29,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 30,
+    "tau_e": 0.004302458382297353,
+    "dev": 0.004100843562100358,
+    "ratio": 1.049164231003665,
+    "alpha_min_deg": 177.32035596643544,
+    "reach": 0.47502300224175853,
+    "rho": 0.004202663114946665,
+    "via": "E3 var"
+   },
+   {
+    "edge": 31,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 32,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 33,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 34,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 35,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 36,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 37,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 38,
+    "tau_e": 1e-07,
+    "dev": 1.7806883670196607e-15,
+    "ratio": 56158057.66585091,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.3049170873104173e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 39,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 40,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 41,
+    "tau_e": 1e-07,
+    "dev": 1.7772239894833365e-15,
+    "ratio": 56267527.66772599,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.303643912118341e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 42,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 43,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 44,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 45,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 46,
+    "tau_e": 0.00337080034059053,
+    "dev": 0.0032180852671575646,
+    "ratio": 1.0474552601174094,
+    "alpha_min_deg": 175.69777275315832,
+    "reach": 0.7017113065043635,
+    "rho": 0.003297986877146181,
+    "via": "E3 var"
+   },
+   {
+    "edge": 47,
+    "tau_e": 0.0009629220284334584,
+    "dev": 0.0008739648109428711,
+    "ratio": 1.1017858114843508,
+    "alpha_min_deg": 178.44348219733624,
+    "reach": 0.4999999999999958,
+    "rho": 0.0009172543520382446,
+    "via": "E3"
+   },
+   {
+    "edge": 48,
+    "tau_e": 0.0034117772902585056,
+    "dev": 0.0032577164679092724,
+    "ratio": 1.0472910469240762,
+    "alpha_min_deg": 175.64175511464654,
+    "reach": 0.701711306504347,
+    "rho": 0.0033386020781598336,
+    "via": "E3 var"
+   },
+   {
+    "edge": 49,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 50,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 51,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 52,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 53,
+    "tau_e": 0.0033708003429548496,
+    "dev": 0.003218085269309967,
+    "ratio": 1.0474552601515212,
+    "alpha_min_deg": 175.69777275154937,
+    "reach": 0.7017113065043606,
+    "rho": 0.0032979868793520254,
+    "via": "E3 var"
+   },
+   {
+    "edge": 54,
+    "tau_e": 0.0009629220192821779,
+    "dev": 0.0008739648121904321,
+    "ratio": 1.1017857994405873,
+    "alpha_min_deg": 178.44348219683766,
+    "reach": 0.4999999999999958,
+    "rho": 0.0009172543483468516,
+    "via": "E3"
+   },
+   {
+    "edge": 55,
+    "tau_e": 0.0034117772886330003,
+    "dev": 0.0032577164663558605,
+    "ratio": 1.0472910469244965,
+    "alpha_min_deg": 175.64175511203254,
+    "reach": 0.7017113065043535,
+    "rho": 0.003338602076567852,
+    "via": "E3 var"
+   },
+   {
+    "edge": 56,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 57,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 58,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 59,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 60,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 61,
+    "tau_e": 1e-07,
+    "dev": 1.1102230246251565e-16,
+    "ratio": 900719925.4740992,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 3.2470114827241406e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 62,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 63,
+    "tau_e": 1e-07,
+    "dev": 2.7755575615628914e-16,
+    "ratio": 360287970.1896397,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 5.139874328508435e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 64,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 65,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 66,
+    "tau_e": 1e-07,
+    "dev": 3.1401849173675503e-16,
+    "ratio": 318452583.6262886,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 5.467920191388403e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 67,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 68,
+    "tau_e": 1e-07,
+    "dev": 1.7910412935974927e-15,
+    "ratio": 55833441.896328144,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.3087144924456443e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 69,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 70,
+    "tau_e": 1e-07,
+    "dev": 1.790180836524724e-15,
+    "ratio": 55860278.44769576,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.3083992986490583e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 71,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 72,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 73,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 74,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 75,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 76,
+    "tau_e": 1e-07,
+    "dev": 1.7806883670196607e-15,
+    "ratio": 56158057.66585091,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.3049170873104173e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 77,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 78,
+    "tau_e": 1e-07,
+    "dev": 1.7798229048217483e-15,
+    "ratio": 56185365.256896235,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.3045991416902058e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 79,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 80,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 81,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 82,
+    "tau_e": 1e-07,
+    "dev": 1.7772239894833365e-15,
+    "ratio": 56267527.66772599,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.303643912118341e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 83,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 84,
+    "tau_e": 1e-07,
+    "dev": 1.7763568394002505e-15,
+    "ratio": 56294995.3421312,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.3033250367034983e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 85,
+    "tau_e": 1e-07,
+    "dev": 1.7806883670196607e-15,
+    "ratio": 56158057.66585091,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.3049170873104173e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 86,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 87,
+    "tau_e": 1e-07,
+    "dev": 1.7798229048217483e-15,
+    "ratio": 56185365.256896235,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.3045991416902058e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 88,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 89,
+    "tau_e": 1e-07,
+    "dev": 1.7772239894833365e-15,
+    "ratio": 56267527.66772599,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.303643912118341e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 90,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 91,
+    "tau_e": 1e-07,
+    "dev": 1.7763568394002505e-15,
+    "ratio": 56294995.3421312,
+    "alpha_min_deg": 180.0,
+    "reach": 0.4999999999999999,
+    "rho": 1.3033250367034983e-11,
+    "via": "E3"
+   }
+  ],
+  "fails": [],
+  "ok": true
+ },
+ {
+  "name": "wedge 10deg",
+  "faces": 5,
+  "edges": 9,
+  "vertices": 6,
+  "tau_v": [
+   1.0000000000000002e-07,
+   1.0000000000000002e-07
+  ],
+  "tau_e": [
+   1e-07,
+   1.0000000000000002e-07
+  ],
+  "theta_min_deg": 9.999999999999975,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 1.0000000000000002e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 9.999999999999975,
+    "reach": Infinity,
+    "rho": 1.0000000000000002e-13,
+    "via": "E3"
+   },
+   {
+    "edge": 1,
+    "tau_e": 1.0000000000000002e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 85.0,
+    "reach": Infinity,
+    "rho": 1.0000000000000002e-13,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 1e-07,
+    "dev": 2.220446049250313e-16,
+    "ratio": 450359962.7370496,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 4.595958017145535e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 3,
+    "tau_e": 1e-07,
+    "dev": 2.220446049250313e-16,
+    "ratio": 450359962.7370496,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 4.595958017145535e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 4,
+    "tau_e": 1.0000000000000002e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 85.0,
+    "reach": Infinity,
+    "rho": 1.0000000000000002e-13,
+    "via": "E3"
+   },
+   {
+    "edge": 5,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 6,
+    "tau_e": 1e-07,
+    "dev": 0.0,
+    "ratio": Infinity,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 9.999999999999999e-14,
+    "via": "E3"
+   },
+   {
+    "edge": 7,
+    "tau_e": 1e-07,
+    "dev": 1.7763568394002505e-15,
+    "ratio": 56294995.3421312,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 1.3033250367034983e-11,
+    "via": "E3"
+   },
+   {
+    "edge": 8,
+    "tau_e": 1e-07,
+    "dev": 1.7763568394002505e-15,
+    "ratio": 56294995.3421312,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": 1.3033250367034983e-11,
+    "via": "E3"
+   }
+  ],
+  "fails": [],
+  "ok": true
+ },
+ {
+  "name": "sloppy box g=0.01",
+  "faces": 6,
+  "edges": 12,
+  "vertices": 8,
+  "tau_v": [
+   0.011606716493096636,
+   0.016228851577502663
+  ],
+  "tau_e": [
+   0.004539086239274711,
+   0.016228851577502663
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 0.004539086239274711,
+    "dev": 0.004322939275499724,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 1,
+    "tau_e": 0.015662356957722497,
+    "dev": 0.014916530435926025,
+    "ratio": 1.0500000000000114,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 2,
+    "tau_e": 0.01288346116511447,
+    "dev": 0.012269963014394775,
+    "ratio": 1.0499999999999963,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 3,
+    "tau_e": 0.00807930437922515,
+    "dev": 0.007694575599291816,
+    "ratio": 1.0499999999959377,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 4,
+    "tau_e": 0.011606716493096636,
+    "dev": 0.011054015707711081,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 5,
+    "tau_e": 0.013583853269332544,
+    "dev": 0.012937003113650042,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 6,
+    "tau_e": 0.005497807626643539,
+    "dev": 0.005236007263470037,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 7,
+    "tau_e": 0.013352594185218244,
+    "dev": 0.012716756366889162,
+    "ratio": 1.0499999999987908,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 8,
+    "tau_e": 0.016228851577502663,
+    "dev": 0.015456049121431108,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 9,
+    "tau_e": 0.015210027054682813,
+    "dev": 0.014485740052078432,
+    "ratio": 1.0500000000000318,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 10,
+    "tau_e": 0.006978564280553424,
+    "dev": 0.0066462516957644735,
+    "ratio": 1.0500000000001093,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 11,
+    "tau_e": 0.01564454045712841,
+    "dev": 0.014899562340122297,
+    "ratio": 1.0499999999999998,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   }
+  ],
+  "fails": [
+   [
+    "V1a",
+    "e0",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e1",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e2",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e3",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e4",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e5",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e6",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e7",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e8",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e9",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e10",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e11",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ]
+  ],
+  "ok": false
+ },
+ {
+  "name": "sloppy box g=0.1",
+  "faces": 6,
+  "edges": 12,
+  "vertices": 8,
+  "tau_v": [
+   0.1160671649309587,
+   0.16228851577502898
+  ],
+  "tau_e": [
+   0.04539086239275067,
+   0.16228851577502898
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 0.04539086239275067,
+    "dev": 0.04322939275500064,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 1,
+    "tau_e": 0.1566235695772244,
+    "dev": 0.1491653043592613,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 2,
+    "tau_e": 0.12883461165114915,
+    "dev": 0.12269963014395158,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 3,
+    "tau_e": 0.08079304379223766,
+    "dev": 0.07694575599260729,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 4,
+    "tau_e": 0.1160671649309587,
+    "dev": 0.11054015707710352,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 5,
+    "tau_e": 0.13583853269331217,
+    "dev": 0.12937003113648707,
+    "ratio": 1.0500000000000058,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 6,
+    "tau_e": 0.05497807626643009,
+    "dev": 0.052360072634694915,
+    "ratio": 1.050000000000008,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 7,
+    "tau_e": 0.1335259418521789,
+    "dev": 0.1271675636687446,
+    "ratio": 1.049999999999977,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 8,
+    "tau_e": 0.16228851577502898,
+    "dev": 0.1545604912143133,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 9,
+    "tau_e": 0.15210027054682732,
+    "dev": 0.1448574005207879,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 10,
+    "tau_e": 0.0697856428055299,
+    "dev": 0.06646251695798588,
+    "ratio": 1.0499999999946545,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 11,
+    "tau_e": 0.15644540457128434,
+    "dev": 0.14899562340122727,
+    "ratio": 1.0499999999999712,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   }
+  ],
+  "fails": [
+   [
+    "V1a",
+    "e0",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e1",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e2",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e3",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e4",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e5",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e6",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e7",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e8",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e9",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e10",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e11",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ]
+  ],
+  "ok": false
+ },
+ {
+  "name": "sloppy wedge 30deg g=0.01",
+  "faces": 5,
+  "edges": 9,
+  "vertices": 6,
+  "tau_v": [
+   0.01160671649309853,
+   0.01622885157750282
+  ],
+  "tau_e": [
+   0.004539086239275236,
+   0.01622885157750282
+  ],
+  "theta_min_deg": 29.999999999999993,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 0.005497807626643095,
+    "dev": 0.005236007263469613,
+    "ratio": 1.05,
+    "alpha_min_deg": 29.999999999999993,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 1,
+    "tau_e": 0.009457951632658064,
+    "dev": 0.009007572983483871,
+    "ratio": 1.05,
+    "alpha_min_deg": 75.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 2,
+    "tau_e": 0.01622885157750282,
+    "dev": 0.015456049121431255,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 3,
+    "tau_e": 0.015210027054682898,
+    "dev": 0.01448574005207895,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 4,
+    "tau_e": 0.004539086239275236,
+    "dev": 0.004322939275500225,
+    "ratio": 1.05,
+    "alpha_min_deg": 75.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 5,
+    "tau_e": 0.012883461165114442,
+    "dev": 0.012269963014394706,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 6,
+    "tau_e": 0.008079304379224808,
+    "dev": 0.007694575599261721,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 7,
+    "tau_e": 0.01484191997244951,
+    "dev": 0.014135161878773148,
+    "ratio": 1.0499999999814438,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 8,
+    "tau_e": 0.01160671649309853,
+    "dev": 0.011054015707775956,
+    "ratio": 1.049999999994009,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   }
+  ],
+  "fails": [
+   [
+    "V1a",
+    "e0",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e1",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e2",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e3",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e4",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e5",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e6",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e7",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e8",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ]
+  ],
+  "ok": false
+ },
+ {
+  "name": "sloppy wedge 10deg g=0.01",
+  "faces": 5,
+  "edges": 9,
+  "vertices": 6,
+  "tau_v": [
+   0.01160671649309704,
+   0.016228851577502708
+  ],
+  "tau_e": [
+   0.004539086239275348,
+   0.016228851577502708
+  ],
+  "theta_min_deg": 9.999999999999975,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 0.0054978076266435595,
+    "dev": 0.0052360072634700565,
+    "ratio": 1.05,
+    "alpha_min_deg": 9.999999999999975,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 1,
+    "tau_e": 0.009457951632658213,
+    "dev": 0.00900757298348401,
+    "ratio": 1.0500000000000003,
+    "alpha_min_deg": 85.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 2,
+    "tau_e": 0.016228851577502708,
+    "dev": 0.015456049121443632,
+    "ratio": 1.049999999999152,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 3,
+    "tau_e": 0.015210027054682962,
+    "dev": 0.014485740052078814,
+    "ratio": 1.0500000000000143,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 4,
+    "tau_e": 0.004539086239275348,
+    "dev": 0.004322939275500331,
+    "ratio": 1.05,
+    "alpha_min_deg": 85.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 5,
+    "tau_e": 0.012883461165114364,
+    "dev": 0.01226996301439467,
+    "ratio": 1.0499999999999967,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 6,
+    "tau_e": 0.008079304379224507,
+    "dev": 0.007694575599261435,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 7,
+    "tau_e": 0.01484191997244621,
+    "dev": 0.014135161878520194,
+    "ratio": 1.0500000000000005,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 8,
+    "tau_e": 0.01160671649309704,
+    "dev": 0.011054015707711466,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   }
+  ],
+  "fails": [
+   [
+    "V1a",
+    "e0",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e1",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e2",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e3",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e4",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e5",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e6",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e7",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e8",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ]
+  ],
+  "ok": false
+ },
+ {
+  "name": "sloppy plate t=0.05 g=0.01",
+  "faces": 6,
+  "edges": 12,
+  "vertices": 8,
+  "tau_v": [
+   0.011606716493096088,
+   0.016228851577502958
+  ],
+  "tau_e": [
+   0.004539086239275033,
+   0.016228851577502958
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 0.004539086239275033,
+    "dev": 0.004322939275500031,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 1,
+    "tau_e": 0.015662356957722542,
+    "dev": 0.014916530435926232,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 2,
+    "tau_e": 0.012883461165114726,
+    "dev": 0.012269963014394977,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 3,
+    "tau_e": 0.008079304379224007,
+    "dev": 0.007694575599414001,
+    "ratio": 1.049999999979116,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 4,
+    "tau_e": 0.011606716493096088,
+    "dev": 0.01105401570771056,
+    "ratio": 1.0499999999999998,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 5,
+    "tau_e": 0.013583853269331142,
+    "dev": 0.012937003113648706,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 6,
+    "tau_e": 0.005497807626643019,
+    "dev": 0.005236007263469542,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 7,
+    "tau_e": 0.013352594185217944,
+    "dev": 0.012716756366874232,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 8,
+    "tau_e": 0.016228851577502958,
+    "dev": 0.015456049121431389,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 9,
+    "tau_e": 0.015210027054682473,
+    "dev": 0.014485740052083106,
+    "ratio": 1.0499999999996694,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 10,
+    "tau_e": 0.006978564280552861,
+    "dev": 0.006646251695764629,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 11,
+    "tau_e": 0.015644540457128448,
+    "dev": 0.014899562340122331,
+    "ratio": 1.05,
+    "alpha_min_deg": 90.0,
+    "reach": Infinity,
+    "rho": null,
+    "via": null
+   }
+  ],
+  "fails": [
+   [
+    "V1a",
+    "e0",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e1",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e2",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e3",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e4",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e5",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e6",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e7",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e8",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e9",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e10",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e11",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ]
+  ],
+  "ok": false
+ },
+ {
+  "name": "sloppy cylinder g=0.01",
+  "faces": 3,
+  "edges": 3,
+  "vertices": 2,
+  "tau_v": [
+   0.005768227815116935,
+   0.010291438555648257
+  ],
+  "tau_e": [
+   1e-07,
+   0.010291438555648257
+  ],
+  "theta_min_deg": 90.0,
+  "edges_detail": [
+   {
+    "edge": 0,
+    "tau_e": 0.010291438555648257,
+    "dev": 0.009815147047934788,
+    "ratio": 1.0485261713744458,
+    "alpha_min_deg": 90.0,
+    "reach": 2.9999999999999996,
+    "rho": null,
+    "via": null
+   },
+   {
+    "edge": 1,
+    "tau_e": 1e-07,
+    "dev": 7.355227538141662e-16,
+    "ratio": 135957724.59986404,
+    "alpha_min_deg": 180.0,
+    "reach": Infinity,
+    "rho": 8.377333804724382e-12,
+    "via": "E3"
+   },
+   {
+    "edge": 2,
+    "tau_e": 0.005768227815116935,
+    "dev": 0.005495581221636392,
+    "ratio": 1.0496119668666017,
+    "alpha_min_deg": 90.0,
+    "reach": 2.9999999999999996,
+    "rho": null,
+    "via": null
+   }
+  ],
+  "fails": [
+   [
+    "V1a",
+    "e0",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ],
+   [
+    "V1a",
+    "e2",
+    "V1a: no rho fits both the edge (rho>dev) and the vertex balls"
+   ]
+  ],
+  "ok": false
+ }
+]

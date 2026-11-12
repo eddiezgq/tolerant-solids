@@ -1,0 +1,77 @@
+[
+ {
+  "name": "sloppy box g=0.01",
+  "applicable": true,
+  "fails": [],
+  "B1_margin": 0.45503006749263974,
+  "B2_margin": 0.1306655393277023,
+  "B3_margin": 0.13066553932758876,
+  "B4_embedded": true,
+  "ok": true
+ },
+ {
+  "name": "sloppy box g=0.1",
+  "applicable": true,
+  "fails": [],
+  "B1_margin": 0.45503006749264163,
+  "B2_margin": 0.13066553932769226,
+  "B3_margin": 0.1306655393276809,
+  "B4_embedded": true,
+  "ok": true
+ },
+ {
+  "name": "sloppy wedge 30deg g=0.01",
+  "applicable": true,
+  "fails": [
+   "B2"
+  ],
+  "B1_margin": 0.31925236653629535,
+  "B2_margin": -0.4943262615333163,
+  "B3_margin": 0.4511204763674317,
+  "B4_embedded": true,
+  "ok": false
+ },
+ {
+  "name": "sloppy wedge 10deg g=0.01",
+  "applicable": true,
+  "fails": [
+   "B1",
+   "B2"
+  ],
+  "B1_margin": -0.5018793270219936,
+  "B2_margin": -2.9795067265899022,
+  "B3_margin": 0.45112047636736125,
+  "B4_embedded": true,
+  "ok": false
+ },
+ {
+  "name": "sloppy plate t=0.05 g=0.01",
+  "applicable": true,
+  "fails": [],
+  "B1_margin": 0.4550300674926346,
+  "B2_margin": 0.13066553932769154,
+  "B3_margin": 0.13066553932769112,
+  "B4_embedded": true,
+  "ok": true
+ },
+ {
+  "name": "box",
+  "applicable": true,
+  "fails": [],
+  "B1_margin": 1.0,
+  "B2_margin": 1.0,
+  "B3_margin": 1.0,
+  "B4_embedded": true,
+  "ok": true
+ },
+ {
+  "name": "wedge 10deg",
+  "applicable": true,
+  "fails": [],
+  "B1_margin": 0.9999999923154294,
+  "B2_margin": 0.9999999923154294,
+  "B3_margin": 0.9999999923154294,
+  "B4_embedded": true,
+  "ok": true
+ }
+]
