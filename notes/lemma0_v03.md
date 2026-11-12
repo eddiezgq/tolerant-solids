@@ -82,10 +82,69 @@ K (B4). Zones: h(v) = c_v ∈ Z(v), h(int e) ⊆ ℓ_e ⊆ Z(e), h(int f) ⊆ P�
   should resolve) and is not quoted.
 - The proposition needs the three planes at each vertex to be independent; it does not apply when two faces at a
   vertex are coplanar.
-- For curved faces, the same idea uses surface–surface intersection curves; it then needs the PL step of v0.2 §5,
-  with bi-Lipschitz constants from the transversality of the surfaces. Not written.
+- Curved faces: Proposition B' below.
 - Vertices with four or more faces need a different vertex piece. Models mixing tangent edges (route A) and
   sharp edges (route B) need a vertex construction that combines the two. Open.
+
+## 2'. Proposition B' (re-intersection, curved, transversal)
+
+**Setting.** Every face f lies on a C² surface S_f. A *re-trimmed model* consists of compact patches P̃_f ⊆ S_f,
+curves γ̃_e and points c_v such that ⋃ P̃_f is the boundary of a compact solid, and the cells (patches, curves,
+points) form a regular cell complex isomorphic to K by an isomorphism sending f, e, v to P̃_f, γ̃_e, c_v
+(condition **C**). For an edge e between two different faces f, g, the curve γ̃_e lies on S_f ∩ S_g. For a seam
+edge (f on both sides) it is a curve on S_f.
+
+**Proposition B'.** Assume C and
+- B1–B3 as in Proposition B, for the closed cells: c_v ∈ Z(v), γ̃_e ⊆ Z(e), P̃_f ⊆ Z(f);
+- B4: distinct cells of the re-trimmed model meet only in their common faces;
+- T (transversality): along every non-seam edge, S_f and S_g meet at a positive angle; and at every vertex the
+  tangent cone of ⋃ P̃_f is an embedded PL disk (true, for instance, when three faces meet at v with linearly
+  independent normals).
+Then the tolerant B-rep has a realization.
+
+*Proof (sketch; it reuses v0.2 §5).*
+- The isomorphism of C gives a homeomorphism h₀: |K| → ⋃ P̃_f with h₀(σ̄) ⊆ Z(σ) for every cell (B1–B4).
+  Since h₀(σ̄) is compact and Z(σ) is open, there is a margin m > 0 with N_m(h₀(σ̄)) ⊆ Z(σ) for all σ.
+- h₀ is C¹ on each closed cell (the patches and curves are C²). It is bi-Lipschitz: inside a cell by
+  regularity; across an edge by T (a positive crease angle; across a seam there is no crease); at a vertex by the
+  tangent-cone condition, as in v0.2 §5 ("points where three or more pieces meet").
+- Take a shape-regular triangulation of |K| that refines the cells and has the vertices of K as vertices. The
+  secant map S (linear on each triangle, equal to h₀ at the triangulation's vertices) satisfies Lip(S − h₀) → 0
+  and |S − h₀| → 0 as the mesh size → 0. So S is injective once Lip(S − h₀) is below the bi-Lipschitz constant,
+  and S(σ̄) ⊆ Z(σ) once |S − h₀| < m. S is PL. □
+
+*Computation.* [../compute/reintersect_curved.py](../compute/reintersect_curved.py):
+1. extends each face's surface;
+2. rebuilds the solid with OpenCascade's BOPAlgo_MakerVolume;
+3. checks C by matching faces to surfaces, edges to face pairs, and vertices to nearest vertices;
+4. checks B1 and B2 on samples;
+5. checks B3 by walking inward from 80 samples per boundary curve until the original patch is reached;
+6. checks B4 with OpenCascade's validity checks, and T by the angle between the faces along each edge.
+
+This is a sampled, double-precision check; the PL step is not carried out.
+
+| Model | C | margins: vertex / edge / face strip | min crease angle | result |
+| --- | --- | --- | --- | --- |
+| sewn cylinder g = 0.01 | yes | 55% / 35% / 11% | 90° | pass |
+| sewn cylinder g = 0.05 | yes | 55% / 11% / 10% | 90° | pass |
+| sewn pipe (cylinder minus cylinder) g = 0.01 | yes | 53% / 16% / 3.6% | 90° | pass |
+| sewn box g = 0.01 | yes | 45% / 13% / 4.9% | 90° | pass (agrees with the planar check) |
+| sewn wedge 30° g = 0.01 | yes | 32% / −49% / 10% | 30° | fail B2 (consistent with Lemma O) |
+| exact cylinder, exact box | yes | 100% | 90° | pass |
+| sewn filleted box g = 0.001 | **no** (3 faces instead of 26) | – | – | not applicable |
+
+On the sewn filleted box, the fillet surfaces are tangent to their neighbours, so the extended surfaces do not
+re-intersect along the old edges and the rebuilt solid is a different shape. Route A also fails there: 47 edges
+fail V1(a), because the deviation is constant along each edge, so the tube radius cannot shrink near the
+vertices. So neither construction covers sewn models with tangent (G1) edges at present.
+
+**Plan (not done): route G (graph construction) for tangent edges and smooth vertices.** Near a point where all
+the faces involved are G1-continuous, they are graphs over one common plane. A realization can then be built as a
+single graph over that plane: on each face region it follows that face's height; near a projected edge it
+interpolates between the two heights inside the edge tube; near a vertex it uses the ball. Being a graph, it is
+embedded locally automatically. On sewn data the two boundary curves at a tangent edge are offset from γ_e mostly
+along the common normal, so the interpolation stays inside the tube when dev_e < τ_e. Hypotheses and proof to be
+written.
 
 ## 3. Lemma O (obstruction)
 

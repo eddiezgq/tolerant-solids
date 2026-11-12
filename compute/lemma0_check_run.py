@@ -68,6 +68,9 @@ PARTS = {
     "sloppy wedge 10deg g=0.01": lambda: sloppy(wedge(10), 0.01),
     "sloppy plate t=0.05 g=0.01": lambda: sloppy(C.plate(4, 0.05), 0.01),
     "sloppy cylinder g=0.01": lambda: sloppy(W.cyl(3, 10), 0.01),
+    "sloppy cylinder g=0.05": lambda: sloppy(W.cyl(3, 10), 0.05, seed=2),
+    "sloppy pipe g=0.01": lambda: sloppy(pipe(), 0.01, seed=3),
+    "sloppy filleted box g=0.001": lambda: sloppy(W.filleted_box(10, 2), 0.001, seed=4),
 }
 
 if __name__ == "__main__":
