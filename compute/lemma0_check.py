@@ -177,7 +177,7 @@ def exit_dir(w, u, r):
 def e3_actual(sm, sides, idx, r_in, kf):
     """E3': at every sample, the true exit points of the two face sections on the circle of radius r
     around gamma(t) are separated by more than the curvature uncertainty. The section of face f is
-    within eta = 2 k_f r^2 of its tangent line inside the disk (chord <= 2r); the exit point therefore
+    within eta = k_f ell^2 / 2 of its tangent line inside the disk, ell = arc-length bound of v0.2 E2.3; the exit point therefore
     lies between the exits of the two lines offset by +-eta. Returns the minimum angular slack."""
     worst = math.inf
     for i in idx:
@@ -187,7 +187,12 @@ def e3_actual(sm, sides, idx, r_in, kf):
         for sd, k in zip(sides, kf):
             w = sd["B"][i] - sm["G"][i]; w = w - (w @ T) * T
             u = sd["u"][i]
-            eta = 2 * k * r * r
+            mu = 1 - r * k
+            if mu <= 0:
+                return -math.inf
+            dl = np.linalg.norm(w)
+            ell = (dl + math.sqrt(dl * dl + mu * r * r)) / mu
+            eta = k * ell * ell / 2
             nrm = np.cross(T, u)
             c = exit_dir(w, u, r)
             lo, hi = exit_dir(w - eta * nrm, u, r), exit_dir(w + eta * nrm, u, r)

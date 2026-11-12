@@ -92,6 +92,12 @@ def check(shape, name, verbose=True):
     for e in M.E:
         if BRepAdaptor_Curve(e).GetType() != GeomAbs_Line:
             return dict(name=name, applicable=False, why="non-straight edge")
+    for f in M.F:
+        nw, ex = 0, TopExp_Explorer(f, TopAbs_WIRE)
+        while ex.More():
+            nw += 1; ex.Next()
+        if nw != 1:
+            return dict(name=name, applicable=False, why="face with several wires")
     sm = [L.edge_samples(M, i) for i in range(len(M.E))]
     pl = []
     for f in M.F:

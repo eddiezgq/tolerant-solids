@@ -1,9 +1,11 @@
 # Lemma 0 (existence) v0.3, and an obstruction lemma (draft, 2026-11-12)
 
-**Status.** Draft v0.3.1: revised after one independent review
-([reviews/lemma0_v03_review.md](reviews/lemma0_v03_review.md)) and one independent code review with exact
-re-verification ([reviews/lemma0_v03_code_review.md](reviews/lemma0_v03_code_review.md)). Neither found a fatal
-error; the gaps they found are fixed below. It extends [lemma0_v02.md](lemma0_v02.md) after the hypothesis checks in
+**Status.** Draft v0.3.2. Three independent reviews, none of which found a fatal error:
+a mathematical review ([reviews/lemma0_v03_review.md](reviews/lemma0_v03_review.md)), a code review with exact
+re-verification ([reviews/lemma0_v03_code_review.md](reviews/lemma0_v03_code_review.md)), and a second-round review
+of the revised text ([reviews/lemma0_v031_review.md](reviews/lemma0_v031_review.md)), which found Lemma O's proof
+correct and one gap in its statement (single-wire faces), now fixed. Still open from the reviews: the curvature κ_λ
+quoted in the apex estimate of v0.2 §5 (λ_v is only C¹), and the checker issues listed at the end of §1. It extends [lemma0_v02.md](lemma0_v02.md) after the hypothesis checks in
 [lemma0_check_report.md](lemma0_check_report.md). Three changes:
 1. Route A (the fan/cone construction of v0.2) with a variable tube radius (A') and with E3 replaced by the
    condition it is used for (E3').
@@ -32,11 +34,14 @@ and S1, read ρ_e as ρ_e(t) at the parameter in question:
 - The PL step (§5 of v0.2) needs the pieces to be C¹ on closed triangles. The fans and tube walls are C¹ when γ_e
   is C² and ρ_e is C¹.
 - *Why ρ_e is constant near the vertices* (found in review). Two places in v0.2 use ρ_e' = 0 there:
-  - the V1(a) sufficient condition: a straight stub with p_v on its axis is star-shaped from p_v only if
-    t ρ_e'(t) < ρ_e(t); a radius that widens towards a_e makes a ray from p_v meet ∂W_v three times;
-  - the quarter-space argument at k(a_e) in §5 needs ⟨k', r̂⟩ = 0, which equals ρ_e'(a_e).
-  Keeping ρ_e constant on the stubs and near a_e, b_e restores both. The checker takes the radius near each vertex
-  at least as large as the largest one used there; it does not yet build the constant pieces explicitly.
+  - the V1(a) sufficient condition: a straight stub with p_v on its axis (t measured from p_v) is star-shaped from
+    p_v only if t ρ_e'(t) < ρ_e(t); where t ρ_e'(t) > ρ_e(t), a ray from p_v meets ∂W_v three times;
+  - the quarter-space argument at k(a_e) in §5 uses ⟨k', r̂⟩ = ρ_e'(a_e); v0.2 has 0 there (the second review notes
+    that ρ_e'(a_e) ≥ 0 would also do).
+  Keeping ρ_e constant on the stubs and near a_e, b_e is the simplest way to keep both.
+- *Checker status* (second review). compute/lemma0_check.py does not yet implement A' as stated: its variable
+  radius is a Lipschitz envelope, not C¹, and it does not re-check E3/E3' with the constant radius on the stubs.
+  Its acceptance of the six "E3 var" edges of the model "L all fillets 0.5" is therefore provisional.
 
 **E3' (what E3 is used for).** Replace E3 by: *for every t in [t_v, t_w], the exit points k_{f,e}(t) and k_{g,e}(t)
 are distinct.*
@@ -44,12 +49,13 @@ are distinct.*
   crease angle along γ_e; distinctness, continuity and compactness give a positive lower bound.
 - E3 of v0.2 is a sufficient condition for E3' that holds for every position of the boundary points within dev*
   of γ_e. E3' can be checked on the actual data. The checker computes the exit points of the tangent lines of the
-  sections, with an angular error bound from η = 2 k_f ρ² (a section of curvature ≤ k_f stays within k_f s²/2 of
-  its tangent line over length s ≤ 2ρ). That computation is a sampled check, not a proof.
+  sections, with an angular error bound from η = k_f ℓ_f²/2: a section of curvature ≤ k_f stays within k_f s²/2 of
+  its tangent line over arc length s, and the arc inside the disk has length at most ℓ_f of v0.2 E2.3 (up to about
+  2.41ρ, more than the chord bound 2ρ used in the first version). That computation is a sampled check, not a proof.
 
 ## 2. Proposition B (re-intersection, planar, degree three)
 
-**Setting.** Every face f has planar data: S_f is a plane Π_f, and P_f is a polygon in Π_f. Every vertex v lies
+**Setting.** Every face f has planar data: S_f is a plane Π_f, and P_f ⊆ Π_f. Every vertex v lies
 on exactly three faces, and the three planes are linearly independent. Let c_v be their common point. For an
 edge e from v to w, let ℓ_e = [c_v, c_w]; it lies in both face planes of e. For a face f with vertices
 v_1, …, v_k in the cyclic order of ∂f, let P̃_f be the polygon c_{v_1} … c_{v_k} in Π_f.
@@ -68,8 +74,8 @@ homeomorphism extending the boundary map) is a realization.
 K (B4). Zones: h(v) = c_v ∈ Z(v), h(int e) ⊆ ℓ_e ⊆ Z(e), h(int f) ⊆ P̃_f ⊆ Z(f). □
 
 *Remarks.*
-- The content is that B1–B4 are checkable. For the sewn box they hold with margins 45% (B1) and 13% (B2). The code
-  review re-checked B1–B4 on the sewn box in exact rational arithmetic, including B3 (by covering each new face with
+- The content is that B1–B4 are checkable. For the sewn box and the sewn plate they hold with margins 45% (B1) and
+  13% (B2). The code review re-checked B1–B4 on both in exact rational arithmetic, including B3 (by covering each new face with
   convex pieces, each inside one zone) and B4 (all faces strictly convex, all 15 face pairs meet exactly in the
   expected edge or not at all) ([../compute/checks/review_routeB_exact.py](../compute/checks/review_routeB_exact.py)).
   The sampled B3 margin printed by reintersect_check.py is not meaningful (its grid is coarser than the strips it
@@ -83,7 +89,9 @@ K (B4). Zones: h(v) = c_v ∈ Z(v), h(int e) ⊆ ℓ_e ⊆ Z(e), h(int f) ⊆ P�
 
 ## 3. Lemma O (obstruction)
 
-**Setting.** Two faces f ≠ g with planar data: P_f ⊆ Π_f, P_g ⊆ Π_g, with the planes not parallel. (P_f need not
+**Setting.** Two faces f ≠ g whose closed cells f̄, ḡ are disks, each bounded by a single wire (a face with inner
+wires is not covered; the same degree argument should give a version where the sum of the winding numbers of
+the wires is odd, not written). Planar data: P_f ⊆ Π_f, P_g ⊆ Π_g, with the planes not parallel. (P_f need not
 be a polygon: sewing stores many boundary curves as B-splines, and consecutive boundary curves miss each other by
 about 1e-15. Only the loop ℓ_f of O0 is used.)
 - λ = Π_f ∩ Π_g; α ∈ (0, π/2] is the angle between the planes; n_f, n_g are unit normals;
@@ -93,7 +101,8 @@ about 1e-15. Only the loop ℓ_f of O0 is used.)
 
 **Lemma O.** Suppose there are X ∈ λ and ρ > 0 such that, for J_f = X + [−ρ, ρ] m_f and J_g = X + [−ρ, ρ] m_g:
 - **O0** (boundary loop) β_{f,e} ⊆ Z(e) for every edge e of f, and at every vertex v of f the end points of the
-  two arcs of f at v lie in Z(v). Let ℓ_f be the closed loop formed by the arcs β_{f,e} in the cyclic order of ∂f,
+  two arcs of f at v lie in Z(v). (β_{f,e} is parametrized along e, so for e from v to w its end "at v" is β_{f,e}(0);
+  for a closed edge both ends are at its vertex.) Let ℓ_f be the closed loop formed by the arcs β_{f,e} in the cyclic order of ∂f,
   where consecutive arcs at v are joined by the straight segment s_{f,v} between their end points; s_{f,v} ⊆ Z(v)
   because the ball is convex. The same holds for g;
 - **O1** J_f ∩ ℓ_f = ∅, and the winding number of ℓ_f (in Π_f) about the points of J_f is odd; the same holds for g;
@@ -112,8 +121,7 @@ Then the tolerant B-rep has no realization.
 - Hence h(f̄) ∩ π_f^{-1}(y) = h(f̄) ∩ σ_y. Also h(∂f) ⊆ U_f, so these points are images of interior points of f.
 
 **Step 2 (degree one).**
-- ∂f is a circle made of edges e < f and vertices. By O0, ∂P_f is a loop that runs through the same sequence of
-  edge zones and vertex zones.
+- ∂f is a circle made of the edges e < f and the vertices of f, in the order of the wire.
 - Parametrize ℓ_f over ∂f: a small closed arc A_v ⊆ ∂f around each vertex v goes to s_{f,v}, and the rest of each
   edge e goes to β_{f,e}. Build a homotopy H: ∂f × [0, 1] → U_f from h|_{∂f} to this parametrization:
   - on A_v, h(A_v) ⊆ Z(e) ∪ Z(e') for the two edges at v, and s_{f,v} ⊆ Z(v). Shrink A_v so that h(A_v) ⊆ Z(v)
@@ -123,14 +131,19 @@ Then the tolerant B-rep has no realization.
     By O3 this loop is null-homotopic in Z(e), so H extends over the
     square inside Z(e).
 - By O2, π_f ∘ H avoids every y ∈ J_f. So φ|_{∂f} and ℓ_f have the same winding number around y.
-- By O1 that winding number is odd. Hence the mod-2 degree of φ at y is 1. For y that is not the image of the 1-skeleton of a triangulation on which h
-  is linear, #φ^{-1}(y) is odd. By Step 1, #(h(f̄) ∩ σ_y) is then odd.
+- By O1 that winding number is odd. Hence the mod-2 degree of φ at y is 1. Fix a triangulation of f̄ on which h is
+  linear. For y that is not in φ(1-skeleton), #φ^{-1}(y) is odd; by Step 1, #(h(f̄) ∩ σ_y) is then odd. Once Σ is
+  generic (Step 3), the line Σ ∩ Π_f ⊇ J_f meets φ(1-skeleton) in finitely many points, so all but finitely many
+  y ∈ J_f are of this kind.
 
 **Step 3 (a crossing arc in the slice).**
 - Let Σ be the plane through X orthogonal to λ; it contains n_f, m_f, n_g and m_g. Choose the position of Σ along λ
   generic, and shrink ρ slightly to a generic value. O1, O2 and O4 are open conditions in X (along λ) and in ρ, so
-  they still hold. Genericity of ρ is needed: a triangle of h(f̄) lying in the plane ⟨x − X, m_f⟩ = ρ would
-  otherwise defeat transversality at the short sides for every position of Σ.
+  they still hold. One ρ serves f and g: it must avoid the finitely many values for which one of the planes
+  ⟨x − X, m_f⟩ = ±ρ, ⟨x − X, m_g⟩ = ±ρ contains a vertex of the triangulations of h(f̄), h(ḡ). Genericity of ρ
+  is needed: a triangle of h(f̄) lying in the plane ⟨x − X, m_f⟩ = ρ would otherwise defeat transversality at the
+  short sides for every position of Σ. Generic Σ means: Σ contains no vertex of these triangulations and meets
+  no edge of them in more than a point (all but finitely many positions along λ).
 - R_f = J_f + [−τ_f, τ_f] n_f is a rectangle in Σ. Its long sides are y ± τ_f n_f, and its short sides are
   X ± ρ m_f + [−τ_f, τ_f] n_f.
 - M_f := h(f̄) ∩ R_f. Since h is PL and Σ and ρ are generic, M_f is a compact 1-manifold whose boundary is
@@ -175,15 +188,16 @@ Then the tolerant B-rep has no realization.
    homotopy type of a circle.) The projection of a capsule of radius r onto a plane is a planar capsule of radius r, so O2 is a
    distance test. Results (double precision; not exact arithmetic):
    - sewn wedge 30°: the largest feasible ρ is 1.6e-3; the witness uses ρ = 8.1e-4 against the 3.7e-7 that O4
-     needs; O0 margins 4.8% (exactly 1 − 1/1.05, the sewing factor) and 30%;
+     needs; O0 margins 4.8% (1 − 1/1.05 up to rounding; 1.05 is the sewing factor) and 30%;
    - sewn wedge 10°: largest feasible ρ = 0.016, witness ρ = 8.0e-3;
-   - the code review re-verified both wedges independently in exact rational arithmetic (O2 margins 35% and 15% at
-     the 30° witness; [../compute/checks/review_lemmaO_exact.py](../compute/checks/review_lemmaO_exact.py));
+   - the code review re-verified both wedges independently in exact rational arithmetic
+     ([../compute/checks/review_lemmaO_exact.py](../compute/checks/review_lemmaO_exact.py)). Its witness for the 30°
+     wedge lies at a different point X along the same edge, with the same ρ; there the O2 margins are 35% and 15%;
    - sewn box, sewn plate, exact box and exact wedge: no witness. This is consistent: the first two are realized by
      Proposition B, and the last two by route A.
    Both sewn wedges pass BRepCheck_Analyzer and BRepAlgoAPI_Check.
 3. *Curved patches.* The proof uses planarity in Step 1 (the fibre of π_f is a segment of the slab) and in Step 2
-   (the boundary of P_f is a Jordan curve in the plane). A tubular-neighbourhood version should work for C² patches
+   (the winding number of ℓ_f is taken in the plane Π_f, onto which π_f projects). A tubular-neighbourhood version should work for C² patches
    with τ_f below their reach; not written.
 4. *Relation to exp6a.* exp6a builds a model with two linked triangles, which passes BRepCheck but has no
    realization; that is a constructed example of a known phenomenon. The sewn wedges are produced by one ordinary
@@ -200,9 +214,9 @@ Then the tolerant B-rep has no realization.
   original has not been checked.
 - A union of an open convex set C and open balls B_1, B_2 with C ∩ B_i ≠ ∅, such that B_1 ∩ B_2 = ∅ or
   C ∩ B_1 ∩ B_2 ≠ ∅, is contractible (nerve lemma for a good cover).
-- A segment meeting a Jordan polygon transversally, with both end points outside it, meets it an even number of times.
-- The winding number of a simple closed polygon about an interior point is ±1, and it is invariant under homotopies
-  of the loop that avoid the point.
+- A segment meeting a PL circle in the plane transversally, with both end points outside the disk the circle
+  bounds, meets it an even number of times (Step 3).
+- The winding number of a loop about a point is invariant under homotopies of the loop that avoid the point.
 - A PL map is linear on the simplices of some triangulation.
 - The mod-2 degree is invariant under homotopy of the boundary loop in the complement of the point (used in Step 2
   together with the winding number).
