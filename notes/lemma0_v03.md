@@ -1,6 +1,7 @@
 # Lemma 0 (existence) v0.3, and an obstruction lemma (draft, 2026-11-12)
 
-**Status.** Draft, not yet reviewed. It extends [lemma0_v02.md](lemma0_v02.md) after the hypothesis checks in
+**Status.** Draft v0.3.1: revised after one independent review
+([reviews/lemma0_v03_review.md](reviews/lemma0_v03_review.md); no fatal errors, gaps fixed below). It extends [lemma0_v02.md](lemma0_v02.md) after the hypothesis checks in
 [lemma0_check_report.md](lemma0_check_report.md). Three changes:
 1. Route A (the fan/cone construction of v0.2) with a variable tube radius (A') and with E3 replaced by the
    condition it is used for (E3').
@@ -15,6 +16,7 @@ h(int σ) ⊆ Z(σ); then h(σ̄) ⊆ Z(σ) for every cell (augmented zones, see
 
 **A' (variable radius).** In v0.2 replace the constant ρ_e by a C¹ function ρ_e(t) > 0. In E1, E2, E3, V1(a)
 and S1, read ρ_e as ρ_e(t) at the parameter in question:
+- ρ_e is **constant on the stubs** [t_v, a_e] and [b_e, t_w] and on a neighbourhood of a_e and b_e (see below);
 - E1: dev*_e(t) < ρ_e(t) < min(τ_e, reach(γ_e|[a_e, b_e])), where dev*_e(t) is the in-normal-plane deviation at t;
 - E2.1: ρ_e(t) k_f < 1; E2.3: dist(γ_e(t), P_f ∖ C_f) > ρ_e(t);
 - V1(a): the end disks D_e(a_e) have radius ρ_e(a_e).
@@ -23,9 +25,16 @@ and S1, read ρ_e as ρ_e(t) at the parameter in question:
 - The disks D_e(t) lie in the normal planes Π(t), and normal disks of radius below the reach are pairwise
   disjoint whatever their radii. So T_e = ⋃ D_e(t) is still a union of disjoint disks, and every argument in
   §4 of v0.2 is made inside one normal plane at a time.
-- k_{f,e}(t) is continuous in t because ρ_e is continuous and the crossing in E2 is transversal.
+- k_{f,e}(t) is C¹ in t by the implicit function theorem, because ρ_e is C¹ and the crossing in E2 is transversal.
+  k_{f,e}' is transverse to Π(t) whatever ρ_e' is, so the crease arguments along k in v0.2 §5 use only compactness.
 - The PL step (§5 of v0.2) needs the pieces to be C¹ on closed triangles. The fans and tube walls are C¹ when γ_e
-  is C² and ρ_e is C¹. No bound on |ρ_e'| is needed.
+  is C² and ρ_e is C¹.
+- *Why ρ_e is constant near the vertices* (found in review). Two places in v0.2 use ρ_e' = 0 there:
+  - the V1(a) sufficient condition: a straight stub with p_v on its axis is star-shaped from p_v only if
+    t ρ_e'(t) < ρ_e(t); a radius that widens towards a_e makes a ray from p_v meet ∂W_v three times;
+  - the quarter-space argument at k(a_e) in §5 needs ⟨k', r̂⟩ = 0, which equals ρ_e'(a_e).
+  Keeping ρ_e constant on the stubs and near a_e, b_e restores both. The checker takes the radius near each vertex
+  at least as large as the largest one used there; it does not yet build the constant pieces explicitly.
 
 **E3' (what E3 is used for).** Replace E3 by: *for every t in [t_v, t_w], the exit points k_{f,e}(t) and k_{g,e}(t)
 are distinct.*
@@ -58,7 +67,9 @@ K (B4). Zones: h(v) = c_v ∈ Z(v), h(int e) ⊆ ℓ_e ⊆ Z(e), h(int f) ⊆ P�
 
 *Remarks.*
 - The content is that B1–B4 are checkable. For the sewn box and plate of the report they hold with margins 45%
-  (B1), 13% (B2, B3); B4 was checked with OpenCascade on the exact polyhedron, not with exact arithmetic.
+  (B1), 13% (B2, B3); B4 was checked with OpenCascade on the polyhedron in floating point, not with exact arithmetic.
+- The proposition needs the three planes at each vertex to be independent; it does not apply when two faces at a
+  vertex are coplanar.
 - For curved faces, the same idea uses surface–surface intersection curves; it then needs the PL step of v0.2 §5,
   with bi-Lipschitz constants from the transversality of the surfaces. Not written.
 - Vertices with four or more faces need a different vertex piece. Models mixing tangent edges (route A) and
@@ -73,9 +84,11 @@ K (B4). Zones: h(v) = c_v ∈ Z(v), h(int e) ⊆ ℓ_e ⊆ Z(e), h(int f) ⊆ P�
 - U_f = ⋃_{e<f} Z(e), which contains the zones of the vertices of f.
 
 **Lemma O.** Suppose there are X ∈ λ and ρ > 0 such that, for J_f = X + [−ρ, ρ] m_f and J_g = X + [−ρ, ρ] m_g:
-- **O0** for every edge e of f, the boundary arc β_{f,e} of P_f lies in Z(e), and every corner of P_f lies in the
-  zone of its vertex; the same holds for g;
-- **O1** J_f ⊆ P_f, and dist(J_f, ∂P_f) > τ_f; the same holds for g;
+- **O0** (boundary of the patch) P_f is a polygon whose boundary is the closed curve formed by the arcs β_{f,e},
+  e < f, taken in the cyclic order of ∂f: consecutive arcs β_{f,e}, β_{f,e'} at a vertex v of f share an end point
+  c_{f,v} (the *corner* of P_f at v), and the resulting closed curve is simple. Moreover β_{f,e} ⊆ Z(e) and
+  c_{f,v} ∈ Z(v). The same holds for g;
+- **O1** J_f ⊆ int P_f; the same holds for g;
 - **O2** J_f ∩ cl π_f(U_f) = ∅ and J_g ∩ cl π_g(U_g) = ∅;
 - **O3** Z(e) is simply connected for every edge e of f or of g;
 - **O4** ρ sin α > τ_f cos α + τ_g and ρ sin α > τ_g cos α + τ_f.
@@ -95,24 +108,28 @@ Then the tolerant B-rep has no realization.
   edge zones and vertex zones.
 - Build a homotopy H: ∂f × [0, 1] → U_f from h|_{∂f} to a parametrization of ∂P_f:
   - at a vertex v, use the straight segment from h(v) to the corner of P_f at v (both lie in the ball Z(v));
-  - on an edge e, the boundary of the square ē × [0, 1] is already mapped into Z(e): h(ē) ⊆ Z(e), β_{f,e} ⊆ Z(e) (O0),
-    and the vertex segments lie in Z(v) ⊆ Z(e). By O3 this loop is null-homotopic in Z(e), so H extends over the
+  - on an edge e from v to w, the boundary of the square ē × [0, 1] is already mapped into Z(e): h(ē) ⊆ Z(e),
+    β_{f,e} ⊆ Z(e) runs from c_{f,v} to c_{f,w} (O0), and the vertex segments lie in Z(v), Z(w) ⊆ Z(e). The four
+    paths close up because β_{f,e} ends exactly at the corners (O0). By O3 this loop is null-homotopic in Z(e), so H extends over the
     square inside Z(e).
 - By O2, π_f ∘ H avoids every y ∈ J_f. So φ|_{∂f} and the boundary of the polygon P_f have the same winding number
   around y.
-- P_f is a polygon bounded by a Jordan curve and y ∈ int P_f (O1), so that winding number is ±1.
+- By O0 the boundary of P_f is a simple closed polygon, and y ∈ int P_f (O1), so that winding number is ±1.
 - Hence the mod-2 degree of φ at y is 1. For y that is not the image of the 1-skeleton of a triangulation on which h
   is linear, #φ^{-1}(y) is odd. By Step 1, #(h(f̄) ∩ σ_y) is then odd.
 
 **Step 3 (a crossing arc in the slice).**
 - Let Σ be the plane through X orthogonal to λ; it contains n_f, m_f, n_g and m_g. Choose the position of Σ along λ
-  generic. The steps below hold for every position near X, since O1, O2 and O4 are open conditions, so we may move
-  X slightly along λ.
+  generic, and shrink ρ slightly to a generic value. O1, O2 and O4 are open conditions in X (along λ) and in ρ, so
+  they still hold. Genericity of ρ is needed: a triangle of h(f̄) lying in the plane ⟨x − X, m_f⟩ = ρ would
+  otherwise defeat transversality at the short sides for every position of Σ.
 - R_f = J_f + [−τ_f, τ_f] n_f is a rectangle in Σ. Its long sides are y ± τ_f n_f, and its short sides are
   X ± ρ m_f + [−τ_f, τ_f] n_f.
-- M_f := h(f̄) ∩ R_f. Since h is PL and Σ is generic, M_f is a compact 1-manifold.
+- M_f := h(f̄) ∩ R_f. Since h is PL and Σ and ρ are generic, M_f is a compact 1-manifold whose boundary is
+  M_f ∩ ∂R_f, met transversally.
+  - It does not meet h(∂f): π_f(R_f) = J_f, h(∂f) ⊆ U_f, and by O2 no point of U_f lies over J_f.
   - By Step 1 it does not meet the long sides: h(f̄) over J_f lies in the open slab.
-  - Its boundary lies on the short sides.
+  - Hence its boundary lies on the short sides.
 - Take a generic fibre σ_y (y ∈ J_f), which crosses R_f from long side to long side. By Step 2, M_f meets it an odd
   number of times.
   - A circle component of M_f meets σ_y an even number of times: the endpoints of σ_y are on ∂R_f, outside the circle.
@@ -133,6 +150,7 @@ Then the tolerant B-rep has no realization.
   reverse). The sub-arc between them lies in Q and joins the side w = −τ_g to the side w = +τ_g.
   - Q's sides u = ±τ_f lie on the long sides of R_f, which a_f does not meet.
 - Symmetrically, a sub-arc of a_g lies in Q and joins u = −τ_f to u = +τ_f.
+- Q lies inside both rectangles: on Q, |⟨x − X, m_f⟩| ≤ (τ_g + τ_f cos α)/sin α < ρ by O4, and likewise for m_g.
 - Q is a parallelogram, homeomorphic to a square by (u, w) ↦ (u/τ_f, w/τ_g). Two paths in a square that join
   the two pairs of opposite sides intersect.
 - So h(f̄) and h(ḡ) have a common point x. By Step 1, x = h(p) with p ∈ int f, and x = h(q) with q ∈ int g. Hence
@@ -143,8 +161,10 @@ Then the tolerant B-rep has no realization.
    than about 2τ/sin α. The binding conditions are O1 and O2: the crossing of the two patches must lie away from
    the shadows of the edge and vertex zones of f and g.
 2. *Checking it.* [../compute/obstruction_check.py](../compute/obstruction_check.py) checks O0–O4 for planar
-   models with straight edges. Z(e) is then a capsule plus two balls, which is contractible when each ball meets
-   the capsule. The projection of a capsule of radius r onto a plane is a planar capsule of radius r, so O2 is a
+   models with straight edges. Z(e) is then a capsule plus two balls. O3 is tested by the sufficient condition:
+   each ball meets the capsule, and the two balls are disjoint or all three sets share a point. (Each ball meeting
+   the capsule is not enough: if the balls meet each other but the three sets have no common point, Z(e) has the
+   homotopy type of a circle.) The projection of a capsule of radius r onto a plane is a planar capsule of radius r, so O2 is a
    distance test. Results (double precision; not exact arithmetic):
    - sewn wedge 30°: holds with ρ = 1.6e-3 against the 3.7e-7 that O4 needs; O0 margins 4.8% and 30%;
    - sewn wedge 10°: holds with ρ = 0.016;
@@ -164,8 +184,14 @@ Then the tolerant B-rep has no realization.
   boundary loop mod 2, and it equals the parity of the number of preimages of a regular value.
 - General position: a generic plane meets a PL surface in a compact 1-manifold, and a generic segment meets a
   PL 1-manifold transversally in finitely many points.
-- Two paths in a square that join the two pairs of opposite sides intersect. It is a consequence of the Jordan
-  curve theorem, and also follows from the Poincaré–Miranda theorem. Maehara (Amer. Math. Monthly 91 (1984)) uses
-  it in a proof of the Jordan curve theorem; the original has not been checked.
-- A union of a convex open set and open balls that each meet it in a convex set, with the balls pairwise disjoint,
-  is contractible.
+- Two paths in a square that join the two pairs of opposite sides intersect. Maehara (Amer. Math. Monthly 91
+  (1984)) proves it from the Brouwer fixed point theorem and uses it to prove the Jordan curve theorem; the
+  original has not been checked.
+- A union of an open convex set C and open balls B_1, B_2 with C ∩ B_i ≠ ∅, such that B_1 ∩ B_2 = ∅ or
+  C ∩ B_1 ∩ B_2 ≠ ∅, is contractible (nerve lemma for a good cover).
+- A segment meeting a Jordan polygon transversally, with both end points outside it, meets it an even number of times.
+- The winding number of a simple closed polygon about an interior point is ±1, and it is invariant under homotopies
+  of the loop that avoid the point.
+- A PL map is linear on the simplices of some triangulation.
+- Normal disks of radius below the reach of a C² curve are pairwise disjoint (Federer 1959).
+- The implicit function theorem (C¹ dependence of k_{f,e} on t).
