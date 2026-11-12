@@ -157,13 +157,29 @@ re-intersect along the old edges and the rebuilt solid is a different shape. Rou
 fail V1(a), because the deviation is constant along each edge, so the tube radius cannot shrink near the
 vertices. So neither construction covers sewn models with tangent (G1) edges at present.
 
-**Plan (not done): route G (graph construction) for tangent edges and smooth vertices.** Near a point where all
-the faces involved are G1-continuous, they are graphs over one common plane. A realization can then be built as a
-single graph over that plane: on each face region it follows that face's height; near a projected edge it
-interpolates between the two heights inside the edge tube; near a vertex it uses the ball. Being a graph, it is
-embedded locally automatically. On sewn data the two boundary curves at a tangent edge are offset from γ_e mostly
-along the common normal, so the interpolation stays inside the tube when dev_e < τ_e. Hypotheses and proof to be
-written.
+**Route G (graph construction) for tangent edges and smooth vertices: tried, not finished (2026-11-12).**
+- *Idea.* Where all faces involved are G1-continuous, build the realization as a graph over a common plane.
+  - At a tangent edge, in each normal plane Π(t), take the common normal n(t) as "up". Cut the two face sections at
+    horizontal distance ±a(t) from γ_e, with a(t) > the horizontal offsets of the boundary points. Join the cut points
+    by a segment. That segment lies in the tube if both cut points do (the tube's cross-section is convex), and the
+    result is a graph over the horizontal axis.
+  - At a vertex, inside a vertical cylinder of radius r_v around p_v, use the cone from p_v over the loop in which
+    the outside construction meets the cylinder wall. The loop is a graph over the circle, so the cone is embedded;
+    it lies in Z(v) if the loop does.
+- *Checker:* [../compute/route_g_check.py](../compute/route_g_check.py) (work in progress, not reviewed).
+- *Result on the sewn filleted box (g = 0.001):*
+  - the edge part holds with margin 4.5%;
+  - the vertex part fails: the loop must sit at radius up to 1.6 τ_v.
+- *The reason is in the data.*
+  - OpenCascade sets τ_v equal to the largest incident τ_e.
+  - The patch corners lie up to 0.84 τ_v from p_v.
+  - Near the vertex, the horizontal offsets of the boundary curves from γ_e reach about 0.9 τ_v.
+  - So neither this vertex construction nor route A's fits into the vertex ball.
+- *Whether such data has a realization at all is open.* The checker also has an unresolved artifact: on the exact
+  filleted box, its dense samples near a sphere pole give an unreliable in-plane tangent, and G-E reports a
+  spurious failure.
+- *Open:* a vertex construction that uses the edge tubes near the vertex as well as the ball, or an obstruction
+  argument showing that some tight-vertex data has no realization.
 
 ## 3. Lemma O (obstruction)
 

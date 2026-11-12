@@ -86,13 +86,14 @@ def surf_props(f, u, v):
     return n, k
 
 
-def edge_samples(M, ei):
+def edge_samples(M, ei, ts=None):
     """Sample one edge: gamma, tangent, curvature, and for each face use the boundary point,
     deviation, inward in-plane tangent u_f, surface curvature k_f and out-of-plane angle psi_f."""
     e = M.E[ei]
     c = BRepAdaptor_Curve(e)
     a, b = c.FirstParameter(), c.LastParameter()
-    ts = np.linspace(a, b, N)
+    if ts is None:
+        ts = np.linspace(a, b, N)
     G, T, K = [], [], []
     for t in ts:
         p, d1 = gp_Pnt(), gp_Vec()
