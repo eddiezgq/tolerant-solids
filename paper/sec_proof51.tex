@@ -1,143 +1,232 @@
 \section{Proof of Theorem~\ref{thm:lemma0}}\label{sec:proof51}
 
-We use the notation and hypotheses of Section~\ref{sec:fans}. The \emph{exit point} $k_{f,e}(t)$ is the point where the
-section of $P_f$ in $\Pi(t)$, followed from $b_{f,e}(t)$, leaves $D_e(t)$; E2 makes it unique. $m>0$ denotes the
-minimum zone margin: $\rho_e<\tau_e$ and $W_v\subseteq\inter\Z(v)$, and by compactness all pieces built below lie at
-distance at least $m$ inside the zones of their cells.
+We use the notation and hypotheses of Section~\ref{sec:fans}; $K$ is regular.
 
-\subsection{Construction of $h$}
+\emph{Exit points.} For a face $f>e$, let $c(\sigma)$ be the section of $P_f$ in $\Pi(t)$, parametrized by arc length
+from $b_{f,e}(t)$ and written relative to $\gamma_e(t)$. Then $(|c|^2/2)''=1+\langle c,c''\rangle\ge1-\rho_ek_f>0$ by
+E2.1. So $|c|$ cannot touch the circle $\partial D_e(t)$ from inside before crossing it, and it crosses with
+$\langle c',\hat r\rangle>0$, where $\hat r$ is the outward radial direction. The \emph{exit point} $k_{f,e}(t)$ is that
+crossing point. It is unique by E2, and $C^1$ in $t$ by the implicit function theorem.
+
+\emph{Margin.} $m>0$ is the minimum zone margin. $\rho_e<\tau_e$ and $W_v\subseteq\inter\Z(v)$, and by compactness all
+pieces built below lie at distance at least $m$ inside the zones of their cells.
+
+\emph{Arcs.} For a face $f$ at $v$, we use two arcs:
+\begin{itemize}
+\item $A_{f,v}$ is the arc of $\partial Q_f$ on $\partial W_v$, from $k_{f,e}(a_e)$ to $k_{f,e'}(a_{e'})$;
+\item $\Lambda_{f,v}$ is the arc of $\lambda_v$ contributed by $f$, from $\gamma_e(a_e)$ to $\gamma_{e'}(a_{e'})$. It
+consists of the two radii $[\gamma_e(a_e),k_{f,e}(a_e)]$ in the end disks, followed by $A_{f,v}$.
+\end{itemize}
+
+\subsection{The image pieces}
 \begin{enumerate}
-\item $h(v)=p_v$.
-\item On $[a_e,b_e]$, $h(e)=\gamma_e$. In each $D_e(t)$, the radius $[\gamma_e(t),k_{f,e}(t)]$ is assigned to $f$. The fan
-strip is $F_{f,e}=\bigcup_{t\in[a_e,b_e]}[\gamma_e(t),k_{f,e}(t)]$.
-\item Outside the vertex regions, $h(f)=Q_f\cup\bigcup_{e<f}F_{f,e}$, where $Q_f=P_f\setminus\inter(\bigcup T\cup\bigcup W)$.
-\item Inside $W_v$, take the cone from $p_v$ over $\lambda_v$: each $x\in\lambda_v$ is joined to $p_v$ by a segment. The
-cone over the point of $\lambda_v$ contributed by $e$ is $h(e)$ between $v$ and $a_e$; the cone over the arc contributed
-by $f$ is a sector of $h(f)$.
+\item \emph{Vertices.} $h(v)=p_v$.
+\item \emph{Edges.} On $[a_e,b_e]$, $h(e)=\gamma_e$.
+\item \emph{Fans.} The fan strip is $F_{f,e}=\{\gamma_e(t)+\sigma(k_{f,e}(t)-\gamma_e(t)):t\in[a_e,b_e],\ \sigma\in[0,1]\}$.
+\item \emph{Faces away from the vertices.} $Q_f=P_f\setminus\inter(\bigcup T\cup\bigcup W)$.
+\item \emph{Vertex regions.} Inside $W_v$, take the cone from $p_v$ over $\lambda_v$.
+  \begin{itemize}
+  \item The cone over the point $\gamma_e(a_e)$ is the stub of $h(e)$.
+  \item The cone over $\Lambda_{f,v}$ is the sector of $h(f)$ at $v$.
+  \end{itemize}
 \end{enumerate}
 
-\subsection{$h$ is a continuous injective cellular map into the zones}
-\emph{Pieces and their supports.} $Q_f\subseteq P_f$ lies outside $\inter(\bigcup T\cup\bigcup W)$. $F_{f,e}\subseteq T_e$.
-The cone sectors and edge stubs lie in $W_v$.
-
-\emph{Injectivity inside $T_e$.}
+\subsection{Corners of $\lambda_v$}
+$\lambda_v$ is piecewise $C^1$. Its corners are:
 \begin{itemize}
-\item The disks $D_e(t)$ lie in the normal planes and have radius below the reach, so they are pairwise
-disjoint~\cite{Federer59}; this does not depend on $\rho_e$ being constant.
-\item Inside one disk, the construction consists of the centre and two radii to the distinct points $k_{f,e}(t)$,
-$k_{g,e}(t)$ (E3$'$). They meet only at the centre.
-\item No other piece enters $T_e$. Non-incident pieces are excluded by S1(b)--(d) and S1(f). The patches of $f>e$
-enter $T_e$ only in the collar of $\partial P_f$ (P0 and E2.3), and that collar is removed.
+\item the points $\gamma_e(a_e)$, where two fan radii meet;
+\item the points $k_{f,e}(a_e)$, where a radius in the end disk meets the trace of $Q_f$;
+\item the points where $\lambda_v$ crosses a junction curve of $\partial W_v$. By V1(b) these crossings are
+transversal and avoid the corners of $\partial W_v$.
+\end{itemize}
+Between consecutive corners, $\lambda_v$ is a $C^1$ curve with nonvanishing tangent.
+
+\subsection{Injectivity of the image}
+\emph{Inside $T_e$.}
+\begin{itemize}
+\item The disks $D_e(t)$ lie in the normal planes and have radius below the reach of $\gamma_e|_{[a_e,b_e]}$, so they
+are pairwise disjoint~\cite{Federer59}. This holds whatever $\rho_e(t)$ is.
+\item Inside one disk, the construction is the centre and two radii to the distinct points $k_{f,e}(t)$ and
+$k_{g,e}(t)$ (E3$'$). These meet only at the centre.
+\item No other piece enters $T_e$:
+  \begin{itemize}
+  \item non-incident pieces are excluded by S1(b)--(d) and S1(f);
+  \item the patch of $f>e$ meets $D_e(t)$ only in the section arc from $b_{f,e}(t)$ to $k_{f,e}(t)$ (by the convexity
+  computation above and E2.3). That arc lies in the collar of $\partial P_f$, which is removed (P0).
+  \end{itemize}
 \end{itemize}
 
-\emph{Injectivity inside $W_v$.}
+\emph{Inside $W_v$.}
 \begin{itemize}
-\item The cone map $(s,x)\mapsto p_v+s(x-p_v)$, for $s\in(0,1]$ and $x\in\lambda_v$, is injective. Each ray from $p_v$
-meets $\partial W_v$ once (V1(a)), and $\lambda_v$ is a simple curve on $\partial W_v$ (V1(b)).
-\item No other piece enters $W_v$: S1(a), (c), (d) for non-incident pieces, and S1(f) for incident ones.
+\item The cone map $(s,x)\mapsto p_v+s(x-p_v)$, $s\in(0,1]$, $x\in\lambda_v$, is injective. Each ray from $p_v$ meets
+$\partial W_v$ once (V1(a)), and $\lambda_v$ is simple (V1(b)).
+\item No other piece enters $W_v$: S1(a), (c), (d) exclude non-incident pieces, and S1(f) excludes incident ones.
 \end{itemize}
 
-\emph{Injectivity elsewhere.} Outside $\bigcup T\cup\bigcup W$ the pieces are the $Q_f$. They are embedded (P0) and
-pairwise disjoint (S1(e)).
-
-\emph{Continuity and cell structure.}
+\emph{Elsewhere.}
 \begin{itemize}
-\item \emph{The pieces fit.} $Q_f$ and $F_{f,e}$ agree along $k_{f,e}$. The fans and $Q_f$ agree with the cone
-along $\lambda_v$, which is by V1(b) exactly their trace on $\partial W_v$.
-\item \emph{Order.}
+\item Outside the closed set $\bigcup T\cup\bigcup W$, the pieces are the embedded $Q_f$ (P0), and they are pairwise
+disjoint (S1(e)).
+\item On $\partial T_e$, two different $Q_f$ could meet only at exit points, which are distinct (E3$'$), or at
+non-incident patches, which are excluded by S1(d).
+\item On $\partial W_v$, they meet $\lambda_v$ in disjoint arcs, because $\lambda_v$ is simple.
+\end{itemize}
+
+\emph{Cell structure.}
+\begin{itemize}
+\item By P0, $\partial Q_f$ is one circle made of the curves $k_{f,e}$ and the arcs $A_{f,v}$.
+\item By V1(b) there is exactly one arc per corner of $f$. So the pieces form a 2-regular graph isomorphic to
+$\partial f$; its only cycle is $\partial Q_f$, and the cyclic order is forced.
+\item The pieces meet exactly as follows:
   \begin{itemize}
-  \item By P0, $\partial Q_f$ is one circle made of the curves $k_{f,e}$ and arcs $A_{f,v}$ on the spheres $\partial W_v$.
-  \item By V1(b) there is exactly one arc per vertex of $f$, joining $k_{f,e}(a_e)$ to $k_{f,e'}(a_{e'})$.
-  \item So these pieces form a 2-regular graph isomorphic to $\partial f$, whose only cycle is $\partial Q_f$; the
-  cyclic order is forced.
+  \item $Q_f\cap F_{f,e}=k_{f,e}$, by E2.3 and S1(f);
+  \item $(Q_f\cup\text{fans})\cap\text{sector}_{f,v}=\Lambda_{f,v}$, by strict star-shapedness and S1(f).
   \end{itemize}
-\item \emph{Exact intersections.}
-  \begin{itemize}
-  \item $Q_f\cap F_{f,e}=k_{f,e}$, by E2.3 and S1(f).
-  \item $(Q_f\cup\text{fans})\cap\text{sector}_{f,v}=A_{f,v}$, by star-shapedness and S1(f).
-  \item Gluing two disks along a boundary arc that is their whole intersection gives a disk. By induction, $h(f)$ is
-  a closed disk with $\partial h(f)=\bigcup_{e<f}h(e)$.
-  \end{itemize}
-\item \emph{$h$ as a map.} Fix a homeomorphism $\partial f\to\partial h(f)$ that respects the cells, and extend it
-over $f$ through a chart of the disk $h(f)$ (Alexander's trick).
-  \begin{itemize}
-  \item On the part away from the vertex regions, take the extension piecewise $C^1$, by straightening the $C^1$
-  boundary of $Q_f$ in the parameter domain of $P_f$.
-  \item On each cone sector, take it radial: the sector of $\bar f$ at $v$ is the cone over an arc of the link, and a
-  point at radius $s$ over a link point $y$ goes to $p_v+s(\phi(y)-p_v)$. Here $\phi$ is a $C^1$ parametrization of
-  the arc $A_{f,v}$ of $\lambda_v$.
-  \end{itemize}
+\item Gluing two disks along a boundary arc that is their whole intersection gives a disk. By induction, the union
+$h(f)$ is a closed disk with $\partial h(f)=\bigcup_{e<f}h(e)$.
 \end{itemize}
 
 \emph{Zones.}
 \begin{itemize}
 \item $Q_f\subseteq P_f\subseteq\Z(f)$.
-\item $F_{f,e}\subseteq T_e\subseteq N_{\rho}(\gamma_e)\subseteq\Z(e)\subseteq\Z(f)$.
+\item $F_{f,e}\subseteq T_e\subseteq N_\rho(\gamma_e)\subseteq\Z(e)\subseteq\Z(f)$.
 \item The cone parts lie in $W_v\subseteq\Z(v)$, which is contained in $\Z(e)$ and $\Z(f)$ for incident $e$ and $f$.
 \item $h(\inter e)\subseteq\gamma_e\cup W_v\subseteq\Z(e)$.
 \item All inclusions hold with margin at least $m$.
 \end{itemize}
 
-\subsection{The PL step}
-\emph{$h$ is bi-Lipschitz.} $h$ is injective on a compact set, so it suffices that it is locally bi-Lipschitz.
+\subsection{The map $h$}
+We build a polyhedral domain and a homeomorphism onto the union of the pieces that is $C^1$, with injective
+differential, on each closed domain cell (except at the apexes), and that agrees on shared edges.
+
+\emph{Domain.} Let $L$ be a polyhedral subdivision of $|K|$ with one 2-cell for each fan, each $Q_f$ and each sector,
+in the incidence pattern of the image pieces. The sector cells are cones from the vertex $v$ over a polygonal arc of
+the link of $v$; that arc has a vertex at the preimage of every corner of $\lambda_v$.
+
+\emph{Fans.} Use the chart $(t,\sigma)\mapsto\gamma_e(t)+\sigma(k_{f,e}(t)-\gamma_e(t))$ on $[a_e,b_e]\times[0,1]$.
 \begin{itemize}
-\item \emph{At the creases,} the opening angle is positive.
-  \begin{itemize}
-  \item Along $k$, between fan and patch: the fan leaves $k$ in direction $-\hat r$, and the patch section leaves with
-  $c'\cdot\hat r>0$ (E2), so the angle exceeds $90^\circ$.
-  \item Along $\gamma_e$, between two fans: E3$'$ and compactness.
-  \item Along $\partial W_v$, between the cone and the outside pieces: strict star-shapedness.
-  \end{itemize}
-\item \emph{Where three or more pieces meet} ($k_{f,e}(a_e)$, $\gamma_e(a_e)$, corners of $\partial W_v$), the tangent
-cone is an embedded PL disk.
-  \begin{itemize}
-  \item At $k(a_e)$: the fan and $Q_f$ tangent sectors lie in the closed quarter-space
-  $\{\langle\cdot,\gamma'\rangle\le0,\langle\cdot,\hat r\rangle\le0\}$. This uses $\rho_e'(a_e)=0$: $\rho_e$ is constant
-  near $a_e$. The cone sectors lie inside it, with $-(x-p_v)$ in its interior. The only shared rays are $-\hat r$ and
-  the side-wall tangent, each between adjacent sectors.
-  \item At $\gamma(a_e)$: the fans lie in $\{\langle\cdot,\gamma'\rangle\ge0\}$ and the sectors in
-  $\{\langle\cdot,\gamma'\rangle\le0\}$. They share only the rays $\hat r_f\ne\hat r_g$ (E3$'$).
-  \end{itemize}
-\item \emph{At the apex $p_v$,} $h$ is homogeneous of degree one on each sector. It is bi-Lipschitz there because
-$\lambda_v$ is transverse to the rays from $p_v$ and $|x-p_v|$ is bounded below on $\lambda_v$.
+\item It is $C^1$ (since $k_{f,e}$ is).
+\item Its differential is injective: $\partial_\sigma=k-\gamma\in\Pi(t)$ is nonzero, and $\partial_t$ has
+$\gamma'$-component at least $1-\sigma\kappa_\gamma\rho_e>0$.
+\item It fixes the parametrization of the crease $k_{f,e}$ by $t$, and that of the end radius at $t=a_e$ by $\sigma$.
 \end{itemize}
 
-\emph{Secant approximation.} Take a shape-regular triangulation of $|K|$ with these properties:
+\emph{Sectors.} On the cone from $v$ over a link arc, map $v+s(y-v)$ to $p_v+s(\phi(y)-p_v)$.
 \begin{itemize}
-\item it refines the decomposition into pieces;
-\item it has the vertices of $K$ as vertices;
-\item on each cone sector it is radial: its triangles there have the apex as a vertex and a chord of the link as the
-opposite side;
-\item $h$ is $C^1$ on each closed triangle away from the apexes.
+\item $\phi$ maps the link arc onto $\Lambda_{f,v}$ and is $C^1$ with $\phi'\ne0$ on each link segment between
+consecutive corners.
+\item On the end radii, $\phi$ is chosen to agree with the fan parametrization by $\sigma$. On $A_{f,v}$, it agrees with
+the parametrization used for $Q_f$ below.
 \end{itemize}
-Let $S$ be the secant map, linear on each triangle and equal to $h$ at the vertices.
+
+\emph{$Q_f$.} In the parameter domain of $P_f$, $\partial Q_f$ is a piecewise $C^1$ curve. Its pieces are $k_{f,e}$,
+parametrized by $t$, and $A_{f,v}$, parametrized by the restriction of $\phi$. Its corners are at the points
+$k_{f,e}(a_e)$ and at the junction crossings.
 \begin{itemize}
-\item \emph{Away from the apexes.} $h$ is $C^1$ on each closed triangle. By the standard estimate,
-$\operatorname{Lip}(S-h)\le C\,\omega(Dh,\mathrm{mesh})/\sin\theta_{\min}$, where $\omega$ is a modulus of continuity and
-$\theta_{\min}$ the smallest angle. This tends to $0$ with the mesh size.
-\item \emph{On a radial triangle at the apex,} with base chord $[y_0,y_1]$: write $\hat\phi$ for the linear interpolation
-of $\phi$ on the chord. Then
-\[
-(S-h)(p_v+s(y-p_v))=s\,(\hat\phi(y)-\phi(y)),
-\]
-which is homogeneous of degree one.
+\item Subdivide $Q_f$ into curved triangles, so that the boundary pieces and their prescribed parametrizations are
+edges of the subdivision.
+\item On each curved triangle, use a transfinite (blending-function) interpolation map from a straight triangle with
+the prescribed edge maps~\cite{GordonHall73} \unverified{Gordon--Hall blending maps: $C^1$ up to the boundary and
+invertible for sufficiently fine subdivision}.
+\item Composed with the chart of $P_f$, this gives maps that are $C^1$ up to the boundary, have injective
+differential, and agree on shared edges.
+\end{itemize}
+
+These cell maps agree on shared edges, so together they define a homeomorphism $h\colon|L|=|K|\to\bigcup$ pieces. It
+sends each cell of $K$ onto the corresponding image cell.
+
+\subsection{The PL step}
+\emph{Metric.} We measure Lipschitz constants on $|L|$ in its intrinsic length metric. That metric is bi-Lipschitz
+equivalent to the extrinsic one, and in it a Lipschitz bound on each cell is a global bound.
+
+\emph{$h$ is bi-Lipschitz.} $h$ is injective on a compact space, so it suffices that it is locally bi-Lipschitz.
+\begin{itemize}
+\item \emph{Inside a cell}, this follows from the injective differential.
+\item \emph{Along the creases}, the two half-planes of the tangent cone must differ.
   \begin{itemize}
-  \item Its radial derivative is $\hat\phi(y)-\phi(y)$, of size at most $\omega(\phi',\mathrm{mesh})\cdot\mathrm{mesh}$.
-  \item Its derivative along the chord, divided by the distance $s|y-p_v|$ to the apex, is at most
-  $|\hat\phi'-\phi'|/|y-p_v|\le\omega(\phi',\mathrm{mesh})/\min|y-p_v|$.
-  \item So $\operatorname{Lip}(S-h)\to0$ uniformly on the cone sectors.
+  \item Along $k$ (fan and $Q_f$): in $\Pi(t)$ the fan leaves $k$ in direction $-\hat r$ and the patch section in
+  direction $c'$ with $\langle c',\hat r\rangle>0$. Since $k'\notin\Pi(t)$, the two half-planes could coincide only if
+  $c'$ were parallel to $-\hat r$, which is excluded.
+  \item Along $\gamma_e$ (two fans): E3$'$ and compactness.
+  \item Along $\partial W_v$ (cone and outside piece): the cone's half-tangent $p_v-x$ points strictly into $W_v$ (strict
+  star-shapedness, V1(a)), and the outside piece leaves strictly outward (transversality, V1(b)). For a fan, the
+  tangent plane along the end radius contains $k'$ or $\gamma'$, neither of which lies in $\Pi(a_e)$.
   \end{itemize}
-  This uses only that $\phi$ is $C^1$. It closes the gap noted in earlier versions, where the estimate was stated
-  with a curvature of $\lambda_v$, which is only $C^1$.
-\item \emph{Conclusion.} Since $\operatorname{Lip}(S-h)\to0$ and $|S-h|\to0$, for a fine enough mesh:
+\item \emph{At $k(a_e)$} (fan, $Q_f$ and two cone sub-sectors). Here $\rho_e'(a_e)=0$, so $k'\perp\hat r$. Let
+$Q=\{\langle\cdot,\gamma'\rangle\le0,\langle\cdot,\hat r\rangle\le0\}$ and $w=p_v-k(a_e)$; then $w\in\inter Q$ by strict
+star-shapedness.
   \begin{itemize}
-  \item $\operatorname{Lip}(S-h)$ is below the bi-Lipschitz constant of $h$, so $S$ is injective;
+  \item The fan sector $\mathrm{span}^+(k',-\hat r)$ lies in $\{\langle\cdot,\gamma'\rangle\ge0\}$.
+  \item The $Q_f$ half-plane, bounded by $\R k'$ and containing $c'$, lies in $\{\langle\cdot,\hat r\rangle\ge0\}$.
+  \item The two cone sub-sectors $\mathrm{span}^+(-\hat r,w)$ and $\mathrm{span}^+(w,-k')$ lie in $Q$.
+  \end{itemize}
+  So the fan and $Q_f$ sectors lie in the closure of the complement of $Q$, and the cone sectors lie in $Q$. They share
+  only the rays $k'$ (fan and $Q_f$), $-\hat r$ (fan and cone), $w$ (between the two cone sub-sectors) and $-k'$ (cone
+  and $Q_f$). The two cone sub-sectors do not fold: if $-\hat r$, $w$, $-k'$ were coplanar, then $w\in\inter Q$ would
+  force $w=-a\hat r-bk'$ with $a,b>0$, strictly between them. Hence the tangent cone is an embedded disk.
+\item \emph{At $\gamma(a_e)$} (two fans and the adjacent cone sectors). The fans lie in
+$\{\langle\cdot,\gamma'\rangle\ge0\}$, and the cone sectors in $\{\langle\cdot,\gamma'\rangle\le0\}$ with
+$\langle p_v-\gamma(a_e),\gamma'\rangle<0$. They share only the rays $\hat r_f\ne\hat r_g$ (E3$'$).
+\item \emph{At a junction crossing $x$ of $\lambda_v$.} The tangent cone $T_x$ of $W_v$ at $x$ is the union of two
+half-spaces, since $W_v$ is a union of two convex sets near $x$. Let $\ell_1,\ell_2$ be the half-tangents of $\lambda_v$
+at $x$, one in each face of $T_x$.
+  \begin{itemize}
+  \item Strict star-shapedness gives $w=p_v-x\in\inter T_x$, so the two cone sub-sectors $\mathrm{span}^+(\ell_1,w)$
+  and $\mathrm{span}^+(w,\ell_2)$ lie in $T_x$.
+  \item By the transversality in V1(b), the tangent sector of the outside piece lies in the closure of the complement
+  of $T_x$.
+  \end{itemize}
+  So the sectors meet only along $\ell_1$, $w$ and $\ell_2$, and the tangent cone is an embedded disk.
+\item \emph{At the apex $p_v$.} $h$ is homogeneous of degree one on each sector. The radial projection of $\lambda_v$
+to the unit sphere about $p_v$ is injective (V1(a)). It is locally bi-Lipschitz: by transversality between corners,
+and by the no-fold arguments above at the corners. $\phi$ is bi-Lipschitz on each link segment. Hence $h$ is
+bi-Lipschitz on the star of $v$.
+\end{itemize}
+
+\emph{Secant approximation.} Take a triangulation of $|L|$ with these properties:
+\begin{itemize}
+\item it refines every cell of $L$ and has every corner as a vertex;
+\item it is shape-regular off the sector cells;
+\item it is radial on the sector cells: its triangles there have the apex $v$ as a vertex and a sub-segment of one link
+segment as the opposite side.
+\end{itemize}
+The two kinds of triangles meet only along those base segments. Let $S$ be the secant map, linear on each triangle and
+equal to $h$ at the vertices.
+\begin{itemize}
+\item \emph{Off the sectors.} $h$ is $C^1$ up to the boundary on each closed triangle. The standard per-triangle
+estimate gives $\operatorname{Lip}(S-h)\le C\,\omega(Dh,\mathrm{mesh})/\sin\theta_{\min}$, where $\omega$ is a modulus
+of continuity and $\theta_{\min}$ is bounded below by shape regularity.
+\item \emph{On a radial triangle $(v,y_0,y_1)$.} Its base lies on one link segment. Write $y=(1-u)y_0+uy_1$, with $u$
+proportional to arc length and $\tau$ the unit vector of the base.
+  \begin{itemize}
+  \item A point $x=v+s(y-v)$ has barycentric coordinates $(1-s,\,s(1-u),\,su)$. So $S(x)=p_v+s(\hat\phi(y)-p_v)$,
+  where $\hat\phi$ is the linear interpolation of $\phi$ on the base, and
+  \[
+  (S-h)(x)=s\,e(y),\qquad e=\hat\phi-\phi .
+  \]
+  This is exactly homogeneous of degree one in $s$.
+  \item Differentiating: $\partial_s x=y-v$ gives $\partial_s(S-h)=e(y)$, and $\partial_u x$ (a multiple $s\tau$ of
+  $\tau$) gives $D(S-h)\cdot\tau=e'$, with no division by the distance to the apex.
+  \item Hence $\|D(S-h)\|\le(|e|/|y-v|+|e'|)/\sin\beta$, where $\beta$ is the angle between the ray $y-v$ and the base.
+  $\beta$ is bounded below by the fixed domain geometry, since the link is transverse to the rays.
+  \item Since $\hat\phi'$ is the mean of $\phi'$ over the base, $|e'|\le\omega(\phi',\mathrm{mesh})$ and
+  $|e|\le\mathrm{mesh}\cdot\omega(\phi',\mathrm{mesh})$.
+  \item $D(S-h)$ is constant along rays, so the bound holds uniformly up to the apex, and $S-h$ is continuous at $v$.
+  So $\operatorname{Lip}(S-h)\le C\,\omega(\phi',\mathrm{mesh})\to0$.
+  \end{itemize}
+  This uses only that $\phi$ is $C^1$ on each link segment; no curvature of $\lambda_v$ is needed.
+\item \emph{Conclusion.} With the intrinsic metric, $\operatorname{Lip}(S-h)\to0$ and $|S-h|\to0$ globally. For a fine
+enough triangulation:
+  \begin{itemize}
+  \item $\operatorname{Lip}(S-h)$ is below the bi-Lipschitz constant of $h$, so $S$ is injective, by
+  $|S(x)-S(y)|\ge|h(x)-h(y)|-\operatorname{Lip}(S-h)\,|x-y|$;
   \item $|S-h|<m$, so $S(\inter\sigma)\subseteq\Z(\sigma)$.
   \end{itemize}
   $S$ is PL, so it is a realization. $\square$
 \end{itemize}
 
 \emph{Standard facts used without separate checking against a source:} disjointness of normal disks below the
-reach~\cite{Federer59}, the implicit function theorem (for the $C^1$ dependence of $k_{f,e}$ on $t$), Alexander's
-trick, gluing disks along boundary arcs, and the secant-approximation estimate for $C^1$ maps on shape-regular
-triangulations.
+reach~\cite{Federer59}; the implicit function theorem; gluing disks along boundary arcs; the per-triangle
+secant-approximation estimate for $C^1$ maps; bi-Lipschitz equivalence of the intrinsic and extrinsic metrics on a
+compact polyhedron; that an injective, locally bi-Lipschitz map of a compact space is bi-Lipschitz; and the blending
+maps cited above.

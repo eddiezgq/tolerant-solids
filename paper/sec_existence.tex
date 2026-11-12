@@ -8,12 +8,11 @@ embedded, which is checked computationally on the model itself.
 \subsection{Fans and cones}\label{sec:fans}
 
 \subsubsection*{Setting}
-$K$ is regular (every face a disk bounded by a single wire). For B-rep complexes:
-\begin{itemize}
-\item at a seam edge, E3$'$ below refers to the two sheets of the face;
-\item at a closed edge, V1 counts edge ends;
-\item for a face with inner wires, P0 becomes ``$Q_f$ is homeomorphic to the face''.
-\end{itemize}
+$K$ is regular: every face is a disk bounded by a single wire, and every edge has two distinct vertices. The theorem
+and its proof (Appendix~\ref{sec:proof51}) cover only this case. For B-rep complexes, natural readings of the
+hypotheses exist: at a seam edge E3$'$ refers to the two sheets of the face; at a closed edge V1 counts edge ends; for
+a face with inner wires, P0 asks that $Q_f$ be homeomorphic to the face. But the proof does not cover them. For
+example, at a seam the two fan sheets of one face glue to an annulus. These cases are not proved here.
 $\mathrm{dev}^*_e(t)$ is the deviation of the boundary points $b_{f,e}(t)=\partial P_f\cap\Pi(t)$ from $\gamma_e(t)$ in
 the normal plane $\Pi(t)$; it is at most $\mathrm{dev}_e$.
 
@@ -46,10 +45,16 @@ A sufficient condition (E3) is $\alpha_e(t)>\varepsilon_f+\varepsilon_g$, with
 $\varepsilon=\arcsin\min\{1,(\mathrm{dev}^*_e+k\ell^2/2)/\rho_e\}$. Here $\alpha_e$ is the angle between the inward
 tangents of the two sections.
 \item[V0] $\gamma_e$'s end at $v$ and the corners of the patches at $v$ lie in $\inter B(p_v,r_v)$.
-\item[V1] (a) $W_v$ is strictly star-shaped with respect to $p_v$, and $W_v\subseteq\inter\Z(v)$.
-(b) \emph{(non-local)} The construction outside $W_v$ meets $\partial W_v$ transversally in one simple closed curve
-$\lambda_v$. Each incident edge contributes one point and each incident face one arc, in the cyclic order of the
-link of $v$.
+\item[V1] (a) $W_v\subseteq\inter\Z(v)$, and $W_v$ is \emph{strictly star-shaped} with respect to $p_v$: for every
+$x\in\partial W_v$, the vector $p_v-x$ lies in the interior of the tangent cone of $W_v$ at $x$. (So each ray from
+$p_v$ meets $\partial W_v$ once, transversally.)
+(b) \emph{(non-local)} The construction outside $W_v$ meets $\partial W_v$ in one simple closed curve $\lambda_v$.
+\begin{itemize}
+\item Each incident edge contributes one point and each incident face one arc, in the cyclic order of the link of $v$.
+\item The outside pieces cross $\partial W_v$ transversally: along the smooth strata of $\partial W_v$ (the ball and the
+stub cylinders), and along the junction curves where a stub cylinder meets the ball sphere.
+\item $\lambda_v$ meets these junction curves transversally and avoids the corners of $\partial W_v$.
+\end{itemize}
 \item[S1] (a) The $W_v$ are pairwise disjoint. (b) The $T_e$ are pairwise disjoint. (c) $\gamma_e$ and $T_e$ miss $W_w$
 for $w\notin\partial e$. (d) $P_f$ misses $T_e$ for $e\not<f$, and misses $W_v$ for $v\not<f$. (e) Outside
 $\bigcup T\cup\bigcup W$, the patch pieces are pairwise disjoint. (f) $T_e\cap W_v=D_e(a_e)$ for $v<e$, and each

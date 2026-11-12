@@ -9,13 +9,13 @@ stays positive at sharp edges and small fillets. A surface with a concave edge h
 radius $r$ caps the reach at $r$.
 
 \begin{lemma}[Collar]\label{lem:collar}
-Let $M$ be a closed connected PL surface in $\R^3$ of genus at least one, and let $0<d<r<\wfs(M)$.
+Let $M$ be a closed connected PL surface in $\R^3$, and let $0<d<r<\wfs(M)$.
 \begin{enumerate}
 \item[(a)] The closed neighbourhood $\bar N_r(M)$ is homeomorphic to $M\times[-1,1]$, with $M$ going to
 $M\times\{0\}$.
 \item[(a$'$)] There is a compact PL submanifold $U$ with $\bar N_d(M)\subseteq\inter U$, $U\subseteq\inter\bar
 N_r(M)$ and $U\cong_{PL}M\times[-1,1]$.
-\item[(b)] Suppose (a$'$) holds. Suppose further that $M=\varphi(|K_i|)$ for a carried PL embedding $\varphi$ of a
+\item[(b)] Suppose $M$ has genus at least one, and let $U$ be as in (a$'$). Suppose further that $M=\varphi(|K_i|)$ for a carried PL embedding $\varphi$ of a
 shell, that every zone of a cell of that shell lies in $N_d(M)$, and that the sets $\bar N_r(M_i)$ of different shells
 are pairwise disjoint. Then the collar condition of Section~\ref{sec:uniqueness} holds, with $U_i=U$.
 \end{enumerate}
@@ -29,11 +29,16 @@ $\Omega_-$ and an unbounded one $\Omega_+$.
 \item $d$ is semialgebraic (Tarski--Seidenberg), proper and nonnegative, with zero set the compact set $M$. So it is a
 \emph{rug function} in the sense of Durfee~\cite[Def.~3.1]{Durfee83}.
 \item Work in a large simplicial cube containing $\bar N_r(M)$, triangulated so that $M$ is a subcomplex. By Durfee's
-Propositions~3.5 and~3.7~\cite{Durfee83}, for small $\delta>0$ there is a homeomorphism, fixing $M$, of $\bar N_\delta(M)$
-onto a PL regular neighbourhood $R$ of $M$.
+Propositions~3.5 and~3.7~\cite{Durfee83}, for small $\delta\in(0,r)$ there is a homeomorphism of pairs
+$(\bar N_\delta(M),M)\to(R,M)$ onto a PL regular neighbourhood $R$ of $M$
+\unverified{that Durfee's rug functions need only be continuous, so that $d$ itself qualifies; and that the
+homeomorphism fixes $M$ or is at least one of pairs}.
 \item $M$ is a closed orientable surface in $\R^3$, hence two-sided, so $R\cong M\times[-1,1]$ with $M$ going to
-$M\times\{0\}$. Hence $\bar N_\delta(M)\cong M\times[-1,1]$ rel $M$. Its frontier $S_\delta=\{d=\delta\}$ has two
-components $S_\delta^\pm=S_\delta\cap\Omega_\pm$, corresponding to $M\times\{\pm1\}$.
+$M\times\{0\}$. Hence $(\bar N_\delta(M),M)\cong(M\times[-1,1],M\times\{0\})$. Its frontier $S_\delta=\{d=\delta\}$ has two
+components, the images of $M\times\{\pm1\}$, and they lie in different components of $\R^3\setminus M$. The two halves
+$M\times(0,1]$ and $M\times[-1,0)$ are connected, so each lies in one of $\Omega_\pm$. Every neighbourhood of a point
+of $M=\partial\Omega_+=\partial\Omega_-$ meets both, so the halves lie in different ones. Write
+$S_\delta^\pm=S_\delta\cap\Omega_\pm$.
 \end{itemize}
 
 \emph{Step 2: the two shells.} Let $A_\pm=\{x\in\Omega_\pm:\delta\le d(x)\le r\}$.
@@ -51,12 +56,28 @@ points of $O$ with distance to $O^c$ in $[\delta,r]$ form two disjoint pieces: $
 and a shell near the sphere $|x|=\mathcal R$, where it equals $\mathcal R-|x|$.
 \item Neither piece contains a critical point. In $A_+$ this is because $r<\wfs$. Near the sphere the only nearest
 point is the radial projection.
-\item So Prop.~3.4 gives a homeomorphism of the union with a product. Its restriction to the component $A_+$ gives
-$A_+\cong S^+_\delta\times[\delta,r]$.
+\item So Prop.~3.4 gives a homeomorphism of the union with $R^{-1}(\delta)\times[\delta,r]$, where
+$R^{-1}(\delta)=S^+_\delta\sqcup\{|x|=\mathcal R-\delta\}$ has exactly two components ($S^+_\delta\cong M$ is connected).
+The components of the product are $C\times[\delta,r]$ for the two components $C$. The shell near the sphere is one
+component of the union, so $A_+$ is the other: $A_+\cong C\times[\delta,r]$ with $C$ connected. Step~3 shows that
+$C\cong S^+_\delta$.
+\item We use Prop.~3.4 for the closed shell $\{\delta\le R\le r\}$. If the original states it for a half-open shell,
+apply it with a slightly larger $r'<\wfs$ and restrict \unverified{exact form of~\cite[Prop.~3.4]{ChazalLieutier07}}.
 \end{itemize}
 
 \emph{Step 3: gluing.}
 \begin{itemize}
+\item \emph{The boundary of $A_\pm$.} $A_\pm$ is a compact 3-manifold in $\R^3$, so by invariance of domain its manifold
+boundary is its frontier in $\R^3$.
+  \begin{itemize}
+  \item Points with $\delta<d<r$ are interior points.
+  \item A point with $d=\delta$ is a limit of points with $d<\delta$: move along the segment to a nearest point.
+  \item A point $x$ with $d=r$ is a limit of points with $d>r$. Since $x$ is not critical, there is a unit vector $u$
+  with $\langle u,x-y\rangle>0$ for all $y\in\Gamma(x)$, and the one-sided derivative of $d$ in direction $u$ is
+  $\min_{y\in\Gamma(x)}\langle u,(x-y)/|x-y|\rangle>0$.
+  \end{itemize}
+  So $\partial A_\pm=S^\pm_\delta\sqcup S^\pm_r$, and the connected closed set $S^\pm_\delta$ is one boundary component.
+  Every boundary component of $C\times[\delta,r]$ is a copy of $C$, so $C\cong S^\pm_\delta$.
 \item A homeomorphism between manifolds with boundary maps boundary components to boundary components. So the
 homeomorphism of Step~2 takes $S^\pm_\delta$, a boundary component of $A_\pm$, onto one end of the product. Composing
 with a flip of $[\delta,r]$ if necessary, and with the inverse of its restriction to $S^\pm_\delta$, we get
@@ -66,13 +87,13 @@ boundary component along that component. That is homeomorphic to $M\times[-2,2]\
 going to $M\times\{0\}$.
 \end{itemize}
 
-(a$'$) The interior of $\bar N_r(M)$ is $N_r(M)$: a point with $d=r$ is not critical, so $d$ takes larger values
-arbitrarily near it.
+(a$'$) The interior of $\bar N_r(M)$ is $N_r(M)$: by the computation in Step~3, a point with $d=r$ is a limit of
+points with $d>r$.
 \begin{itemize}
 \item By (a), $N_r(M)$ is homeomorphic to $M\times(-1,1)$.
 \item Both are PL 3-manifolds: $N_r(M)$ as an open subset of $\R^3$, and $M\times(-1,1)$ with the product structure.
-By Moise's theorem that homeomorphic 3-manifolds are PL homeomorphic~\cite{Moise77} \unverified{Moise, ch.~35 or~36;
-the noncompact case}, there is a PL homeomorphism $g\colon M\times(-1,1)\to N_r(M)$.
+By Moise's theorem that homeomorphic 3-manifolds are PL homeomorphic~\cite{Moise52,Moise77}
+\unverified{Moise 1952 and the book, ch.~35 or~36; the noncompact case}, there is a PL homeomorphism $g\colon M\times(-1,1)\to N_r(M)$.
 \item $g^{-1}(\bar N_d(M))$ is compact, so it lies in $M\times[-a,a]$ for some $a<1$. Take $a<b<1$ and
 $U=g(M\times[-b,b])$.
 \item Then $U$ is a compact PL submanifold, $U\cong_{PL}M\times[-1,1]$, $\bar N_d(M)\subseteq g(M\times(-b,b))=\inter U$,
