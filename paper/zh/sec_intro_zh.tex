@@ -43,7 +43,7 @@ CAD 内核把实体存成边界表示：一个胞腔复形（面、边、顶点�
 \subsection{实验说明了什么}
 在 OpenCascade~8.0.1 中（第~\ref{sec:experiments}~节）：
 \begin{itemize}
-\item \texttt{BRepCheck\_Analyzer} 不管容差多大都接受模型；源码里它的容差值检查只有声明、没有实现。
+\item \texttt{BRepCheck\_Analyzer} 容差再大也接受模型；源码里它的容差值检查只有声明、没有实现。
 \item \texttt{BRepAlgoAPI\_Check} 会对可实现的模型误报，也会接受容差超过名义曲面弱特征尺寸的模型。其中有一根厚壁管，它有两个实现，围成的实体不同胚：其中一个在孔里打了一个三叶结。
 \item 把一个面略有错位的楔形体缝合起来，得到的模型通过两项检查，但由定理~\ref{thm:obstruction}，它没有实现。定理的假设已用精确有理数运算验证。
 \end{itemize}

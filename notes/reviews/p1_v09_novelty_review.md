@@ -191,3 +191,97 @@ remain (N1–N3), all optional.
   not claimed away, so this is optional.
 
 Nothing else in the changed text goes beyond the body or misdescribes a source.
+
+---
+
+## Follow-up: OCCT source claims (commit 1132302)
+
+Sources:
+- OCCT tag V8_0_1 (b8f597c), a sparse checkout plus single-file `git show` from the tag.
+- GitHub code search over the OCCT repository, for files outside the checkout. This searches the default branch, not
+  the tag.
+- The repository's own compute/compare_occ.py, compute/summarize_occ.py, results/compare_occ_default.json and
+  README.md.
+
+**Verdict.** Both source claims are correct, and the BRepCheck conclusion is supported. Three wording points need a
+small change (S1–S3). One of them (S1) is a factual slip in the offsets sentence: it says "in one case six shells",
+but the data show six shells in every wrong case.
+
+### 1. BRepCheck: "never reports a tolerance as too large". Supported.
+- **The NYI comment.** BRepCheck_Analyzer.hxx:47, 52 and 56 list `BRepCheck_InvalidToleranceValue NYI` under the
+  geometric controls for a vertex, an edge and a face. **OK.**
+- **The flag.** BRepCheck_Analyzer.cxx:159 declares `bool isInvalidTolerance = false;`. Its only other occurrence is
+  the test at l.264, which guards `aFaceRes->SetStatus(BRepCheck_InvalidToleranceValue)` (l.266). It is never
+  assigned. **OK.**
+- **Every SetStatus path in BRepCheck (tag source).**
+  - Literal statuses: within BRepCheck the literal `BRepCheck_InvalidToleranceValue` appears only in
+    BRepCheck_Status.hxx (enum), BRepCheck.cxx (print), Analyzer.hxx (comments) and Analyzer.cxx:266 (the dead
+    branch).
+  - Status passed through a variable: one case, Analyzer.cxx:81–85, `SetStatus(ste)`. Here `ste` comes from
+    `BRepCheck_Edge::CheckPolygonOnTriangulation`, which returns only `BRepCheck_NoError` or
+    `BRepCheck_InvalidPolygonOnTriangulation`. The other `ste` variables (l.184, 235) only read existing status lists.
+  - BRepCheck_Vertex, BRepCheck_Edge and BRepCheck_Face never name the status. Their tolerance tests have the form
+    "deviation > tolerance → error" (for example BRepCheck_Vertex.cxx:145–233 and 256–268), so a tolerance can only be
+    reported as too *small*.
+  - The vertex case in the analyzer explicitly checks nothing (Analyzer.cxx:68–75).
+- **Outside BRepCheck.** Code search finds one other file: src/Draw/TKTopTest/BRepTest/BRepTest_CheckCommands.cxx:843.
+  I checked it at the tag. It only reads a counter, `NbProblems->Value(BRepCheck_InvalidToleranceValue)`, for the
+  report, and sets nothing. Caveat: code search covers the default branch and exact-token matches. The tag files I
+  fetched agree with it.
+- **Conclusion.** The paper's wording ("no other file sets the status"; "BRepCheck never reports a tolerance as too
+  large") is supported.
+- **S2 (minor, sec_intro ~l.69).** The new clause sits next to "accepts models regardless of the size of the
+  tolerances". That phrase is too broad: BRepCheck *does* reject tolerances that are too small (deviation > tolerance).
+  - Suggested wording: "accepts models however large their tolerances are; in the source, its tolerance-value check is
+    declared but not implemented."
+
+### 2. Offsets: mechanism, hedging, and the offset range.
+- **BRepOffset.cxx.** `BRepOffset::Surface` adds the offset to the radius (subtracts it if the axis is indirect) and
+  sets `BRepOffset_Reversed` when the new radius is ≤ −Tol:
+  - cylinder, l.64–86 (the reversed cylinder is still built, with |radius|);
+  - sphere, l.110–137;
+  - torus (minor radius), l.153–166.
+
+  `BRepOffset_Offset` gets its status from this function (BRepOffset_Offset.cxx:524). **OK**, with the scope noted in
+  S3.
+- **BuildOffsetByArc.** BRepOffset_MakeOffset.cxx:2101–2108 skips a face when
+  `SF.Status() == BRepOffset_Reversed || SF.Status() == BRepOffset_Degenerated`. The comment is quoted exactly:
+  "Degenerated or returned faces are not stored." **OK.**
+- **Default mode.** `BRepOffsetAPI_MakeOffsetShape::PerformByJoin` defaults to Intersection = false and
+  Join = GeomAbs_Arc (header at the tag). compare_occ.py calls it with exactly these settings (l.112). So "default
+  mode" and the BuildOffsetByArc path agree.
+  - Supporting evidence: the same offsets in "inter" mode give correct volumes (summarize_occ output).
+- **Range.** compare_occ_default.json and summarize_occ.py, for the filleted box (edge 10, fillet 2, wfs 5):
+
+  | Inward offset | Offset value | Relation to fillet radius / wfs | Result |
+  |---|---|---|---|
+  | −0.25·wfs | 1.25 | below the fillet radius | volume correct |
+  | −0.5, −0.75, −0.9, −0.99 ·wfs | 2.5, 3.75, 4.5, 4.95 | above the fillet radius, below wfs | volume errors 44%, 476%, 3500%, 359900%; every result valid per BRepCheck |
+  | −1.01 to −1.5 ·wfs | beyond wfs | outside the wfs-safe range | non-empty results where the exact offset is empty |
+
+  - All outward offsets are correct.
+  - So "inward offsets larger than the fillet radius but within the wfs-safe range" and "errors from 44% to over a
+    thousandfold" match the data and the README (l.46). **OK.**
+- **S1 (minor, factual; the sentence was edited in this commit).** "and in one case six shells instead of one" is
+  wrong. All four wrong results inside the wfs-safe range have `shells: 6` (and Euler characteristic 6), as do the
+  three beyond wfs.
+  - Fix: "with six shells instead of one in every such case".
+- **Hedging.**
+  - "A plausible mechanism …" and "We have not traced the rest of the algorithm" are suitably hedged.
+  - **S3 (minor).** The next sentence is stated flatly: "These failures do not involve tolerances; they are failures of
+    face-by-face offsetting when faces must disappear." This goes beyond what was traced.
+    - Suggested wording: "These failures appear not to involve tolerances; they look like failures of face-by-face
+      offsetting when faces must disappear."
+  - **S3 (scope).** The Reversed status is set only for cylindrical, spherical and toroidal faces. For other surface
+    types (for example B-spline fillet patches), `BRepOffset::Surface` sets no such status. I could not confirm the
+    surface types of the fillet faces of the test part, because OCP is not installed here. min_curv_radius = 2.0 in the
+    results shows that analytic faces of radius 2 exist. Suggested wording: "when the offset radius of a cylindrical,
+    spherical or toroidal fillet face becomes negative".
+
+### Summary
+- Claim 1 (BRepCheck): supported, including every SetStatus path and the files outside BRepCheck. S2 is a wording
+  point in the intro.
+- Claim 2 (offsets): the source facts are correct, the default mode matches the script, and the range matches the
+  data.
+- Fixes needed: S1 (the "one case" of six shells is wrong) and S3 (one unhedged sentence; restrict to analytic fillet
+  faces).

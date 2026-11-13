@@ -130,7 +130,7 @@ transversally away from the projections (``shadows'') of all edge and vertex zon
 \subsection{What the experiments show}
 In OpenCascade~8.0.1 (Section~\ref{sec:experiments}):
 \begin{itemize}
-\item \texttt{BRepCheck\_Analyzer} accepts models regardless of the size of the tolerances; in the source, its
+\item \texttt{BRepCheck\_Analyzer} accepts models however large their tolerances are; in the source, its
 tolerance-value check is declared but not implemented.
 \item \texttt{BRepAlgoAPI\_Check} gives false alarms on realizable models, and accepts models whose tolerances
 exceed the weak feature size of the nominal surface. Among them is a thick pipe with two realizations whose solids
@@ -1129,12 +1129,13 @@ point, and none of our vertex constructions fits.
 safe tolerance. It overestimates the cylinder (5 against $\wfs=3$), and underestimates an L-shape with a $0.05$
 inner fillet by a factor of about $97$.
 \item \emph{Offsets.} In its default mode, \texttt{BRepOffsetAPI\_MakeOffsetShape} returned solids with wrong
-volume (errors from $44\%$ to over a thousandfold, and in one case six shells instead of one) for a filleted box at
+volume (errors from $44\%$ to over a thousandfold, with six shells instead of one in every such case) for a filleted box at
 inward offsets larger than the fillet radius but within the $\wfs$-safe range, and BRepCheck accepted them. A plausible
-mechanism is in the source of OpenCascade~8.0.1: when the offset radius of a fillet face becomes negative, its offset
+mechanism is in the source of OpenCascade~8.0.1: when the offset radius of a cylindrical, spherical or toroidal fillet
+face becomes negative, its offset
 surface gets the status \texttt{BRepOffset\_Reversed}, and \texttt{BRepOffset\_MakeOffset::BuildOffsetByArc} skips
 such faces (source comment: ``Degenerated or returned faces are not stored''). We have not traced the rest of the
-algorithm. These failures do not involve tolerances; they are failures of face-by-face offsetting when faces must
+algorithm. These failures appear not to involve tolerances; they look like failures of face-by-face offsetting when faces must
 disappear.
 \item \emph{Why BRepCheck ignores the size of tolerances.} In OpenCascade~8.0.1 the documentation comment of
 \texttt{BRepCheck\_Analyzer} lists the status \texttt{BRepCheck\_InvalidToleranceValue} as ``NYI'' (not yet
