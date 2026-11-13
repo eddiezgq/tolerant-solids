@@ -44,8 +44,12 @@ Between consecutive corners, $\lambda_v$ is a $C^1$ curve with nonvanishing tang
 \subsection{Injectivity of the image}
 \emph{Inside $T_e$.}
 \begin{itemize}
-\item The disks $D_e(t)$ lie in the normal planes and have radius below the reach of $\gamma_e|_{[a_e,b_e]}$, so they
-are pairwise disjoint~\cite{Federer59}. This holds whatever $\rho_e(t)$ is.
+\item The disks $D_e(t)$ lie in the normal planes and have radius below the reach of $A=\gamma_e([a_e,b_e])$, so they
+are pairwise disjoint. Indeed, by Federer's Theorem~4.8(2),(12)~\cite[pp.~434--435]{Federer59}, if $a\in A$, $v$ lies
+in the normal cone $\mathrm{Nor}(A,a)$ and $|v|<\mathrm{reach}(A)$, then $a$ is the unique nearest point of $A$ to $a+v$.
+The normal cone is the dual of the tangent cone, a line at interior points and a ray at the end points, so it
+contains the normal plane in both cases. So every point of $D_e(t)$ has nearest point $\gamma_e(t)$. This holds
+whatever $\rho_e(t)$ is.
 \item Inside one disk, the construction is the centre and two radii to the distinct points $k_{f,e}(t)$ and
 $k_{g,e}(t)$ (E3$'$). These meet only at the centre.
 \item No other piece enters $T_e$:
@@ -247,8 +251,8 @@ enough triangulation:
   $S$ is PL, so it is a realization. $\square$
 \end{itemize}
 
-\emph{Standard facts used without separate checking against a source:} disjointness of normal disks below the
-reach~\cite{Federer59}; the implicit function theorem; gluing disks along boundary arcs; the per-triangle
+\emph{Standard facts used without separate checking against a source:} that the tangent cone of a $C^1$ regular arc
+is its tangent line (a ray at the end points); the implicit function theorem; gluing disks along boundary arcs; the per-triangle
 secant-approximation estimate for $C^1$ maps; bi-Lipschitz equivalence of the intrinsic and extrinsic metrics on a
 compact polyhedron; that a map whose tangent cones are embedded disks with positive opening angles is locally
 bi-Lipschitz; and that an injective, locally bi-Lipschitz map of a compact space is bi-Lipschitz.
