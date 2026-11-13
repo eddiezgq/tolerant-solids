@@ -126,26 +126,72 @@ Proposition~\ref{prop:Bprime}. The settings differ: they assume the perturbed co
 while we start from data whose patches do not meet and construct a realization.
 \end{itemize}
 
-\subsection{Novelty, stated cautiously}
+\subsection{What is new and what is not}
+For each result we say what was known, what we add, and how far we looked. ``We did not find'' refers to the
+literature cited in this paper and the searches behind it, not to an exhaustive survey.
+
+\subsubsection*{Uniqueness (Theorem~\ref{thm:uniqueness})}
 \begin{itemize}
-\item \emph{Uniqueness.} Theorem~\ref{thm:uniqueness} applies known 3-manifold topology (Waldhausen;
-compare~\cite{CCS05}). What is specific is the set-up for tolerant B-reps: per-cell zones, cell-respecting
-realizations, the carrier lemma giving $\pi_1$-isomorphism in place of separation, and the collar obtained from
-$\wfs$.
-\item \emph{Weak feature size.} Positivity of $\wfs$ for compact semialgebraic sets is known: di Rocco, Eklund and
-Gäfvert~\cite[Thm.~2.5]{dREG22} state it and attribute it to Fu. Fu~\cite[\S5.3]{Fu85} shows, via
-Tarski--Seidenberg, that the distance function of a compact semialgebraic set has finitely many critical values;
-since critical points lie off the set, the positive critical values have a positive minimum. Fu defines semialgebraic
-sets by one finite system of inequalities, but his argument (Tarski--Seidenberg, a finite decomposition into smooth
-submanifolds, his Lemma~4.3 and Sard's theorem) does not use that restriction and applies to finite unions such as our
-polyhedral surfaces. For bounded subanalytic open sets,
-Chazal and Lieutier state the finiteness of critical values~\cite[Prop.~3.6]{ChazalLieutier07}, attribute it to Fu for
-semialgebraic sets and refer to an earlier paper of theirs for the adaptation; their \S4.3 defines the $\wfs$ of a
-compact set as that of its complement. We did not find the explicit bound $\lambda(M)$ in the
-literature we checked. That does not make it new.
-\item \emph{Existence.} As far as we have read, the closest prior results are Milenkovic's planar existence theorem
-and the injectivity conditions of~\cite{ASZ06} for one composite patch. We did not find existence results for 3D
-B-reps with per-cell (vertex, edge, face) tolerance zones that derive the embedding of the whole cell complex from
-checkable hypotheses.
-\item \emph{Obstruction.} We did not find a result like Theorem~\ref{thm:obstruction} in the literature we read.
+\item \emph{Known.} The topological core is classical. Waldhausen~\cite[Prop.~3.1]{Waldhausen68} shows that
+incompressible surfaces in $F\times I$ can be made horizontal. Chazal and Cohen-Steiner~\cite[Thm.~2.1]{CCS05} prove
+that a surface homeomorphic to $S$, lying in a thickening of $S$ and separating its sides, is isotopic to $S$.
+Sakkalis, Peters and Bisceglio~\cite[Thm.~10]{SPB04} prove isotopy for a surface in a normal tube of a smooth surface
+that meets each fibre once.
+\item \emph{What we add.}
+  \begin{itemize}
+  \item The statement for tolerant B-reps: per-cell zones, and realizations that keep every cell in its own zone.
+  \item The carrier lemma (Lemma~\ref{lem:carrier}). It derives the $\pi_1$-isomorphism needed for Waldhausen's
+  theorem from contractible carriers. One does not have to know in advance that a realization separates the two sides
+  of the collar, which is a hypothesis in~\cite{CCS05}, or that it meets each fibre once, as in~\cite{SPB04}.
+  \item A collar from the weak feature size (Lemma~\ref{lem:collar}). Reference surfaces may have sharp edges and
+  small fillets. The result of~\cite{SPB04} needs a smooth reference surface and a tube radius bounded by its
+  curvature.
+  \end{itemize}
+\item \emph{Limits.} Shells of genus $0$ are excluded, and we prove isotopy of images, not of embeddings.
+\end{itemize}
+
+\subsubsection*{The explicit bound $\wfs(M)\ge\lambda(M)$ (Corollary~\ref{cor:lambda})}
+\begin{itemize}
+\item \emph{Known.} That $\wfs(M)>0$ for compact semialgebraic $M$, hence for polyhedral surfaces. Fu~\cite[\S5.3]{Fu85}
+proves that the distance function of a compact semialgebraic set has finitely many critical values. di Rocco, Eklund and
+Gäfvert~\cite[Thm.~2.5]{dREG22} state positivity and attribute it to Fu. Chazal and
+Lieutier~\cite[Prop.~3.6]{ChazalLieutier07} state finiteness for bounded subanalytic open sets, attribute it to Fu for
+semialgebraic sets, and refer to an earlier paper of theirs for the adaptation. Fu defines semialgebraic sets by one
+finite system of inequalities; his argument (Tarski--Seidenberg, a finite decomposition into smooth submanifolds, his
+Lemma~4.3 and Sard's theorem) does not use that restriction.
+\item \emph{What we add.} An explicit lower bound in terms of conical radii, whose key cone lemma is machine-checked in
+Lean~4. We did not find such a bound. That does not make it new.
+\end{itemize}
+
+\subsubsection*{Existence (Theorem~\ref{thm:lemma0}, Propositions~\ref{prop:B} and~\ref{prop:Bprime})}
+\begin{itemize}
+\item \emph{Known.}
+  \begin{itemize}
+  \item Milenkovic~\cite{Milenkovic88}: existence in the plane, with one uniform tolerance.
+  \item Andersson, Stewart and Zidani~\cite{ASZ06}: checkable injectivity conditions for one composite patch on a common
+  parameter domain.
+  \item \cite{ASZ07,SZ08}: they construct a solid from inconsistent data but assume that the perturbed patches embed.
+  \item Andersson, Peters and Stewart~\cite[Thm.~1]{APS00}: ambient isotopy along a family that stays properly joined.
+  Their nontangentiality is close to our no-fold clause T.
+  \end{itemize}
+\item \emph{What we add.} Sufficient conditions under which a 3D B-rep with per-cell tolerance zones has a realization
+of the whole cell complex. Theorem~\ref{thm:lemma0} is conditional: two of its hypotheses are non-local. Propositions~\ref{prop:B} and~\ref{prop:Bprime} cover sharp edges with tight tolerances.
+\item \emph{How far we looked.} We did not find an existence result of this kind for 3D B-reps.
+\item \emph{Not covered.} Sewn models with tangent edges and OpenCascade's vertex tolerances. Whether they have
+realizations is open (Section~\ref{sec:open}).
+\end{itemize}
+
+\subsubsection*{Non-existence (Theorem~\ref{thm:obstruction})}
+\begin{itemize}
+\item \emph{What we add.} A checkable criterion for planar patches. We apply it to sewn models that pass both of
+OpenCascade's checks.
+\item \emph{How far we looked.} We did not find a non-existence criterion for tolerant B-reps in the literature we
+read.
+\end{itemize}
+
+\subsubsection*{Experiments (Section~\ref{sec:experiments})}
+\begin{itemize}
+\item \emph{What we add.} The observation that OpenCascade's validity checks decide neither existence nor uniqueness.
+\item \emph{Scope.} The evidence is a handful of parts in one kernel version (8.0.1). We did not test ACIS or
+Parasolid.
 \end{itemize}
