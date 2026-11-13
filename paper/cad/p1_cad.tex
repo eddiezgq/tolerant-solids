@@ -1,0 +1,92 @@
+% Submission version for Computer-Aided Design (Elsevier), built from the same section files as ../p1.tex.
+\documentclass[preprint,12pt]{elsarticle}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage[margin=1in]{geometry}
+
+% Drafting markers (none should remain in the submission).
+\newcommand{\unverified}[1]{\textcolor{red}{[#1 --- not yet checked against the original]}}
+\newcommand{\draftnote}[1]{\textcolor{orange!70!black}{[Draft note: #1]}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathcal{Z}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\wfs}{\operatorname{wfs}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\inter}{\operatorname{int}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\conv}{\operatorname{conv}}
+
+\journal{Computer-Aided Design}
+\emergencystretch=3em
+
+\begin{document}
+\begin{frontmatter}
+
+\title{When does a tolerant B-rep define a solid? Existence, non-existence and uniqueness of realizations}
+
+\author{Guoqing Zhang}
+\address{Gainesville, Florida, USA}
+
+\begin{abstract}
+Boundary representations in CAD kernels carry tolerances: edge curves, the boundary curves of adjacent faces and vertex
+points do not fit together exactly, and the solid they describe is only implied. We define a realization of a tolerant
+B-rep as a PL embedding of its cell complex whose cells stay in their tolerance zones, and study existence,
+non-existence and uniqueness. Uniqueness: if every shell has genus at least one, the carriers of the cells are
+contractible, and each shell has a product collar containing its zones and a reference surface whose inclusion is a
+homotopy equivalence, then the images of all realizations are topologically ambient isotopic, and so are the solids
+they bound. The collar condition follows from a distance bound below the weak feature size of a PL reference surface,
+for which we give an explicit lower bound in terms of conical radii, with the key lemma machine-checked in Lean.
+Existence: a conditional fan-and-cone construction for regular complexes, and a re-intersection construction that
+turns an embedded re-trimmed candidate into a realization. Non-existence: a checkable criterion for crossing planar
+patches. In OpenCascade 8.0.1, the validity checks decide none of these questions: a sewn wedge passes both checks and
+has no realization, and a thick pipe that passes both has two realizations whose solids are not homeomorphic.
+\end{abstract}
+
+\begin{keyword}
+tolerant boundary representation \sep geometric robustness \sep realization \sep ambient isotopy \sep weak feature
+size \sep 3-manifold topology
+\end{keyword}
+
+\end{frontmatter}
+
+\input{../sec_intro}
+\input{../sec_setting}
+\input{../sec_uniqueness}
+\input{../sec_collar}
+\input{../sec_existence}
+\input{../sec_obstruction}
+\input{../sec_experiments}
+\input{../sec_open}
+
+\section*{Data and code availability}
+All scripts, computed results and the Lean formalization are available in the public repository~\cite{repo}.
+
+\section*{Declaration of competing interest}
+The author declares no competing interests.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the research and writing process}
+During this work the author used Claude (Anthropic) to draft proofs and text, write and run the experiment scripts and
+the Lean formalization, and check citations against the original sources; independent AI review passes were used to
+check proofs and citations. Lean~4 with Mathlib verified the formalized lemma. The author directed the research,
+reviewed and edited the content, and takes full responsibility for the publication.
+
+\appendix
+\input{../sec_curvedtri}
+\input{../sec_proof51}
+\input{../sec_proofBprime}
+\input{../sec_lean}
+\input{../sec_biblio}
+\end{document}

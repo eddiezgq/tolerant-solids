@@ -1,0 +1,5 @@
+- Realizations of tolerant B-reps: PL embeddings keeping every cell in its zone
+- Uniqueness up to ambient isotopy for genus >= 1 under a weak-feature-size collar
+- Explicit wfs lower bound for polyhedral surfaces; key lemma checked in Lean 4
+- Conditional existence constructions and a checkable non-existence criterion
+- OpenCascade validity checks decide neither existence nor uniqueness
