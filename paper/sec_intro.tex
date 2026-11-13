@@ -66,7 +66,8 @@ transversally away from the projections (``shadows'') of all edge and vertex zon
 \subsection{What the experiments show}
 In OpenCascade~8.0.1 (Section~\ref{sec:experiments}):
 \begin{itemize}
-\item \texttt{BRepCheck\_Analyzer} accepts models regardless of the size of the tolerances.
+\item \texttt{BRepCheck\_Analyzer} accepts models regardless of the size of the tolerances; in the source, its
+tolerance-value check is declared but not implemented.
 \item \texttt{BRepAlgoAPI\_Check} gives false alarms on realizable models, and accepts models whose tolerances
 exceed the weak feature size of the nominal surface. Among them is a thick pipe with two realizations whose solids
 are not homeomorphic: one ties a trefoil into the hole.

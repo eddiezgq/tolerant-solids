@@ -83,6 +83,7 @@ L 形，所有边倒圆角 0.5 & 用变半径通过$^*$ & 不适用 & --- \\
 \subsection{其他观察}
 \begin{itemize}
 \item \emph{厚度经验估计。}不相邻面间最小距离的一半，是常用的安全容差估计。它高估了圆柱（5 对 $\wfs=3$），对一个内圆角为 $0.05$ 的 L 形则低估了约 $97$ 倍。
-\item \emph{偏置。}在默认模式下，\texttt{BRepOffsetAPI\_MakeOffsetShape} 对一个带圆角盒子、在 $\wfs$ 安全范围内的偏置距离，返回了体积错误的实体（误差从 $44\%$ 到上千倍，有一次得到六个壳而不是一个），而 BRepCheck 都接受了。
+\item \emph{偏置。}在默认模式下，\texttt{BRepOffsetAPI\_MakeOffsetShape} 对一个带圆角盒子、向内偏置距离大于圆角半径但仍在 $\wfs$ 安全范围内时，返回了体积错误的实体（误差从 $44\%$ 到上千倍，有一次得到六个壳而不是一个），而 BRepCheck 都接受了。OpenCascade~8.0.1 的源码里有一个可能的机理：圆角面的偏置半径变成负值时，其偏置曲面被标为 \texttt{BRepOffset\_Reversed}，而 \texttt{BRepOffset\_MakeOffset::BuildOffsetByArc} 跳过这类面（源码注释：``Degenerated or returned faces are not stored''）。算法的其余部分我们没有追查。这类失败与容差无关，是``逐面偏置''在面必须消失时的失败。
+\item \emph{BRepCheck 为什么不管容差大小。}在 OpenCascade~8.0.1 中，\texttt{BRepCheck\_Analyzer} 的文档注释把状态 \texttt{BRepCheck\_InvalidToleranceValue} 对顶点、边、面都标为``NYI''（尚未实现）。在 \texttt{BRepCheck\_Analyzer.cxx} 里，本该给面设置这个状态的标志初始化为假后从未赋值，其他文件也不设置这个状态。所以 BRepCheck 从不报告容差过大。（这一点最先在作者的配套著作项目中发现；源码我们自己核对过。）
 \item \emph{公开文档。}我们在 OpenCascade 的公开文档以及 ACIS、Parasolid 的第三方文档中，都没有找到``检查容差不改变拓扑''的功能。这只说明文档里没有提到。
 \end{itemize}

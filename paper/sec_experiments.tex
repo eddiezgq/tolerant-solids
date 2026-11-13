@@ -124,7 +124,18 @@ safe tolerance. It overestimates the cylinder (5 against $\wfs=3$), and underest
 inner fillet by a factor of about $97$.
 \item \emph{Offsets.} In its default mode, \texttt{BRepOffsetAPI\_MakeOffsetShape} returned solids with wrong
 volume (errors from $44\%$ to over a thousandfold, and in one case six shells instead of one) for a filleted box at
-offsets within the $\wfs$-safe range, and BRepCheck accepted them.
+inward offsets larger than the fillet radius but within the $\wfs$-safe range, and BRepCheck accepted them. A plausible
+mechanism is in the source of OpenCascade~8.0.1: when the offset radius of a fillet face becomes negative, its offset
+surface gets the status \texttt{BRepOffset\_Reversed}, and \texttt{BRepOffset\_MakeOffset::BuildOffsetByArc} skips
+such faces (source comment: ``Degenerated or returned faces are not stored''). We have not traced the rest of the
+algorithm. These failures do not involve tolerances; they are failures of face-by-face offsetting when faces must
+disappear.
+\item \emph{Why BRepCheck ignores the size of tolerances.} In OpenCascade~8.0.1 the documentation comment of
+\texttt{BRepCheck\_Analyzer} lists the status \texttt{BRepCheck\_InvalidToleranceValue} as ``NYI'' (not yet
+implemented) for vertices, edges and faces. In \texttt{BRepCheck\_Analyzer.cxx} the flag that would set this status on a
+face is initialised to false and never assigned, and no other file sets the status. So BRepCheck never reports a
+tolerance as too large. (This was first noticed in the author's companion book project; we checked the source
+ourselves.)
 \item \emph{Public documentation.} We did not find a check that tolerances leave the topology unchanged in the
 public documentation of OpenCascade, or in third-party documentation of ACIS and Parasolid. That says only that
 the documentation does not mention one.
