@@ -116,3 +116,27 @@ Failure classes:
 3. **Cusp corners** (L inner fillet, 2 vertices) as before.
 4. **Unexplained / possibly checker artefacts:** stadium prism (4 vertices, "arc end not at a joint"), filleted cylinder
    (seam vertices, not covered by the statement), a few "gap small" vertices. To be inspected.
+
+## Step 2: what the "touching" tangent edges are (2026-11-13, evening)
+
+- Normal-plane sections (`compute/tangent_contact.py`, `results/tangent_contact.json`): away from the vertices, the two
+  patches at these edges do **not** meet in almost any section (contact in at most 1 of 56 sections, on 3 edges).
+- The contact found by the patch–patch distance is a boundary point of one patch lying 0.24–0.51 τ_e inside the other
+  patch.
+- Example (L all fillets, edge 9): faces 2 and 5 are **two pieces of the same fillet cylinder** (radius 0.5, axis along
+  y), split by a circular edge. After the faces are moved, the two cylinders are parallel with axes about 0.001 apart,
+  and the pieces overlap slightly along the axis. In the overlap the two nearly identical surfaces cross. The edge is
+  not a geometric feature, only a split.
+- So the hard tangent edges are of the type **"continuation of (almost) the same surface with overlap"**. Neither the
+  strip (the patches overlap) nor re-trimming along the crossing (nearly identical surfaces, ill-conditioned) applies.
+
+Proposed unified edge construction ("wall + chord"): for each edge choose a C¹ wall surface W_e through γ_e,
+transversal to both patches (for a G1 edge: spanned by γ′ and the common normal; for a sharp edge: a bisecting
+surface). Cut each patch along W_e, keeping its own side, and bridge the two cut curves inside W_e by chords in
+W_e ∩ Π(t).
+- With no overlap and no crossing it reduces to the strip.
+- It removes overlaps of any kind (same-surface pieces, stacked layers, crossings), as long as each patch meets W_e in
+  one curve near γ_e within the tube.
+- In the example the wall is the plane y = y0 of the circular edge, and the two cut curves are circles within the
+  axis offset (≈ τ_e) of γ_e.
+- To test next, and to check whether it also covers the sharp re-trimmed edges.
