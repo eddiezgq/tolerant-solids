@@ -69,5 +69,12 @@ Reuse P1 Appendix A, with fans replaced by chords:
 - On sewn models fans fail at every vertex. The strip and cone tests (V0′, V1′, S1′) pass at every vertex the sampler
   handles, except two cusp corners (phase 1 report; step-1 rerun with pole and seam support in
   `results/strip_cone_check2.json`).
-- Mixed vertices, where a re-trimmed (crossing) sharp edge meets strip edges, need a combined statement. Plan: re-trim
-  only the crossing edges, then apply the strip construction to the re-trimmed model.
+- Mixed vertices, where a re-trimmed (crossing) sharp edge meets strip edges: **combined construction**. Along an edge
+  whose patches cross (E4 fails), cut both patches along their intersection curve c_e, which becomes the realized edge
+  (needs c_e ⊂ Z(e), the B3-type margin of P1); along the other edges use strips. At the vertex, the arcs of the two
+  crossing patches on the sphere cross once, and are cut there; the loop is then made of cut arcs, uncut arcs and
+  strip chords. Checked on the sewn chamfered box: without re-trimming, the 11 failing vertices are **exactly** those
+  incident to a crossing edge; with re-trimming, 24/24 at both gaps. Full rerun in progress.
+- Hypotheses to add for re-trimmed edges: the patches cross transversally along a single curve c_e ⊂ Z(e) between
+  the vertex balls (P1, Prop. 5.3 clauses R, B2, T restricted to that edge), and on the vertex sphere their arcs cross
+  exactly once.

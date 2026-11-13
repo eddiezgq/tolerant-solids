@@ -74,6 +74,22 @@ def face_band(M, S, fi, pv, r, R3):
     return np.array(sph) if sph else np.zeros((0, 3)), np.array(cloud) if cloud else np.zeros((0, 3))
 
 
+def order_chain(P, start):
+    """Order a sampled curve by greedy nearest-neighbour chaining from the sample closest to start."""
+    n = len(P); left = np.ones(n, bool); i = int(np.argmin(np.linalg.norm(P - start, axis=1)))
+    order = [i]; left[i] = False
+    while left.any():
+        idx = np.where(left)[0]; j = idx[np.argmin(np.linalg.norm(P[idx] - P[order[-1]], axis=1))]
+        order.append(j); left[j] = False
+    return P[order]
+
+
+def trim_from(P, end, q):
+    """Remove the part of the sampled arc P from its end near `end` up to the sample nearest q."""
+    C = order_chain(P, end); k = int(np.argmin(np.linalg.norm(C - q, axis=1)))
+    return C[k + 1:]
+
+
 def clusters(P, link):
     n = len(P); lab = -np.ones(n, int); k = 0
     for i in range(n):
@@ -87,7 +103,7 @@ def clusters(P, link):
     return lab, k
 
 
-def check_vertex(M, Ss, vi, ends, rho):
+def check_vertex(M, Ss, vi, ends, rho, crossing=frozenset()):
     pv, tv = M.p[vi], M.tv[vi]; r = rho * tv
     out = dict(rho=rho)
     # uses at v per face
@@ -140,12 +156,34 @@ def check_vertex(M, Ss, vi, ends, rho):
             for fx, px in ((fa, pa), (fb, pb)):
                 if fx == fi and np.min(np.linalg.norm(P - px, axis=1)) > link:
                     out["L2"] = False; out["note"] = f"strip end of edge {ei} not on the arc of face {fi}"; return out
+    # re-trimmed (crossing) edges: the two arcs must cross once near the edge; cut each arc at the crossing point
+    joints = []
+    for ei, (fa, pa), (fb, pb) in conn:
+        if ei not in crossing:
+            continue
+        A, B = sph[fa], sph[fb]
+        Dm = np.linalg.norm(A[:, None, :] - B[None, :, :], axis=2)
+        i, j = np.unravel_index(np.argmin(Dm), Dm.shape)
+        if Dm[i, j] > link:
+            out["L2"] = False; out["note"] = f"re-trimmed edge {ei}: arcs do not cross"; return out
+        q = 0.5 * (A[i] + B[j]); joints.append(q)
+        sph[fa] = trim_from(A, pa, q)
+        sph[fb] = trim_from(B, pb, q)
+        if len(sph[fa]) == 0 or len(sph[fb]) == 0:
+            out["L2"] = False; out["note"] = f"re-trimmed edge {ei}: an arc vanishes"; return out
     fis = list(sph)
     for i in range(len(fis)):
         for j in range(i + 1, len(fis)):
             A, B = sph[fis[i]], sph[fis[j]]
-            md = min(md, float(np.min(np.linalg.norm(A[:, None, :] - B[None, :, :], axis=2))))
+            if len(A) == 0 or len(B) == 0:
+                continue
+            Dm = np.linalg.norm(A[:, None, :] - B[None, :, :], axis=2)
+            for q in joints:
+                Dm = np.where((np.linalg.norm(A - q, axis=1)[:, None] < 0.15 * r) | (np.linalg.norm(B - q, axis=1)[None, :] < 0.15 * r), np.inf, Dm)
+            md = min(md, float(Dm.min()))
     for ei, (fa, pa), (fb, pb) in conn:
+        if ei in crossing:
+            continue
         seg = np.linspace(pa, pb, 15)[2:-2]
         for fi in fis:
             if fi not in (fa, fb):
@@ -155,7 +193,7 @@ def check_vertex(M, Ss, vi, ends, rho):
     # L3
     spts = {}
     for ei, sides in strips.items():
-        if len(sides) != 2:
+        if len(sides) != 2 or ei in crossing:
             continue
         P = []
         for s in np.linspace(0, 0.3, 80):
@@ -187,6 +225,8 @@ def run_model(args):
     for ei, (a, b) in enumerate(M.ev):
         inc[a].append((ei, 0))
         if b != a: inc[b].append((ei, 1))
+    cross = [edge_crossing(M, ei) for ei in range(len(M.E))]
+    crossing = frozenset(ei for ei, x in enumerate(cross) if x)
     rows = []
     for vi in range(len(M.Vx)):
         if not inc[vi]:
@@ -194,7 +234,7 @@ def run_model(args):
         best = None
         for rho in RHOS:
             try:
-                o = check_vertex(M, Ss, vi, inc[vi], rho)
+                o = check_vertex(M, Ss, vi, inc[vi], rho, crossing)
             except Exception as ex:
                 o = dict(rho=rho, error=repr(ex))
             o["ok"] = bool(o.get("L1") and o.get("L2") and o.get("L3_min_dist_over_tau_v", 0) > 0.02)
@@ -203,8 +243,7 @@ def run_model(args):
             if o["ok"]:
                 break
         rows.append(dict(vertex=vi, valence=len(inc[vi]), **best))
-    cross = [edge_crossing(M, ei) for ei in range(len(M.E))]
-    n_cross = sum(1 for x in cross if x)
+    n_cross = len(crossing)
     fails = {}
     for x in rows:
         if not x["ok"]:
