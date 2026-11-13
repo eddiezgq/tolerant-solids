@@ -1,0 +1,88 @@
+\section{OpenCascade 实验}\label{sec:experiments}
+
+\subsection{设置}
+\begin{itemize}
+\item \emph{软件。}所有实验都通过 \texttt{cadquery-ocp} 使用 OpenCascade 8.0.1。脚本和结果在代码仓库中~\cite{repo}。
+\item \emph{两项检查。}``BRepCheck''指 \texttt{BRepCheck\_Analyzer(shape).IsValid()}。``BOP 检查''指 \texttt{BRepAlgoAPI\_Check(shape, true, true)}，它还检查几何和自相交。
+\item \emph{缝合模型}模拟导入的数据。把一个精确零件的每个面随机平移一个长度在 $g/2$ 到 $g$ 之间的向量，再用 \texttt{BRepBuilderAPI\_Sewing} 以容差 $4g$ 缝合回去。缝合把每条边的容差设为它自己偏差估计值的 $1.05$ 倍，即我们实测偏差的 $1.048$--$1.05$ 倍。
+\item \emph{范围。}这只是一个内核版本里的几个零件，不是对工业模型的普查。
+\end{itemize}
+
+\subsection{检查判定不了存在性和唯一性}
+表~\ref{tab:occ} 是汇总。
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{>{\raggedright}p{4.4cm}cc>{\raggedright\arraybackslash}p{5.0cm}}
+\toprule
+模型 & BRepCheck & BOP 检查 & 实际情况 \\
+\midrule
+扭转的三棱柱，两个面的边界相互链环（$\tau=0.081$） & 有效 & 自相交 & 无实现（链环数 $-1$） \\
+厚壁管，容差为孔半径的 $1.3$ 倍 & 有效 & 有效 & 两个实现，实体不同胚（结行列式 $3$ 对 $1$） \\
+缝合楔形体，$30^\circ$ 和 $10^\circ$，$g=0.01$ & 有效 & 有效 & 无实现（定理~\ref{thm:obstruction}） \\
+缝合平板，厚 $0.05$，$g=0.01$ & 有效 & 无效 & 可实现（命题~\ref{prop:B}） \\
+带圆角的 L 形，$\tau=0.1$ & 有效 & 自相交 & $\tau+\mathrm{defl}<M_{PL}$ 的认证 $\wfs$ 下界 \\
+长圆柱，$\tau=3.3$ & 有效 & 有效 & $\tau\ge\wfs$（名义）（给出了临界点） \\
+\bottomrule
+\end{tabular}
+\caption{OpenCascade 的检查与理论结论的对照。}\label{tab:occ}
+\end{table}
+
+\subsubsection*{扭转的三棱柱}
+\begin{itemize}
+\item 两个不相邻的三角形面 $A,B$ 的边界环的链环数为 $-1$（由交叉计数得到；数值 Gauss 积分结果一致）。两个环相距 $0.4037>2\tau=0.1615$，所以它们的边区与顶点区之并 $T_A$、$T_B$ 不交。
+\item 在任一实现中，每个 $h(e)$ 落在凸胶囊 $C_e=N_\tau(e)$ 内，它包含两端的球（这里所有容差相等）。把 $h(e)$ 在 $C_e$ 内保持端点不动地同伦到一条线段，把顶点在球内同伦到名义顶点。这就在 $T_A$ 内、因而在 $T_B$ 的补集内，给出 $h(\partial A)$ 到 $\partial A$ 的同伦；$B$ 同样。
+\item 链环数在这样的同伦下不变，所以 $\mathrm{lk}(h(\partial A),h(\partial B))=-1$，$h(\partial A)$ 必与圆盘 $h(\bar B)$ 相交。这与嵌入性矛盾。
+\end{itemize}
+
+\subsubsection*{打结的管}
+\begin{itemize}
+\item 一个实现保持名义几何。另一个把内表面换成一根半径 $0.005$ 的细管，其中心线沿一条拉长的三叶结走。
+\item 脚本检查了容差区（最大距离 $0.983\le1.3$）、嵌入性（$\varepsilon\kappa_{\max}=0.31$；在窗口 $0.04<\pi/\kappa_{\max}=0.0504$ 之外的非局部距离 $0.036>2\varepsilon$）和结（行列式 $3$）。
+\item 第二个实体是球中一条打结弧的补空间，其基本群不交换：行列式为 $3$ 的结有非平凡的 Fox 3-染色，而图上的非平凡 3-染色通过 Wirtinger 表示给出结群到不交换群 $S_3$ 的满射（标准事实；未单独对照原文）。名义实体是实心环。所以两个实体不同胚。
+\item 这说明定理~\ref{thm:uniqueness} 的领圈假设不能去掉。这里 $\wfs\le1<1.3$。
+\end{itemize}
+
+\subsubsection*{缝合楔形体}
+\begin{itemize}
+\item 在缝合楔形体的刃边处，两张平面面片沿一条直线相交，这条线落在边管之外，超出量为 $\tau_e$ 的 $49\%$（$30^\circ$）和约 $3$ 倍（$10^\circ$）。
+\item 定理~\ref{thm:obstruction} 的假设成立。对 $30^\circ$ 楔形体，在所搜索的位置上可取的最大 $\rho$ 是 $1.6\cdot10^{-3}$，而 O4 只需要 $3.7\cdot10^{-7}$；对 $10^\circ$ 楔形体是 $1.6\cdot10^{-2}$。
+\item 一次独立的精确有理数运算检查，确认两个楔形体都满足 O0--O4。
+\item 在缝合盒子、缝合平板以及精确盒子、精确楔形体上，检查程序没有找到相交见证，这与它们可实现一致。
+\end{itemize}
+
+\subsection{哪种构造适用}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{>{\raggedright}p{4.0cm}>{\raggedright}p{2.8cm}>{\raggedright}p{2.6cm}>{\raggedright\arraybackslash}p{4.0cm}}
+\toprule
+模型 & 扇形（定理~\ref{thm:lemma0}） & 重新求交 & 重新求交的余量（顶点 / 边 / 面） \\
+\midrule
+精确盒子、圆柱、管、槽、带圆角盒子、$10^\circ$ 楔形体 & 通过 & 适用处通过 & --- \\
+L 形，所有边倒圆角 0.5 & 用变半径通过$^*$ & 不适用 & --- \\
+融合的 L 形，内圆角 0.2 & 失败（2 个尖点顶点，9 处 V1(a) 失败）；合并共面面后通过 & 不适用 & --- \\
+缝合盒子 $g=0.01$ & 在顶点处失败 & 通过 & 45\% / 13\% / 4.9\% \\
+缝合平板 $g=0.01$ & 在顶点处失败 & 通过 & 45\% / 13\% / 5.9\% \\
+缝合圆柱 $g=0.01$ & 在顶点处失败 & 通过（曲面） & 55\% / 35\% / 5.0\% \\
+缝合圆柱 $g=0.05$ & 在顶点处失败 & 通过（曲面） & 55\% / 11\% / 8.9\% \\
+缝合管 $g=0.01$ & 在顶点处失败 & 通过（曲面） & 53\% / 16\% / 5.1\% \\
+缝合楔形体 & 在顶点处失败 & 失败（边落在管外） & 无实现（定理~\ref{thm:obstruction}） \\
+缝合带圆角盒子 $g=0.001$ & 在顶点处失败 & 计算不适用（相切面） & 未解决 \\
+\bottomrule
+\end{tabular}
+\caption{在精确模型和缝合模型上的构造（采样检查，双精度）。$^*$暂定：检查程序还没有实现顶点附近的常半径。面余量取采样检查程序的值与一次用精确投影的独立密集复查（\texttt{results/reintersect\_B3\_dense.txt}）中较小者；缝合平板只有密集复查的值。}\label{tab:constr}
+\end{table}
+
+\begin{itemize}
+\item \emph{扇形为什么在缝合数据上失败。}扇形构造在缝合模型的顶点处失败。缝合把 $\tau_e$ 设为 $1.05\,\mathrm{dev}_e$，而管半径必须超过偏差；但在盒子的角上，三根半径都大于 dev 的管，没法互不相交地放进一个半径约为 $\tau_e$ 的顶点球里。
+\item \emph{重新求交。}重新求交避开了这个问题。我们计算重新裁剪模型的方法是把延伸后的曲面重新求交，这需要面横截相交。``通过（曲面）''只指假设 T 的边部分；顶点部分没有检查。
+\item \emph{带相切边的缝合模型仍未解决。}在缝合带圆角盒子上，OpenCascade 把每个顶点容差设为相邻边容差的最大值，面片角点离顶点最远达 $0.85\,\tau_v$，我们的顶点构造都放不下。
+\end{itemize}
+
+\subsection{其他观察}
+\begin{itemize}
+\item \emph{厚度经验估计。}不相邻面间最小距离的一半，是常用的安全容差估计。它高估了圆柱（5 对 $\wfs=3$），对一个内圆角为 $0.05$ 的 L 形则低估了约 $97$ 倍。
+\item \emph{偏置。}在默认模式下，\texttt{BRepOffsetAPI\_MakeOffsetShape} 对一个带圆角盒子、在 $\wfs$ 安全范围内的偏置距离，返回了体积错误的实体（误差从 $44\%$ 到上千倍，有一次得到六个壳而不是一个），而 BRepCheck 都接受了。
+\item \emph{公开文档。}我们在 OpenCascade 的公开文档以及 ACIS、Parasolid 的第三方文档中，都没有找到``检查容差不改变拓扑''的功能。这只说明文档里没有提到。
+\end{itemize}

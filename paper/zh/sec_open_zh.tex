@@ -1,0 +1,17 @@
+\section{局限与未解决问题}\label{sec:open}
+
+\begin{enumerate}
+\item \textbf{证明背后的引用。}证明中引用的文献结果都已对照原文核对。剩下的是每处都注明``未单独对照原文''的标准事实。
+\item \textbf{扇形构造中的 B-rep 复形。}定理~\ref{thm:lemma0} 只对正则复形证明；接缝、闭边和带内线框的面需要另外论证。（命题~\ref{prop:Bprime} 覆盖了它们。）
+\item \textbf{球面。}定理~\ref{thm:uniqueness} 不含亏格为 0 的壳，Waldhausen 的水平化论证对它们不适用。PL Schoenflies 定理~\cite[Thm.~17.12]{Moise77} 是处理球面情形的自然工具；论证没有写出。
+\item \textbf{嵌入。}我们证明的是实现的像环境同痕，而不是嵌入映射作为映射同痕。两者相差曲面的一个自同胚。
+\item \textbf{紧顶点。}带相切边、使用 OpenCascade 顶点容差（等于相邻边容差的最大值）的缝合模型是否有实现，我们不知道。两个方向都未解决：一种同时利用边管和球的顶点构造，或者障碍定理的顶点版本。
+\item \textbf{相切边的重新裁剪模型。}命题~\ref{prop:Bprime} 允许相切（G$^1$）边和混合顶点，但我们计算重新裁剪模型的方法是把延伸后的曲面重新求交，在面相切时会失败。如何为这类数据构造重新裁剪模型，仍未解决。
+\item \textbf{曲面版障碍。}定理~\ref{thm:obstruction} 只对平面面片陈述。
+\item \textbf{计算的严格性。}
+  \begin{itemize}
+  \item $\wfs$ 下界和假设检查用的是双精度和采样。例外：带缝隙立方体的构造，以及缝合楔形体、缝合盒子、缝合平板的精确复查。
+  \item 对工业模型，需要区间算术和编译型实现。
+  \end{itemize}
+\item \textbf{形式化。}一般情形的承载引理（可缩承载集）、Waldhausen 定理和各存在性构造都没有形式化。
+\end{enumerate}

@@ -1,0 +1,72 @@
+\section{一个障碍}\label{sec:obstruction}
+
+\subsection{设定}
+\begin{itemize}
+\item $f\ne g$ 是两个面，它们的闭胞腔是由单个线框围成的圆盘。
+\item 它们的数据是平面的：$P_f\subseteq\Pi_f$，$P_g\subseteq\Pi_g$，两平面不平行。
+\item $\lambda=\Pi_f\cap\Pi_g$，$\alpha\in(0,\pi/2]$ 是两平面的夹角。
+\item $n_f,n_g$ 是单位法向量，$m_f$ 是 $\Pi_f$ 中与 $\lambda$ 正交的单位向量（$m_g$ 同理）。
+\item $\pi_f$ 是到 $\Pi_f$ 的正交投影，$U_f=\bigcup_{e<f}\Z(e)$，它包含 $f$ 各顶点的容差区。
+\item $\ell_f$ 是 $f$ 的边界环：按 $\partial f$ 的循环顺序排列的弧 $\beta_{f,e}$，相邻两弧用连接其端点的线段接起来。
+\end{itemize}
+
+\begin{theorem}[障碍]\label{thm:obstruction}
+设存在 $X\in\lambda$ 和 $\rho>0$，使得对 $J_f=X+[-\rho,\rho]m_f$、$J_g=X+[-\rho,\rho]m_g$ 有：
+\begin{description}
+\item[O0] 对 $f$ 的每条边 $e$，$\beta_{f,e}\subseteq\Z(e)$；在 $f$ 的每个顶点 $v$ 处，$f$ 在 $v$ 处的两段弧的端点都在 $\Z(v)$ 中；对 $g$ 同样。
+\item[O1] $J_f\cap\ell_f=\emptyset$，且 $\ell_f$ 在 $\Pi_f$ 中绕 $J_f$ 上各点的环绕数为奇数；对 $g$ 同样。
+\item[O2] $J_f\cap\cl\,\pi_f(U_f)=\emptyset$，$J_g\cap\cl\,\pi_g(U_g)=\emptyset$。
+\item[O3] 对 $f$ 或 $g$ 的每条边 $e$，$\Z(e)$ 单连通。
+\item[O4] $\rho\sin\alpha>\tau_f\cos\alpha+\tau_g$ 且 $\rho\sin\alpha>\tau_g\cos\alpha+\tau_f$。
+\end{description}
+则该容差 B-rep 没有实现。
+\end{theorem}
+
+\begin{proof}
+设 $h$ 是一个实现，令 $\varphi=\pi_f\circ h|_{\bar f}$。
+
+\emph{第 1 步：在 $J_f$ 上方，$h(\bar f)$ 落在薄板内。}
+\begin{itemize}
+\item 设 $y\in J_f$。有 $h(\bar f)\subseteq\Z(f)=N_{\tau_f}(P_f)\cup U_f$，由 O2，$U_f$ 中没有点在 $y$ 的正上方（投影为 $y$）。
+\item 由于 $P_f\subseteq\Pi_f$，$\pi_f^{-1}(y)\cap N_{\tau_f}(P_f)\subseteq\sigma_y:=y+(-\tau_f,\tau_f)n_f$。
+\item 所以 $h(\bar f)\cap\pi_f^{-1}(y)=h(\bar f)\cap\sigma_y$。这些点是 $f$ 的内点的像，因为 $h(\partial f)\subseteq U_f$。
+\end{itemize}
+
+\emph{第 2 步：度为一。}
+\begin{itemize}
+\item 在 $\partial f$ 上参数化 $\ell_f$：每个顶点周围的一小段弧 $A_v$ 映到连接线段，每条边的其余部分映到 $\beta_{f,e}$。把 $A_v$ 缩小，直到 $h(A_v)\subseteq\Z(v)$。
+\item 在 $U_f$ 中构造从 $h|_{\partial f}$ 到这个参数化的同伦：
+  \begin{itemize}
+  \item 在 $A_v$ 上，用凸球 $\Z(v)$ 内的直线同伦；
+  \item 在边 $e$ 的其余部分上，正方形的边界映入 $\Z(e)$（由 O0、单调性和 $h(\bar e)\subseteq\Z(e)$），由 O3 可延拓到整个正方形上。
+  \end{itemize}
+\item 由 O2，投影后的同伦避开每个 $y\in J_f$。所以 $\varphi|_{\partial f}$ 与 $\ell_f$ 绕 $y$ 的环绕数相同，由 O1 为奇数。因此 $\varphi$ 在 $y$ 处的模 2 度为 $1$。
+\item 取 $\bar f$ 的一个使 $h$ 线性的三角剖分。对 $y\notin\varphi(\text{1-骨架})$（一旦第 3 步中的截面取成一般位置，这只排除 $J_f$ 上的有限个点），$\#(h(\bar f)\cap\sigma_y)$ 为奇数。
+\end{itemize}
+
+\emph{第 3 步：一条横穿的弧。}
+\begin{itemize}
+\item 令 $\Sigma$ 为过 $X$ 且与 $\lambda$ 正交的平面；它包含 $n_f,m_f,n_g,m_g$。
+\item 沿 $\lambda$ 移动 $X$，把 $\rho$ 略为缩小，取一般位置的值；O1、O2、O4 都是开条件。一般位置指：$\Sigma$ 不含三角剖分的顶点、与其边横截相交，且直线 $\langle x-X,m_f\rangle=\pm\rho$、$\langle x-X,m_g\rangle=\pm\rho$ 不含顶点。
+\item 在 $\Sigma$ 中，矩形 $R_f=J_f+[-\tau_f,\tau_f]n_f$ 与 $h(\bar f)$ 交于一个紧 1-流形 $M_f$。
+\item $M_f$ 与 $h(\partial f)$ 不交，因为 $\pi_f(R_f)=J_f$ 且 O2 成立。由第 1 步，它与 $R_f$ 的长边不交。所以它的边界落在两条短边上。
+\item 一般的纤维 $\sigma_y$ 与 $M_f$ 相交奇数次（第 2 步）。圆周分支，以及两端都在同一条短边上的弧，与它相交偶数次。
+\item 所以 $M_f$ 中有一条弧 $a_f$ 连接 $R_f$ 的两条短边。对 $g$ 同样有弧 $a_g$。
+\end{itemize}
+
+\emph{第 4 步：两条弧相交。}
+\begin{itemize}
+\item 在 $\Sigma$ 中用坐标 $u=\langle x-X,n_f\rangle$、$w=\langle x-X,n_g\rangle$。
+\item 在 $R_f$ 的短边上，由 O4，$|w|\ge\rho\sin\alpha-\tau_f\cos\alpha>\tau_g$，且两条短边上符号相反。所以 $a_f$ 在平行四边形 $Q=\{|u|\le\tau_f,|w|\le\tau_g\}$ 中含有一段连接 $w=-\tau_g$ 与 $w=\tau_g$ 的子弧。对称地，$a_g$ 在 $Q$ 中含有一段连接 $u=-\tau_f$ 与 $u=\tau_f$ 的子弧。
+\item 由 O4，$Q$ 落在两个矩形中。
+\item 正方形中分别连接两组对边的两条道路必相交（Brouwer 不动点定理的标准推论；未单独对照原文）。所以 $h(\bar f)\cap h(\bar g)\ne\emptyset$，交点同时是 $f$ 和 $g$ 的内点的像（第 1 步）。这与单射性矛盾。
+\end{itemize}
+\end{proof}
+
+\begin{remark}
+\begin{itemize}
+\item \emph{哪些假设起约束作用。}面容差很小（OpenCascade 默认 $10^{-7}$），所以 O4 很宽松。真正起约束作用的是 O1 和 O2：两张面片必须在边区和顶点区的``影子''之外相交。
+\item \emph{曲面面片。}证明在第 1、2 步用到平面性。对 $\tau_f$ 小于其 reach 的 $C^2$ 面片，用管状坐标应能得到相应的版本；本文没有写出。
+\item \emph{用到而未单独对照原文的标准事实：}PL 映射的模 2 度及其与环绕数的关系、PL 映射与一般平面的一般位置、线段与 PL 圆周交点的奇偶性、环绕数的同伦不变性、神经引理（用于计算中的 O3 检验），以及上面引用的正方形引理。
+\end{itemize}
+\end{remark}

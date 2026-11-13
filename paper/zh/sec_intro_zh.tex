@@ -1,0 +1,135 @@
+\section{引言}\label{sec:intro}
+
+\subsection{问题}
+CAD 内核把实体存成边界表示：一个胞腔复形（面、边、顶点），每个胞腔上挂着几何数据。
+\begin{itemize}
+\item 每个面带一张曲面上裁剪出来的面片。
+\item 每条边带一条三维曲线，另外对每个相邻面各带一条参数域曲线（pcurve）。
+\item 每个顶点带一个点。
+\end{itemize}
+在浮点运算下，经过布尔运算、倒圆角、偏置、缝合之类的操作后，这些数据互相对不上：pcurve 映到曲面上的像偏离三维边曲线，边曲线的端点偏离顶点。Jackson 的局部容差方法~\cite{Jackson95}（Parasolid 方法的公开描述）给每个顶点、边、面都配一个容差；只要偏差在容差之内，数据就算一致。例如 OpenCascade 要求 pcurve 的像落在三维曲线的边容差之内，边的端点落在顶点的顶点容差之内~\cite{OCCT}。
+
+这样一个模型到底描述的是哪个实体？Qi 和 Shapiro~\cite{QiShapiro06b} 描述了通行的回答：如果在容差区内存在一个具有相同边界组合结构的精确实体，这个表示就是有效的。由此引出两个问题：
+\begin{enumerate}
+\item \emph{存在性。}是否存在一张具有给定胞腔结构、并遵守全部容差的嵌入曲面？
+\item \emph{唯一性。}如果有好几张，它们围成的实体在环境同痕意义下是否都相同？
+\end{enumerate}
+下游算法（布尔、偏置、网格划分、分析）都默认这两个问题的答案是``是''。
+
+\subsection{我们证明了什么}
+我们把 (1) 中的嵌入称为\emph{实现}：胞腔复形 $K$ 的一个 PL 嵌入 $h$，对每个胞腔 $\sigma$ 满足 $h(\inter\sigma)\subseteq\Z(\sigma)$，其中 $\Z(\sigma)$ 是 $\sigma$ 的容差区（第~\ref{sec:setting}~节）。
+
+\begin{itemize}
+\item \textbf{唯一性}（定理~\ref{thm:uniqueness}）。
+  \begin{itemize}
+  \item \emph{假设：}各胞腔的承载集可缩；每个壳有一个乘积领圈，包含该壳的容差区和一张被承载的参考曲面，且参考曲面的包含映射是同伦等价；各领圈两两不交；每个壳的亏格至少为 1。
+  \item \emph{结论：}任意两个实现的\emph{像}环境同痕，它们围成的实体也环境同痕。
+  \item \emph{方法：}承载引理（一个逐胞腔的同伦论证），加上 Waldhausen 的定理：乘积 $F\times I$ 中的不可压缩曲面可以被推成水平的~\cite[Prop.~3.1]{Waldhausen68}。
+  \end{itemize}
+\item \textbf{领圈条件}（第~\ref{sec:collar}~节）。
+  \begin{itemize}
+  \item 领圈条件可以由参考曲面 $M$ 的弱特征尺寸 $\wfs(M)$ 以下的一个距离界推出（引理~\ref{lem:collar}）。其中一步用到 Moise 的定理：同胚可以用 PL 同胚逼近~\cite[Thm.~35.2]{Moise77}。
+  \item 对多面体 $M$，我们证明 $\wfs(M)\ge\lambda(M)>0$，其中 $\lambda$ 由 $M$ 的锥半径定义（推论~\ref{cor:lambda}）。其中的锥引理在 Lean~4（Mathlib）中机器验证。
+  \item 我们用八叉树搜索计算 $\wfs(M)$ 的下界，并说明了浮点意义上的限定。
+  \end{itemize}
+\item \textbf{存在性}（第~\ref{sec:existence}~节）。有两种构造：
+  \begin{itemize}
+  \item 在边的法圆盘里放扇形，在顶点处放锥。这是对正则复形的带条件定理（定理~\ref{thm:lemma0}），证明在附录~\ref{sec:proof51}。它的假设包括边和顶点上的局部条件、整体不相交条件（S1），以及两条非局部的拓扑条件（V1(b)、P0）。
+  \item 对紧容差的尖锐边，把面所在曲面重新求交（命题~\ref{prop:B}、\ref{prop:Bprime}；曲面情形的证明在附录~\ref{sec:proofBprime}）。这两个命题假设重新裁剪得到的候选曲面已经嵌入并落在容差区内，然后把它变成一个 PL 实现。
+  \end{itemize}
+\item \textbf{不存在性}（定理~\ref{thm:obstruction}）。在明确的条件下，若两张平面面片在所有边区、顶点区的投影（``影子''）之外横截相交，则不存在实现。
+\end{itemize}
+
+\subsection{实验说明了什么}
+在 OpenCascade~8.0.1 中（第~\ref{sec:experiments}~节）：
+\begin{itemize}
+\item \texttt{BRepCheck\_Analyzer} 不管容差多大都接受模型。
+\item \texttt{BRepAlgoAPI\_Check} 会对可实现的模型误报，也会接受容差超过名义曲面弱特征尺寸的模型。其中有一根厚壁管，它有两个实现，围成的实体不同胚：其中一个在孔里打了一个三叶结。
+\item 把一个面略有错位的楔形体缝合起来，得到的模型通过两项检查，但由定理~\ref{thm:obstruction}，它没有实现。定理的假设已用精确有理数运算验证。
+\end{itemize}
+
+\subsection{相关工作}
+
+\subsubsection*{容差建模}
+\begin{itemize}
+\item Segal~\cite{Segal90} 给多面体模型的每个顶点、边、面都分配了容差。
+\item Jackson~\cite{Jackson95} 给出了局部容差 B-rep 方法。
+\item Milenkovic~\cite{Milenkovic88} 在平面上、对统一的 $\varepsilon$ 证明：规范化的数据在 $\varepsilon/2$ 以内有一个精确实现。
+\item Sakkalis、Shen 和 Patrikalakis~\cite{SSP01} 研究区间实体：用盒子覆盖一个已知精确实体的边界，在同胚意义下讨论。Sakkalis、Peters 和 Bisceglio~\cite[Thm.~10]{SPB04} 证明：一张闭曲面若落在一张光滑闭曲面的法向管里，并且与每根法向纤维只交一次，则与之环境同痕。那里的管半径受曲率和一个双法向距离限制。
+\item Qi 和 Shapiro~\cite{QiShapiro06} 发展了 $\varepsilon$-实体性，它不要求存在精确实体~\cite{QiShapiro06b}。
+\item Shapiro~\cite{Shapiro08} 给出了容差区之并与胞腔复形同伦等价的条件。他在 \S5.2（第 178 页）指出，单有同伦条件是不够的，因为有效的边界表示还必须是一个可定向、能分隔空间的 2-闭链；把这些概念推广到容差区之并上``并不立即清楚''，不过同痕结果中用到的分隔概念可能有用。他还把``精确胞腔落在各自容差区内''看作强得多的要求。实现恰好满足的就是这个包含关系。
+\end{itemize}
+
+\subsubsection*{构造精确实体}
+\begin{itemize}
+\item Andersson、Stewart 和 Zidani~\cite{ASZ07} 以及 Stewart 和 Zidani~\cite{SZ08} 通过扰动（Whitney 延拓、超限插值）从不一致的裁剪面片数据构造实体。他们\emph{假设}扰动后的面片是嵌入的：
+  \begin{itemize}
+  \item ASZ 说相邻面片需要事后检查~\cite[pp.~819--820]{ASZ07}；
+  \item SZ 作了类似假设~\cite[p.~188]{SZ08}，并推导了一个法向量界，用来排除多余的相交。
+  \end{itemize}
+\item 在更早的一篇论文~\cite{ASZ06} 中，同一批作者用度数论证，给出了单张定义在公共参数域上的复合参数曲面为单射的可检验条件。他们指出，分别裁剪的 B-rep 面还需要额外的内外信息~\cite[\S3.7]{ASZ06}。
+\end{itemize}
+
+\subsubsection*{同痕}
+\begin{itemize}
+\item Chazal 和 Lieutier~\cite{ChazalLieutier07}、Chazal、Cohen-Steiner 和 Lieutier~\cite{CCSL09dcg} 研究了弱特征尺寸，以及在它以下各偏置之间的同痕。后者还证明了一般紧集的偏置水平集在 Hausdorff 扰动下的同痕~\cite[Thms.~4.2,~4.3]{CCSL09cg}。
+\item Chazal 和 Cohen-Steiner~\cite[Thm.~2.1]{CCS05} 证明：与 $S$ 同胚、落在 $S$ 的一个加厚层里、并把加厚层两侧隔开的曲面，与 $S$ 同痕。这与我们唯一性论证的拓扑核心很接近。
+\item Andersson、Peters 和 Stewart~\cite[Thm.~1]{APS00} 证明：一族单参数的曲边三角面片，若每个时刻都拼接正确、每片都是单射且 Jacobi 矩阵非奇异、相邻面片不相切，则各时刻之间由环境同痕相连。他们的``不相切''与我们命题~\ref{prop:Bprime} 中的``不折叠''条款 T 很接近。两者设定不同：他们假设扰动后的复形在每个时刻都拼接正确；我们从面片彼此不相接的数据出发，去构造一个实现。
+\end{itemize}
+
+\subsection{哪些是新的，哪些不是}
+对每个结果，我们说明：前人已知什么，我们新增什么，查到了什么程度。``我们没有找到''指的是本文所引文献及其背后的检索，不是穷尽的综述。
+
+\subsubsection*{唯一性（定理~\ref{thm:uniqueness}）}
+\begin{itemize}
+\item \emph{已知。}拓扑核心是经典的。Waldhausen~\cite[Prop.~3.1]{Waldhausen68} 证明 $F\times I$ 中的不可压缩曲面可以推成水平的。Chazal 和 Cohen-Steiner~\cite[Thm.~2.1]{CCS05} 证明：与 $S$ 同胚、落在 $S$ 的加厚层里并隔开其两侧的曲面，与 $S$ 同痕。Sakkalis、Peters 和 Bisceglio~\cite[Thm.~10]{SPB04} 对落在光滑曲面法向管内、与每根纤维只交一次的曲面证明了同痕。
+\item \emph{我们新增。}
+  \begin{itemize}
+  \item 针对容差 B-rep 的表述：每个胞腔各有容差区，实现要把每个胞腔留在自己的区里。
+  \item 承载引理（引理~\ref{lem:carrier}）。在承载集可缩时，它使每个实现在领圈内与参考曲面同伦。再加上领圈假设``参考曲面的包含映射是同伦等价''，就得到 Waldhausen 定理所需的 $\pi_1$ 同构（引理~\ref{lem:separation}）。所以仍需要一个代替``分隔''的假设，即这个同伦等价条件，但只对唯一一张参考曲面要求，而不像~\cite{CCS05} 那样对每个实现都要求；也不需要像~\cite{SPB04} 那样要求实现与每根纤维只交一次。
+  \item 由弱特征尺寸得到领圈（引理~\ref{lem:collar}），适用于 PL 参考曲面，允许尖锐边和三角化的小圆角。\cite{SPB04} 的结果是对光滑闭参考曲面陈述的，管半径受曲率和双法向距离限制。两者各有自己的适用范围：我们的结果需要 PL 参考曲面。
+  \end{itemize}
+\item \emph{局限。}
+  \begin{itemize}
+  \item 领圈条件是一个假设。只有当参考曲面是该壳的被承载 PL 嵌入、每个容差区都在 $N_d(M)$ 内且 $d<r<\wfs(M)$、不同壳的闭 $r$-邻域两两不交、亏格至少为 1 时，引理~\ref{lem:collar} 才能给出它。
+  \item 不含亏格为 0 的壳。
+  \item 同痕是拓扑意义下的，并且是像的同痕，不是嵌入映射本身的同痕。
+  \end{itemize}
+\end{itemize}
+
+\subsubsection*{显式下界 $\wfs(M)\ge\lambda(M)$（推论~\ref{cor:lambda}）}
+\begin{itemize}
+\item \emph{已知。}对紧半代数集 $M$ 有 $\wfs(M)>0$。Fu~\cite[\S5.3]{Fu85} 证明紧半代数集的距离函数只有有限多个临界值。di Rocco、Eklund 和 Gäfvert~\cite[Thm.~2.5]{dREG22} 陈述了正性并归功于 Fu。Chazal 和 Lieutier~\cite[Prop.~3.6]{ChazalLieutier07} 对有界子解析开集陈述了临界值有限，说明半代数情形是 Fu 的结果，并指出推广的证明在他们更早的一篇论文里。Fu 用一组有限不等式来定义半代数集；他的论证（Tarski--Seidenberg、有限的光滑子流形分解、他的引理 4.3 和 Sard 定理）并不依赖这一限制。认为它覆盖多面体曲面，是我们自己的理解。
+\item \emph{我们新增。}一个用锥半径表示的显式下界，其关键的锥引理在 Lean~4 中机器验证；$\lambda(M)>0$ 只有纸面证明，没有形式化。我们没有找到这样的下界，但这不说明它就是新的。
+\end{itemize}
+
+\subsubsection*{存在性（定理~\ref{thm:lemma0}，命题~\ref{prop:B}、\ref{prop:Bprime}）}
+\begin{itemize}
+\item \emph{已知。}
+  \begin{itemize}
+  \item Milenkovic~\cite{Milenkovic88}：平面上、统一容差下的存在性。
+  \item Andersson、Stewart 和 Zidani~\cite{ASZ06}：公共参数域上单张复合面片为单射的可检验条件。
+  \item \cite{ASZ07,SZ08}：从不一致数据构造实体，但假设扰动后的面片是嵌入的。
+  \item Andersson、Peters 和 Stewart~\cite[Thm.~1]{APS00}：沿一族始终拼接正确的面片的环境同痕。他们的``不相切''与我们的不折叠条款 T 很接近。
+  \end{itemize}
+\item \emph{我们新增。}在每个胞腔各有容差区的三维 B-rep 上，给出整个胞腔复形存在实现的充分条件。它们分两类，性质不同。
+  \begin{itemize}
+  \item 定理~\ref{thm:lemma0} 从数据上的条件直接构造实现。它只对正则复形证明，并且是带条件的：其中两条假设是非局部的。
+  \item 命题~\ref{prop:B}、\ref{prop:Bprime} 针对紧容差的尖锐边，假设一张重新裁剪得到的候选曲面已经嵌入并落在容差区内（在命题~\ref{prop:Bprime} 中即条款 C 和 B1--B3），然后证明它给出一个实现；对曲面情形这需要一个 PL 逼近。它们检验的是一个给定的候选，而不是推出嵌入性。命题~\ref{prop:B} 针对平面面和三度顶点；命题~\ref{prop:Bprime} 需要 $C^2$ 正则的面参数化，不能有极点或锥顶。在曲面模型上，这些条款只在采样点上用双精度检查，条款 T 的顶点部分没有检查。
+  \end{itemize}
+\item \emph{查到的程度。}对每个胞腔各有容差区的三维 B-rep，这两类存在性结果我们都没有找到。
+\item \emph{未覆盖。}带相切边、并使用 OpenCascade 顶点容差的缝合模型。它们是否有实现，仍未解决（第~\ref{sec:open}~节）。
+\end{itemize}
+
+\subsubsection*{不存在性（定理~\ref{thm:obstruction}）}
+\begin{itemize}
+\item \emph{我们新增。}一个针对平面面片的可检验判据。我们把它用在通过 OpenCascade 两项检查的缝合模型上。
+\item \emph{局限。}定理只涉及一对平面面，它们的闭胞腔是由单个线框围成的圆盘，且边区单连通（O3）。曲面版本仍未解决。
+\item \emph{查到的程度。}在我们读过的文献里，没有找到容差 B-rep 的不存在性判据。
+\end{itemize}
+
+\subsubsection*{实验（第~\ref{sec:experiments}~节）}
+\begin{itemize}
+\item \emph{我们新增。}观察到 OpenCascade 的有效性检查既判定不了存在性，也判定不了唯一性。
+\item \emph{范围。}证据是一个内核版本（8.0.1）里的几个零件。我们没有测试 ACIS 或 Parasolid。
+\end{itemize}

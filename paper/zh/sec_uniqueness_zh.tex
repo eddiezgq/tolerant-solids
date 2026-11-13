@@ -1,0 +1,115 @@
+\section{正亏格壳的唯一性}\label{sec:uniqueness}
+
+\subsection{假设}
+\begin{itemize}
+\item \textbf{承载条件。}对每个顶点 $v$，$\C(v)$ 道路连通；对每个 $k\ge1$ 的 $k$-胞腔 $\sigma$，$\C(\sigma)$ 道路连通，且在每个基点处 $\pi_k(\C(\sigma))=0$。承载集可缩即可满足。
+\item \textbf{领圈条件。}对每个壳 $K_i$，存在紧 PL 子流形 $U_i\subset\R^3$、闭曲面 $M_i$、PL 同胚 $\Psi_i\colon U_i\to M_i\times[-1,1]$，以及一个被承载的 PL 嵌入 $\varphi_i\colon|K_i|\to\R^3$（称为\emph{参考}），满足：
+  \begin{itemize}
+  \item $K_i$ 的所有胞腔的容差区都在 $\inter U_i$ 内；
+  \item $\varphi_i(|K_i|)\subseteq\inter U_i$，且包含映射 $\varphi_i(|K_i|)\hookrightarrow U_i$ 是同伦等价；
+  \item 各 $U_i$ 两两不交。
+  \end{itemize}
+  （参考曲面不必是某个水平层 $\Psi_i^{-1}(M_i\times\{t\})$。这个较弱的形式正是引理~\ref{lem:collar} 能给出的。）注意 $M_i$ 连通，因为 $M_i\simeq U_i\simeq|K_i|$；$M_i$ 可定向，因为 $M_i\times I\cong U_i\subset\R^3$；当 $|K_i|$ 不是球面时 $M_i$ 也不是球面，因为此时 $\pi_1(M_i)\cong\pi_1(|K_i|)\ne1$。
+\item \textbf{亏格。}每个 $|K_i|$ 的亏格至少为 1。
+\end{itemize}
+
+\subsection{引理}
+
+\begin{lemma}[承载引理]\label{lem:carrier}
+在承载条件下，任意两个被承载的映射 $f,g\colon|K|\to\R^3$ 同伦，且同伦 $H$ 对每个 $\sigma$ 满足 $H(\bar\sigma\times I)\subseteq\C(\sigma)$。
+\end{lemma}
+\begin{proof}
+对 $k$ 归纳，在 $|K|\times\{0,1\}\cup|K^{(k)}|\times I$ 上定义 $H$，保持 $H(\bar\sigma\times I)\subseteq\C(\sigma)$，且 $H(\cdot,0)=f$，$H(\cdot,1)=g$。
+\begin{itemize}
+\item $k=0$：对顶点 $v$，点 $f(v)$、$g(v)$ 都在道路连通集 $\C(v)$ 中；在 $\C(v)$ 中用一条道路连接它们。
+\item $k\ge1$：设 $\sigma$ 是 $k$-胞腔。$\bar\sigma\times I$ 是一个 $(k+1)$-球，其边界 $\bar\sigma\times\{0,1\}\cup\partial\bar\sigma\times I$ 是一个 $k$-球面，$H$ 在它上面已有定义：
+  \begin{itemize}
+  \item 在 $\bar\sigma\times\{0,1\}$ 上是 $f$ 或 $g$，像在 $\C(\sigma)$ 中；
+  \item 在 $\partial\bar\sigma\times I$ 上由归纳定义，像在 $\bigcup_{\tau<\sigma}\C(\tau)\subseteq\C(\sigma)$ 中。
+  \end{itemize}
+  由于 $\pi_k(\C(\sigma))=0$，$H$ 可以延拓到 $\bar\sigma\times I$ 上，像在 $\C(\sigma)$ 中。
+\end{itemize}
+各块在公共边界上一致，有限个闭集连续拼接得到连续的 $H$。
+\end{proof}
+
+\begin{lemma}[分隔]\label{lem:separation}
+设承载条件和领圈条件成立，$h$ 是一个实现。则 $G=h(|K_i|)$ 是 $\inter U_i$ 中的闭曲面，且包含映射 $G\hookrightarrow U_i$ 是同伦等价。
+\end{lemma}
+\begin{proof}
+\begin{itemize}
+\item 对 $K_i$ 用引理~\ref{lem:carrier}，$h$ 与 $\varphi_i$ 通过像在 $\bigcup\C(\sigma)\subseteq\inter U_i$ 中的映射同伦，所以同伦发生在 $U_i$ 内。
+\item $\varphi_i\colon|K_i|\to U_i$ 是到 $\varphi_i(|K_i|)$ 上的同胚再接包含映射；由领圈条件，后者是同伦等价。因此 $h\colon|K_i|\to U_i$ 也是同伦等价。
+\item 由于 $h$ 是到 $G$ 上的同胚，包含映射 $G\hookrightarrow U_i$（等于 $h\circ h^{-1}$）是同伦等价。
+\end{itemize}
+\end{proof}
+
+\begin{lemma}[水平化]\label{lem:horizontal}
+设 $U\cong_{\Psi}M\times[-1,1]$ 如领圈条件中所述，$M$ 不是球面；$G\subset\inter U$ 是一张闭 PL 曲面，其到 $U$ 的包含映射是同伦等价。则存在 $\R^3$ 的环境同痕，支集在 $U$ 内、在 $\partial U$ 上不动，把 $G$ 变到 $\Psi^{-1}(M\times\{0\})$。
+\end{lemma}
+\begin{proof}
+\begin{enumerate}
+\item[(a)] \emph{$G$ 不可压缩。}
+  \begin{itemize}
+  \item 由假设，$\pi_1(G)\to\pi_1(U)$ 是同构。
+  \item 压缩圆盘的边界会是一条在 $G$ 中本质、在 $U$ 中零伦的曲线，这被上一条排除。这就是 Waldhausen 意义下的不可压缩~\cite[p.~58]{Waldhausen68}。
+  \item $G\simeq U\simeq M$，所以 $G$ 不是球面，该定义中的情形 (b) 不会出现。我们不用反方向（那需要环路定理）。
+  \item $G$ 是可定向 3-流形中的可定向闭曲面，因而是双侧的，且与 $\partial U$ 不交；所以它满足 Waldhausen 的约定~\cite[\S0]{Waldhausen68}。
+  \end{itemize}
+\item[(b)] \emph{$G$ 可以推成水平的。}
+  \begin{itemize}
+  \item 对 $U\cong M\times I$（$M$ 可定向，不是球面）和不可压缩曲面 $G$ 应用 Waldhausen 的命题 3.1~\cite[pp.~65--68]{Waldhausen68}。由于 $\partial G=\emptyset$，条件``$\partial G\subseteq F\times1$''自动成立。
+  \item 它给出一个在 $\partial U$ 上不动的同痕，把 $G$ 变成一张曲面 $G'$，其投影 $p\colon G'\to M$ 是到像上的同胚。
+  \item $p(G')$ 在连通曲面 $M$ 中既开（区域不变性）又闭，所以 $p(G')=M$。因此 $G'$ 是某个函数 $s\colon M\to(-1,1)$ 的图像。
+  \item Waldhausen 对命题 3.1 的证明用到 $F\times I$ 不可约：在基本情形（$F$ 为圆盘、环或裤子面，第 66 页）中明确使用，并通过第 67 页的归纳，用于切割得到的带边紧曲面 $F'$。下面的引理~\ref{lem:irreducible} 覆盖所有这些情形。
+  \end{itemize}
+\item[(c)] \emph{压平。}在每根纤维 $\{x\}\times[-1,1]$ 上取 PL 同胚，固定两端，把 $s(x)$ 送到 $(1-t)s(x)$，$t\in[0,1]$。它们给出 $U$ 的一个环境同痕，在 $\partial U$ 上不动，把 $G'$ 变到 $\Psi^{-1}(M\times\{0\})$。这个同痕是拓扑的。
+\item[(d)] (b) 中的同痕本身就是环境同痕：在 Waldhausen 的论文里，$X$ 的子空间 $Z_1,Z_2$ 之间的同痕按定义是 $X$ 的恒等映射的一个同痕，把 $Z_1$ 变到 $Z_2$~\cite[p.~57]{Waldhausen68}；命题 3.1 给出的同痕在 $\partial U$ 上不动。两个同痕都在 $\partial U$ 上不动，可以用恒等映射延拓到 $\R^3$。
+\end{enumerate}
+\end{proof}
+
+\begin{lemma}\label{lem:irreducible}
+设 $F$ 是除 2-球面以外的紧可定向 PL 曲面。则 $F\times I$ 不可约：每个 PL 2-球面 $S\subset\inter(F\times I)$ 在 $F\times I$ 中围出一个 PL 3-胞腔。（按 Waldhausen 的约定，曲面是真嵌入的，所以 $F\times I$ 中的 2-球面与边界不交。）
+\end{lemma}
+\begin{proof}
+\emph{情形 $\partial F\ne\emptyset$。}
+\begin{itemize}
+\item 此时 $F\times I$ 是一个柄体：$\R^3$ 中一个有限图的正则邻域 $H$，且 $\partial H$ 连通（标准事实；未单独对照原文）。我们在 $H\subset\R^3$ 中讨论。
+\item 由 PL Schoenflies 定理~\cite[Thm.~17.12]{Moise77}，$S$ 在 $\R^3$ 中围出一个 PL 3-胞腔 $B$。集合 $\R^3\setminus H$ 连通（Alexander 对偶，因为 $\partial H$ 连通）、无界、与 $S$ 不交，所以它落在 $\R^3\setminus S$ 的无界分支里。因此 $B\subseteq H$。
+\end{itemize}
+\emph{情形 $F$ 闭、亏格至少为 1。}
+\begin{itemize}
+\item 设 $q\colon\tilde F\times I\to F\times I$ 是万有覆叠，甲板变换群 $\Gamma$ 以 $\gamma\times\mathrm{id}$ 作用。$\tilde F$ 是单连通、非紧、无边的 PL 曲面，所以 PL 同胚于 $\R^2$（标准事实；未单独对照原文）。因此 $\tilde F\times I\cong_{PL}\R^2\times I\subset\R^3$。
+\item $S$ 单连通，所以它提升为一个 PL 2-球面 $\tilde S\subset\R^2\times(0,1)$，各提升 $\gamma\tilde S$（$\gamma\in\Gamma$）两两不交。由 PL Schoenflies 定理~\cite[Thm.~17.12]{Moise77}，$\tilde S$ 围出一个 PL 3-胞腔 $\tilde B\subset\R^3$。$\R^2\times[0,1]$ 之外的点在 $\tilde S$ 的补集中可以连到无穷远，所以 $\tilde B\subset\R^2\times I$。
+\item 设 $\gamma\ne1$。球面 $\tilde S$ 与 $\gamma\tilde S$ 不交，所以胞腔 $\tilde B$ 与 $\gamma\tilde B$ 要么不交，要么一个套在另一个里。若 $\gamma\tilde B\subseteq\tilde B$，则对所有 $n\ge1$ 有 $\gamma^n\tilde B\subseteq\tilde B$。$\Gamma$ 无挠，所以各 $\gamma^n$ 互不相同，于是有无穷多个甲板变换使紧集 $\tilde B$ 与自身相交，与真不连续性矛盾。$\tilde B\subseteq\gamma\tilde B$ 的情形对 $\gamma^{-1}$ 同理。
+\item 所以 $\tilde B$ 的各平移两两不交，$q$ 在 $\tilde B$ 上是单射，$q(\tilde B)$ 是 $F\times I$ 中以 $S$ 为边界的 PL 3-胞腔。
+\end{itemize}
+另外用到、未单独对照原文的标准事实：闭曲面的 $\pi_1$ 无挠；甲板变换群的作用是真不连续的。
+\end{proof}
+
+\subsection{定理}
+
+\begin{theorem}[唯一性]\label{thm:uniqueness}
+设承载条件、领圈条件成立，且每个壳的亏格至少为 1。则：
+\begin{enumerate}
+\item 任一实现的像都与 $\bigcup_i\Psi_i^{-1}(M_i\times\{0\})$ 环境同痕（通过一个拓扑同痕）；
+\item 任意两个实现的像环境同痕；
+\item 它们围成的实体（定义~\ref{def:solid}）环境同痕。
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+\item 由引理~\ref{lem:separation}，每个 $G_i=h(|K_i|)$ 在 $U_i$ 中满足引理~\ref{lem:horizontal} 的假设。逐个壳应用该引理。各支集 $U_i$ 两两不交，所以各同痕 $\Phi^i$ 可以同时进行，其终端映射是 $\R^3$ 的一个同胚 $\Phi$。
+\item 对每个 $j$ 有 $\Phi(G_j)=\Psi_j^{-1}(M_j\times\{0\})$：在 $U_j$ 上，每个 $i\ne j$ 的 $\Phi^i$ 都是恒等映射，因为其支集 $U_i$ 与 $U_j$ 不交。
+\item 由 Jordan--Brouwer 分隔定理，每张闭曲面把 $\R^3$ 分成一个有界分支和一个无界分支。$\R^3$ 的同胚把闭包紧的集合映成闭包紧的集合，所以 $\Phi$ 把 $\R^3\setminus G_j$ 的有界分支映成 $\R^3\setminus\Phi(G_j)$ 的有界分支。于是深度保持不变，$\Phi$ 把各 $G_j$ 围成的实体映成各水平层围成的实体。
+\item 对两个实现及其映射 $\Phi$、$\Phi'$，取 $\Phi'^{-1}\circ\Phi$。
+\end{itemize}
+\end{proof}
+
+\begin{remark}
+\begin{itemize}
+\item \emph{未覆盖的情形。}不含球面（亏格 0）；同痕是像的同痕，不是嵌入映射的同痕。
+\item \emph{与 Chazal--Cohen-Steiner 的关系。}Chazal 和 Cohen-Steiner~\cite[Thm.~2.1]{CCS05} 证明：落在 $S$ 的加厚层里、与 $S$ 同胚并隔开加厚层两侧的紧可定向曲面 $S'$，在加厚层中与 $S$ 同痕。引理~\ref{lem:separation} 和~\ref{lem:horizontal} 在这里起同样的作用。容差 B-rep 特有的是整个设定：每个胞腔各有容差区、保持胞腔的实现、承载引理，以及由承载引理提供、用来代替``分隔''的 $\pi_1$ 条件。
+\item \emph{领圈条件不能去掉。}第~\ref{sec:experiments}~节的厚壁管通过 OpenCascade 的两项检查，却有两个实现，围成的实体甚至不同胚。
+\item \emph{用到而未单独对照原文的标准事实：}逐胞腔延拓的连续性、$\R^3$ 中闭曲面的可定向性、区域不变性、Jordan--Brouwer 分隔定理，以及按纤维压平是一个环境同痕。
+\end{itemize}
+\end{remark}

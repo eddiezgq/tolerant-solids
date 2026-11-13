@@ -1,0 +1,67 @@
+% 中文阅读版。正文（第 1--8 节）为中文译文；附录暂保留英文。与 ../p1.tex 同一版本（v0.9）。
+\documentclass[11pt,UTF8]{ctexart}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\emergencystretch=3em
+
+\newcommand{\unverified}[1]{\textcolor{red}{[#1 --- not yet checked against the original]}}
+\newcommand{\draftnote}[1]{\textcolor{orange!70!black}{[Draft note: #1]}}
+
+\newtheorem{theorem}{定理}[section]
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{corollary}[theorem]{推论}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{example}[theorem]{例}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{注}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathcal{Z}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\wfs}{\operatorname{wfs}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\inter}{\operatorname{int}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\conv}{\operatorname{conv}}
+
+\title{容差 B-rep 何时定义一个实体？\\ 实现的存在性、不存在性与唯一性}
+\author{张国庆（Eddie Zhang）\\ ZENFLUX, Miami Gardens, Florida, USA}
+\date{中文阅读版，对应英文稿 v0.9，2026 年 11 月 13 日。仅供审阅，不外传。}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+CAD 内核里的边界表示（B-rep）都带容差：边曲线、相邻面的边界曲线和顶点并不严丝合缝地对上，它们描述的实体只是``隐含''的。我们把这件事说清楚。容差 B-rep 的一个\emph{实现}，是它的胞腔复形的一个 PL 嵌入，并且每个胞腔都落在自己的容差区里。
+
+\emph{唯一性。}设每个壳的亏格至少为 1，各胞腔的承载集可缩，每个壳有一个乘积领圈，领圈包含该壳的所有容差区，也包含一张参考曲面，且参考曲面到领圈的包含映射是同伦等价；各领圈两两不交。则所有实现的像彼此（拓扑意义下）环境同痕，它们围成的实体也环境同痕。领圈条件可由一个距离界推出：容差区到参考曲面的距离小于参考曲面的弱特征尺寸。对多面体参考曲面，我们用锥半径给出弱特征尺寸的一个显式下界，关键引理在 Lean 中机器验证。
+
+\emph{存在性。}两种构造在给定假设下给出实现。第一种在边的法圆盘里用扇形、在顶点处用锥，是对正则复形的带条件定理，其假设中有两条是非局部的。第二种针对紧容差的尖锐边，把面所在曲面重新求交；它假设重新裁剪得到的候选曲面已经是嵌入的，并把它变成 PL 实现。
+
+\emph{不存在性。}在明确的条件下，如果两张平面面片在所有边区、顶点区的``影子''之外横截相交，则不存在实现。
+
+\emph{实验。}OpenCascade 的有效性检查判定不了上述任何一个问题。一次普通的缝合操作就能产生一个楔形体：它通过 OpenCascade 的两项检查，却没有实现。一根通过两项检查的厚壁管有两个实现，它们围成的实体甚至不同胚。
+\end{abstract}
+
+\input{sec_intro_zh}
+\input{sec_setting_zh}
+\input{sec_uniqueness_zh}
+\input{sec_collar_zh}
+\input{sec_existence_zh}
+\input{sec_obstruction_zh}
+\input{sec_experiments_zh}
+\input{sec_open_zh}
+\appendix
+\renewcommand{\proofname}{Proof}
+\input{../sec_curvedtri}
+\input{../sec_proof51}
+\input{../sec_proofBprime}
+\input{../sec_lean}
+\renewcommand{\refname}{参考文献}
+\input{../sec_biblio}
+\end{document}

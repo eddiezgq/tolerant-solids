@@ -1,0 +1,117 @@
+\section{从弱特征尺寸到领圈条件}\label{sec:collar}
+
+\subsection{弱特征尺寸}
+设 $M\subset\R^3$ 紧，$d(p)=\dist(p,M)$，$\Gamma(p)$ 是 $p$ 在 $M$ 中最近点的集合。点 $p\notin M$ 称为\emph{临界点}，如果 $0\in\conv\{p-x:x\in\Gamma(p)\}$。\emph{弱特征尺寸} $\wfs(M)$ 是 $d$ 的正临界值的下确界~\cite[\S2.2]{CCSL09dcg}；另见~\cite{ChazalLieutier07}。与 reach（可达距离）不同，它在尖锐边和小圆角处仍然是正的：带凹边的曲面 reach 为 $0$，半径 $r$ 的圆角把 reach 限制在 $r$ 以下。
+
+\begin{lemma}[领圈]\label{lem:collar}
+设 $M$ 是 $\R^3$ 中的连通闭 PL 曲面，$0<d<r<\wfs(M)$。
+\begin{enumerate}
+\item[(a)] 闭邻域 $\bar N_r(M)$ 同胚于 $M\times[-1,1]$，且 $M$ 对应 $M\times\{0\}$。
+\item[(a$'$)] 存在紧 PL 子流形 $U$，满足 $\bar N_d(M)\subseteq\inter U$、$U\subseteq\inter\bar N_r(M)$ 且 $U\cong_{PL}M\times[-1,1]$。
+\item[(b)] 设 $M$ 的亏格至少为 1，$U$ 如 (a$'$)。再设 $M=\varphi(|K_i|)$，其中 $\varphi$ 是某个壳的被承载 PL 嵌入；该壳每个胞腔的容差区都在 $N_d(M)$ 内；不同壳的 $\bar N_r(M_i)$ 两两不交。则第~\ref{sec:uniqueness}~节的领圈条件成立，取 $U_i=U$。
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+记 $d=d_M$。由 Jordan--Brouwer 分隔定理，$\R^3\setminus M$ 有两个分支：有界的 $\Omega_-$ 和无界的 $\Omega_+$。
+
+(a) \emph{第 1 步：小半径。}
+\begin{itemize}
+\item 在一个包含 $\bar N_r(M)$ 的大单纯立方体 $Q$ 中讨论，三角剖分使 $M$ 是子复形。$d$ 限制在 $Q$ 上是半代数的（Tarski--Seidenberg）、逆紧的、非负的，零点集是紧集 $M$。Durfee 对（半代数）\emph{rug 函数}的定义~\cite[Def.~3.1]{Durfee83} 要求的正是这些，不要求光滑性，所以 $d|_Q$ 是 $M$ 在 $Q$ 中的 rug 函数。于是对充分小的 $\delta>0$，集合 $\bar N_\delta(M)=d^{-1}[0,\delta]$ 是 $M$ 在 $Q$ 中的半代数邻域~\cite[Def.~3.4]{Durfee83}。
+\item $M$ 在 $Q$ 中的 PL 正则邻域 $R$ 也是半代数邻域~\cite[Prop.~3.7]{Durfee83}。由半代数邻域的唯一性~\cite[Prop.~3.5]{Durfee83}，存在同胚 $h_t\colon Q\to Q$，对所有 $t$ 有 $h_t|_M=\mathrm{id}$，且 $h_1(\bar N_\delta(M))=R$。所以 $h_1$ 是一个逐点固定 $M$ 的偶同胚 $(\bar N_\delta(M),M)\to(R,M)$。取 $\delta<r$。
+\item $M$ 是 $\R^3$ 中的可定向闭曲面，因而双侧，所以 $R\cong M\times[-1,1]$，$M$ 对应 $M\times\{0\}$。因此 $(\bar N_\delta(M),M)\cong(M\times[-1,1],M\times\{0\})$。它的边界是 $S_\delta=\{d=\delta\}$，因为 $\delta$ 不是临界值，每个 $d=\delta$ 的点都是 $d>\delta$ 的点的极限（第 3 步中的方向导数论证）。$S_\delta$ 有两个分支，即 $M\times\{\pm1\}$ 的像，它们位于 $\R^3\setminus M$ 的不同分支中：两半 $M\times(0,1]$ 和 $M\times[-1,0)$ 各自连通，所以各在某个 $\Omega_\pm$ 中；$M=\partial\Omega_+=\partial\Omega_-$ 上任一点的每个邻域都与两者相交，所以两半落在不同分支里。记 $S_\delta^\pm=S_\delta\cap\Omega_\pm$。
+\end{itemize}
+
+\emph{第 2 步：两侧的壳层。}令 $A_\pm=\{x\in\Omega_\pm:\delta\le d(x)\le r\}$。
+\begin{itemize}
+\item \emph{内侧。}取 $O=\Omega_-$。它有界且开；对 $x\in O$，到 $O^c$ 的距离等于 $d(x)$，最近点也相同（都在 $\partial O=M$ 上）。所以 $O$ 中到 $O^c$ 的距离的临界点，正是 $\Omega_-$ 中 $d$ 的临界点。两种临界点概念一致：\cite{ChazalLieutier07} 用的是其梯度场为零，而这当且仅当 $x$ 落在其最近边界点的凸包中~\cite[Lemma~2.2]{ChazalLieutier07}（另见~\cite[\S2.2]{CCSL09dcg}）。
+\item 由于 $r<\wfs(M)$，壳层 $A_-$ 中没有临界点。同痕引理~\cite[Prop.~3.4]{ChazalLieutier07}（他们转述自 Grove 的距离函数临界点理论）给出同胚 $A_-\cong S^-_\delta\times[\delta,r]$。
+\item \emph{外侧。}取 $O=\Omega_+\cap B(0,\mathcal R)$，$\mathcal R$ 很大。对 $x\in O$，到 $O^c$ 的距离是 $\min(d(x),\mathcal R-|x|)$。取 $\mathcal R$ 大于 $2r$ 加上 $|y|$（$y\in M$）的最大值。于是 $O$ 中到 $O^c$ 距离在 $[\delta,r]$ 内的点分成不交的两块：$A_+$，其中严格有 $d<\mathcal R-|x|$，所以距离等于 $d$ 且最近点相同；以及球面 $|x|=\mathcal R$ 附近的一个壳层，那里距离等于 $\mathcal R-|x|$。
+\item 两块都不含临界点。在 $A_+$ 中是因为 $r<\wfs$；在球面附近，唯一的最近点是径向投影。
+\item 于是命题 3.4 给出这两块之并与 $R^{-1}(\delta)\times[\delta,r]$ 的同胚，其中 $R^{-1}(\delta)=S^+_\delta\sqcup\{|x|=\mathcal R-\delta\}$ 恰有两个分支（$S^+_\delta\cong M$ 连通）。乘积的分支是 $C\times[\delta,r]$，$C$ 取这两个分支。球面附近的壳层是并集的一个分支，所以 $A_+$ 是另一个：$A_+\cong C\times[\delta,r]$，$C$ 连通。第 3 步说明 $C\cong S^+_\delta$。
+\item 我们使用命题 3.4 原文所述的闭壳层形式：对有界开集 $O$ 和 $R=d(\cdot,O^c)$，若壳层 $\{x\in O:\rho_1\le R(x)\le\rho_2\}$ 不含 $R$ 的临界点，则它同胚于 $R^{-1}(\rho_1)\times[\rho_1,\rho_2]$~\cite[Prop.~3.4]{ChazalLieutier07}。
+\end{itemize}
+
+\emph{第 3 步：粘合。}
+\begin{itemize}
+\item \emph{$A_\pm$ 的边界。}$A_\pm$ 是 $\R^3$ 中的紧 3-流形，由区域不变性，它的流形边界就是它在 $\R^3$ 中的边界。
+  \begin{itemize}
+  \item $\delta<d<r$ 的点是内点。
+  \item $d=\delta$ 的点是 $d<\delta$ 的点的极限：沿到最近点的线段移动即可。
+  \item $d=r$ 的点 $x$ 是 $d>r$ 的点的极限。由于 $x$ 不是临界点，存在单位向量 $u$，对所有 $y\in\Gamma(x)$ 有 $\langle u,x-y\rangle>0$。$d$ 沿 $u$ 的单侧方向导数是 $\min_{y\in\Gamma(x)}\langle u,(x-y)/|x-y|\rangle>0$（距离函数方向导数的标准公式；未单独对照原文）。
+  \end{itemize}
+  所以 $\partial A_\pm=S^\pm_\delta\sqcup S^\pm_r$，连通闭集 $S^\pm_\delta$ 是一个边界分支。$C\times[\delta,r]$ 的每个边界分支都是 $C$ 的一个拷贝，所以 $C\cong S^\pm_\delta$。
+\item 带边流形之间的同胚把边界分支映成边界分支。所以第 2 步的同胚把 $A_\pm$ 的边界分支 $S^\pm_\delta$ 映到乘积的某一端。必要时复合一个 $[\delta,r]$ 的翻转，再复合它在 $S^\pm_\delta$ 上的限制之逆，就得到 $A_\pm\cong S^\pm_\delta\times[0,1]$，$S^\pm_\delta$ 对应 $S^\pm_\delta\times\{0\}$。
+\item 于是 $\bar N_r(M)=\bar N_\delta(M)\cup A_+\cup A_-$ 是 $M\times[-1,1]$ 沿每个边界分支各粘上一个乘积领圈。它同胚于 $M\times[-2,2]\cong M\times[-1,1]$，$M$ 仍对应 $M\times\{0\}$。
+\end{itemize}
+
+(a$'$) $\bar N_r(M)$ 的内部是 $N_r(M)$：由第 3 步的计算，$d=r$ 的点是 $d>r$ 的点的极限。
+\begin{itemize}
+\item 由 (a)，存在同胚 $g\colon M\times(-1,1)\to N_r(M)$。
+\item $g^{-1}(\bar N_d(M))$ 紧，所以落在某个 $M\times[-a,a]$（$a<1$）中。取 $a<b<1$，令 $K=M\times[-b,b]$，它是 PL 3-流形 $M\times(-1,1)$ 中的带边多面体 3-流形。
+\item 紧集 $g(K)$ 与闭集 $\R^3\setminus N_r(M)$ 不交，紧集 $g(\partial K)$ 与 $\bar N_d(M)$ 也不交。取 $\varepsilon>0$ 小于这两个距离。由 Moise 的逼近定理~\cite[Thm.~35.2]{Moise77}，存在 $K$ 到 $\R^3$ 中的 PL 同胚 $f$，在 $K$ 上 $|f-g|<\varepsilon$。令 $U=f(K)$。
+\item 于是 $U$ 是紧 PL 子流形，$U\cong_{PL}M\times[-1,1]$，且 $U\subseteq N_r(M)=\inter\bar N_r(M)$。
+\item $\bar N_d(M)\subseteq\inter U$。设 $x\in\bar N_d(M)$。从 $g|_{\partial K}$ 到 $f|_{\partial K}$ 的直线同伦避开 $x$，所以对两张边界曲面中的每一张，$x$ 是否落在它的有界补分支里，对 $f$ 和对 $g$ 结果相同（从 $x$ 出发的径向投影的模 2 度是同伦不变量）。对 $\R^3$ 中有两张边界曲面的紧连通 3-流形，其内部就是相对这两张曲面深度为 1 的点集（定义~\ref{def:solid}；标准事实，由 Alexander 对偶）。由于 $x\in g(\inter K)$，它对 $g$ 的深度为 1，因而对 $f$ 也为 1，所以 $x\in\inter U$。
+\item $f$ 不一定把 $M$ 送到某个水平层，这就是第~\ref{sec:uniqueness}~节的领圈条件不作此要求的原因。
+\end{itemize}
+
+(b) 容差区在 $N_d(M)\subseteq\inter U$ 内，且 $M\subseteq N_d(M)\subseteq\inter U$。各 $U_i$ 两两不交，因为它们分别落在不交的 $\bar N_r(M_i)$ 中。剩下要证包含映射 $M\hookrightarrow U$ 是同伦等价。
+\begin{itemize}
+\item 由 (a)，复合 $M\hookrightarrow U\hookrightarrow\bar N_r(M)$ 是同伦等价，所以 $\pi_1(U)\to\pi_1(\bar N_r(M))$ 是满射。
+\item 两个群都同构于 $\pi_1(M)$，即亏格至少为 1 的曲面群。曲面群是 Hopf 群，所以从它到一个同构拷贝的满射是同构。因此 $\pi_1(M)\to\pi_1(U)$ 是同构。
+\item $M$ 和 $U\simeq M$ 都是非球面的（aspherical），由 Whitehead 定理，包含映射是同伦等价。
+\end{itemize}
+这里既用到 (a) 也用到 (a$'$)，并且用到亏格假设：对球面，论证不成立。用到而未单独对照原文的标准事实：Jordan--Brouwer 分隔定理、Tarski--Seidenberg、正则邻域理论（双侧闭曲面的正则邻域是乘积）、拓扑流形的边界不变性、沿边界分支粘乘积领圈、曲面群是 Hopf 群（它们剩余有限）、正亏格闭曲面的非球面性、Whitehead 定理、模 2 度的同伦不变性及其用于判断点在嵌入闭曲面哪一侧，以及两张不交闭曲面补集分支的 Alexander 对偶。
+\end{proof}
+
+\subsection{多面体曲面的显式下界}
+对 $a\in M$，\emph{锥半径} $\rho(a)$ 是满足下述条件的 $r>0$ 的上确界：存在以 $a$ 为顶点的闭锥 $C$，使 $M\cap B(a,r)=C\cap B(a,r)$。
+
+\begin{lemma}[锥引理]\label{lem:cone}
+设 $a\in M$，$r<\rho(a)$，$p\notin M$ 且 $|p-a|<r/2$。则每个最近点 $x\in\Gamma(p)$ 满足 $\langle p-x,\,p-a\rangle=|p-x|^2$。特别地，$p$ 不是临界点。
+\end{lemma}
+\begin{proof}
+\begin{itemize}
+\item \emph{最近点落在球内。}$d(p)\le|p-a|<r/2$，所以每个 $x\in\Gamma(p)$ 满足 $|x-a|<r$。
+\item \emph{过 $x$ 的射线留在 $M$ 中。}点 $y_s=a+s(x-a)$（$s$ 接近 $1$）落在锥内且在 $B(a,r)$ 内，因而在 $M$ 中。所以 $s\mapsto|p-y_s|^2$ 在 $s=1$ 处取局部极小，得 $\langle p-x,x-a\rangle=0$。
+\item \emph{结论。}对所有 $x\in\Gamma(p)$，$\langle p-x,p-a\rangle=|p-x|^2+\langle p-x,x-a\rangle=d(p)^2>0$。所以 $0$ 不在向量 $p-x$ 的凸包中。
+\end{itemize}
+\end{proof}
+
+\begin{corollary}\label{cor:lambda}
+令 $\lambda(M)=\inf_{x\in M}\sup_{a\in M}\bigl(\rho(a)/2-|x-a|\bigr)$。则 $d$ 没有满足 $0<d(p)<\lambda(M)$ 的临界点 $p$，所以 $\wfs(M)\ge\lambda(M)$。若 $M$ 是有限个三角形之并，则 $\lambda(M)>0$。
+\end{corollary}
+\begin{proof}
+\begin{itemize}
+\item \emph{下界。}给定 $d(p)<\lambda$ 的 $p$ 和 $x\in\Gamma(p)$，取 $a$ 使 $\rho(a)/2-|x-a|>d(p)$。则 $|p-a|<\rho(a)/2$，引理~\ref{lem:cone} 适用。
+\item \emph{正性。}对多面体，由多面体的局部锥结构，每个 $a$ 都有 $\rho(a)>0$（标准事实；未单独对照原文）。函数 $g(x)=\sup_a(\rho(a)/2-|x-a|)$ 是 1-Lipschitz 的且有限（因为 $\rho\le\operatorname{diam}M$），且 $g(x)\ge\rho(x)/2>0$。$M$ 紧，所以 $\min g>0$。
+\end{itemize}
+\end{proof}
+
+引理~\ref{lem:cone} 及推论~\ref{cor:lambda} 的逐点形式，在 Lean~4（Mathlib）中对任意实内积空间的子集做了机器验证（附录~\ref{sec:lean}）。
+
+\subsection{$\wfs$ 的认证下界}
+对三角化的参考曲面 $M_{PL}$，我们用最佳优先八叉树计算一个 $L$，使得``$(c\cdot\mathrm{tol},L)$ 内没有临界值''。我们说 $L$ 是\emph{认证的}，仅限于以下限定意义：计算用双精度；判断点是否属于某个特征时用容差 $\mathrm{tol}=10^{-10}$ 乘以模型尺寸；搜索只在截断距离 $R$ 以下进行。
+\begin{itemize}
+\item \emph{靠近 $M$ 的盒子}用引理~\ref{lem:cone} 认证，用到候选点 $a$ 处 $\rho(a)$ 的一个下界。这个下界取 $a$ 到不包含 $a$ 的最近特征（平面区域、边界线段、顶点）的距离。对其有向边界线段覆盖了边界的平面区域，在对每个合并区域做过全局共面复查之后，这个下界是可靠的。
+\item \emph{离得较远的盒子}用方向检验认证：一个小线性规划寻找单位向量 $u$，使盒内所有点 $p$ 的所有候选最近点 $x$ 都满足 $\langle u,p-x\rangle>0$。候选点是盒子中心到相关特征的投影。
+\item \emph{停止规则。}搜索在遇到第一个太小而不能再分、又无法认证的盒子时停止。它到 $M$ 的距离就是认证下界 $L$。
+\end{itemize}
+结果见表~\ref{tab:wfs}。引理~\ref{lem:collar} 需要 $(0,r]$ 内没有临界值。计算得到的下界覆盖 $(c\cdot\mathrm{tol},L)$；当 $\lambda(M)>c\cdot\mathrm{tol}$ 时，区间 $(0,c\cdot\mathrm{tol}]$ 由推论~\ref{cor:lambda} 覆盖，这一点我们没有单独检查。
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+零件 & 精确 $\wfs$（光滑零件） & $M_{PL}$ 的认证下界 \\
+\midrule
+立方体，边长 10 & 5 & 4.530 \\
+板 $4\times4\times1$ & 0.5 & 0.436 \\
+板 $4\times4\times0.3$ & 0.15 & 0.137 \\
+L 形（壁厚 2） & 1 & 0.894 \\
+L 形，内圆角 0.2 & 1 & 0.894 \\
+带 0.2 宽槽的块 & 0.1 & 0.086 \\
+圆柱 $R=3$，$H=10$ & 3 & 2.512 \\
+\bottomrule
+\end{tabular}
+\caption{三角化零件的 $\wfs$ 下界，在上述限定意义下认证。``精确''一列是光滑零件的 $\wfs$；对三角化的圆柱，$\wfs(M_{PL})$ 略小于 $3$。内圆角把 reach 限制在 $0.2$，但下界不变。}\label{tab:wfs}
+\end{table}

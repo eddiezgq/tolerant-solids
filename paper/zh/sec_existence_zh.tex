@@ -1,0 +1,97 @@
+\section{存在性}\label{sec:existence}
+
+我们给出两种构造，把数据上的假设变成一个实现。两者都不假设扰动后的曲面整体嵌入。定理~\ref{thm:lemma0} 确实假设（P0）每张原始面片是嵌入的，且其假设中有两条是非局部的。命题~\ref{prop:B}、\ref{prop:Bprime} 假设重新裁剪得到的模型是嵌入的，这一点在模型本身上用计算检查。
+
+\subsection{扇形与锥}\label{sec:fans}
+
+\subsubsection*{设定}
+$K$ 是正则的：每个面是由单个线框围成的圆盘，每条边有两个不同的顶点。定理及其证明（附录~\ref{sec:proof51}）只覆盖这种情形。对 B-rep 复形，假设有自然的解读：在接缝边上，E3$'$ 指面的两片；在闭边上，V1 按边端计数；对带内线框的面，P0 要求 $Q_f$ 同胚于该面。但证明不覆盖这些情形。例如在接缝处，同一个面的两片扇形会粘成一个环。这些情形本文没有证明。$\mathrm{dev}^*_e(t)$ 是边界点 $b_{f,e}(t)=\partial P_f\cap\Pi(t)$ 在法平面 $\Pi(t)$ 中相对 $\gamma_e(t)$ 的偏差；它不超过 $\mathrm{dev}_e$。
+
+\subsubsection*{辅助集合}
+\begin{itemize}
+\item \emph{法圆盘。}对边 $e$，选参数 $0<a_e<b_e<1$ 和 $C^1$ 半径函数 $\rho_e(t)$。$\rho_e$ 在两段短桩 $[t_v,a_e]$、$[b_e,t_w]$ 上以及 $a_e$、$b_e$ 的某个邻域上为常数；这里 $t_v$ 是满足 $\gamma_e(t)\in B(p_v,r_v)$ 的最后一个参数。$D_e(t)$ 是 $\Pi(t)$ 中以 $\gamma_e(t)$ 为圆心、半径 $\rho_e(t)$ 的闭圆盘，$T_e=\bigcup_{t\in[a_e,b_e]}D_e(t)$。
+\item \emph{顶点区域。}对顶点 $v$，选 $r_v$。顶点区域 $W_v$ 是球 $B(p_v,r_v)$ 与以下圆盘之并：对 $v$ 处的每条边 $e$，取 $t$ 在 $t_v$ 与 $a_e$（或 $b_e$）之间的圆盘 $D_e(t)$。
+\end{itemize}
+
+\subsubsection*{假设}
+E1--E3$'$ 要求在 $[t_v,t_w]$ 上成立，包括短桩。
+\begin{description}
+\item[E1] $\mathrm{dev}^*_e(t)<\rho_e(t)<\min(\tau_e,\operatorname{reach}\gamma_e|_{[a_e,b_e]})$。
+\item[E2] 对每个面 $f>e$：
+  \begin{enumerate}
+  \item $\psi_f<\pi/2$，其中 $\psi_f$ 是管内 $\gamma_e'$ 与 $T P_f$ 的最大夹角；并且 $\rho_e k_f<1$，其中 $k_f=\kappa_f/\cos\psi_f$；
+  \item $t\mapsto\pi_e(\beta_{f,e}(t))$ 严格单调。一个充分条件是 $L_e+\kappa_\gamma\mathrm{dev}^*_e<1$，其中 $L_e$ 是 $\beta_{f,e}-\gamma_e$ 关于弧长的 Lipschitz 常数；
+  \item \emph{不回返：}$\dist(\gamma_e(t),P_f\setminus C_f)>\rho_e(t)$。这里 $C_f$ 是 $P_f$ 的截弧（从 $b_{f,e}$ 到出口点）之并，其长度至多为 $\ell_f=(\mathrm{dev}^*+\sqrt{\mathrm{dev}^{*2}+\mu\rho^2})/\mu$，$\mu=1-\rho k_f$。
+  \end{enumerate}
+\item[E3$'$] 两个面截线在 $\partial D_e(t)$ 上的出口点 $k_{f,e}(t)$ 与 $k_{g,e}(t)$ 不同。一个充分条件（E3）是 $\alpha_e(t)>\varepsilon_f+\varepsilon_g$，其中 $\varepsilon=\arcsin\min\{1,(\mathrm{dev}^*_e+k\ell^2/2)/\rho_e\}$，$\alpha_e$ 是两条截线向内切向量的夹角。
+\item[V0] $\gamma_e$ 在 $v$ 处的端点以及各面片在 $v$ 处的角点都在 $\inter B(p_v,r_v)$ 内。
+\item[V1] (a) $W_v\subseteq\inter\Z(v)$，且 $W_v$ 关于 $p_v$ \emph{严格星形}：对每个 $x\in\partial W_v$，向量 $p_v-x$ 落在 $W_v$ 于 $x$ 处切锥的内部，并且从 $p_v$ 出发的每条射线与 $\partial W_v$ 恰好相交一次。（在连接点处，第二条性质不能由第一条推出，射线可能擦过 $\partial W_v$，所以单独列出。）
+(b) \emph{（非局部）}$W_v$ 之外的构造与 $\partial W_v$ 交于一条简单闭曲线 $\lambda_v$。
+\begin{itemize}
+\item 每条相邻边贡献一个点，每个相邻面贡献一段弧，按 $v$ 的链环的循环顺序排列。
+\item 外部各块横截地穿过 $\partial W_v$：沿 $\partial W_v$ 的光滑层（球面和短桩圆柱面），以及沿短桩圆柱面与球面相交的连接曲线。
+\item $\lambda_v$ 与这些连接曲线横截相交，并避开 $\partial W_v$ 的角点。
+\end{itemize}
+\item[S1] (a) 各 $W_v$ 两两不交。(b) 各 $T_e$ 两两不交。(c) 对 $w\notin\partial e$，$\gamma_e$ 和 $T_e$ 不碰 $W_w$。(d) 对 $e\not<f$，$P_f$ 不碰 $T_e$；对 $v\not<f$，$P_f$ 不碰 $W_v$。(e) 在 $\bigcup T\cup\bigcup W$ 之外，各面片块两两不交。(f) 对 $v<e$，$T_e\cap W_v=D_e(a_e)$；$W_v$ 外的每一块与 $W_v$ 只交于 $\lambda_v$。
+\item[P0] \emph{（非局部）}每个 $P_f$ 是嵌入的，且 $P_f\cap(\bigcup T\cup\bigcup W)$ 是 $\partial P_f$ 的一个领圈，从而 $Q_f=P_f\setminus\inter(\bigcup T\cup\bigcup W)$ 是一个闭圆盘。
+\end{description}
+V1(b) 和 P0 不是局部数据的推论。在第~\ref{sec:experiments}~节的模型中，它们只在``带缝隙的立方体''上得到验证，而且是间接的：通过精确检查构造出的曲面是嵌入的。采样检查程序不检验 V1(b)、P0、超出 S1(d) 的 E2.3，也不检验相邻面的 S1(e)。
+
+\begin{theorem}[扇形与锥构造的存在性；带条件]\label{thm:lemma0}
+在 E1--E3$'$、V0、V1、S1 和 P0 之下，容差 B-rep 有一个实现。
+\end{theorem}
+证明在附录~\ref{sec:proof51}。概要：
+\begin{itemize}
+\item $h$ 沿边跟随 $\gamma_e$，并在法圆盘里放置由半径组成的扇形。
+\item 各面片去掉领圈后，与管保持距离。
+\item 曲线 $\lambda_v$ 上的锥填满顶点区域。
+\item 单射性来自不交的法圆盘、E3$'$、星形性和 S1/P0。
+\item 得到的映射是双 Lipschitz 的，所以足够细的割线逼近是一个 PL 实现。
+\end{itemize}
+
+\begin{example}
+在一个各面被缝隙拉开的立方体上，这个构造已用有理数精确运算完成：216 个三角形，容差区归属和嵌入性都精确检查过（\texttt{compute/lemma0\_box.py}）。
+\end{example}
+
+\subsection{重新求交}
+
+\begin{proposition}[平面，三度顶点]\label{prop:B}
+设每个面是由单个线框围成的平面圆盘，$P_f\subseteq\Pi_f$，每个顶点恰在三个面上，且这三个平面线性无关。令 $c_v$ 为三个平面的公共点，对边 $e=vw$ 令 $\ell_e=[c_v,c_w]$，令 $\tilde P_f$ 为按 $\partial f$ 的顺序以 $f$ 各顶点的 $c$ 为顶点的多边形。假设：
+\begin{itemize}
+\item $c_v\in\Z(v)$，$\ell_e\subseteq\Z(e)$，$\tilde P_f\subseteq\Z(f)$；
+\item 各 $\tilde P_f$ 是简单多边形，恰好只在公共边和公共顶点处相交。
+\end{itemize}
+则到 $\bigcup\tilde P_f$ 上的胞腔映射是一个实现。
+\end{proposition}
+\begin{proof}
+它是到 $\bigcup\tilde P_f$ 上的 PL 同胚，且每个胞腔落在自己的容差区里。
+\end{proof}
+
+\begin{proposition}[曲面重新求交]\label{prop:Bprime}
+设存在一个\emph{重新裁剪的模型}：紧面片 $\tilde P_f$、曲线 $\tilde\gamma_e$ 和点 $c_v$，记 $\Sigma=\bigcup_f\tilde P_f$，满足：
+\begin{description}
+\item[P] 每个面有 $C^2$ 正则参数化 $X_f\colon U_f\to\R^3$，其中 $U_f$ 是 $\R^2$ 中的开集，或是商 $\R^2/\Lambda_f$（按周期格作商，接缝就这样表示）中的开集。存在紧区域 $D_f\subset U_f$，使 $X_f(D_f)=\tilde P_f$ 且 $X_f$ 在 $D_f$ 上单射。排除奇异参数化，例如球面极点和锥顶。
+\item[C] 存在同胚 $\phi\colon|K|\to\Sigma$，把 $K$ 的每个开胞腔映到 $\Sigma$ 的对应开胞腔上。$\Sigma$ 的开胞腔是：点 $c_v$；曲线 $\tilde\gamma_e$ 去掉端点；面片去掉它所有的边曲线（包括接缝）。
+\item[R] 令 $G_f\subset D_f$ 为 $f$ 的\emph{边图}：$f$ 所有边曲线（包括接缝；在商参数化中接缝位于 $D_f$ 内部而不在其边界上）在 $X_f$ 下的原像。$G_f$ 是有限图。其顶点是各点 $c_v$ 的原像。其边是简单的 $C^2$ 正则弧，或挂在某个顶点上的环，只在顶点处相交。在 $G_f$ 的每个顶点处，$D_f$ 在相邻两条弧之间的每个扇区的角度都在 $(0,2\pi)$ 内。允许角度为 $\pi$ 的光滑通过，例如光滑边界曲线上的接缝顶点。
+\item[B1--B3] $c_v\in\Z(v)$，$\tilde\gamma_e\subseteq\Z(e)$，$\tilde P_f\subseteq\Z(f)$。
+\item[T] 在每条边曲线 $\tilde\gamma_e$ 的每个内点处，两个相邻面片（或接缝的两侧）的向内切半平面不同：曲面不会折回自身。在每个顶点 $c_v$ 处，$\Sigma$ 的切锥是一个嵌入的圆盘。该切锥是切扇区 $dX_f(\text{扇区})$ 之并，取遍 $c_v$ 各原像处边图 $G_f$ 的所有扇区。这个条件的意思是：这些扇区只沿公共边界射线相接，并按 $v$ 的链环的循环顺序排列。（结合直到顶点的 $C^1$ 正则性，这也控制了边端点处的边条件。）
+\end{description}
+则容差 B-rep 有一个实现。
+\end{proposition}
+
+\begin{remark}
+\begin{itemize}
+\item 由 C，$\Sigma$ 是闭曲面的不交并，所以按定义~\ref{def:solid} 它围成一个实体。
+\item C 覆盖接缝、闭边和带内线框的面。
+\item T 的边部分只要求曲面不折叠。横截相交的面满足它；相切（G$^1$）边也满足，那里两个半平面方向相反。所以只要有一个具备上述性质的重新裁剪模型，这个命题原则上也适用于带圆角的模型。我们的计算是靠延伸曲面再重新求交来构造重新裁剪模型的，这在面相切时会失败（第~\ref{sec:experiments}~节）；这是计算的局限，不是命题的局限。
+\end{itemize}
+\end{remark}
+证明在附录~\ref{sec:proofBprime}。
+
+\begin{remark}[假设的检查]
+\begin{itemize}
+\item 重新裁剪模型可以通过延伸各面曲面、重建实体来计算（OpenCascade 的 \texttt{BOPAlgo\_MakerVolume}）。然后在采样点上检查假设（\texttt{compute/reintersect\_curved.py}），但假设 T 的顶点部分没有检查。这对圆柱和管很要紧，因为它们的接缝顶点只落在两张曲面上。证明中的 PL 步骤没有数值实现；它是一个存在性论证。
+\item 对平面情形，缝合盒子和缝合平板的命题~\ref{prop:B} 的假设也用有理数精确运算复查过，包括嵌入性。
+\item 结果见第~\ref{sec:experiments}~节。
+\end{itemize}
+\end{remark}

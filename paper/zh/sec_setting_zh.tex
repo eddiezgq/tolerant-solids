@@ -1,0 +1,46 @@
+\section{容差 B-rep 与实现}\label{sec:setting}
+
+\subsection{复形}
+$K$ 是 B-rep 意义下的有限胞腔复形。它的 0-胞腔是点，边是弧或闭曲线，面是紧曲面，可以带洞。开面是面去掉它所有的边（包括接缝）。底空间 $|K|$ 是一些连通闭曲面 $|K_1|,\dots,|K_n|$ 的不交并（称为\emph{壳}）。当 $\tau$ 是 $\sigma$ 的面（包括 $\tau=\sigma$）时记 $\tau\le\sigma$。
+
+对唯一性定理，我们假设 $K$ 是\emph{正则}的：每个闭胞腔 $\bar\sigma$ 是一个球，其边界是子复形。带接缝边、闭边或带洞面的 B-rep 复形都不是正则的，需要先细分。新胞腔继承 $K$ 中包含它的那个开胞腔的容差区。这样容差区仍保持单调，而且原模型的实现也是细分后模型的实现，因为对新胞腔 $\sigma'\subseteq\sigma$ 有 $h(\inter\sigma')\subseteq h(\inter\sigma)\subseteq\Z(\sigma)$。此时第~\ref{sec:uniqueness}~节的承载条件要对细分后的复形成立。面 $f$ 内部的一条新边以 $\Z(f)$ 为承载集，所以细分面会增加假设 $\pi_1(\Z(f))=0$；可缩的容差区满足它。
+
+$|K|$ 上的映射称为 \emph{PL} 的，如果它在 $|K|$ 的某个细分其胞腔的三角剖分的各单形上是线性的。在二维，任意两个这样的三角剖分都由一个保持胞腔的 PL 同胚相联系（标准事实；未单独对照原文），所以这个概念不依赖于剖分的选取。在边或面内部新产生的顶点继承该边或面的容差区，所以承载条件要求这些区道路连通。各存在性结果会分别说明它们在什么情况下直接适用于 B-rep 复形。
+
+\subsection{几何数据与容差区}
+\begin{itemize}
+\item 每个顶点 $v$ 有一个点 $p_v$ 和容差 $\tau_v$。
+\item 每条边 $e$ 有一条 $C^2$ 曲线 $\gamma_e\colon[0,1]\to\R^3$ 和容差 $\tau_e$。
+\item 每个面 $f$ 有一张 $C^2$ 曲面 $S_f$、一块紧的裁剪面片 $P_f\subseteq S_f$ 和容差 $\tau_f$。$P_f$ 的边界由各边 $e<f$ 的 pcurve 的像 $\beta_{f,e}=S_f\circ(\text{pcurve})$ 组成。
+\end{itemize}
+边 $e$ 的\emph{偏差}是 $\mathrm{dev}_e=\max_{f>e}\max_t|\beta_{f,e}(t)-\gamma_e(t)|$，在相同参数处度量。OpenCascade 的 SameParameter 性质要求在这个意义下 $\mathrm{dev}_e\le\tau_e$；其格式规范把边容差定义为从 pcurve 的像到三维曲线的单侧距离~\cite{OCCT}。
+
+\begin{definition}[容差区]\label{def:zones}
+我们使用\emph{扩充的}开容差区：
+\begin{itemize}
+\item $\Z(v)=B(p_v,\tau_v)$；
+\item $\Z(e)=N_{\tau_e}(\gamma_e)\cup\bigcup_{v<e}\Z(v)$；
+\item $\Z(f)=N_{\tau_f}(P_f)\cup\bigcup_{e<f}\Z(e)$。
+\end{itemize}
+其中 $N_r$ 是开 $r$-邻域。扩充使 $\Z$ 单调：$\tau\le\sigma$ 蕴含 $\Z(\tau)\subseteq\Z(\sigma)$。
+\end{definition}
+
+\begin{definition}[实现]\label{def:realization}
+容差 B-rep $T=(K,\text{数据},\tau)$ 的一个\emph{实现}是一个 PL 嵌入 $h\colon|K|\to\R^3$，对每个胞腔 $\sigma$ 满足 $h(\inter\sigma)\subseteq\Z(\sigma)$。
+\end{definition}
+
+\begin{remark}\label{rem:opencell}
+\begin{itemize}
+\item \emph{开胞腔条件。}我们只要求 $h(\inter\sigma)\subseteq\Z(\sigma)$。若用未扩充的邻域对闭胞腔提要求，即 $h(\bar\sigma)\subseteq N_{\tau_\sigma}(\cdot)$，通常对任何候选都不成立，主要因为面容差很小：$h(v)$ 将不得不落在每张相邻面片的 $\tau_f$ 之内。用扩充的容差区，开胞腔条件就蕴含 $h(\bar\sigma)\subseteq\Z(\sigma)$，因为 $\bar\sigma$ 是开胞腔 $\tau\le\sigma$ 的并。
+\item \emph{驯顺性。}要求 $h$ 是 PL 的，排除了 Alexander 带角球面之类的野嵌入。
+\end{itemize}
+\end{remark}
+
+\begin{definition}[承载集]
+胞腔的\emph{承载集}是 $\C(\sigma)=\bigcup_{\tau\le\sigma}\Z(\tau)$。对扩充的容差区，$\C(\sigma)=\Z(\sigma)$。连续映射 $g\colon|K|\to\R^3$ 称为\emph{被承载的}，如果对每个 $\sigma$ 有 $g(\bar\sigma)\subseteq\C(\sigma)$。由注~\ref{rem:opencell}，每个实现都是被承载的。
+\end{definition}
+
+\begin{definition}[实体]\label{def:solid}
+设 $S_1,\dots,S_n\subset\R^3$ 是两两不交的闭曲面。点 $x\notin\bigcup S_j$ 的\emph{深度}是使 $x$ 落在 $\R^3\setminus S_j$ 的有界分支内的 $j$ 的个数。由各 $S_j$ 围成的实体是深度为奇数的点集的闭包。
+\end{definition}
+当各壳定向一致时，这与 B-rep 中外壳与空腔的通常约定一致；定向一致性的检查另行处理。
