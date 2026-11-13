@@ -1,0 +1,3648 @@
+{
+ "box (control), g=0.001": {
+  "n": 8,
+  "n_ok": 8,
+  "fails": {},
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004855994407903907,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0025446789346618374,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.009345216926425325,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.029813076918910976,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03686948042895343,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.04019240208380204,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0018264763336653287,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004659322927687888,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   }
+  ]
+ },
+ "box (control), g=0.01": {
+  "n": 8,
+  "n_ok": 8,
+  "fails": {},
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004851638001895201,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0025428214801346692,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.00934521692607027,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.029813076918828254,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03687161242889537,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 3.1074836102172094,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.04019433694349113,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.001822911451446717,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.551503318107208,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.00465932292796997,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.568786317978825,
+    "ok": true
+   }
+  ]
+ },
+ "chamfered box d1, g=0.001": {
+  "n": 24,
+  "n_ok": 24,
+  "fails": {},
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0026606553428093972,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03231849290488094,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0015473650636646233,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.002027351509227407,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0019413209053855112,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0013174299000752838,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0024170024729458918,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.001891311748655965,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.027095939769141823,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.024663753449824723,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010957059163680997,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.021848616244035397,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 12,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0013697390014270911,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.002743606189587139,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03689708727647059,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 15,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.04984552717577909,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 16,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.002526187070243296,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 17,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01883643553070135,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010906098627513794,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.008366167157202646,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 20,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0013788565375452738,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 21,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0015009271219089933,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 22,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.017752843182225853,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 23,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010300707404876354,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   }
+  ]
+ },
+ "chamfered box d1, g=0.01": {
+  "n": 24,
+  "n_ok": 24,
+  "fails": {},
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.003527389369097339,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5170265056140716,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03193987835821617,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9521669697997991,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0015501499302113281,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.49539526196362954,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.002027351510671199,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8200530841284654,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0019413209053022798,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.2649179529576954,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0013174298999173582,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7455856087651479,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0024170024730873502,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.521277217161404,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.002987299269838349,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.3602416367223663,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.024593866827056176,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.0270412982622354,
+    "ok": true
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.020000605566467603,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.1056038779852158,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.006700981627103446,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7593974487543347,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.021848616244753274,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.0611912562245953,
+    "ok": true
+   },
+   {
+    "vertex": 12,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0023361195912769282,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.12061616781490406,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0027436061896657484,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5894688748882912,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03689708727698441,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8577691472899065,
+    "ok": true
+   },
+   {
+    "vertex": 15,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.049845527174581426,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.42382413357948934,
+    "ok": true
+   },
+   {
+    "vertex": 16,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.00252618707092858,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.33988501526453746,
+    "ok": true
+   },
+   {
+    "vertex": 17,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.018631851192893942,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8291368327614554,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010906098627493244,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.587379508964209,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.005878625511441339,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7265638927379994,
+    "ok": true
+   },
+   {
+    "vertex": 20,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0013788565381041167,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6244590797354203,
+    "ok": true
+   },
+   {
+    "vertex": 21,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0015009271219310668,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.3370135784543388,
+    "ok": true
+   },
+   {
+    "vertex": 22,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.015965397471390943,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.578602101591608,
+    "ok": true
+   },
+   {
+    "vertex": 23,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.009403601902741837,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7580276139528465,
+    "ok": true
+   }
+  ]
+ },
+ "filleted box r2, g=0.001": {
+  "n": 24,
+  "n_ok": 16,
+  "fails": {
+   "L2": 8
+  },
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.020933258437824342,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01314630722113065,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.033953755670311364,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.039789609051512985,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02036681197645236,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03274487353382213,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 7,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 8,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.005065036988744907,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.006211780680504466,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 12,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013259756086608641,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03530371448941861,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 15,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 16,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 17,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.015594562005802918,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0082865508761986,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 20,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.009806581362627886,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 21,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.020210057371305656,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 22,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013635582003342004,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 23,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010461728108055044,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   }
+  ]
+ },
+ "filleted box r2, g=0.01": {
+  "n": 24,
+  "n_ok": 16,
+  "fails": {
+   "L2": 8
+  },
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.020940570710654752,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8885177788607056,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013150104628887077,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.1744144854087308,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.033474070293916205,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.0284670615670735,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03985229268981287,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9174007135978418,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02036681197651931,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.083155253736312,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03275714590018873,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.3787541852323235,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 7,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 8,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0050640930719215655,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.3076513916848127,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.006207312642607497,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.0579517470012019,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 12,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013165116205499343,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.4811505456352733,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0352773110406889,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9966784094376016,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 15,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 16,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 17,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.015591476147590948,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.1132207976691206,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.008386972190382997,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7717076152634686,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 20,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.009812227730731378,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9831032834292806,
+    "ok": true
+   },
+   {
+    "vertex": 21,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.020193331413503324,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.48340444194521126,
+    "ok": true
+   },
+   {
+    "vertex": 22,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01363341634427102,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7457985620703333,
+    "ok": true
+   },
+   {
+    "vertex": 23,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010466720661353453,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8613391751772179,
+    "ok": true
+   }
+  ]
+ },
+ "filleted box r0.5, g=0.001": {
+  "n": 24,
+  "n_ok": 16,
+  "fails": {
+   "L2": 8
+  },
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02093681245424021,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.8291856725508804,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013148365843845676,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.401765325507746,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03391012162532905,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.7430158004895684,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.017998221662318344,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.907436488992333,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.019226452862659695,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.8301289579505806,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.020851967192926618,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.911215788954979,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 7,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 8,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.005785322414579839,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.006211780680574006,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.589464479424865,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 12,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013228030523054197,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.4674726765088166,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010058898203637342,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.7977651687821632,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 15,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 16,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 17,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010581471447257218,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.5102895359069586,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.008286003900329724,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.926493011308818,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 20,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.009806542843403689,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.8947261526271089,
+    "ok": true
+   },
+   {
+    "vertex": 21,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010244787051579073,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.9113642694580226,
+    "ok": true
+   },
+   {
+    "vertex": 22,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013635602869749637,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.7837697694746326,
+    "ok": true
+   },
+   {
+    "vertex": 23,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004734987853885479,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.13415496932432,
+    "ok": true
+   }
+  ]
+ },
+ "filleted box r0.5, g=0.01": {
+  "n": 24,
+  "n_ok": 16,
+  "fails": {
+   "L2": 8
+  },
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.020976458939179297,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8309353036894098,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013170822455378232,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5449146890649752,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.033909202252285706,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6271286011419143,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01799804029921267,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7174316131896776,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01925064889272837,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8556953259797685,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.020873335076219458,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.36136398097980954,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 7,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 8,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.005866448173230277,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9751925489592627,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.006207312642607537,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.0616425599041892,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 12,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01286129064641348,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.4818980179640422,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010058870000244254,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9950475834405855,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 15,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 16,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 17,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010581632491147948,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8678340767407989,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.008447532921193105,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.68628118457594,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 20,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.009810917123360298,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.087477467010529,
+    "ok": true
+   },
+   {
+    "vertex": 21,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010231031287138655,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5074610860718671,
+    "ok": true
+   },
+   {
+    "vertex": 22,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013567008407843492,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.4778656790314341,
+    "ok": true
+   },
+   {
+    "vertex": 23,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004734440166727736,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6353018902675946,
+    "ok": true
+   }
+  ]
+ },
+ "box, one edge filleted r2, g=0.001": {
+  "n": 10,
+  "n_ok": 10,
+  "fails": {},
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03287106527744958,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0016378074766338839,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03436930346439725,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0018771313819990665,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0020521000770125203,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.00299336085234039,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0029152412926453227,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0033677546994794107,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004556303529643728,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 9,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.016851597721592046,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   }
+  ]
+ },
+ "box, one edge filleted r2, g=0.01": {
+  "n": 10,
+  "n_ok": 10,
+  "fails": {},
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03287106527752951,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.392420656219664,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0016447523661835368,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.145187297592786,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03436232906957719,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9725461581600421,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.001877131382884774,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.3427332781888066,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0020521000770720135,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.9077419181631,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.005248626964468323,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.0775377142849045,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0029152412908467745,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.7771099901235257,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.005985477291560054,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.1862563673248168,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0045563035285364996,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.5099216981786885,
+    "ok": true
+   },
+   {
+    "vertex": 9,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.016851597716137433,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.6787979414467715,
+    "ok": true
+   }
+  ]
+ },
+ "box, top edges filleted r2, g=0.001": {
+  "n": 12,
+  "n_ok": 12,
+  "fails": {},
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.019134516731390615,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02783003664873061,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0051427503893773764,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004454386219241805,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.001700793364845534,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0017543651378274965,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02402919023001436,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02781910287598289,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0015573718996629879,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0024710782620108143,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03811389819723188,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03327447254533169,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   }
+  ]
+ },
+ "box, top edges filleted r2, g=0.01": {
+  "n": 12,
+  "n_ok": 12,
+  "fails": {},
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.019134129680272286,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.632126594014282,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02791932725997193,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.2512553492393832,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004411052906856349,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.2233384012417017,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004454386217363375,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.4355185858004185,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0017007933643277168,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.7530103499332843,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0017543651376422326,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.1465202413203417,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02294266147793618,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.683087008940152,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.027838235214990088,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.5121045596362555,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0015553312271546131,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.51585439667219,
+    "ok": true
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0024710782613799496,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6762614855516025,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.038083948088144484,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.2782041586655186,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.033246971652282506,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.705548067892443,
+    "ok": true
+   }
+  ]
+ },
+ "L inner fillet 0.2, g=0.001": {
+  "n": 20,
+  "n_ok": 18,
+  "fails": {
+   "L2": 2
+  },
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 3.43223601903039e-05,
+    "L2": false,
+    "L3_min_dist_over_tau_v": 0.1268924581022019,
+    "ok": false
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013277430904309802,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.023027919129317214,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.5608978242319838,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.015491917377152635,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.032950577594867955,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 1.5833300710860468e-05,
+    "L2": false,
+    "L3_min_dist_over_tau_v": 0.13998283215037363,
+    "ok": false
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.023437764307887937,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004208370673950081,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.1411467959219697,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0033570638663064714,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 9,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0017140346234361436,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.002102215143513796,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.00468397461662825,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 12,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.005311519064422142,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.002724797291233462,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.008937962486621528,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.2429487481703305,
+    "ok": true
+   },
+   {
+    "vertex": 15,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.04207755753849201,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.2556659512588249,
+    "ok": true
+   },
+   {
+    "vertex": 16,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.003021373404880744,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 17,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0022433364077472794,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02823362715542322,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02083665090475233,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   }
+  ]
+ },
+ "L inner fillet 0.2, g=0.01": {
+  "n": 20,
+  "n_ok": 18,
+  "fails": {
+   "L2": 2
+  },
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 3.4321125856776294e-05,
+    "L2": false,
+    "L3_min_dist_over_tau_v": 0.009261141311758002,
+    "ok": false
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013275079428668091,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8797952550604223,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.023003231951233893,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9390925830319413,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.015491917376737802,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.029229644610545,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.032950577594870405,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8197857117929119,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 4.988358282182848e-05,
+    "L2": false,
+    "L3_min_dist_over_tau_v": 0.023173693557390115,
+    "ok": false
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.023437764308262048,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5748808434662039,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004200451086302822,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7611500046829996,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.003357088325558913,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6487542677359567,
+    "ok": true
+   },
+   {
+    "vertex": 9,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0017140346240641078,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9201305974721903,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.002102215143392531,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7846993391657864,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004683974616388799,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8401416728981732,
+    "ok": true
+   },
+   {
+    "vertex": 12,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.00531151906448317,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9529578142775315,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0027200059474674692,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.0030091645080188,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013663652205050676,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.0424552774721867,
+    "ok": true
+   },
+   {
+    "vertex": 15,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.04204655435661135,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.0077254871312833,
+    "ok": true
+   },
+   {
+    "vertex": 16,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.003021373406444622,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.35933248890350833,
+    "ok": true
+   },
+   {
+    "vertex": 17,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.00225427412958054,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9567628411846496,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.028233627155066648,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7645919642365179,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.020832016077256044,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.2537920198470105,
+    "ok": true
+   }
+  ]
+ },
+ "L all fillets 0.5, g=0.001": {
+  "n": 46,
+  "n_ok": 35,
+  "fails": {
+   "L2": 10,
+   "L1": 1
+  },
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02226609513824862,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.240936851264511,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.00994120667961057,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.193416168341286,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01974475033083731,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.3017665659870623,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01718814397535123,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.3477424096113904,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.020841873106684738,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.8586016204420592,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.019675735142544292,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.4718343194808945,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 7,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.021304181101983524,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.317376093993245,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01693837618672416,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.025453275268364824,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.009110178040081296,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.153210900122429,
+    "ok": true
+   },
+   {
+    "vertex": 12,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.007288730796697013,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.7528340594651133,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.023554395403804166,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.082633296957326,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 15,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 16,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.013854134009766433,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.614395790346659,
+    "ok": true
+   },
+   {
+    "vertex": 17,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.009941732841718424,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5453513183499598,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004142146138333693,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.8780345570223531,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0018674126227092205,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.4324428263476509,
+    "ok": true
+   },
+   {
+    "vertex": 20,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01008296046474888,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.47805461713428493,
+    "ok": true
+   },
+   {
+    "vertex": 21,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.014483477876340883,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 22,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.012764506779076795,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.3629903391199845,
+    "ok": true
+   },
+   {
+    "vertex": 23,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.021591279121276466,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 24,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.03552894055521115,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.5476819230850207,
+    "ok": true
+   },
+   {
+    "vertex": 25,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.006403369557792543,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 26,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.028825323174193698,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.491667044269485,
+    "ok": true
+   },
+   {
+    "vertex": 27,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": false,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 28,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.00985321386187738,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8010425575880863,
+    "ok": true
+   },
+   {
+    "vertex": 29,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.002552634316880871,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.877111110751902,
+    "ok": true
+   },
+   {
+    "vertex": 30,
+    "valence": 4,
+    "rho": 0.9,
+    "L1": true,
+    "L2_min_gap_over_r": 0.014690096913279289,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.114567788748279,
+    "ok": true
+   },
+   {
+    "vertex": 31,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.016316766006613283,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.3516389251920633,
+    "ok": true
+   },
+   {
+    "vertex": 32,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0038929683086415126,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8868761043615457,
+    "ok": true
+   },
+   {
+    "vertex": 33,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0026197240198781425,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8228943264876842,
+    "ok": true
+   },
+   {
+    "vertex": 34,
+    "valence": 4,
+    "rho": 0.95,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010435718005370439,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.659580586039363,
+    "ok": true
+   },
+   {
+    "vertex": 35,
+    "valence": 4,
+    "rho": 0.9,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0025341877140752575,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 36,
+    "valence": 4,
+    "rho": 0.9,
+    "L1": true,
+    "L2_min_gap_over_r": 0.012416068578981816,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.8287943528109263,
+    "ok": true
+   },
+   {
+    "vertex": 37,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.030494383538103496,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.8968617813983168,
+    "ok": true
+   },
+   {
+    "vertex": 38,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 39,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 40,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.012542488505153054,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 41,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 42,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 43,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02812591717356946,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.478993800192267,
+    "ok": true
+   },
+   {
+    "vertex": 44,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 45,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   }
+  ]
+ },
+ "L all fillets 0.5, g=0.01": {
+  "n": 46,
+  "n_ok": 35,
+  "fails": {
+   "L2": 10,
+   "L1": 1
+  },
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02226573137392812,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7151418863311408,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.009940105279249318,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6293022608176214,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01939852663220426,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.84297732625706,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01718888782045319,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7716017321784974,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02084186245579006,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8644759222177907,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.019675473423876724,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8596162706557329,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 7,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01890536003665858,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9262324308390381,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01693475352995315,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.1234071525234497,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.025453275268439143,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5675669923134267,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.008994764882308187,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.45244415732552345,
+    "ok": true
+   },
+   {
+    "vertex": 12,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.007285139326066088,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.3994606627595033,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02355324183693063,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.4169245736695496,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 15,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 16,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.012113812496876115,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.3881348917714115,
+    "ok": true
+   },
+   {
+    "vertex": 17,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02363335981188586,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.43457798770915984,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.004215632509403424,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6576868607407212,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.012989218357166446,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.2438360048081608,
+    "ok": true
+   },
+   {
+    "vertex": 20,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0158146947654272,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.3568624716434659,
+    "ok": true
+   },
+   {
+    "vertex": 21,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.014250109286608883,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8201099662554389,
+    "ok": true
+   },
+   {
+    "vertex": 22,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.012784620932937541,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9121290927097838,
+    "ok": true
+   },
+   {
+    "vertex": 23,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.021564271387678486,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9590982690783941,
+    "ok": true
+   },
+   {
+    "vertex": 24,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.035870163601889056,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5888064328393388,
+    "ok": true
+   },
+   {
+    "vertex": 25,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0063838159340365635,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5302509672659654,
+    "ok": true
+   },
+   {
+    "vertex": 26,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.028825323174140674,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5786515654757213,
+    "ok": true
+   },
+   {
+    "vertex": 27,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": false,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 28,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.016401348522816262,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5262073575237862,
+    "ok": true
+   },
+   {
+    "vertex": 29,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02805329770842816,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5374745018157757,
+    "ok": true
+   },
+   {
+    "vertex": 30,
+    "valence": 4,
+    "rho": 0.9,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0146090684440675,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5861440356995853,
+    "ok": true
+   },
+   {
+    "vertex": 31,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.016316613948119566,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8752708528401854,
+    "ok": true
+   },
+   {
+    "vertex": 32,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.025108519500255406,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5900372507005204,
+    "ok": true
+   },
+   {
+    "vertex": 33,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.024401036494569088,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.4416303942823567,
+    "ok": true
+   },
+   {
+    "vertex": 34,
+    "valence": 4,
+    "rho": 0.95,
+    "L1": true,
+    "L2_min_gap_over_r": 0.010235409716023625,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8336628310272761,
+    "ok": true
+   },
+   {
+    "vertex": 35,
+    "valence": 4,
+    "rho": 0.9,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0025363569659184234,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.43562889343732875,
+    "ok": true
+   },
+   {
+    "vertex": 36,
+    "valence": 4,
+    "rho": 0.9,
+    "L1": true,
+    "L2_min_gap_over_r": 0.012421911526616921,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.4528320663084964,
+    "ok": true
+   },
+   {
+    "vertex": 37,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.030492519064482516,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.62358623015599,
+    "ok": true
+   },
+   {
+    "vertex": 38,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 39,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 40,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.012544487257785243,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.4465773442329278,
+    "ok": true
+   },
+   {
+    "vertex": 41,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 42,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 43,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.028170532770074964,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7933712783445421,
+    "ok": true
+   },
+   {
+    "vertex": 44,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   },
+   {
+    "vertex": 45,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   }
+  ]
+ },
+ "stadium prism, g=0.001": {
+  "n": 8,
+  "n_ok": 8,
+  "fails": {},
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.018991834374970814,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.018907189093483327,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02902886843324785,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.028033187269678468,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0287591144667932,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02770325645686831,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01607216667067366,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01774341062850393,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   }
+  ]
+ },
+ "stadium prism, g=0.01": {
+  "n": 8,
+  "n_ok": 8,
+  "fails": {},
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.01900614671410106,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.3739086390819788,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.018636227175276448,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.5441667772884546,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.02904405854636411,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.4217417848504963,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.027777146746748634,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.4260439025469456,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.028762913888816095,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.7045637249509562,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.027419070037661957,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.734552017455825,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.016066312298232587,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.216094315576342,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.017467435907585583,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.5717545460183273,
+    "ok": true
+   }
+  ]
+ },
+ "cylinder, top fillet r1, g=0.001": {
+  "n": 1,
+  "n_ok": 0,
+  "fails": {
+   "L2": 1
+  },
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   }
+  ]
+ },
+ "cylinder, top fillet r1, g=0.01": {
+  "n": 1,
+  "n_ok": 0,
+  "fails": {
+   "L2": 1
+  },
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2": false,
+    "note": "a patch sector does not cross the sphere cleanly",
+    "ok": false
+   }
+  ]
+ }
+}
