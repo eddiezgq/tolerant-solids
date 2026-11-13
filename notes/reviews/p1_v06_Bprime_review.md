@@ -270,3 +270,148 @@ Recommended (minor): angles in (0, 2π) and simple boundary curves (1.3); T up t
 sectors (1.4); drop "bounds a solid" (1.6); construct the curved triangulation explicitly at corners (2.3); simplicial
 T with standard simplices as the metric (2.4); handle several shells (3.1); affine refinement (4.3); fix the PL
 convention (4.4). Optional: weaken the edge part of T to "no fold", which would bring G¹ edges into scope (1.5).
+
+---
+
+# Follow-up on v0.7
+
+Read: `sec_setting.tex`, Proposition `prop:Bprime` and its remarks in `sec_existence.tex`, `sec_proofBprime.tex`, the new
+`sec_curvedtri.tex` (Lemma C.1), the changed parts of `sec_proof51.tex`, and the places in `sec_open.tex`,
+`sec_experiments.tex` and `sec_biblio.tex` that refer to them. No file of the draft was edited.
+
+**Summary.** The three major findings of the first pass are addressed. Lemma C.1 is correct. The weakened T ("no
+fold") is enough for the bi-Lipschitz step, G¹ edges included. There is one new major gap, which the quotient
+formulation of seams introduced: seams are no longer covered by R or by the triangulation (N1). A second gap is in
+Appendix A: Lemma C.1 assumes C² curves, but Appendix A uses it on curves that are only C¹ (N2); a C¹ version of the
+lemma holds with the same proof. The rest is wording.
+
+## F. Status of the first-pass findings
+
+| # | Status | Where / comment |
+|---|---|---|
+| 1.1 C undefined | **fixed**, with a residue | C is now a homeomorphism carrying open cells (prop. clause C); `sec_setting.tex` §Complexes redefines K as a B-rep cell complex. Residue: for a face with a seam, "open face = interior of the face" (setting) and "patch minus its boundary curves" (C) both *contain* the seam, so the open cells are not disjoint. See N1. |
+| 1.2 X_f injective, C² near D_f, periodic | **fixed** | Clause P (quotient by a lattice Λ_f, X_f injective on D_f, singular parametrizations excluded). But see N1 for what the quotient does to seams. |
+| 1.3 angles (0,2π), simple curves | **fixed** | Clause R. |
+| 1.4 T up to end points, per-corner sectors | **fixed**, wording | Clause T. "Inward tangent half-plane ... end points included" is undefined at a corner (there the patch has a sector, not a half-plane). See N3. |
+| 1.5 weaken T to no-fold | **done** | Clause T and the first remark after the proposition. Verified in §G below. |
+| 1.6 "bounds a solid" | **fixed** | Moved to the remark. |
+| 2.1 Lenoir citation | **fixed** | Lemma C.1 (`sec_curvedtri.tex`), used in both appendices. The Lenoir entry is gone from `sec_biblio.tex` and from the list in `sec_open.tex`. Proof checked in §H. |
+| 2.2 agreement on shared edges | **fixed** for interior and non-seam edges; **partly** for seams | `sec_proofBprime.tex`, "h₀ agrees on shared edges". The seam case is right once seams are triangulated, which the construction no longer says (N1). |
+| 2.3 explicit triangulation | **partly** | Steps 1–4 of "A curved triangulation of Σ" handle corners, ears and shared boundary vertices correctly, but only for curves on ∂D_f. Seams lie in the interior of D_f in the quotient and are not mentioned (N1). |
+| 2.4 simplicial T, metric | **fixed** | At least three vertices on a closed edge; standard simplices. Nit: N5. |
+| 2.5 C¹ up to the boundary | **fixed** | Via Lemma C.1(c),(d) and P. |
+| 3.1 several shells | **fixed** in both appendices | `sec_proofBprime.tex` "Between shells"; `sec_proof51.tex` l.147–149 and l.243. |
+| 3.2 compactness argument | correct, unchanged | — |
+| 3.3 planar degree argument, T-vertices on edges | **fixed** | "Inside a face" and "Along a non-seam edge" bullets; added to the list of standard facts. |
+| 3.4 uniform angle along edges | **fixed** | "By compactness of γ̃_e and continuity". Needs the half-plane at the end points to be defined (N3). |
+| 3.5 C¹ up to the vertex | **fixed** | Vertex bullet and the list of standard facts. |
+| 4.1, 4.2 margin, zones | correct, unchanged | — |
+| 4.3 affine refinement | **fixed** | First line of "Secant approximation". |
+| 4.4 PL convention | **fixed** | `sec_setting.tex`: PL = linear on some triangulation subdividing the cells, with the 2D uniqueness flagged as a standard fact. |
+| 5.1 `sec_open` "covers them" | **partly** | True for closed edges and inner wires; for seams only after N1. Items 5 and 6 of `sec_open.tex` are now partly stale (N4). |
+| 5.2 list of standard facts | **fixed** | — |
+| 5.3 checking remark | still accurate in substance; wording is stale (N4) | — |
+
+## G. Does "no fold" suffice? Yes.
+
+- **Along an edge.** Two half-planes with the same boundary line are either in different planes, or in the same plane
+  on opposite sides of the line (G¹), or equal. "Distinct" excludes only the last. In the first two cases they meet
+  only in the line, so the tangent cone is an embedded union of two half-planes. h₀ is C¹ up to the edge from each
+  side (Lemma C.1 and P), so the usual argument gives local bi-Lipschitz, with a constant uniform along the edge once
+  the angle is bounded below. Transversality is not used anywhere else: the regularity of γ̃_e comes from R and P, not
+  from an implicit-function argument. A G¹ edge is therefore fine, and in the G¹ case the tangent cone is a plane.
+- **At a vertex.** The vertex clause (sectors meet only along common rays, in cyclic order) does not depend on the edge
+  clause. It allows adjacent sectors that are coplanar on opposite sides of their common ray (G¹ edges at the vertex),
+  and the blow-up argument needs only that clause and C¹ up to the corner. Correct.
+- **The end points of the edge clause are redundant.** If the two limiting half-planes along a ray at c_v coincided,
+  the two adjacent sectors would overlap near that ray (both have positive opening angle on the same side), which the
+  vertex clause forbids. By C¹ up to the corner, the half-planes along the open edge converge to these limits, so the
+  uniform lower bound along the closed edge follows from the open-edge clause plus the vertex clause.
+- **The secant step** does not see the difference between transversal and G¹ edges.
+- **The remark** ("applies in principle to filleted models, provided a re-trimmed model ... is available") is correctly
+  conditional and is not an overclaim.
+
+## H. Lemma C.1: correct (for C² curves)
+
+- (a), (b): correct. On λ₁ = 0 we have s = 1; on λ₂ = 0, s = 0; both are fine at μ = 0 as well.
+- (c): correct. |ds| = |λ₁dλ₂ − λ₂dλ₁|/μ² ≤ 1/μ, so |dG| ≤ 2μ|ψ| + μ|ψ′| → 0. Also |G| ≤ μ² sup|ψ| = o(|x − a₃|),
+  since μ is comparable to the distance to a₃. So G is differentiable at a₃ with derivative 0, and DG is continuous
+  there. Suggest adding that one line: the text shows only that dG → 0, which by itself does not show that G is
+  differentiable at a₃. (It follows from continuity of G plus dG → 0 along segments, but say it.)
+- (d): correct. Rolle gives |ψ′| ≤ sup|ψ″| and |ψ| ≤ sup|ψ″|/8, and |DG| ≤ 2|ψ| + |ψ′| = O(h²). The injectivity
+  estimate on the convex Δ, DF = A(I + O(h)), the simplicity of the boundary curve (the arc's tangent at a₁ is within
+  O(h) of the chord, and the segments are at angle ≥ θ_min), and the invariance-of-domain argument for the image are
+  all fine.
+- The remark on the μ¹ blending is correct.
+
+## I. New findings
+
+**N1 (major, introduced in v0.7). Seams are no longer covered by R or by the triangulation.**
+- With U_f a quotient ℝ²/Λ_f and X_f injective on D_f ⊂ U_f, a seam's preimage is a curve in the *interior* of D_f.
+  (On a cylinder face, D_f is a closed annulus and the seam is a cross-cut.) Then:
+  - R constrains only ∂D_f. Nothing says the seam preimage is a simple C² regular curve, that it meets ∂D_f only at
+    preimages of c_v, or that it meets ∂D_f at nonzero angle on each side. Step 1 of the proof ("fix one C² regular
+    parametrization of each γ̃_e") is therefore unsupported for seams. Step 1 for non-seam edges follows from R and P.
+  - Steps 2–4 build chord polygons and corner fans only from curves on ∂D_f, and step 3 triangulates "the chord region
+    ... with no extra vertices on its boundary", which neither puts the seam vertices into T nor makes the seam a union
+    of T-edges. Then T does not subdivide the cells, and the margin/zone step (which needs every simplex inside one
+    closed cell) fails for the seam edge and for the open face.
+  - At a seam vertex, ∂D_f is typically smooth (angle π), so it is not a "corner". Step 3 puts no interior vertex there,
+    and a triangle with the seam and the boundary arc as two curved sides is not excluded.
+  - T's vertex clause defines sectors through "corners of D_f". A vertex where two seams cross inside D_f (a torus
+    face) has no corner at all.
+  - Setting and C: for a seam face, "the interior of the face" and "the patch minus its boundary curves" contain the
+    seam, so they are not the open 2-cell of a cell structure (as already noted under 1.1).
+- **Fix** (a paragraph):
+  - In R, speak of the *edge graph* E_f ⊂ D_f: the preimage of all edge curves of f, seams included. Ask that its
+    edges are simple C² regular curves meeting only at preimages of the c_v. Also ask that every sector of D_f ∖ E_f at
+    a vertex preimage has angle in (0, 2π). (For a seam ending on a smooth boundary curve, this asks for angles in
+    (0, π) on both sides, i.e. the seam is not tangent to the boundary.)
+  - In C and in `sec_setting.tex`, the open face is X_f(int D_f ∖ E_f), the patch minus *all* its edge curves.
+  - In T, the tangent sectors are dX_f of these sectors.
+  - In the proof, steps 2–3 work in D_f cut along its seams (a compact planar region, glued back afterwards). Equivalently:
+    treat the seam chords as constrained interior edges with their vertices fixed in step 1, and put a corner fan at
+    every sector of D_f ∖ E_f, not only at corners of ∂D_f. Lemma C.1 is then applied on both sides of each seam chord.
+  - With this, 2.2's seam case and the seam bullet of the bi-Lipschitz step are correct as written.
+
+**N2 (major for Appendix A; outside the original scope). Lemma C.1 assumes C², but Appendix A uses it on C¹ curves.**
+- `sec_proof51.tex` l.128 says ∂Q_f is piecewise C¹. Its pieces are k_{f,e}, which is C¹ in t (l.9, implicit
+  function theorem; ρ_e is only C¹ by its definition in `sec_existence.tex`), and A_{f,v}, parametrized by a "C¹ regular"
+  φ (l.111). Lemma C.1 requires a C² curve with uniform C² bounds, so as stated it does not apply there.
+- **Fix:** state the lemma for C¹ curves; the proof carries over. With ω the modulus of continuity of ĉ′:
+  - |ψ′(s)| = |t₁ − t₀|·|ĉ′(t) − mean of ĉ′ over [t₀, t₁]| ≤ |t₁ − t₀|·ω(|t₁ − t₀|) = O(h·ω(h)), and |ψ| ≤ sup|ψ′|;
+  - so |DG| = O(h ω(h)) and DF = A(I + O(ω(h))) → A(I + o(1)), which is all that injectivity, invertibility and the
+    secant estimate use;
+  - (c) uses only ψ ∈ C¹; the arc is within O(h ω(h)) = o(h) of its chord, which is enough for the image argument.
+  - Keep the C² statement as the special case with O(h) error, or replace it.
+
+**N3 (minor). T's edge clause at end points.** "Inward tangent half-plane ... end points included" is undefined at c_v,
+where a patch has a sector. Either define it as the limit along the edge (the half-plane of T_{c_v}S_f bounded by the
+edge tangent that contains the sector near that ray), or drop "end points included" and note that the end-point case
+follows from the vertex clause (§G, third bullet). The proof's "by compactness and continuity" sentence then cites that.
+
+**N4 (minor). Stale wording after weakening T.**
+- `sec_existence.tex`, checking remark: "the vertex part of the transversality hypothesis" should be "the vertex part
+  of T". Note also that the checker tests transversality, which is stronger than T's edge clause; that is fine, but say
+  so.
+- `sec_experiments.tex` l.110: "Re-intersection avoids this, but needs transversal faces." Now only the *computation*
+  of the re-trimmed model needs transversality; the proposition does not. Table row "sewn filleted box ... not
+  applicable (tangent faces)": say "(re-trimmed model not computable by re-intersection)".
+- `sec_open.tex` item 6 (mixed vertices "need a construction combining fans and re-intersection") and item 5 (tight
+  vertices with tangent edges): Proposition 5.3 now covers such vertices *if* a re-trimmed model exists. The open part
+  is to produce one with positive margins. Reword so the paper does not say both "covered in principle" and "needs a
+  new construction".
+
+**N5 (minor nit).** "Between shells a constant distance": for this to be a metric the constant must be at least half
+the largest shell diameter. Since the shells are now argued separately, simpler: "we do not compare points of
+different shells in this metric".
+
+**N6 (minor).** Lemma C.1(c): add the line showing that G itself is differentiable at a₃ (|G| = O(μ²)); see §H.
+
+## Verdict on v0.7
+
+**Lemma C.1 and the no-fold weakening are correct.** All first-pass findings are fixed except where seams are
+involved. One required change remains for Proposition 5.3: **N1**, putting seams back into R, C, T, the setting and
+the triangulation, which is about a paragraph. One required change remains for Appendix A: **N2**, the C¹ form of
+Lemma C.1. With these two, I consider the proof of Proposition 5.3 complete modulo the standard facts listed in
+Appendix B. N3–N6 are wording.
