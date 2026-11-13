@@ -1,0 +1,1747 @@
+% Submission version for Computer-Aided Design (Elsevier), built from the same section files as ../p1.tex.
+\documentclass[preprint,12pt]{elsarticle}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs,array}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage[margin=1in]{geometry}
+
+% Drafting markers (none should remain in the submission).
+\newcommand{\unverified}[1]{\textcolor{red}{[#1 --- not yet checked against the original]}}
+\newcommand{\draftnote}[1]{\textcolor{orange!70!black}{[Draft note: #1]}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathcal{Z}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\wfs}{\operatorname{wfs}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\inter}{\operatorname{int}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\conv}{\operatorname{conv}}
+
+\journal{Computer-Aided Design}
+\emergencystretch=3em
+
+\begin{document}
+\begin{frontmatter}
+
+\title{When does a tolerant B-rep define a solid? Existence, non-existence and uniqueness of realizations}
+
+\author{Anonymous}
+
+\begin{abstract}
+Boundary representations in CAD kernels carry tolerances: edge curves, the boundary curves of adjacent faces and vertex
+points do not fit together exactly, and the solid they describe is only implied. We define a realization of a tolerant
+B-rep as a PL embedding of its cell complex whose cells stay in their tolerance zones, and study existence,
+non-existence and uniqueness. Uniqueness: if every shell has genus at least one, the carriers of the cells are
+contractible, and each shell has a product collar containing its zones and a reference surface whose inclusion is a
+homotopy equivalence, then the images of all realizations are topologically ambient isotopic, and so are the solids
+they bound. The collar condition follows from a distance bound below the weak feature size of a PL reference surface,
+for which we give an explicit lower bound in terms of conical radii, with the key lemma machine-checked in Lean.
+Existence: a conditional fan-and-cone construction for regular complexes, and a re-intersection construction that
+turns an embedded re-trimmed candidate into a realization. Non-existence: a checkable criterion for crossing planar
+patches. In OpenCascade 8.0.1, the validity checks decide none of these questions: a sewn wedge passes both checks and
+has no realization, and a thick pipe that passes both has two realizations whose solids are not homeomorphic.
+\end{abstract}
+
+\begin{keyword}
+tolerant boundary representation \sep geometric robustness \sep realization \sep ambient isotopy \sep weak feature
+size \sep 3-manifold topology
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{The problem}
+A solid in a CAD kernel is stored as a boundary representation: a cell complex (faces, edges, vertices) with
+geometry attached to each cell.
+\begin{itemize}
+\item Each face carries a trimmed patch of a surface.
+\item Each edge carries a 3D curve, together with one parameter-space curve (pcurve) for every adjacent face.
+\item Each vertex carries a point.
+\end{itemize}
+In floating point, and after operations such as Booleans, fillets, offsets and sewing, these data do not agree.
+The images of the pcurves on the surfaces miss the 3D edge curve, and the edge curves miss the vertex points.
+Jackson's local-tolerance approach~\cite{Jackson95}, the published description of Parasolid's, attaches a
+tolerance to every vertex, edge and face. The data count as consistent when the deviations lie within the
+tolerances. OpenCascade, for instance, requires the pcurve images to lie within the edge tolerance of the 3D curve,
+and the edge ends within the vertex tolerance of the vertex point~\cite{OCCT}.
+
+What solid does such a model describe? Qi and Shapiro~\cite{QiShapiro06b} describe the conventional answer: the
+representation is valid if there exists an exact solid, with the same boundary combinatorial structure, in the
+tolerance zones. This raises two questions:
+\begin{enumerate}
+\item \emph{Existence.} Is there an embedded surface, with the given cell structure, that respects all the
+tolerances?
+\item \emph{Uniqueness.} If there are several, do they all bound the same solid up to ambient isotopy?
+\end{enumerate}
+Downstream algorithms (Booleans, offsets, meshing, analysis) implicitly assume both answers are yes.
+
+\subsection{What we prove}
+We call an embedding as in (1) a \emph{realization}: a PL embedding $h$ of the cell complex $K$ with
+$h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$, where $\Z(\sigma)$ is the tolerance zone of $\sigma$
+(Section~\ref{sec:setting}).
+
+\begin{itemize}
+\item \textbf{Uniqueness} (Theorem~\ref{thm:uniqueness}).
+  \begin{itemize}
+  \item \emph{Hypotheses:} the carriers of the cells are contractible; each shell has a product collar that contains
+  its zones and a carried reference surface whose inclusion is a homotopy equivalence; the collars are pairwise
+  disjoint; and every shell has genus at least one.
+  \item \emph{Conclusion:} the \emph{images} of any two realizations are ambient isotopic, and so are the solids they
+  bound.
+  \item \emph{Method:} a carrier lemma (a cellular homotopy argument), combined with Waldhausen's theorem that
+  incompressible surfaces in a product $F\times I$ can be made horizontal~\cite[Prop.~3.1]{Waldhausen68}.
+  \end{itemize}
+\item \textbf{The collar condition} (Section~\ref{sec:collar}).
+  \begin{itemize}
+  \item The collar condition follows from a distance bound below the weak feature size $\wfs(M)$ of a reference
+  surface $M$ (Lemma~\ref{lem:collar}). One step uses Moise's approximation of homeomorphisms by PL
+  homeomorphisms~\cite[Thm.~35.2]{Moise77}.
+  \item For a polyhedral $M$ we prove $\wfs(M)\ge\lambda(M)>0$, where $\lambda$ is defined from the conical radii of
+  $M$ (Corollary~\ref{cor:lambda}). The underlying cone lemma is machine-checked in Lean~4 with Mathlib.
+  \item We compute lower bounds for $\wfs(M)$ with an octree search, up to stated floating-point qualifications.
+  \end{itemize}
+\item \textbf{Existence} (Section~\ref{sec:existence}). There are two constructions:
+  \begin{itemize}
+  \item fans in the normal disks of the edges, with cones at the vertices. This is a conditional theorem for regular
+  complexes (Theorem~\ref{thm:lemma0}), proved in Appendix~\ref{sec:proof51}.  Its hypotheses are local conditions on edges and
+  vertices, global disjointness conditions (S1), and two non-local topological conditions (V1(b), P0).
+  \item re-intersection of the face surfaces, for sharp edges with tight tolerances (Propositions~\ref{prop:B}
+  and~\ref{prop:Bprime}; the curved case is proved in Appendix~\ref{sec:proofBprime}). These assume that the re-trimmed
+  candidate is embedded and lies in the zones, and turn it into a PL realization.
+  \end{itemize}
+\item \textbf{Non-existence} (Theorem~\ref{thm:obstruction}). Under explicit conditions, if two planar patches cross
+transversally away from the projections (``shadows'') of all edge and vertex zones, there is no realization.
+\end{itemize}
+
+\subsection{What the experiments show}
+In OpenCascade~8.0.1 (Section~\ref{sec:experiments}):
+\begin{itemize}
+\item \texttt{BRepCheck\_Analyzer} accepts models however large their tolerances are; in the source, its
+tolerance-value check is declared but not implemented.
+\item \texttt{BRepAlgoAPI\_Check} gives false alarms on realizable models, and accepts models whose tolerances
+exceed the weak feature size of the nominal surface. Among them is a thick pipe with two realizations whose solids
+are not homeomorphic: one ties a trefoil into the hole.
+\item Sewing a wedge whose faces are slightly displaced produces a model that passes both checks and, by
+Theorem~\ref{thm:obstruction}, has no realization. The hypotheses were verified in exact rational arithmetic.
+\end{itemize}
+
+\subsection{Related work}
+
+\subsubsection*{Tolerant modelling}
+\begin{itemize}
+\item Segal~\cite{Segal90} assigned a tolerance to every vertex, edge and face of polyhedral models.
+\item Jackson~\cite{Jackson95} gave the local-tolerance B-rep approach.
+\item Milenkovic~\cite{Milenkovic88} proved, in the plane and with a uniform $\varepsilon$, that normalized data have an
+exact realization within $\varepsilon/2$.
+\item Sakkalis, Shen and Patrikalakis~\cite{SSP01} study interval solids: boxes covering the boundary of a known exact
+solid, up to homeomorphism. Sakkalis, Peters and Bisceglio~\cite[Thm.~10]{SPB04} prove ambient isotopy for a closed
+surface that lies inside a normal tube of a smooth closed surface and meets each normal fibre once. The tube radius
+there is bounded by curvature and by a double-normal distance.
+\item Qi and Shapiro~\cite{QiShapiro06} develop $\varepsilon$-solidity, which does not require an exact solid to
+exist~\cite{QiShapiro06b}.
+\item Shapiro~\cite{Shapiro08} gives conditions under which the union of the tolerance zones is homotopy equivalent
+to the cell complex. In~\S5.2 (p.~178) he notes that the homotopy condition alone is not sufficient, since a valid
+boundary representation must also be an orientable 2-cycle separating space. It is ``not immediately clear'' how to
+extend these notions to unions of tolerance zones, though the notion of separation used in isotopy results is likely
+to be useful. He also treats the containment of the exact cells in their zones as a much stronger demand.
+Realizations satisfy exactly that containment.
+\end{itemize}
+
+\subsubsection*{Constructing an exact solid}
+\begin{itemize}
+\item Andersson, Stewart and Zidani~\cite{ASZ07} and Stewart and Zidani~\cite{SZ08} construct a solid from
+inconsistent trimmed-patch data by perturbation (Whitney extension, transfinite interpolation). They \emph{assume}
+that the perturbed patches embed:
+  \begin{itemize}
+  \item ASZ say that adjacent patches need an a posteriori check~\cite[pp.~819--820]{ASZ07};
+  \item SZ make a similar assumption~\cite[p.~188]{SZ08}, and derive a normal-vector bound intended to exclude
+  extraneous intersections.
+  \end{itemize}
+\item In an earlier paper~\cite{ASZ06}, the same authors give checkable conditions under which a single composite
+parametric surface on a common parameter domain is injective, by a degree argument. They note that separately
+trimmed B-rep faces would need extra inside/outside information~\cite[\S3.7]{ASZ06}.
+\end{itemize}
+
+\subsubsection*{Isotopy}
+\begin{itemize}
+\item The weak feature size and the isotopy of offsets below it are studied by Chazal and
+Lieutier~\cite{ChazalLieutier07} and by Chazal, Cohen-Steiner and Lieutier~\cite{CCSL09dcg}. The latter
+also prove isotopy of offset level sets of general compact sets under Hausdorff
+perturbation~\cite[Thms.~4.2,~4.3]{CCSL09cg}.
+\item Chazal and Cohen-Steiner~\cite[Thm.~2.1]{CCS05} prove that a surface homeomorphic to $S$, lying in a thickening
+of $S$ and separating its sides, is isotopic to $S$. This is close to the topological core of our uniqueness
+argument.
+\item Andersson, Peters and Stewart~\cite[Thm.~1]{APS00} prove that a one-parameter family of properly joined
+curvilinear triangular patches, each injective with non-singular Jacobian and adjacent patches nontangential at every
+time, is linked by an ambient isotopy. Their nontangentiality is close to our no-fold clause T in
+Proposition~\ref{prop:Bprime}. The settings differ: they assume the perturbed complex is properly joined at every time,
+while we start from data whose patches do not meet and construct a realization.
+\end{itemize}
+
+\subsection{What is new and what is not}
+For each result we say what was known, what we add, and how far we looked. ``We did not find'' refers to the
+literature cited in this paper and the searches behind it, not to an exhaustive survey.
+
+\subsubsection*{Uniqueness (Theorem~\ref{thm:uniqueness})}
+\begin{itemize}
+\item \emph{Known.} The topological core is classical. Waldhausen~\cite[Prop.~3.1]{Waldhausen68} shows that
+incompressible surfaces in $F\times I$ can be made horizontal. Chazal and Cohen-Steiner~\cite[Thm.~2.1]{CCS05} prove
+that a surface homeomorphic to $S$, lying in a thickening of $S$ and separating its sides, is isotopic to $S$.
+Sakkalis, Peters and Bisceglio~\cite[Thm.~10]{SPB04} prove isotopy for a surface in a normal tube of a smooth surface
+that meets each fibre once.
+\item \emph{What we add.}
+  \begin{itemize}
+  \item The statement for tolerant B-reps: per-cell zones, and realizations that keep every cell in its own zone.
+  \item The carrier lemma (Lemma~\ref{lem:carrier}). With contractible carriers it makes every realization homotopic,
+  inside the collar, to the reference surface. Together with the collar hypothesis that the reference surface's
+  inclusion is a homotopy equivalence, this gives the $\pi_1$-isomorphism needed for Waldhausen's theorem
+  (Lemma~\ref{lem:separation}). So a hypothesis is still needed in place of separation, namely the homotopy-equivalence
+  condition, but only for the single reference surface, not for every realization as in~\cite{CCS05}, and no realization needs to meet each fibre once as
+  in~\cite{SPB04}.
+  \item A collar from the weak feature size (Lemma~\ref{lem:collar}), for PL reference surfaces. These may have sharp
+  edges and triangulated small fillets. The result of~\cite{SPB04} is stated for a smooth closed reference surface, with
+  the tube radius bounded by curvature and by a double-normal distance. Each result has its own setting restriction:
+  ours needs a PL reference.
+  \end{itemize}
+\item \emph{Limits.}
+  \begin{itemize}
+  \item The collar condition is a hypothesis. Lemma~\ref{lem:collar} supplies it only when the reference surface is a
+  carried PL embedding of the shell, every zone lies in $N_d(M)$ with $d<r<\wfs(M)$, the closed $r$-neighbourhoods of
+  different shells are pairwise disjoint, and the genus is at least one.
+  \item Shells of genus $0$ are excluded.
+  \item The isotopy is topological, and of images, not of embeddings.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection*{The explicit bound $\wfs(M)\ge\lambda(M)$ (Corollary~\ref{cor:lambda})}
+\begin{itemize}
+\item \emph{Known.} That $\wfs(M)>0$ for compact semialgebraic $M$. Fu~\cite[\S5.3]{Fu85}
+proves that the distance function of a compact semialgebraic set has finitely many critical values. di Rocco, Eklund and
+Gäfvert~\cite[Thm.~2.5]{dREG22} state positivity and attribute it to Fu. Chazal and
+Lieutier~\cite[Prop.~3.6]{ChazalLieutier07} state finiteness for bounded subanalytic open sets, attribute it to Fu for
+semialgebraic sets, and refer to an earlier paper of theirs for the adaptation. Fu defines semialgebraic sets by one
+finite system of inequalities; his argument (Tarski--Seidenberg, a finite decomposition into smooth submanifolds, his
+Lemma~4.3 and Sard's theorem) does not use that restriction; that it covers polyhedral surfaces is our reading.
+\item \emph{What we add.} An explicit lower bound in terms of conical radii, whose key cone lemma is machine-checked in
+Lean~4; the positivity $\lambda(M)>0$ is proved on paper and not formalized. We did not find such a bound. That does not
+make it new.
+\end{itemize}
+
+\subsubsection*{Existence (Theorem~\ref{thm:lemma0}, Propositions~\ref{prop:B} and~\ref{prop:Bprime})}
+\begin{itemize}
+\item \emph{Known.}
+  \begin{itemize}
+  \item Milenkovic~\cite{Milenkovic88}: existence in the plane, with one uniform tolerance.
+  \item Andersson, Stewart and Zidani~\cite{ASZ06}: checkable injectivity conditions for one composite patch on a common
+  parameter domain.
+  \item \cite{ASZ07,SZ08}: they construct a solid from inconsistent data but assume that the perturbed patches embed.
+  \item Andersson, Peters and Stewart~\cite[Thm.~1]{APS00}: ambient isotopy along a family that stays properly joined.
+  Their nontangentiality is close to our no-fold clause T.
+  \end{itemize}
+\item \emph{What we add.} Sufficient conditions under which a 3D B-rep with per-cell tolerance zones has a realization
+of the whole cell complex. They are of two different kinds.
+  \begin{itemize}
+  \item Theorem~\ref{thm:lemma0} constructs the realization from conditions on the data. It is proved for regular
+  complexes only, and it is conditional: two of its hypotheses are non-local.
+  \item Propositions~\ref{prop:B} and~\ref{prop:Bprime}, for sharp edges with tight tolerances, assume that a
+  re-trimmed candidate surface is already embedded and lies in the zones (in Proposition~\ref{prop:Bprime}, clauses C
+  and B1--B3), and show that it gives a realization; for curved faces this needs a PL approximation. They check a given
+  candidate rather than derive embeddedness. Proposition~\ref{prop:B} is for planar faces and vertices of degree three;
+  Proposition~\ref{prop:Bprime} needs $C^2$ regular face parametrizations, without poles or cone apices. On curved models these clauses are
+  checked on samples in double precision, and the vertex part of clause T is not checked.
+  \end{itemize}
+\item \emph{How far we looked.} We did not find existence results of either kind for 3D B-reps with per-cell
+tolerance zones.
+\item \emph{Not covered.} Sewn models with tangent edges and OpenCascade's vertex tolerances. Whether they have
+realizations is open (Section~\ref{sec:open}).
+\end{itemize}
+
+\subsubsection*{Non-existence (Theorem~\ref{thm:obstruction})}
+\begin{itemize}
+\item \emph{What we add.} A checkable criterion for planar patches. We apply it to sewn models that pass both of
+OpenCascade's checks.
+\item \emph{Limits.} The theorem concerns one pair of planar faces whose closed cells are disks bounded by single wires,
+with simply connected edge zones (O3). A version for curved faces is open.
+\item \emph{How far we looked.} We did not find a non-existence criterion for tolerant B-reps in the literature we
+read.
+\end{itemize}
+
+\subsubsection*{Experiments (Section~\ref{sec:experiments})}
+\begin{itemize}
+\item \emph{What we add.} The observation that OpenCascade's validity checks decide neither existence nor uniqueness.
+\item \emph{Scope.} The evidence is a handful of parts in one kernel version (8.0.1). We did not test ACIS or
+Parasolid.
+\end{itemize}
+
+\section{Tolerant B-reps and realizations}\label{sec:setting}
+
+\subsection{Complexes}
+$K$ is a finite cell complex in the B-rep sense. Its 0-cells are points, its edges are arcs or closed curves, and
+its faces are compact surfaces, possibly with holes. The open face is the face minus all its edges, seams included. The underlying space $|K|$ is a
+disjoint union of closed connected surfaces $|K_1|,\dots,|K_n|$ (the \emph{shells}). We write $\tau\le\sigma$ when $\tau$ is a face of $\sigma$ (including
+$\tau=\sigma$). For the uniqueness theorem we assume $K$ is \emph{regular}: every closed cell $\bar\sigma$ is a
+ball whose boundary is a subcomplex. B-rep complexes with seam edges, closed edges or faces with holes are not
+regular, and must first be subdivided. A new cell inherits the zone of the open cell of $K$ that contains it.
+This keeps the zones monotone, and a realization of the original model is a realization of the subdivision, since
+$h(\inter\sigma')\subseteq h(\inter\sigma)\subseteq\Z(\sigma)$ for a new cell $\sigma'\subseteq\sigma$. The carrier
+condition of Section~\ref{sec:uniqueness} must then hold for the subdivided complex. A new edge inside a face $f$
+has carrier $\Z(f)$, so subdividing faces adds the hypothesis $\pi_1(\Z(f))=0$; contractible zones satisfy it. A map of $|K|$ is \emph{PL} if it is linear on the simplices of some triangulation of $|K|$ that subdivides its
+cells. In dimension two, any two such triangulations are related by a cell-preserving PL homeomorphism (standard; not
+separately checked against a source), so the notion does not depend on the choice. New vertices created inside an edge or face inherit its zone, so the carrier condition requires those
+zones to be path-connected. The existence results say where they apply to B-rep
+complexes directly.
+
+\subsection{Geometric data and zones}
+\begin{itemize}
+\item Each vertex $v$ has a point $p_v$ and a tolerance $\tau_v$.
+\item Each edge $e$ has a $C^2$ curve $\gamma_e\colon[0,1]\to\R^3$ and a tolerance $\tau_e$.
+\item Each face $f$ has a $C^2$ surface $S_f$, a compact trimmed patch $P_f\subseteq S_f$, and a tolerance
+$\tau_f$. The boundary of $P_f$ consists of the images $\beta_{f,e}=S_f\circ(\text{pcurve})$ of the pcurves of the
+edges $e<f$.
+\end{itemize}
+The \emph{deviation} of $e$ is $\mathrm{dev}_e=\max_{f>e}\max_t|\beta_{f,e}(t)-\gamma_e(t)|$, measured at equal
+parameters. OpenCascade's SameParameter property asks for $\mathrm{dev}_e\le\tau_e$ in this sense; its format
+specification defines the edge tolerance as a one-sided distance from the pcurve images to the 3D
+curve~\cite{OCCT}.
+
+\begin{definition}[Zones]\label{def:zones}
+We use \emph{augmented} open zones:
+\begin{itemize}
+\item $\Z(v)=B(p_v,\tau_v)$;
+\item $\Z(e)=N_{\tau_e}(\gamma_e)\cup\bigcup_{v<e}\Z(v)$;
+\item $\Z(f)=N_{\tau_f}(P_f)\cup\bigcup_{e<f}\Z(e)$.
+\end{itemize}
+Here $N_r$ is the open $r$-neighbourhood. Augmentation makes $\Z$ monotone: $\tau\le\sigma$ implies
+$\Z(\tau)\subseteq\Z(\sigma)$.
+\end{definition}
+
+\begin{definition}[Realization]\label{def:realization}
+A \emph{realization} of the tolerant B-rep $T=(K,\text{data},\tau)$ is a PL embedding $h\colon|K|\to\R^3$ with
+$h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$.
+\end{definition}
+
+\begin{remark}\label{rem:opencell}
+\begin{itemize}
+\item \emph{Open-cell condition.} We require only $h(\inter\sigma)\subseteq\Z(\sigma)$. The closed-cell
+condition with unaugmented neighbourhoods, $h(\bar\sigma)\subseteq N_{\tau_\sigma}(\cdot)$, usually fails for every
+candidate, mainly because face tolerances are tiny: $h(v)$ would have to lie within $\tau_f$ of every incident patch. With augmented zones the open-cell
+condition implies $h(\bar\sigma)\subseteq\Z(\sigma)$, since $\bar\sigma$ is the union of the open cells
+$\tau\le\sigma$.
+\item \emph{Tameness.} Requiring $h$ to be PL rules out wild embeddings such as Alexander's horned sphere.
+\end{itemize}
+\end{remark}
+
+\begin{definition}[Carriers]
+The \emph{carrier} of a cell is $\C(\sigma)=\bigcup_{\tau\le\sigma}\Z(\tau)$. For augmented zones
+$\C(\sigma)=\Z(\sigma)$. A continuous map $g\colon|K|\to\R^3$ is \emph{carried} if $g(\bar\sigma)\subseteq
+\C(\sigma)$ for every $\sigma$. By Remark~\ref{rem:opencell}, every realization is carried.
+\end{definition}
+
+\begin{definition}[Solid]\label{def:solid}
+Let $S_1,\dots,S_n\subset\R^3$ be pairwise disjoint closed surfaces. The \emph{depth} of a point $x\notin\bigcup S_j$
+is the number of $j$ for which $x$ lies in the bounded component of $\R^3\setminus S_j$. The solid bounded by
+the $S_j$ is the closure of the set of points of odd depth.
+\end{definition}
+This matches the usual B-rep convention of outer shells and cavities when the shells are consistently oriented;
+a consistency check of the orientation is separate.
+
+\section{Uniqueness for shells of positive genus}\label{sec:uniqueness}
+
+\subsection{Hypotheses}
+\begin{itemize}
+\item \textbf{Carrier condition.} $\C(v)$ is path-connected for every vertex $v$, and $\C(\sigma)$ is path-connected
+with $\pi_k(\C(\sigma))=0$ at every base point, for every $k$-cell $\sigma$ with $k\ge1$. Contractible carriers suffice.
+\item \textbf{Collar condition.} For each shell $K_i$ there are a compact PL submanifold $U_i\subset\R^3$, a
+closed surface $M_i$, a PL homeomorphism $\Psi_i\colon U_i\to M_i\times[-1,1]$, and a carried PL embedding
+$\varphi_i\colon|K_i|\to\R^3$ (a \emph{reference}), with these properties:
+  \begin{itemize}
+  \item all zones of the cells of $K_i$ lie in $\inter U_i$;
+  \item $\varphi_i(|K_i|)\subseteq\inter U_i$, and the inclusion $\varphi_i(|K_i|)\hookrightarrow U_i$ is a homotopy
+  equivalence;
+  \item the $U_i$ are pairwise disjoint.
+  \end{itemize}
+  (The reference need not be a level $\Psi_i^{-1}(M_i\times\{t\})$. This weaker form is what
+  Lemma~\ref{lem:collar} can deliver.) Note that $M_i$ is connected, since $M_i\simeq U_i\simeq|K_i|$; it is
+  orientable, since $M_i\times I\cong U_i\subset\R^3$; and it is not a sphere when $|K_i|$ is not, since then $\pi_1(M_i)\cong\pi_1(|K_i|)\ne1$.
+\item \textbf{Genus.} Each $|K_i|$ has genus at least one.
+\end{itemize}
+
+\subsection{Lemmas}
+
+\begin{lemma}[Carrier lemma]\label{lem:carrier}
+Under the carrier condition, any two carried maps $f,g\colon|K|\to\R^3$ are homotopic by a homotopy $H$ with
+$H(\bar\sigma\times I)\subseteq\C(\sigma)$ for every $\sigma$.
+\end{lemma}
+\begin{proof}
+Define $H$ on $|K|\times\{0,1\}\cup|K^{(k)}|\times I$ by induction on $k$, keeping $H(\bar\sigma\times I)
+\subseteq\C(\sigma)$, with $H(\cdot,0)=f$ and $H(\cdot,1)=g$.
+\begin{itemize}
+\item $k=0$: for a vertex $v$, the points $f(v),g(v)$ lie in the path-connected set $\C(v)$; join them by a
+path in $\C(v)$.
+\item $k\ge1$: let $\sigma$ be a $k$-cell. $\bar\sigma\times I$ is a $(k+1)$-ball whose boundary
+$\bar\sigma\times\{0,1\}\cup\partial\bar\sigma\times I$ is a $k$-sphere, and $H$ is already defined on it:
+  \begin{itemize}
+  \item on $\bar\sigma\times\{0,1\}$ it is $f$ or $g$, with image in $\C(\sigma)$;
+  \item on $\partial\bar\sigma\times I$ it is defined by induction, with image in
+  $\bigcup_{\tau<\sigma}\C(\tau)\subseteq\C(\sigma)$.
+  \end{itemize}
+  Since $\pi_k(\C(\sigma))=0$, $H$ extends over $\bar\sigma\times I$ with image in $\C(\sigma)$.
+\end{itemize}
+The pieces agree on common boundaries, and a finite union of closed sets glued continuously gives a continuous
+$H$.
+\end{proof}
+
+\begin{lemma}[Separation]\label{lem:separation}
+Assume the carrier and collar conditions, and let $h$ be a realization. Then $G=h(|K_i|)$ is a closed surface in
+$\inter U_i$, and the inclusion $G\hookrightarrow U_i$ is a homotopy equivalence.
+\end{lemma}
+\begin{proof}
+\begin{itemize}
+\item By Lemma~\ref{lem:carrier} on $K_i$, $h$ and $\varphi_i$ are homotopic through maps with image in
+$\bigcup\C(\sigma)\subseteq\inter U_i$, so the homotopy takes place in $U_i$.
+\item $\varphi_i\colon|K_i|\to U_i$ is a homeomorphism onto $\varphi_i(|K_i|)$ followed by the inclusion, which is a
+homotopy equivalence by the collar condition. Hence so is $h\colon|K_i|\to U_i$.
+\item Since $h$ is a homeomorphism onto $G$, the inclusion $G\hookrightarrow U_i$, which equals $h\circ h^{-1}$,
+is a homotopy equivalence.
+\end{itemize}
+\end{proof}
+
+\begin{lemma}[Horizontality]\label{lem:horizontal}
+Let $U\cong_{\Psi}M\times[-1,1]$ be as in the collar condition, with $M$ not a sphere, and let $G\subset\inter U$
+be a closed PL surface whose inclusion into $U$ is a homotopy equivalence. Then there is an ambient isotopy of
+$\R^3$, supported in $U$ and fixed on $\partial U$, that carries $G$ to $\Psi^{-1}(M\times\{0\})$.
+\end{lemma}
+\begin{proof}
+\begin{enumerate}
+\item[(a)] \emph{$G$ is incompressible.}
+  \begin{itemize}
+  \item By hypothesis, $\pi_1(G)\to\pi_1(U)$ is an isomorphism.
+  \item The boundary of a compressing disk would be a curve that is essential in $G$ and null-homotopic in $U$,
+  which this rules out. That is incompressibility in the sense of Waldhausen~\cite[p.~58]{Waldhausen68}.
+  \item $G\simeq U\simeq M$, so $G$ is not a sphere and case (b) of that definition does not arise. We do not use the
+  converse direction, which needs the loop theorem.
+  \item $G$ is a closed orientable surface in an orientable 3-manifold, hence two-sided, and it is disjoint from
+  $\partial U$; so it satisfies Waldhausen's conventions~\cite[\S0]{Waldhausen68}.
+  \end{itemize}
+\item[(b)] \emph{$G$ can be made horizontal.}
+  \begin{itemize}
+  \item Apply Waldhausen's Proposition~3.1~\cite[pp.~65--68]{Waldhausen68} to $U\cong M\times I$ ($M$ orientable,
+  not a sphere) and the incompressible surface $G$. Since $\partial G=\emptyset$, the condition
+  ``$\partial G\subseteq F\times1$'' holds vacuously.
+  \item It gives an isotopy, constant on $\partial U$, from $G$ to a surface $G'$ whose projection
+  $p\colon G'\to M$ is a homeomorphism onto its image.
+  \item $p(G')$ is open (invariance of domain) and closed in the connected surface $M$, so $p(G')=M$. Hence $G'$ is
+  the graph of a function $s\colon M\to(-1,1)$.
+  \item Waldhausen's proof of Proposition~3.1 uses that $F\times I$ is irreducible, explicitly in the base case
+  ($F$ a disc, annulus or pair of pants, p.~66) and, through the induction on p.~67, for compact surfaces $F'$ with
+  boundary obtained by cutting. Lemma~\ref{lem:irreducible} below covers all these cases.
+  \end{itemize}
+\item[(c)] \emph{Flatten.} The PL homeomorphisms of the fibres $\{x\}\times[-1,1]$ that fix both ends and send $s(x)$
+to $(1-t)s(x)$, $t\in[0,1]$, give an ambient isotopy of $U$, fixed on $\partial U$, from $G'$ to
+$\Psi^{-1}(M\times\{0\})$. This isotopy is topological.
+\item[(d)] The isotopy of (b) is already ambient: in Waldhausen's paper an isotopy of subspaces $Z_1,Z_2$ of $X$ is by
+definition an isotopy of the identity map of $X$ carrying $Z_1$ to $Z_2$~\cite[p.~57]{Waldhausen68}, and Proposition~3.1
+gives one constant on $\partial U$. Both isotopies are fixed on $\partial U$ and extend by the identity to $\R^3$.
+\end{enumerate}
+\end{proof}
+
+\begin{lemma}\label{lem:irreducible}
+Let $F$ be a compact orientable PL surface other than the 2-sphere. Then $F\times I$ is irreducible: every PL
+2-sphere $S\subset\inter(F\times I)$ bounds a PL 3-cell in $F\times I$. (Following Waldhausen's convention that surfaces
+are properly embedded, a 2-sphere in $F\times I$ is disjoint from the boundary.)
+\end{lemma}
+\begin{proof}
+\emph{Case $\partial F\ne\emptyset$.}
+\begin{itemize}
+\item Then $F\times I$ is a handlebody: a regular neighbourhood $H$ of a finite graph in $\R^3$, with $\partial H$
+connected (standard; not separately checked against a source). We work with $H\subset\R^3$.
+\item By the PL Schoenflies theorem~\cite[Thm.~17.12]{Moise77}, $S$ bounds a PL 3-cell $B\subset\R^3$. The set
+$\R^3\setminus H$ is connected (Alexander duality, as $\partial H$ is connected), unbounded and disjoint from $S$, so it
+lies in the unbounded component of $\R^3\setminus S$. Hence $B\subseteq H$.
+\end{itemize}
+\emph{Case $F$ closed, of genus at least one.}
+\begin{itemize}
+\item Let $q\colon\tilde F\times I\to F\times I$ be the universal covering, with deck group $\Gamma$ acting by
+$\gamma\times\mathrm{id}$. $\tilde F$ is a simply connected non-compact PL surface without boundary, so it is PL
+homeomorphic to $\R^2$ (standard; not separately checked against a source). Hence $\tilde F\times I\cong_{PL}\R^2\times
+I\subset\R^3$.
+\item $S$ is simply connected, so it lifts to a PL 2-sphere $\tilde S\subset\R^2\times(0,1)$, and the lifts $\gamma\tilde S$,
+$\gamma\in\Gamma$, are pairwise disjoint. By the PL Schoenflies theorem~\cite[Thm.~17.12]{Moise77}, $\tilde S$ bounds a
+PL 3-cell $\tilde B\subset\R^3$. Points of $\R^3$ outside $\R^2\times[0,1]$ are joined to infinity in the complement of
+$\tilde S$, so $\tilde B\subset\R^2\times I$.
+\item Let $\gamma\ne1$. The spheres $\tilde S$ and $\gamma\tilde S$ are disjoint, so the cells $\tilde B$ and
+$\gamma\tilde B$ are either disjoint or nested. If $\gamma\tilde B\subseteq\tilde B$, then $\gamma^n\tilde B\subseteq\tilde
+B$ for all $n\ge1$. $\Gamma$ is torsion-free, so the $\gamma^n$ are distinct, and infinitely many deck transformations
+move the compact set $\tilde B$ to meet itself. That contradicts proper discontinuity. The case $\tilde B\subseteq
+\gamma\tilde B$ is the same with $\gamma^{-1}$.
+\item So the translates of $\tilde B$ are pairwise disjoint, $q$ is injective on $\tilde B$, and $q(\tilde B)$ is a PL
+3-cell in $F\times I$ with boundary $S$.
+\end{itemize}
+Also standard and not separately checked: that $\pi_1$ of a closed surface is torsion-free, and that deck groups act
+properly discontinuously.
+\end{proof}
+
+\subsection{The theorem}
+
+\begin{theorem}[Uniqueness]\label{thm:uniqueness}
+Assume the carrier condition, the collar condition, and that every shell has genus at least one. Then:
+\begin{enumerate}
+\item the image of any realization is ambient isotopic (by a topological isotopy) to
+$\bigcup_i\Psi_i^{-1}(M_i\times\{0\})$;
+\item the images of any two realizations are ambient isotopic;
+\item the solids they bound (Definition~\ref{def:solid}) are ambient isotopic.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+\begin{itemize}
+\item By Lemma~\ref{lem:separation}, each $G_i=h(|K_i|)$ satisfies the hypotheses of Lemma~\ref{lem:horizontal} in
+$U_i$. Apply that lemma shell by shell. The supports $U_i$ are pairwise disjoint, so the isotopies $\Phi^i$ can be
+run simultaneously; their end map is a homeomorphism $\Phi$ of $\R^3$.
+\item $\Phi(G_j)=\Psi_j^{-1}(M_j\times\{0\})$ for every $j$: on $U_j$, every $\Phi^i$ with $i\ne j$ is the identity,
+because its support $U_i$ is disjoint from $U_j$.
+\item By the Jordan--Brouwer separation theorem each closed surface separates $\R^3$ into a bounded and an unbounded
+component. A homeomorphism of $\R^3$ maps sets with compact closure to sets with compact closure, so $\Phi$ maps the
+bounded component of $\R^3\setminus G_j$ onto the bounded component of $\R^3\setminus\Phi(G_j)$. So depth is
+preserved, and $\Phi$ maps the solid bounded by the $G_j$ onto the solid bounded by the levels.
+\item For two realizations with maps $\Phi$ and $\Phi'$, use $\Phi'^{-1}\circ\Phi$.
+\end{itemize}
+\end{proof}
+
+\begin{remark}
+\begin{itemize}
+\item \emph{What is not covered.} Spheres (genus 0) are excluded, and the isotopy is of images, not of
+embeddings.
+\item \emph{Relation to Chazal--Cohen-Steiner.} Chazal and Cohen-Steiner~\cite[Thm.~2.1]{CCS05} prove that a compact
+orientable surface $S'\cong S$ lying in a thickening of $S$ and separating its sides is isotopic to $S$ in the
+thickening. Lemmas~\ref{lem:separation} and~\ref{lem:horizontal} play the same role here. What is specific to
+tolerant B-reps is the set-up: per-cell zones, cell-respecting realizations, the carrier lemma, and $\pi_1$ in place
+of separation, which the carrier lemma provides.
+\item \emph{The collar condition cannot be dropped.} The thick pipe of Section~\ref{sec:experiments} passes both
+OpenCascade checks and has two realizations whose solids are not even homeomorphic.
+\item \emph{Standard facts used without separate checking against a source:} continuity of cell-by-cell extension,
+orientability of closed surfaces in $\R^3$, invariance of domain, the Jordan--Brouwer separation theorem, and that
+the fibrewise flattening is an ambient isotopy.
+\end{itemize}
+\end{remark}
+
+\section{From the weak feature size to the collar condition}\label{sec:collar}
+
+\subsection{Weak feature size}
+Let $M\subset\R^3$ be compact, $d(p)=\dist(p,M)$, and let $\Gamma(p)$ be the set of nearest points of $p$ in $M$.
+A point $p\notin M$ is \emph{critical} if $0\in\conv\{p-x:x\in\Gamma(p)\}$. The \emph{weak feature size}
+$\wfs(M)$ is the infimum of the positive critical values of $d$~\cite[\S2.2]{CCSL09dcg}; see also
+\cite{ChazalLieutier07}. Unlike the reach, it
+stays positive at sharp edges and small fillets. A surface with a concave edge has reach $0$, and a fillet of
+radius $r$ caps the reach at $r$.
+
+\begin{lemma}[Collar]\label{lem:collar}
+Let $M$ be a closed connected PL surface in $\R^3$, and let $0<d<r<\wfs(M)$.
+\begin{enumerate}
+\item[(a)] The closed neighbourhood $\bar N_r(M)$ is homeomorphic to $M\times[-1,1]$, with $M$ going to
+$M\times\{0\}$.
+\item[(a$'$)] There is a compact PL submanifold $U$ with $\bar N_d(M)\subseteq\inter U$, $U\subseteq\inter\bar
+N_r(M)$ and $U\cong_{PL}M\times[-1,1]$.
+\item[(b)] Suppose $M$ has genus at least one, and let $U$ be as in (a$'$). Suppose further that $M=\varphi(|K_i|)$ for a carried PL embedding $\varphi$ of a
+shell, that every zone of a cell of that shell lies in $N_d(M)$, and that the sets $\bar N_r(M_i)$ of different shells
+are pairwise disjoint. Then the collar condition of Section~\ref{sec:uniqueness} holds, with $U_i=U$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Write $d=d_M$. By the Jordan--Brouwer separation theorem, $\R^3\setminus M$ has two components, a bounded one
+$\Omega_-$ and an unbounded one $\Omega_+$.
+
+(a) \emph{Step 1: small radii.}
+\begin{itemize}
+\item Work in a large simplicial cube $Q$ containing $\bar N_r(M)$, triangulated so that $M$ is a subcomplex. The
+restriction of $d$ to $Q$ is semialgebraic (Tarski--Seidenberg), proper, nonnegative, with zero set the compact set
+$M$. Durfee's definition of a (semialgebraic) \emph{rug function}~\cite[Def.~3.1]{Durfee83} asks exactly this and no
+smoothness, so $d|_Q$ is a rug function for $M$ in $Q$. For suitably small $\delta>0$, the set $\bar N_\delta(M)=d^{-1}[0,\delta]$
+is therefore a semialgebraic neighbourhood of $M$ in $Q$~\cite[Def.~3.4]{Durfee83}.
+\item A PL regular neighbourhood $R$ of $M$ in $Q$ is also a semialgebraic neighbourhood~\cite[Prop.~3.7]{Durfee83}.
+By the uniqueness of semialgebraic neighbourhoods~\cite[Prop.~3.5]{Durfee83} there are homeomorphisms $h_t\colon Q\to Q$
+with $h_t|_M=\mathrm{id}$ for all $t$ and $h_1(\bar N_\delta(M))=R$. So $h_1$ is a homeomorphism of pairs
+$(\bar N_\delta(M),M)\to(R,M)$ that fixes $M$ pointwise. We take $\delta<r$.
+\item $M$ is a closed orientable surface in $\R^3$, hence two-sided, so $R\cong M\times[-1,1]$ with $M$ going to
+$M\times\{0\}$. Hence $(\bar N_\delta(M),M)\cong(M\times[-1,1],M\times\{0\})$. Its frontier is $S_\delta=\{d=\delta\}$,
+because $\delta$ is not a critical value, so every point with $d=\delta$ is a limit of points with $d>\delta$ (the
+directional-derivative argument of Step~3). $S_\delta$ has two
+components, the images of $M\times\{\pm1\}$, and they lie in different components of $\R^3\setminus M$. The two halves
+$M\times(0,1]$ and $M\times[-1,0)$ are connected, so each lies in one of $\Omega_\pm$. Every neighbourhood of a point
+of $M=\partial\Omega_+=\partial\Omega_-$ meets both, so the halves lie in different ones. Write
+$S_\delta^\pm=S_\delta\cap\Omega_\pm$.
+\end{itemize}
+
+\emph{Step 2: the two shells.} Let $A_\pm=\{x\in\Omega_\pm:\delta\le d(x)\le r\}$.
+\begin{itemize}
+\item \emph{Inner side.} Put $O=\Omega_-$. It is bounded and open, and for $x\in O$ the distance to $O^c$ equals
+$d(x)$, with the same nearest points (they lie on $\partial O=M$). So the critical points of the distance to $O^c$
+in $O$ are exactly the critical points of $d$ in $\Omega_-$. The criticality notions agree:
+\cite{ChazalLieutier07} use the vanishing of their gradient field, which holds iff $x$ lies in the convex hull of
+its nearest boundary points~\cite[Lemma~2.2]{ChazalLieutier07} (see also~\cite[\S2.2]{CCSL09dcg}).
+\item Since $r<\wfs(M)$, the shell $A_-$ contains no critical point. The isotopy lemma~\cite[Prop.~3.4]{ChazalLieutier07}, which they reproduce from
+Grove's critical point theory for distance functions, gives a homeomorphism $A_-\cong S^-_\delta\times[\delta,r]$.
+\item \emph{Outer side.} Put $O=\Omega_+\cap B(0,\mathcal R)$ with $\mathcal R$ large. For $x\in O$ the distance to
+$O^c$ is $\min(d(x),\mathcal R-|x|)$. Take $\mathcal R$ larger than $2r$ plus the largest $|y|$, $y\in M$. Then the
+points of $O$ with distance to $O^c$ in $[\delta,r]$ form two disjoint pieces: $A_+$, where $d<\mathcal R-|x|$ strictly, so
+the distance equals $d$ with the same nearest points,
+and a shell near the sphere $|x|=\mathcal R$, where it equals $\mathcal R-|x|$.
+\item Neither piece contains a critical point. In $A_+$ this is because $r<\wfs$. Near the sphere the only nearest
+point is the radial projection.
+\item So Prop.~3.4 gives a homeomorphism of the union with $R^{-1}(\delta)\times[\delta,r]$, where
+$R^{-1}(\delta)=S^+_\delta\sqcup\{|x|=\mathcal R-\delta\}$ has exactly two components ($S^+_\delta\cong M$ is connected).
+The components of the product are $C\times[\delta,r]$ for the two components $C$. The shell near the sphere is one
+component of the union, so $A_+$ is the other: $A_+\cong C\times[\delta,r]$ with $C$ connected. Step~3 shows that
+$C\cong S^+_\delta$.
+\item We use Prop.~3.4 in its stated closed-shell form: for a bounded open $O$ and $R=d(\cdot,O^c)$, if the shell
+$\{x\in O:\rho_1\le R(x)\le\rho_2\}$ contains no critical point of $R$, it is homeomorphic to
+$R^{-1}(\rho_1)\times[\rho_1,\rho_2]$~\cite[Prop.~3.4]{ChazalLieutier07}.
+\end{itemize}
+
+\emph{Step 3: gluing.}
+\begin{itemize}
+\item \emph{The boundary of $A_\pm$.} $A_\pm$ is a compact 3-manifold in $\R^3$, so by invariance of domain its manifold
+boundary is its frontier in $\R^3$.
+  \begin{itemize}
+  \item Points with $\delta<d<r$ are interior points.
+  \item A point with $d=\delta$ is a limit of points with $d<\delta$: move along the segment to a nearest point.
+  \item A point $x$ with $d=r$ is a limit of points with $d>r$. Since $x$ is not critical, there is a unit vector $u$
+  with $\langle u,x-y\rangle>0$ for all $y\in\Gamma(x)$. The one-sided derivative of $d$ in direction $u$ is
+  $\min_{y\in\Gamma(x)}\langle u,(x-y)/|x-y|\rangle>0$ (standard formula for the directional derivative of a distance
+  function; not separately checked against a source).
+  \end{itemize}
+  So $\partial A_\pm=S^\pm_\delta\sqcup S^\pm_r$, and the connected closed set $S^\pm_\delta$ is one boundary component.
+  Every boundary component of $C\times[\delta,r]$ is a copy of $C$, so $C\cong S^\pm_\delta$.
+\item A homeomorphism between manifolds with boundary maps boundary components to boundary components. So the
+homeomorphism of Step~2 takes $S^\pm_\delta$, a boundary component of $A_\pm$, onto one end of the product. Composing
+with a flip of $[\delta,r]$ if necessary, and with the inverse of its restriction to $S^\pm_\delta$, we get
+$A_\pm\cong S^\pm_\delta\times[0,1]$ with $S^\pm_\delta$ going to $S^\pm_\delta\times\{0\}$.
+\item Then $\bar N_r(M)=\bar N_\delta(M)\cup A_+\cup A_-$ is $M\times[-1,1]$ with a product collar attached to each
+boundary component along that component. That is homeomorphic to $M\times[-2,2]\cong M\times[-1,1]$, with $M$ still
+going to $M\times\{0\}$.
+\end{itemize}
+
+(a$'$) The interior of $\bar N_r(M)$ is $N_r(M)$: by the computation in Step~3, a point with $d=r$ is a limit of
+points with $d>r$.
+\begin{itemize}
+\item By (a), there is a homeomorphism $g\colon M\times(-1,1)\to N_r(M)$.
+\item $g^{-1}(\bar N_d(M))$ is compact, so it lies in $M\times[-a,a]$ for some $a<1$. Take $a<b<1$ and
+$K=M\times[-b,b]$, a polyhedral 3-manifold with boundary in the PL 3-manifold $M\times(-1,1)$.
+\item The compact set $g(K)$ and the closed set $\R^3\setminus N_r(M)$ are disjoint, and so are the compact sets $g(\partial K)$ and $\bar N_d(M)$. Let
+$\varepsilon>0$ be smaller than both distances. By Moise's approximation theorem~\cite[Thm.~35.2]{Moise77} there is a
+PL homeomorphism $f$ of $K$ into $\R^3$ with $|f-g|<\varepsilon$ on $K$. Put $U=f(K)$.
+\item Then $U$ is a compact PL submanifold, $U\cong_{PL}M\times[-1,1]$, and $U\subseteq N_r(M)=\inter\bar N_r(M)$.
+\item $\bar N_d(M)\subseteq\inter U$. Let $x\in\bar N_d(M)$. The straight-line homotopy from $g|_{\partial K}$ to
+$f|_{\partial K}$ avoids $x$, so each of the two boundary surfaces has $x$ in its bounded complementary component for $f$
+exactly when it does for $g$ (the mod-2 degree of the radial projection from $x$ is a homotopy invariant). For a compact
+connected 3-manifold in $\R^3$ with two boundary surfaces, the interior is the set of points of depth one with respect to
+them (Definition~\ref{def:solid}; standard, by Alexander duality). Since $x\in g(\inter K)$, its depth is one for $g$,
+hence for $f$, so $x\in\inter U$.
+\item $f$ need not send $M$ to a level, which is why the collar condition of Section~\ref{sec:uniqueness} does not ask
+for that.
+\end{itemize}
+
+(b) The zones lie in $N_d(M)\subseteq\inter U$, and $M\subseteq N_d(M)\subseteq\inter U$. The $U_i$ are pairwise
+disjoint because they lie in the disjoint sets $\bar N_r(M_i)$. It remains to show that the inclusion
+$M\hookrightarrow U$ is a homotopy equivalence.
+\begin{itemize}
+\item By (a), the composite $M\hookrightarrow U\hookrightarrow\bar N_r(M)$ is a homotopy equivalence. So
+$\pi_1(U)\to\pi_1(\bar N_r(M))$ is onto.
+\item Both groups are isomorphic to $\pi_1(M)$, a surface group of genus at least one. Surface groups are Hopfian,
+so a surjection from one onto an isomorphic copy is an isomorphism. Hence $\pi_1(M)\to\pi_1(U)$ is an isomorphism.
+\item $M$ and $U\simeq M$ are aspherical, so by Whitehead's theorem the inclusion is a homotopy equivalence.
+\end{itemize}
+This uses (a) as well as (a$'$), and it uses the genus hypothesis: for a sphere the argument fails.
+Standard facts used without separate checking against a source: the Jordan--Brouwer separation theorem,
+Tarski--Seidenberg, regular-neighbourhood theory (the regular neighbourhood of a two-sided closed surface is a product),
+invariance of boundary for topological manifolds, attaching a product collar along a boundary component, that surface
+groups are Hopfian (they are residually finite), asphericity of closed surfaces of positive genus, Whitehead's
+theorem, homotopy invariance of the mod-2 degree and its use to decide on which side of an embedded closed surface a
+point lies, and Alexander duality for the components of the complement of two disjoint closed surfaces.
+\end{proof}
+
+\subsection{An explicit lower bound for polyhedral surfaces}
+For $a\in M$, the \emph{conical radius} $\rho(a)$ is the supremum of the $r>0$ such that $M\cap B(a,r)=C\cap
+B(a,r)$ for some closed cone $C$ with apex $a$.
+
+\begin{lemma}[Cone lemma]\label{lem:cone}
+Let $a\in M$, $r<\rho(a)$, and $p\notin M$ with $|p-a|<r/2$. Then every nearest point $x\in\Gamma(p)$ satisfies
+$\langle p-x,\,p-a\rangle=|p-x|^2$. In particular $p$ is not critical.
+\end{lemma}
+\begin{proof}
+\begin{itemize}
+\item \emph{Nearest points lie in the ball.} $d(p)\le|p-a|<r/2$, so every $x\in\Gamma(p)$ has $|x-a|<r$.
+\item \emph{The ray through $x$ stays in $M$.} The points $y_s=a+s(x-a)$, for $s$ near $1$, lie in the cone and
+in $B(a,r)$, hence in $M$. So $s\mapsto|p-y_s|^2$ has a local minimum at $s=1$, which gives $\langle
+p-x,x-a\rangle=0$.
+\item \emph{Conclusion.} $\langle p-x,p-a\rangle=|p-x|^2+\langle p-x,x-a\rangle=d(p)^2>0$ for all
+$x\in\Gamma(p)$. So $0$ is not in the convex hull of the vectors $p-x$.
+\end{itemize}
+\end{proof}
+
+\begin{corollary}\label{cor:lambda}
+Let $\lambda(M)=\inf_{x\in M}\sup_{a\in M}\bigl(\rho(a)/2-|x-a|\bigr)$. Then $d$ has no critical point $p$ with
+$0<d(p)<\lambda(M)$, so $\wfs(M)\ge\lambda(M)$. If $M$ is a finite union of triangles, $\lambda(M)>0$.
+\end{corollary}
+\begin{proof}
+\begin{itemize}
+\item \emph{The bound.} Given $p$ with $d(p)<\lambda$ and $x\in\Gamma(p)$, pick $a$ with
+$\rho(a)/2-|x-a|>d(p)$. Then $|p-a|<\rho(a)/2$, and Lemma~\ref{lem:cone} applies.
+\item \emph{Positivity.} For a polyhedron, $\rho(a)>0$ for every $a$, by the local conical structure of
+polyhedra (standard; not separately checked against a source). The function $g(x)=\sup_a(\rho(a)/2-|x-a|)$
+is $1$-Lipschitz and finite, since $\rho\le\operatorname{diam}M$, and $g(x)\ge\rho(x)/2>0$. $M$ is compact, so
+$\min g>0$.
+\end{itemize}
+\end{proof}
+
+Lemma~\ref{lem:cone} and the pointwise form of Corollary~\ref{cor:lambda} are machine-checked in Lean~4 with
+Mathlib, for subsets of an arbitrary real inner product space (Appendix~\ref{sec:lean}).
+
+\subsection{A certified lower bound for $\wfs$}
+For a triangulated reference surface $M_{PL}$ we compute $L$ with ``no critical value in $(c\cdot\mathrm{tol},L)$''
+by a best-first octree. We call $L$ \emph{certified} in this qualified sense only: the computation is in double
+precision; containment of a point in a feature is decided with a tolerance $\mathrm{tol}=10^{-10}$ times the model
+size; and the search is restricted to distances below a cut-off $R$.
+\begin{itemize}
+\item \emph{Boxes near $M$} are certified by Lemma~\ref{lem:cone}, using a lower bound for $\rho(a)$ at a
+candidate point $a$. The bound comes from the distance from $a$ to the nearest feature (planar region, boundary
+segment, vertex) that does not contain $a$. It is sound for planar regions whose directed boundary segments cover
+their boundary, after a global coplanarity re-check of each merged region.
+\item \emph{Boxes farther away} are certified by a direction test: a small linear program finds a unit vector $u$
+with $\langle u,p-x\rangle>0$ for all candidate nearest points $x$ of all points $p$ of the box. The candidates
+are the projections of the box centre onto the relevant features.
+\item \emph{Stopping rule.} The search stops at the first box that is too small to split further and cannot be
+certified. Its distance from $M$ is the certified bound $L$.
+\end{itemize}
+Table~\ref{tab:wfs} lists the results. Lemma~\ref{lem:collar} needs no critical value in $(0,r]$. The computed
+bound covers $(c\cdot\mathrm{tol},L)$; the interval $(0,c\cdot\mathrm{tol}]$ is covered by
+Corollary~\ref{cor:lambda} whenever $\lambda(M)>c\cdot\mathrm{tol}$, which we have not checked separately.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Part & exact $\wfs$ (smooth part) & certified lower bound for $M_{PL}$ \\
+\midrule
+cube, side 10 & 5 & 4.530 \\
+plate $4\times4\times1$ & 0.5 & 0.436 \\
+plate $4\times4\times0.3$ & 0.15 & 0.137 \\
+L-shape (wall 2) & 1 & 0.894 \\
+L-shape, inner fillet 0.2 & 1 & 0.894 \\
+block with slot of width 0.2 & 0.1 & 0.086 \\
+cylinder $R=3$, $H=10$ & 3 & 2.512 \\
+\bottomrule
+\end{tabular}
+\caption{Lower bounds for $\wfs$ of the triangulated parts, certified in the qualified sense above. The exact
+column is the $\wfs$ of the smooth part; for a triangulated cylinder $\wfs(M_{PL})$ is slightly below $3$. The inner
+fillet caps the reach at $0.2$ but leaves the bound unchanged.}\label{tab:wfs}
+\end{table}
+
+\section{Existence}\label{sec:existence}
+
+We give two constructions that turn hypotheses on the data into a realization. Neither assumes that a perturbed
+surface embeds as a whole. Theorem~\ref{thm:lemma0} does assume (P0) that each original patch is embedded, and two
+of its hypotheses are non-local. Propositions~\ref{prop:B} and~\ref{prop:Bprime} assume that the re-trimmed model is
+embedded, which is checked computationally on the model itself.
+
+\subsection{Fans and cones}\label{sec:fans}
+
+\subsubsection*{Setting}
+$K$ is regular: every face is a disk bounded by a single wire, and every edge has two distinct vertices. The theorem
+and its proof (Appendix~\ref{sec:proof51}) cover only this case. For B-rep complexes, natural readings of the
+hypotheses exist: at a seam edge E3$'$ refers to the two sheets of the face; at a closed edge V1 counts edge ends; for
+a face with inner wires, P0 asks that $Q_f$ be homeomorphic to the face. But the proof does not cover them. For
+example, at a seam the two fan sheets of one face glue to an annulus. These cases are not proved here.
+$\mathrm{dev}^*_e(t)$ is the deviation of the boundary points $b_{f,e}(t)=\partial P_f\cap\Pi(t)$ from $\gamma_e(t)$ in
+the normal plane $\Pi(t)$; it is at most $\mathrm{dev}_e$.
+
+\subsubsection*{Auxiliary sets}
+\begin{itemize}
+\item \emph{Normal disks.} For an edge $e$, choose parameters $0<a_e<b_e<1$ and a $C^1$ radius function $\rho_e(t)$.
+$\rho_e$ is constant on the stubs $[t_v,a_e]$, $[b_e,t_w]$ and on a neighbourhood of $a_e$ and $b_e$; here $t_v$ is
+the last parameter with $\gamma_e(t)\in B(p_v,r_v)$. $D_e(t)$ is the closed disk of radius $\rho_e(t)$ in $\Pi(t)$
+centred at $\gamma_e(t)$, and $T_e=\bigcup_{t\in[a_e,b_e]}D_e(t)$.
+\item \emph{Vertex regions.} For a vertex $v$, choose $r_v$. The vertex region $W_v$ is the union of the ball
+$B(p_v,r_v)$ and, for each edge $e$ at $v$, the disks $D_e(t)$ for $t$ between $t_v$ and $a_e$ (or $b_e$).
+\end{itemize}
+
+\subsubsection*{Hypotheses}
+E1--E3$'$ are required on $[t_v,t_w]$, the stubs included.
+\begin{description}
+\item[E1] $\mathrm{dev}^*_e(t)<\rho_e(t)<\min(\tau_e,\operatorname{reach}\gamma_e|_{[a_e,b_e]})$.
+\item[E2] For every face $f>e$:
+  \begin{enumerate}
+  \item $\psi_f<\pi/2$, where $\psi_f$ is the largest angle between $\gamma_e'$ and $T P_f$ inside the tube;
+  and $\rho_e k_f<1$, where $k_f=\kappa_f/\cos\psi_f$;
+  \item $t\mapsto\pi_e(\beta_{f,e}(t))$ is strictly monotone. A sufficient condition is $L_e+\kappa_\gamma
+  \mathrm{dev}^*_e<1$, where $L_e$ is the arc-length Lipschitz constant of $\beta_{f,e}-\gamma_e$;
+  \item \emph{no return:} $\dist(\gamma_e(t),P_f\setminus C_f)>\rho_e(t)$. Here $C_f$ is the union of the section
+  arcs of $P_f$ from $b_{f,e}$ to their exit points, of length at most
+  $\ell_f=(\mathrm{dev}^*+\sqrt{\mathrm{dev}^{*2}+\mu\rho^2})/\mu$ with $\mu=1-\rho k_f$.
+  \end{enumerate}
+\item[E3$'$] The exit points $k_{f,e}(t)$ and $k_{g,e}(t)$ of the two face sections on $\partial D_e(t)$ are distinct.
+A sufficient condition (E3) is $\alpha_e(t)>\varepsilon_f+\varepsilon_g$, with
+$\varepsilon=\arcsin\min\{1,(\mathrm{dev}^*_e+k\ell^2/2)/\rho_e\}$. Here $\alpha_e$ is the angle between the inward
+tangents of the two sections.
+\item[V0] $\gamma_e$'s end at $v$ and the corners of the patches at $v$ lie in $\inter B(p_v,r_v)$.
+\item[V1] (a) $W_v\subseteq\inter\Z(v)$, and $W_v$ is \emph{strictly star-shaped} with respect to $p_v$: for every
+$x\in\partial W_v$, the vector $p_v-x$ lies in the interior of the tangent cone of $W_v$ at $x$, and each ray from
+$p_v$ meets $\partial W_v$ exactly once. (The second property does not follow from the first at junction points, where a
+ray could graze $\partial W_v$, so it is stated separately.)
+(b) \emph{(non-local)} The construction outside $W_v$ meets $\partial W_v$ in one simple closed curve $\lambda_v$.
+\begin{itemize}
+\item Each incident edge contributes one point and each incident face one arc, in the cyclic order of the link of $v$.
+\item The outside pieces cross $\partial W_v$ transversally: along the smooth strata of $\partial W_v$ (the ball and the
+stub cylinders), and along the junction curves where a stub cylinder meets the ball sphere.
+\item $\lambda_v$ meets these junction curves transversally and avoids the corners of $\partial W_v$.
+\end{itemize}
+\item[S1] (a) The $W_v$ are pairwise disjoint. (b) The $T_e$ are pairwise disjoint. (c) $\gamma_e$ and $T_e$ miss $W_w$
+for $w\notin\partial e$. (d) $P_f$ misses $T_e$ for $e\not<f$, and misses $W_v$ for $v\not<f$. (e) Outside
+$\bigcup T\cup\bigcup W$, the patch pieces are pairwise disjoint. (f) $T_e\cap W_v=D_e(a_e)$ for $v<e$, and each
+piece outside $W_v$ meets $W_v$ only in $\lambda_v$.
+\item[P0] \emph{(non-local)} Each $P_f$ is embedded, and $P_f\cap(\bigcup T\cup\bigcup W)$ is a collar of $\partial
+P_f$, so that $Q_f=P_f\setminus\inter(\bigcup T\cup\bigcup W)$ is a closed disk.
+\end{description}
+V1(b) and P0 are not consequences of local data. In the models of Section~\ref{sec:experiments} they were verified
+only for the gapped cube, implicitly, through an exact check that the constructed surface is embedded. The
+sampled checker does not test V1(b), P0, E2.3 beyond S1(d), or S1(e) for adjacent faces.
+
+\begin{theorem}[Existence by fans and cones; conditional]\label{thm:lemma0}
+Under E1--E3$'$, V0, V1, S1 and P0, the tolerant B-rep has a realization.
+\end{theorem}
+The proof is in Appendix~\ref{sec:proof51}. In outline:
+\begin{itemize}
+\item $h$ follows $\gamma_e$ along the edges and puts fans of radii in the normal disks.
+\item The patches, with their collars removed, are kept away from the tubes.
+\item Cones over the curves $\lambda_v$ fill the vertex regions.
+\item Injectivity comes from the disjoint normal disks, E3$'$, star-shapedness and S1/P0.
+\item The resulting map is bi-Lipschitz, so a fine secant approximation is a PL realization.
+\end{itemize}
+
+\begin{example}
+On a cube whose faces are pulled apart by gaps, the construction was carried out exactly in rational
+arithmetic: 216 triangles, with zone membership and embeddedness checked exactly
+(\texttt{compute/lemma0\_box.py}).
+\end{example}
+
+\subsection{Re-intersection}
+
+\begin{proposition}[Planar, degree three]\label{prop:B}
+Suppose every face is a disk bounded by a single wire and is planar, $P_f\subseteq\Pi_f$, and every vertex lies on exactly three faces whose planes are
+independent. Let $c_v$ be the common point of the three planes, $\ell_e=[c_v,c_w]$ for an edge $e=vw$, and
+$\tilde P_f$ the polygon on the $c$'s of the vertices of $f$, in the order of $\partial f$. Assume:
+\begin{itemize}
+\item $c_v\in\Z(v)$, $\ell_e\subseteq\Z(e)$ and $\tilde P_f\subseteq\Z(f)$;
+\item the $\tilde P_f$ are simple polygons that meet exactly in their common edges and vertices.
+\end{itemize}
+Then the cellular map onto $\bigcup\tilde P_f$ is a realization.
+\end{proposition}
+\begin{proof}
+It is a PL homeomorphism onto $\bigcup\tilde P_f$, and each cell lands in its zone.
+\end{proof}
+
+\begin{proposition}[Curved re-intersection]\label{prop:Bprime}
+Suppose there is a \emph{re-trimmed model}: compact patches $\tilde P_f$, curves $\tilde\gamma_e$ and points $c_v$, with
+$\Sigma=\bigcup_f\tilde P_f$, satisfying the following.
+\begin{description}
+\item[P] Each face has a $C^2$ regular parametrization $X_f\colon U_f\to\R^3$, where $U_f$ is open in $\R^2$ or in a
+quotient $\R^2/\Lambda_f$ by a lattice of periods (this is how seams are represented). There is a compact region
+$D_f\subset U_f$ with $X_f(D_f)=\tilde P_f$ and $X_f$ injective on $D_f$. Singular parametrizations, such as sphere
+poles and cone apices, are excluded.
+\item[C] There is a homeomorphism $\phi\colon|K|\to\Sigma$ mapping each open cell of $K$ onto the corresponding open cell
+of $\Sigma$. The open cells of $\Sigma$ are the points $c_v$, the curves $\tilde\gamma_e$ minus their end points, and the
+patches minus all their edge curves (seams included).
+\item[R] Let $G_f\subset D_f$ be the \emph{edge graph} of $f$: the preimage under $X_f$ of all edge curves of $f$,
+including seams, which in the quotient parametrization lie inside $D_f$ rather than on its boundary. $G_f$ is a finite
+graph. Its vertices are the preimages of the points $c_v$. Its edges are simple $C^2$ regular arcs, or loops at a
+vertex, meeting only at vertices. At each vertex of $G_f$, every sector of $D_f$ between two consecutive arcs has angle
+in $(0,2\pi)$. A smooth passage, with angle $\pi$, is allowed: for example a seam vertex on a smooth boundary curve.
+\item[B1--B3] $c_v\in\Z(v)$, $\tilde\gamma_e\subseteq\Z(e)$ and $\tilde P_f\subseteq\Z(f)$.
+\item[T] At every interior point of every edge curve $\tilde\gamma_e$, the inward tangent half-planes of the two adjacent
+patches (or of the two sides of a seam) are distinct: the surface does not fold back on itself. At every vertex $c_v$,
+the tangent cone of $\Sigma$ is an embedded disk. That cone is the union of the tangent sectors $dX_f(\text{sector})$,
+taken over all sectors of the edge graphs $G_f$ at preimages of $c_v$. The condition means these sectors meet only along
+common boundary rays, in the cyclic order of the link of $v$. (Together with the $C^1$ regularity up to the vertices,
+this also controls the edge condition at the end points of the edges.)
+\end{description}
+Then the tolerant B-rep has a realization.
+\end{proposition}
+
+\begin{remark}
+\begin{itemize}
+\item By C, $\Sigma$ is a disjoint union of closed surfaces, so it bounds a solid in the sense of
+Definition~\ref{def:solid}.
+\item C covers seams, closed edges and faces with inner wires.
+\item The edge part of T asks only that the surface does not fold. Transversal faces satisfy it, and so do tangent (G$^1$)
+edges, where the two half-planes are opposite. So the proposition applies in principle to filleted models, provided a
+re-trimmed model with the stated properties is available. Our computation builds the re-trimmed model by
+re-intersecting extended surfaces, which fails for tangent faces (Section~\ref{sec:experiments}); that is a limitation
+of the computation, not of the proposition.
+\end{itemize}
+\end{remark}
+The proof is in Appendix~\ref{sec:proofBprime}.
+
+\begin{remark}[Checking the hypotheses]
+\begin{itemize}
+\item The re-trimmed model can be computed by extending the face surfaces and rebuilding the solid
+(OpenCascade's \texttt{BOPAlgo\_MakerVolume}). The hypotheses are then checked on samples
+(\texttt{compute/reintersect\_curved.py}), except the vertex part of hypothesis T, which is not
+checked. That matters for the cylinder and the pipe, whose seam vertices lie on only two surfaces. The PL step of the
+proof is not carried out numerically; it is an existence argument.
+\item For the planar case, the hypotheses of Proposition~\ref{prop:B} for the sewn box and the sewn plate were also
+re-checked in exact rational arithmetic, including embeddedness.
+\item Results are in Section~\ref{sec:experiments}.
+\end{itemize}
+\end{remark}
+
+\section{An obstruction}\label{sec:obstruction}
+
+\subsection{Setting}
+\begin{itemize}
+\item $f\ne g$ are faces whose closed cells are disks bounded by single wires.
+\item Their data are planar: $P_f\subseteq\Pi_f$ and $P_g\subseteq\Pi_g$, with the planes not parallel.
+\item $\lambda=\Pi_f\cap\Pi_g$, and $\alpha\in(0,\pi/2]$ is the angle between the planes.
+\item $n_f,n_g$ are unit normals, and $m_f$ is a unit vector in $\Pi_f$ orthogonal to $\lambda$ (likewise $m_g$).
+\item $\pi_f$ is the orthogonal projection onto $\Pi_f$, and $U_f=\bigcup_{e<f}\Z(e)$, which contains the zones
+of the vertices of $f$.
+\item $\ell_f$ is the boundary loop of $f$: the arcs $\beta_{f,e}$ in the cyclic order of $\partial f$, with
+consecutive arcs joined by the segment between their end points.
+\end{itemize}
+
+\begin{theorem}[Obstruction]\label{thm:obstruction}
+Suppose there are $X\in\lambda$ and $\rho>0$ such that, with $J_f=X+[-\rho,\rho]m_f$ and $J_g=X+[-\rho,\rho]m_g$:
+\begin{description}
+\item[O0] $\beta_{f,e}\subseteq\Z(e)$ for every edge $e$ of $f$, and at every vertex $v$ of $f$ the end points of
+the two arcs of $f$ at $v$ lie in $\Z(v)$; likewise for $g$.
+\item[O1] $J_f\cap\ell_f=\emptyset$, and the winding number of $\ell_f$ in $\Pi_f$ about the points of $J_f$ is
+odd; likewise for $g$.
+\item[O2] $J_f\cap\cl\,\pi_f(U_f)=\emptyset$ and $J_g\cap\cl\,\pi_g(U_g)=\emptyset$.
+\item[O3] $\Z(e)$ is simply connected for every edge $e$ of $f$ or $g$.
+\item[O4] $\rho\sin\alpha>\tau_f\cos\alpha+\tau_g$ and $\rho\sin\alpha>\tau_g\cos\alpha+\tau_f$.
+\end{description}
+Then the tolerant B-rep has no realization.
+\end{theorem}
+
+\begin{proof}
+Suppose $h$ is a realization, and let $\varphi=\pi_f\circ h|_{\bar f}$.
+
+\emph{Step 1: over $J_f$, $h(\bar f)$ lies in the slab.}
+\begin{itemize}
+\item Let $y\in J_f$. We have $h(\bar f)\subseteq\Z(f)=N_{\tau_f}(P_f)\cup U_f$, and by O2 no point of $U_f$ lies over
+$y$.
+\item Since $P_f\subseteq\Pi_f$, $\pi_f^{-1}(y)\cap N_{\tau_f}(P_f)\subseteq\sigma_y:=y+(-\tau_f,\tau_f)n_f$.
+\item So $h(\bar f)\cap\pi_f^{-1}(y)=h(\bar f)\cap\sigma_y$. These points are images of interior points of $f$,
+because $h(\partial f)\subseteq U_f$.
+\end{itemize}
+
+\emph{Step 2: degree one.}
+\begin{itemize}
+\item Parametrize $\ell_f$ over $\partial f$: a small arc $A_v$ around each vertex goes to the joining segment, and
+the rest of each edge goes to $\beta_{f,e}$. Shrink $A_v$ until $h(A_v)\subseteq\Z(v)$.
+\item Build a homotopy in $U_f$ from $h|_{\partial f}$ to this parametrization:
+  \begin{itemize}
+  \item on $A_v$, the straight-line homotopy inside the convex ball $\Z(v)$;
+  \item on the rest of an edge $e$, the boundary of the square is mapped into $\Z(e)$ (by O0, monotonicity, and
+  $h(\bar e)\subseteq\Z(e)$), so it extends over the square by O3.
+  \end{itemize}
+\item By O2 the projected homotopy avoids every $y\in J_f$. So $\varphi|_{\partial f}$ and $\ell_f$ have the same
+winding number about $y$, which is odd by O1. Hence the mod-2 degree of $\varphi$ at $y$ is $1$.
+\item Fix a triangulation of $\bar f$ on which $h$ is linear. For $y\notin\varphi(\text{1-skeleton})$, which
+excludes only finitely many points of $J_f$ once the slice in Step 3 is generic, $\#(h(\bar f)\cap\sigma_y)$ is
+odd.
+\end{itemize}
+
+\emph{Step 3: a crossing arc.}
+\begin{itemize}
+\item Let $\Sigma$ be the plane through $X$ orthogonal to $\lambda$; it contains $n_f,m_f,n_g,m_g$.
+\item Move $X$ along $\lambda$ and shrink $\rho$ slightly to generic values; O1, O2 and O4 are open conditions.
+Genericity means: $\Sigma$ contains no vertex of the triangulations and meets their edges transversally, and the
+lines $\langle x-X,m_f\rangle=\pm\rho$, $\langle x-X,m_g\rangle=\pm\rho$ contain no vertex.
+\item In $\Sigma$, the rectangle $R_f=J_f+[-\tau_f,\tau_f]n_f$ meets $h(\bar f)$ in a compact 1-manifold $M_f$.
+\item $M_f$ misses $h(\partial f)$, since $\pi_f(R_f)=J_f$ and O2 holds. It misses the long sides of $R_f$, by
+Step 1. So its boundary lies on the two short sides.
+\item A generic fibre $\sigma_y$ meets $M_f$ an odd number of times (Step 2). Circle components, and arcs with both
+ends on one short side, meet it an even number of times.
+\item Hence some arc $a_f\subseteq M_f$ joins the two short sides of $R_f$. Likewise there is an arc $a_g$ for $g$.
+\end{itemize}
+
+\emph{Step 4: the arcs meet.}
+\begin{itemize}
+\item In $\Sigma$, use the coordinates $u=\langle x-X,n_f\rangle$ and $w=\langle x-X,n_g\rangle$.
+\item On the short sides of $R_f$, $|w|\ge\rho\sin\alpha-\tau_f\cos\alpha>\tau_g$ by O4, with opposite signs on
+the two sides. So $a_f$ contains a sub-arc in the parallelogram $Q=\{|u|\le\tau_f,|w|\le\tau_g\}$ joining
+$w=-\tau_g$ to $w=\tau_g$. Symmetrically, $a_g$ contains a sub-arc in $Q$ joining $u=-\tau_f$ to $u=\tau_f$.
+\item By O4, $Q$ lies in both rectangles.
+\item Two paths in a square joining the two pairs of opposite sides intersect (a standard consequence of the Brouwer
+fixed point theorem; not separately checked against a source). So $h(\bar f)\cap h(\bar g)\ne\emptyset$ at a point that is
+the image of interior points of both $f$ and $g$ (Step 1). This contradicts injectivity.
+\end{itemize}
+\end{proof}
+
+\begin{remark}
+\begin{itemize}
+\item \emph{Which hypotheses bind.} Face tolerances are tiny (OpenCascade's default is $10^{-7}$), so O4 is mild.
+The binding conditions are O1 and O2: the patches must cross away from the shadows of the edge and vertex zones.
+\item \emph{Curved patches.} The proof uses planarity in Steps 1 and 2. A version for $C^2$ patches with $\tau_f$
+below their reach should follow with tubular coordinates; it is not written.
+\item \emph{Standard facts used without separate checking against a source:} mod-2 degree of PL maps and its relation
+to the winding number, general position for PL maps and generic planes, parity of crossings of a segment with a PL
+circle, homotopy invariance of the winding number, the nerve lemma (for the O3 test in the computations), and the
+square lemma cited above.
+\end{itemize}
+\end{remark}
+
+\section{Experiments with OpenCascade}\label{sec:experiments}
+
+\subsection{Set-up}
+\begin{itemize}
+\item \emph{Software.} All experiments use OpenCascade 8.0.1 through \texttt{cadquery-ocp}. Scripts and results are
+in the repository~\cite{repo}.
+\item \emph{The two checks.} ``BRepCheck'' is \texttt{BRepCheck\_Analyzer(shape).IsValid()}. ``BOP check'' is
+\texttt{BRepAlgoAPI\_Check(shape, true, true)}, which also tests geometry and self-interference.
+\item \emph{Sewn models} imitate imported data. Every face of an exact part is moved by a random vector of length
+between $g/2$ and $g$, and the faces are sewn back with \texttt{BRepBuilderAPI\_Sewing} at tolerance $4g$. Sewing
+sets each edge tolerance to $1.05$ times its own deviation estimate, which is $1.048$--$1.05$ times our measured
+deviation.
+\item \emph{Scope.} These are a few parts in one kernel version, not a survey of industrial models.
+\end{itemize}
+
+\subsection{The checks do not decide existence or uniqueness}
+Table~\ref{tab:occ} summarises.
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{>{\raggedright}p{4.4cm}cc>{\raggedright\arraybackslash}p{5.0cm}}
+\toprule
+Model & BRepCheck & BOP check & What is true \\
+\midrule
+twisted triangular prism, two faces with linked boundaries ($\tau=0.081$) & valid & self-intersection & no
+realization (linking number $-1$) \\
+thick pipe, tolerance $1.3\times$ hole radius & valid & valid & two realizations with non-homeomorphic solids
+(knot determinant $3$ vs.\ $1$) \\
+sewn wedges, $30^\circ$ and $10^\circ$, $g=0.01$ & valid & valid & no realization
+(Theorem~\ref{thm:obstruction}) \\
+sewn plate, thickness $0.05$, $g=0.01$ & valid & invalid & realizable (Proposition~\ref{prop:B}) \\
+filleted L-shape, $\tau=0.1$ & valid & self-intersection & $\tau+\mathrm{defl}<$ certified $\wfs$ bound of
+$M_{PL}$ \\
+long cylinder, $\tau=3.3$ & valid & valid & $\tau\ge\wfs$(nominal) (critical point exhibited) \\
+\bottomrule
+\end{tabular}
+\caption{OpenCascade's checks against what the theory shows.}\label{tab:occ}
+\end{table}
+
+\subsubsection*{Twisted prism}
+\begin{itemize}
+\item Two non-adjacent triangular faces $A,B$ have boundary loops with linking number $-1$ (by crossing count; a
+numerical Gauss integral agrees). The loops are $0.4037>2\tau=0.1615$ apart, so the unions $T_A$, $T_B$ of
+their edge and vertex zones are disjoint.
+\item In a realization, each $h(e)$ lies in the convex capsule $C_e=N_\tau(e)$, which contains the end balls (all
+tolerances are equal here). Homotope $h(e)$ rel end points to a segment inside $C_e$, and the vertices to the
+nominal ones inside the balls. This gives a homotopy of $h(\partial A)$ to $\partial A$ inside $T_A$, so in the
+complement of $T_B$; likewise for $B$.
+\item The linking number is invariant under such homotopies, so $\mathrm{lk}(h(\partial A),h(\partial B))=-1$, and
+$h(\partial A)$ must meet the disk $h(\bar B)$. That contradicts embeddedness.
+\end{itemize}
+
+\subsubsection*{Knotted pipe}
+\begin{itemize}
+\item One realization keeps the nominal geometry. The other replaces the inner face by a thin tube, of radius
+$0.005$, around a centreline that follows a long trefoil.
+\item The script checks the zones (maximum distance $0.983\le1.3$), embeddedness ($\varepsilon\kappa_{\max}=0.31$;
+non-local distance $0.036>2\varepsilon$ outside a window of $0.04<\pi/\kappa_{\max}=0.0504$) and the knot
+(determinant $3$).
+\item The second solid is the exterior of a knotted arc in a ball, whose
+fundamental group is non-abelian: a knot of determinant $3$ admits a non-trivial Fox $3$-colouring, and a
+non-trivial $3$-colouring of a diagram defines, through the Wirtinger presentation, a surjection of the knot group onto
+the non-abelian group $S_3$ (standard; not separately checked against a source). The nominal
+solid is a solid torus. So the two solids are not homeomorphic.
+\item This shows that the collar hypothesis of Theorem~\ref{thm:uniqueness} cannot be dropped. Here
+$\wfs\le1<1.3$.
+\end{itemize}
+
+\subsubsection*{Sewn wedges}
+\begin{itemize}
+\item At the knife edge of the sewn wedges, the two planar patches cross along a line that lies outside the edge
+tube, by $49\%$ ($30^\circ$) and about $3\times$ ($10^\circ$) of $\tau_e$.
+\item The hypotheses of Theorem~\ref{thm:obstruction} hold. For the $30^\circ$ wedge the largest feasible $\rho$ at
+the positions searched is $1.6\cdot10^{-3}$, while O4 needs only $3.7\cdot10^{-7}$; for the $10^\circ$ wedge it is
+$1.6\cdot10^{-2}$.
+\item An independent check in exact rational arithmetic confirmed all of O0--O4 for both wedges.
+\item On the sewn box and plate and on the exact box and wedge, the checker finds no crossing witness, consistent
+with their being realizable.
+\end{itemize}
+
+\subsection{Which construction applies}
+
+\begin{table}[h]
+\centering\small
+\begin{tabular}{>{\raggedright}p{4.0cm}>{\raggedright}p{2.8cm}>{\raggedright}p{2.6cm}>{\raggedright\arraybackslash}p{4.0cm}}
+\toprule
+Model & fans (Thm.~\ref{thm:lemma0}) & re-intersection & margins of re-intersection (vertex / edge / face) \\
+\midrule
+exact box, cylinder, pipe, slot, filleted box, $10^\circ$ wedge & pass & pass where applicable & --- \\
+L-shape, all edges filleted 0.5 & pass with variable radius$^*$ & not applicable & --- \\
+L-shape fused, inner fillet 0.2 & fails (2 cusp vertices, 9 V1(a) failures); passes after merging coplanar
+faces & not applicable & --- \\
+sewn box $g=0.01$ & fails at vertices & pass & 45\% / 13\% / 4.9\% \\
+sewn plate $g=0.01$ & fails at vertices & pass & 45\% / 13\% / 5.9\% \\
+sewn cylinder $g=0.01$ & fails at vertices & pass (curved) & 55\% / 35\% / 5.0\% \\
+sewn cylinder $g=0.05$ & fails at vertices & pass (curved) & 55\% / 11\% / 8.9\% \\
+sewn pipe $g=0.01$ & fails at vertices & pass (curved) & 53\% / 16\% / 5.1\% \\
+sewn wedges & fails at vertices & fails (edge outside tube) & no realization (Thm.~\ref{thm:obstruction}) \\
+sewn filleted box $g=0.001$ & fails at vertices & computation not applicable (tangent faces) & open \\
+\bottomrule
+\end{tabular}
+\caption{Constructions on exact and sewn models (sampled checks, double precision). $^*$Provisional: the checker
+does not yet implement the constant radius near the vertices. Face margins are the smaller of the sampled checker's
+value and an independent dense re-check with exact projections (\texttt{results/reintersect\_B3\_dense.txt}); for the
+sewn plate only the dense re-check is available.}\label{tab:constr}
+\end{table}
+
+\begin{itemize}
+\item \emph{Why the fans fail on sewn data.} The fan construction fails at the vertices of sewn models. Sewing sets
+$\tau_e=1.05\,\mathrm{dev}_e$, and the tube radius must exceed the deviation; but at a corner of a box three tubes of
+radius greater than $\mathrm{dev}$ do not fit disjointly into a vertex ball of radius about $\tau_e$.
+\item \emph{Re-intersection.} Re-intersection avoids this. Our computation of the re-trimmed model, which
+re-intersects the extended surfaces, needs transversal faces. ``Pass (curved)'' refers to the edge part of hypothesis T
+only; the vertex part is not checked.
+\item \emph{Sewn models with tangent edges remain open.} On the sewn filleted box, OpenCascade sets each vertex
+tolerance equal to the largest incident edge tolerance, the patch corners lie up to $0.85\,\tau_v$ from the vertex
+point, and none of our vertex constructions fits.
+\end{itemize}
+
+\subsection{Other observations}
+\begin{itemize}
+\item \emph{Thickness heuristics.} Half the minimum distance between non-adjacent faces is a common estimate of the
+safe tolerance. It overestimates the cylinder (5 against $\wfs=3$), and underestimates an L-shape with a $0.05$
+inner fillet by a factor of about $97$.
+\item \emph{Offsets.} In its default mode, \texttt{BRepOffsetAPI\_MakeOffsetShape} returned solids with wrong
+volume (errors from $44\%$ to over a thousandfold, with six shells instead of one in every such case) for a filleted box at
+inward offsets larger than the fillet radius but within the $\wfs$-safe range, and BRepCheck accepted them. A plausible
+mechanism is in the source of OpenCascade~8.0.1: when the offset radius of a cylindrical, spherical or toroidal fillet
+face becomes negative, its offset
+surface gets the status \texttt{BRepOffset\_Reversed}, and \texttt{BRepOffset\_MakeOffset::BuildOffsetByArc} skips
+such faces (source comment: ``Degenerated or returned faces are not stored''). We have not traced the rest of the
+algorithm. These failures appear not to involve tolerances; they look like failures of face-by-face offsetting when faces must
+disappear.
+\item \emph{Why BRepCheck ignores the size of tolerances.} In OpenCascade~8.0.1 the documentation comment of
+\texttt{BRepCheck\_Analyzer} lists the status \texttt{BRepCheck\_InvalidToleranceValue} as ``NYI'' (not yet
+implemented) for vertices, edges and faces. In \texttt{BRepCheck\_Analyzer.cxx} the flag that would set this status on a
+face is initialised to false and never assigned, and no other file sets the status. So BRepCheck never reports a
+tolerance as too large. (This was first noticed in a companion book project; we checked the source
+ourselves.)
+\item \emph{Public documentation.} We did not find a check that tolerances leave the topology unchanged in the
+public documentation of OpenCascade, or in third-party documentation of ACIS and Parasolid. That says only that
+the documentation does not mention one.
+\end{itemize}
+
+\section{Limitations and open problems}\label{sec:open}
+
+\begin{enumerate}
+\item \textbf{Citations behind the proofs.} The results quoted from the literature in the proofs have been checked
+against the originals. What remains are the standard facts listed, each time, as ``not separately checked against a
+source''.
+\item \textbf{B-rep complexes in the fan construction.} Theorem~\ref{thm:lemma0} is proved for regular complexes only;
+seams, closed edges and faces with inner wires need separate arguments. (Proposition~\ref{prop:Bprime} covers them.)
+\item \textbf{Spheres.} Theorem~\ref{thm:uniqueness} excludes shells of genus $0$. Waldhausen's horizontality
+argument does not apply to them. The PL Schoenflies theorem~\cite[Thm.~17.12]{Moise77} is the natural tool for the sphere
+case; the argument is not written.
+\item \textbf{Embeddings.} We prove that the images of realizations are ambient isotopic, not that the embeddings
+are isotopic as maps. The two differ by a self-homeomorphism of the surface.
+\item \textbf{Tight vertices.} We do not know whether sewn models with tangent edges and OpenCascade's vertex
+tolerances (equal to the largest incident edge tolerance) have realizations. Two directions are open: a vertex
+construction that uses the edge tubes as well as the ball, or a vertex version of the obstruction.
+\item \textbf{Re-trimmed models for tangent edges.} Proposition~\ref{prop:Bprime} allows tangent (G$^1$) edges and mixed
+vertices, but our computation of a re-trimmed model re-intersects extended surfaces and fails when faces are tangent. A
+construction of re-trimmed models for such data is open.
+\item \textbf{Curved obstruction.} Theorem~\ref{thm:obstruction} is stated for planar patches.
+\item \textbf{Rigour of the computations.}
+  \begin{itemize}
+  \item The $\wfs$ bounds and the hypothesis checks use double precision and sampling. Exceptions: the gapped-cube
+  construction, and the exact re-verification of the sewn wedges, the sewn box and the sewn plate.
+  \item Interval arithmetic and a compiled implementation are needed for industrial models.
+  \end{itemize}
+\item \textbf{Formalization.} The carrier lemma in general (contractible carriers), Waldhausen's theorem and the
+existence constructions are not formalized.
+\end{enumerate}
+
+
+
+
+\section*{Data and code availability}
+All scripts, computed results and the Lean formalization are available in the public repository~\cite{repo}.
+
+\section*{Declaration of competing interest}
+The author declares no competing interests.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the research and writing process}
+During this work the author used Claude (Anthropic) to draft proofs and text, write and run the experiment scripts and
+the Lean formalization, and check citations against the original sources; independent AI review passes were used to
+check proofs and citations. Lean~4 with Mathlib verified the formalized lemma. The author directed the research,
+reviewed and edited the content, and takes full responsibility for the publication.
+
+\appendix
+\section{A curved-triangle lemma}\label{sec:curvedtri}
+
+Appendices~\ref{sec:proof51} and~\ref{sec:proofBprime} need maps of triangles with one curved side that reproduce a
+\emph{prescribed} parametrization of that side. This is what makes maps built separately on two adjacent faces agree
+on their common edge. We give an explicit construction.
+
+\begin{lemma}\label{lem:curvedtri}
+Let $\hat c\colon[t_0,t_1]\to\R^2$ be a $C^1$ regular curve, $a_1=\hat c(t_0)$, $a_2=\hat c(t_1)$, and $a_3$ a point.
+\begin{itemize}
+\item Put $\psi(s)=\hat c(t_0+s(t_1-t_0))-((1-s)a_1+sa_2)$ for $s\in[0,1]$.
+\item In barycentric coordinates $(\lambda_1,\lambda_2,\lambda_3)$ of the reference triangle $\Delta$, put
+$\mu=\lambda_1+\lambda_2$ and
+\[
+F(\lambda)=\lambda_1a_1+\lambda_2a_2+\lambda_3a_3+\mu^2\,\psi(\lambda_2/\mu)\qquad(F=a_3\text{ at }\mu=0).
+\]
+\end{itemize}
+Then:
+\begin{enumerate}
+\item[(a)] on the side $\lambda_3=0$, $F$ is $\lambda_2\mapsto\hat c(t_0+\lambda_2(t_1-t_0))$;
+\item[(b)] on the sides $\lambda_1=0$ and $\lambda_2=0$, $F$ is affine;
+\item[(c)] $F$ is $C^1$ on the closed triangle $\Delta$, including at its corners.
+\end{enumerate}
+Moreover, consider a family of such triangles in which the chord triangles $(a_1,a_2,a_3)$ are shape-regular with
+diameter $h\to0$, the speed $|\hat c'|$ is bounded above and below by positive constants (so $|t_1-t_0|=O(h)$), and
+$\hat c'$ has a uniform modulus of continuity $\omega$, which we take subadditive (replacing it by its concave majorant
+if necessary). Both hold in Appendices~\ref{sec:proof51} and~\ref{sec:proofBprime}, where the curves are fixed regular
+$C^1$ curves on compact parameter intervals. Then for small $h$:
+\begin{enumerate}
+\item[(d)] $F$ is a $C^1$ diffeomorphism of $\Delta$ onto the region bounded by the arc $\hat c([t_0,t_1])$ and the
+segments $[a_2,a_3]$ and $[a_3,a_1]$, and $DF=A(I+O(\omega(h)))$, where $A$ is the derivative of the affine part.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) On $\lambda_3=0$ we have $\mu=1$, so $F=(1-\lambda_2)a_1+\lambda_2a_2+\psi(\lambda_2)=\hat c(t_0+\lambda_2(t_1-t_0))$.
+
+(b) $\psi(0)=\psi(1)=0$. On $\lambda_2=0$ the correction is $\mu^2\psi(0)=0$. On $\lambda_1=0$ it is
+$\mu^2\psi(1)=0$ (for $\mu>0$).
+
+(c) For $\mu>0$, $F$ is $C^1$. Write $G=\mu^2\psi(s)$ with $s=\lambda_2/\mu$. Then
+\begin{itemize}
+\item $|G|\le\mu^2\max|\psi|=O(\mu^2)$, so $G$ is differentiable at $a_3$ with $DG(a_3)=0$;
+\item $dG=2\mu\psi(s)\,d\mu+\mu^2\psi'(s)\,ds$ with $|ds|=O(1/\mu)$, so $|dG|=O(\mu)\to0$ as $\mu\to0$.
+\end{itemize}
+Hence $F$ is $C^1$ at $a_3$, with $DF(a_3)=A$. At the other two corners $\mu=1$, and $\psi$ is $C^1$ on $[0,1]$.
+
+(d) \emph{Size of the correction.} Put $\Delta t=t_1-t_0$. Then $\psi'(s)=\Delta t\,\bigl(\hat c'(t_0+s\Delta t)-\overline{\hat
+c'}\bigr)$, where $\overline{\hat c'}$ is the mean of $\hat c'$ over $[t_0,t_1]$. So $|\psi'|\le|\Delta t|\,\omega(|\Delta
+t|)=O(h\,\omega(h))$, and since $\psi(0)=0$, also $|\psi|=O(h\,\omega(h))$. Hence $|DG|=O(h\,\omega(h))$ on $\Delta$, in
+coordinates of the unit reference triangle.
+
+\emph{Injectivity.} By shape regularity $\|A^{-1}\|=O(1/h)$, so $DF=A+DG=A(I+O(\omega(h)))$. For $x,y\in\Delta$ (which is
+convex),
+\[
+|F(x)-F(y)|\ge|A(x-y)|-Ch\,\omega(h)|x-y|\ge(ch-Ch\,\omega(h))|x-y|>0
+\]
+for small $h$. So $F$ is injective, and its differential is invertible.
+
+\emph{Image.} $F$ maps $\partial\Delta$ homeomorphically onto the closed curve formed by the arc and the two segments.
+That curve is simple for small $h$: the arc stays within $O(h\,\omega(h))$ of its chord, and the two segments make
+angles with the chord that are bounded below by shape regularity. An injective continuous map of a closed disk whose
+boundary goes onto a Jordan curve has as image the closed region bounded by that curve.
+\end{proof}
+
+\emph{Remark.} The classical blending map with $\mu\,\psi(\lambda_2/\mu)$ in place of $\mu^2\psi(\lambda_2/\mu)$ is
+exact on the curved side and affine on the straight sides. But it is only Lipschitz at $a_3$: its derivative there
+depends on the direction of approach. The factor $\mu^2$ is what gives (c).
+
+\emph{Standard facts used without separate checking against a source:} the Jordan curve theorem, and that an injective
+continuous map of a closed disk onto a set bounded by its image boundary curve has the closed Jordan region as its
+image (invariance of domain).
+
+\section{Proof of Theorem~\ref{thm:lemma0}}\label{sec:proof51}
+
+We use the notation and hypotheses of Section~\ref{sec:fans}; $K$ is regular.
+
+\emph{Exit points.} For a face $f>e$, let $c(\sigma)$ be the section of $P_f$ in $\Pi(t)$, parametrized by arc length
+from $b_{f,e}(t)$ and written relative to $\gamma_e(t)$. Then $(|c|^2/2)''=1+\langle c,c''\rangle\ge1-\rho_ek_f>0$ by
+E2.1. So $|c|$ cannot touch the circle $\partial D_e(t)$ from inside before crossing it, and it crosses with
+$\langle c',\hat r\rangle>0$, where $\hat r$ is the outward radial direction. The \emph{exit point} $k_{f,e}(t)$ is that
+crossing point. It is unique by E2, and $C^1$ in $t$ by the implicit function theorem.
+
+\emph{Margin.} $m>0$ is the minimum zone margin. $\rho_e<\tau_e$ and $W_v\subseteq\inter\Z(v)$, and by compactness all
+pieces built below lie at distance at least $m$ inside the zones of their cells.
+
+\emph{Arcs.} For a face $f$ at $v$, we use two arcs:
+\begin{itemize}
+\item $A_{f,v}$ is the arc of $\partial Q_f$ on $\partial W_v$, from $k_{f,e}(a_e)$ to $k_{f,e'}(a_{e'})$;
+\item $\Lambda_{f,v}$ is the arc of $\lambda_v$ contributed by $f$, from $\gamma_e(a_e)$ to $\gamma_{e'}(a_{e'})$. It
+consists of the two radii $[\gamma_e(a_e),k_{f,e}(a_e)]$ in the end disks, followed by $A_{f,v}$.
+\end{itemize}
+
+\subsection{The image pieces}
+\begin{enumerate}
+\item \emph{Vertices.} $h(v)=p_v$.
+\item \emph{Edges.} On $[a_e,b_e]$, $h(e)=\gamma_e$.
+\item \emph{Fans.} The fan strip is $F_{f,e}=\{\gamma_e(t)+\sigma(k_{f,e}(t)-\gamma_e(t)):t\in[a_e,b_e],\ \sigma\in[0,1]\}$.
+\item \emph{Faces away from the vertices.} $Q_f=P_f\setminus\inter(\bigcup T\cup\bigcup W)$.
+\item \emph{Vertex regions.} Inside $W_v$, take the cone from $p_v$ over $\lambda_v$.
+  \begin{itemize}
+  \item The cone over the point $\gamma_e(a_e)$ is the stub of $h(e)$.
+  \item The cone over $\Lambda_{f,v}$ is the sector of $h(f)$ at $v$.
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Corners of $\lambda_v$}
+$\lambda_v$ is piecewise $C^1$. Its corners are:
+\begin{itemize}
+\item the points $\gamma_e(a_e)$, where two fan radii meet;
+\item the points $k_{f,e}(a_e)$, where a radius in the end disk meets the trace of $Q_f$;
+\item the points where $\lambda_v$ crosses a junction curve of $\partial W_v$. By V1(b) these crossings are
+transversal and avoid the corners of $\partial W_v$.
+\end{itemize}
+Between consecutive corners, $\lambda_v$ is a $C^1$ curve with nonvanishing tangent.
+
+\subsection{Injectivity of the image}
+\emph{Inside $T_e$.}
+\begin{itemize}
+\item The disks $D_e(t)$ lie in the normal planes and have radius below the reach of $A=\gamma_e([a_e,b_e])$, so they
+are pairwise disjoint. Indeed, by Federer's Theorem~4.8(2),(12)~\cite[pp.~434--435]{Federer59}, if $a\in A$, $v$ lies
+in the normal cone $\mathrm{Nor}(A,a)$ and $|v|<\mathrm{reach}(A)$, then $a$ is the unique nearest point of $A$ to $a+v$.
+The tangent cone is the tangent line at interior points and a ray at the end points; its dual, the normal cone, is
+then the normal plane, respectively a half-space, and contains the normal plane in both cases. So every point of $D_e(t)$ has nearest point $\gamma_e(t)$. This holds
+whatever $\rho_e(t)$ is.
+\item Inside one disk, the construction is the centre and two radii to the distinct points $k_{f,e}(t)$ and
+$k_{g,e}(t)$ (E3$'$). These meet only at the centre.
+\item No other piece enters $T_e$:
+  \begin{itemize}
+  \item non-incident pieces are excluded by S1(b)--(d) and S1(f);
+  \item the patch of $f>e$ meets $D_e(t)$ only in the section arc from $b_{f,e}(t)$ to $k_{f,e}(t)$ (by the convexity
+  computation above and E2.3). That arc lies in the collar of $\partial P_f$, which is removed (P0).
+  \end{itemize}
+\end{itemize}
+
+\emph{Inside $W_v$.}
+\begin{itemize}
+\item The cone map $(s,x)\mapsto p_v+s(x-p_v)$, $s\in(0,1]$, $x\in\lambda_v$, is injective. Each ray from $p_v$ meets
+$\partial W_v$ once (V1(a)), and $\lambda_v$ is simple (V1(b)).
+\item No other piece enters $W_v$: S1(a), (c), (d) exclude non-incident pieces, and S1(f) excludes incident ones.
+\end{itemize}
+
+\emph{Elsewhere.}
+\begin{itemize}
+\item Outside the closed set $\bigcup T\cup\bigcup W$, the pieces are the embedded $Q_f$ (P0), and they are pairwise
+disjoint (S1(e)).
+\item On $\partial T_e$, two different $Q_f$ could meet only at exit points, which are distinct (E3$'$), or at
+non-incident patches, which are excluded by S1(d).
+\item On $\partial W_v$, they meet $\lambda_v$ in disjoint arcs, because $\lambda_v$ is simple.
+\end{itemize}
+
+\emph{Cell structure.}
+\begin{itemize}
+\item By P0, $\partial Q_f$ is one circle made of the curves $k_{f,e}$ and the arcs $A_{f,v}$.
+\item By V1(b) there is exactly one arc per corner of $f$. So the pieces form a 2-regular graph isomorphic to
+$\partial f$; its only cycle is $\partial Q_f$, and the cyclic order is forced.
+\item The pieces meet exactly as follows:
+  \begin{itemize}
+  \item $Q_f\cap F_{f,e}=k_{f,e}$, by E2.3 and S1(f);
+  \item $(Q_f\cup\text{fans})\cap\text{sector}_{f,v}=\Lambda_{f,v}$, by strict star-shapedness and S1(f).
+  \end{itemize}
+\item Gluing two disks along a boundary arc that is their whole intersection gives a disk. By induction, the union
+$h(f)$ is a closed disk with $\partial h(f)=\bigcup_{e<f}h(e)$.
+\end{itemize}
+
+\emph{Zones.}
+\begin{itemize}
+\item $Q_f\subseteq P_f\subseteq\Z(f)$.
+\item $F_{f,e}\subseteq T_e\subseteq N_\rho(\gamma_e)\subseteq\Z(e)\subseteq\Z(f)$.
+\item The cone parts lie in $W_v\subseteq\Z(v)$, which is contained in $\Z(e)$ and $\Z(f)$ for incident $e$ and $f$.
+\item $h(\inter e)\subseteq\gamma_e\cup W_v\subseteq\Z(e)$.
+\item All inclusions hold with margin at least $m$.
+\end{itemize}
+
+\subsection{The map $h$}
+We build a polyhedral domain and a homeomorphism onto the union of the pieces that is $C^1$, with injective
+differential, on each closed domain cell (except at the apexes), and that agrees on shared edges.
+
+\emph{Domain.} Let $L$ be a polyhedral subdivision of $|K|$ with 2-cells for the fans, for the pieces $Q_f$ and for the
+sectors, in the incidence pattern of the image pieces. Each sector is subdivided into \emph{sub-cones}: cones from the
+vertex $v$ over one segment of a polygonal arc of the link of $v$. That arc has a vertex at the preimage of every corner
+of $\lambda_v$, so the image of a sub-cone is the cone over a $C^1$ piece of $\lambda_v$.
+
+\emph{The parametrization $\phi$.} Fix once and for all a parametrization $\phi$ of $\lambda_v$ by the polygonal link,
+$C^1$ with $\phi'\ne0$ on each link segment, such that:
+\begin{itemize}
+\item on each end radius $[\gamma_e(a_e),k_{f,e}(a_e)]$ it is affine in the fan parameter $\sigma$;
+\item on each arc $A_{f,v}$ it is some fixed $C^1$ regular parametrization.
+\end{itemize}
+The maps below all use this $\phi$.
+
+\emph{Fans.} Use the chart $(t,\sigma)\mapsto\gamma_e(t)+\sigma(k_{f,e}(t)-\gamma_e(t))$ on $[a_e,b_e]\times[0,1]$,
+precomposed with a bilinear map from the quadrilateral domain cell onto this rectangle.
+\begin{itemize}
+\item It is $C^1$ (since $k_{f,e}$ is).
+\item Its differential is injective: $\partial_\sigma=k-\gamma\in\Pi(t)$ is nonzero, and $\partial_t$ has
+$\gamma'$-component at least $1-\sigma\kappa_\gamma\rho_e>0$.
+\item It fixes the parametrization of the crease $k_{f,e}$ by $t$, and that of the end radius at $t=a_e$ by $\sigma$.
+\end{itemize}
+
+\emph{Sectors.} On each sub-cone, map $v+s(y-v)$ to $p_v+s(\phi(y)-p_v)$. This map is $C^1$ up to the boundary
+away from $v$, with injective differential, because $\phi'\ne0$ and $\phi'$ is transverse to the rays (V1(a)). It agrees
+with the fan on the end radii (both affine in $\sigma$), and with the map on $Q_f$ along $A_{f,v}$ (both use $\phi$).
+
+\emph{$Q_f$.} In the parameter domain of $P_f$, $\partial Q_f$ is a piecewise $C^1$ curve. Its pieces are $k_{f,e}$,
+parametrized by $t$, and $A_{f,v}$, parametrized by $\phi$. Its corners are at the points $k_{f,e}(a_e)$ and at the
+junction crossings.
+\begin{itemize}
+\item Subdivide $Q_f$ into curved triangles, each with at most one curved edge. The curved edges are pieces of
+$\partial Q_f$ with their prescribed parametrizations, and the corners of $\partial Q_f$ are vertices. Triangulate the
+domain cell of $Q_f$ in $L$ to match.
+\item On each curved triangle, use the map of Lemma~\ref{lem:curvedtri}. It reproduces the prescribed
+parametrization on the curved edge, is affine on the straight edges, is $C^1$ up to the corners, and is a diffeomorphism
+for a fine enough subdivision. As in Appendix~\ref{sec:proofBprime}, put one interior vertex near each corner of
+$\partial Q_f$ so that no triangle has two curved edges.
+\item Composed with the chart of $P_f$, this gives maps that are $C^1$ up to the boundary, have injective
+differential, and agree on shared edges.
+\end{itemize}
+
+These cell maps agree on shared edges, so together they define a homeomorphism $h\colon|L|=|K|\to\bigcup$ pieces. It
+sends each cell of $K$ onto the corresponding image cell.
+
+\subsection{The PL step}
+\emph{Metric.} We measure Lipschitz constants on each shell of $|L|$ in its intrinsic length metric. That metric is
+bi-Lipschitz equivalent to the extrinsic one, and in it a Lipschitz bound on each cell is a global bound. Injectivity
+between shells is argued separately at the end.
+
+\emph{$h$ is bi-Lipschitz.} $h$ is injective on a compact space, so it suffices that it is locally bi-Lipschitz.
+\begin{itemize}
+\item \emph{Inside a cell}, this follows from the injective differential.
+\item \emph{Along the creases}, the two half-planes of the tangent cone must differ.
+  \begin{itemize}
+  \item Along $k$ (fan and $Q_f$): in $\Pi(t)$ the fan leaves $k$ in direction $-\hat r$ and the patch section in
+  direction $c'$ with $\langle c',\hat r\rangle>0$. Since $k'\notin\Pi(t)$, the two half-planes could coincide only if
+  $c'$ were parallel to $-\hat r$, which is excluded.
+  \item Along $\gamma_e$ (two fans): E3$'$ and compactness.
+  \item Along $\partial W_v$ (cone and outside piece): the cone's half-tangent $p_v-x$ points strictly into $W_v$ (strict
+  star-shapedness, V1(a)), and the outside piece leaves strictly outward (transversality, V1(b)). For a fan, the
+  tangent plane along the end radius contains $\partial_t=(1-\sigma)\gamma'+\sigma k'$, which does not lie in $\Pi(a_e)$.
+  \item Along the rays from $p_v$ to a corner of $\lambda_v$ (between two sub-cones): by homogeneity, the opening angle
+  along the ray is constant away from $p_v$, and it is positive because the radial projection of $\lambda_v$ to the unit
+  sphere about $p_v$ has no fold at the corner (see the corner arguments below and V1(a)).
+  \end{itemize}
+\item \emph{At $k(a_e)$} (fan, $Q_f$ and two cone sub-sectors). Here $\rho_e'(a_e)=0$, so $k'\perp\hat r$. Let
+$Q=\{\langle\cdot,\gamma'\rangle\le0,\langle\cdot,\hat r\rangle\le0\}$ and $w=p_v-k(a_e)$; then $w\in\inter Q$ by strict
+star-shapedness.
+  \begin{itemize}
+  \item The fan sector $\mathrm{span}^+(k',-\hat r)$ lies in $\{\langle\cdot,\gamma'\rangle\ge0\}$.
+  \item The $Q_f$ half-plane, bounded by $\R k'$ and containing $c'$, lies in $\{\langle\cdot,\hat r\rangle\ge0\}$.
+  \item The two cone sub-sectors $\mathrm{span}^+(-\hat r,w)$ and $\mathrm{span}^+(w,-k')$ lie in $Q$.
+  \end{itemize}
+  So the fan and $Q_f$ sectors lie in the closure of the complement of $Q$, and the cone sectors lie in $Q$. They share
+  only the rays $k'$ (fan and $Q_f$), $-\hat r$ (fan and cone), $w$ (between the two cone sub-sectors) and $-k'$ (cone
+  and $Q_f$). The two cone sub-sectors do not fold: if $-\hat r$, $w$, $-k'$ were coplanar, then $w\in\inter Q$ would
+  force $w=-a\hat r-bk'$ with $a,b>0$, strictly between them. Hence the tangent cone is an embedded disk.
+\item \emph{At $\gamma(a_e)$} (two fans and the adjacent cone sub-cones). The fans lie in
+$\{\langle\cdot,\gamma'\rangle\ge0\}$, and the cone sub-cones in $\{\langle\cdot,\gamma'\rangle\le0\}$ with
+$\langle p_v-\gamma(a_e),\gamma'\rangle<0$. They share only the rays $\hat r_f\ne\hat r_g$ (E3$'$). The two cone
+sub-cones, $\mathrm{span}^+(\hat r_f,w)$ and $\mathrm{span}^+(w,\hat r_g)$ with $w=p_v-\gamma(a_e)$, do not fold onto each
+other, because $\hat r_f\ne\hat r_g$ and both are orthogonal to $\gamma'$ while $w$ is not.
+\item \emph{At a junction crossing $x$ of $\lambda_v$.} The tangent cone $T_x$ of $W_v$ at $x$ is the union of two
+half-spaces, since $W_v$ is a union of two convex sets near $x$. Let $\ell_1,\ell_2$ be the half-tangents of $\lambda_v$
+at $x$, one in each face of $T_x$.
+  \begin{itemize}
+  \item The cone sub-cones near $x$ consist of segments from $p_v$ to points of $\lambda_v$. By strict star-shapedness
+  these segments run into $W_v$, so the sub-cones lie in $W_v$ near $x$. Their tangent sectors
+  $\mathrm{span}^+(\ell_1,w)$ and $\mathrm{span}^+(w,\ell_2)$, with $w=p_v-x$, therefore lie in $T_x$. (This uses
+  star-shapedness itself, not the convexity of $T_x$, which fails.)
+  \item The two sub-cones do not fold: projected along $w$, the half-tangents $\ell_1,\ell_2$ point in different
+  directions, because the radial projection of $\lambda_v$ is locally injective (each ray meets $\partial W_v$ once,
+  V1(a)) and $\lambda_v$ is transverse to the rays.
+  \item By the transversality in V1(b), the tangent sector of the outside piece lies in the closure of the complement
+  of $T_x$.
+  \end{itemize}
+  So the sectors meet only along $\ell_1$, $w$ and $\ell_2$, and the tangent cone is an embedded disk.
+\item \emph{At the apex $p_v$.} $h$ is homogeneous of degree one on each sector. The radial projection of $\lambda_v$
+to the unit sphere about $p_v$ is injective (V1(a)). It is locally bi-Lipschitz: by transversality between corners,
+and by the no-fold arguments above at the corners. $\phi$ is bi-Lipschitz on each link segment. Hence $h$ is
+bi-Lipschitz on the star of $v$.
+\end{itemize}
+
+\emph{Secant approximation.} Take a triangulation of $|L|$ with these properties:
+\begin{itemize}
+\item it refines every cell of $L$ and has every corner as a vertex;
+\item it is shape-regular off the sector cells;
+\item it is radial on the sector cells: its triangles there have the apex $v$ as a vertex and a sub-segment of one link
+segment as the opposite side.
+\end{itemize}
+The two kinds of triangles meet only along those base segments. Let $S$ be the secant map, linear on each triangle and
+equal to $h$ at the vertices.
+\begin{itemize}
+\item \emph{Off the sectors.} $h$ is $C^1$ up to the boundary on each closed triangle. The standard per-triangle
+estimate gives $\operatorname{Lip}(S-h)\le C\,\omega(Dh,\mathrm{mesh})/\sin\theta_{\min}$, where $\omega$ is a modulus
+of continuity and $\theta_{\min}$ is bounded below by shape regularity.
+\item \emph{On a radial triangle $(v,y_0,y_1)$.} Its base lies on one link segment. Write $y=(1-u)y_0+uy_1$ with
+$u\in[0,1]$, let $\ell=|y_1-y_0|$, and let $\tau$ be the unit vector of the base; derivatives of $e$ below are with
+respect to arc length $\ell u$.
+  \begin{itemize}
+  \item A point $x=v+s(y-v)$ has barycentric coordinates $(1-s,\,s(1-u),\,su)$. So $S(x)=p_v+s(\hat\phi(y)-p_v)$,
+  where $\hat\phi$ is the linear interpolation of $\phi$ on the base, and
+  \[
+  (S-h)(x)=s\,e(y),\qquad e=\hat\phi-\phi .
+  \]
+  This is exactly homogeneous of degree one in $s$.
+  \item Differentiating: $\partial_s x=y-v$ gives $\partial_s(S-h)=e(y)$. And $\partial_u x=s\ell\tau$ while
+  $\partial_u(S-h)=s\ell e'$, so $D(S-h)\cdot\tau=e'$, with no division by the distance to the apex.
+  \item Hence $\|D(S-h)\|\le(|e|/|y-v|+|e'|)/\sin\beta$, where $\beta$ is the angle between the ray $y-v$ and the base.
+  $\beta$ is bounded below by the fixed domain geometry, since the link is transverse to the rays.
+  \item Since $\hat\phi'$ is the mean of $\phi'$ over the base, $|e'|\le\omega(\phi',\mathrm{mesh})$ and
+  $|e|\le\mathrm{mesh}\cdot\omega(\phi',\mathrm{mesh})$.
+  \item $D(S-h)$ is constant along rays, so the bound holds uniformly up to the apex, and $S-h$ is continuous at $v$.
+  So $\operatorname{Lip}(S-h)\le C\,\omega(\phi',\mathrm{mesh})\to0$.
+  \end{itemize}
+  This uses only that $\phi$ is $C^1$ on each link segment; no curvature of $\lambda_v$ is needed.
+\item \emph{Conclusion.} With the intrinsic metric, $\operatorname{Lip}(S-h)\to0$ and $|S-h|\to0$ globally. For a fine
+enough triangulation:
+  \begin{itemize}
+  \item $\operatorname{Lip}(S-h)$ is below the bi-Lipschitz constant of $h$, so $S$ is injective on each shell, by
+  $|S(x)-S(y)|\ge|h(x)-h(y)|-\operatorname{Lip}(S-h)\,|x-y|$;
+  \item $h$ maps different shells to disjoint compact sets at some distance $\delta>0$, so once $|S-h|<\delta/2$,
+  $S$ maps them to disjoint sets;
+  \item $|S-h|<m$, so $S(\inter\sigma)\subseteq\Z(\sigma)$.
+  \end{itemize}
+  $S$ is PL, so it is a realization. $\square$
+\end{itemize}
+
+\emph{Standard facts used without separate checking against a source:} that the tangent cone of a $C^1$ regular arc
+is its tangent line (a ray at the end points); the implicit function theorem; gluing disks along boundary arcs; the per-triangle
+secant-approximation estimate for $C^1$ maps; bi-Lipschitz equivalence of the intrinsic and extrinsic metrics on a
+compact polyhedron; that a map whose tangent cones are embedded disks with positive opening angles is locally
+bi-Lipschitz; and that an injective, locally bi-Lipschitz map of a compact space is bi-Lipschitz.
+
+\section{Proof of Proposition~\ref{prop:Bprime}}\label{sec:proofBprime}
+
+The idea is to take the re-trimmed surface $\Sigma$ itself as the model of $|K|$, and the identity as a topological
+realization, then replace it by a fine secant approximation. Notation is that of Proposition~\ref{prop:Bprime}.
+\begin{itemize}
+\item $X_f\colon U_f\to\R^3$ are the face parametrizations, and $D_f\subset U_f$ the compact parameter regions.
+\item $\phi\colon|K|\to\Sigma$ is the homeomorphism of C.
+\end{itemize}
+
+\subsection{Margin}
+By C, $\phi$ maps each closed cell of $K$ onto the corresponding closed cell of $\Sigma$. By B1--B3 each of these lies in
+the zone of its cell. Closed cells are compact and finitely many, and zones are open. So there is $m>0$ such that the
+$m$-neighbourhood of every closed cell of $\Sigma$ lies in its zone.
+
+\subsection{A curved triangulation of $\Sigma$}
+Fix a small $h>0$.
+\begin{enumerate}
+\item \emph{Edge vertices.} On each curve $\tilde\gamma_e$, fix one $C^2$ regular parametrization (by arc length, say),
+and choose vertices on it at 3D spacing about $h$, including its end points. A closed edge gets at least three
+vertices. These choices are made once, in $\R^3$, and are shared by all faces containing $e$ (both sides of a seam).
+\item \emph{Cutting along the edge graph.} In each $D_f$, pull back the edge vertices by $X_f$; this is possible because
+$X_f$ is injective on $D_f$. Cut $D_f$ along its edge graph $G_f$ (R), seams included. Note that $\partial D_f\subseteq G_f$: a point of
+$\partial D_f$ off $G_f$ would be mapped by $X_f$ into the open face, which by C is an open surface homeomorphic, through
+$X_f^{-1}$, to an open subset of $U_f$; by invariance of domain such a point is interior to $D_f$. The result of cutting
+is a finite union of compact regions, each bounded by arcs of $G_f$ (a seam arc bounds a region on each of its two
+sides). A region need not be simply connected: faces with inner wires give multiply connected regions. Join consecutive
+edge vertices along each arc by chords. For small $h$ each boundary component of a region becomes a simple closed
+polygon, these polygons are disjoint, and they bound a polygonal region close to the original one, by R: the arcs are
+simple $C^2$ regular, and the sector angles lie in $(0,2\pi)$.
+\item \emph{Triangulation.} Triangulate each chord region shape-regularly, with no extra vertices on its boundary. At
+every vertex of $G_f$, including smooth passages such as seam vertices, put one interior vertex near it in each adjacent
+sector and join it to the vertex, so that no triangle has two curved edges. The shape-regularity constant depends on
+the smallest sector angle.
+\item \emph{Curved triangles.} Replace each chord by its arc. An arc deviates from its chord by $o(h)\cdot h$, which is
+much smaller than $h\sin\theta_{\min}$, so the curved triangles tile $D_f$, and every arc of $G_f$, seams included, is a
+union of edges of the triangulation.
+\end{enumerate}
+Let $T$ be the resulting abstract complex. For small $h$ it is a simplicial complex, and it subdivides the cells of
+$\Sigma$, hence, through $\phi$, the cells of $K$. We metrize $|T|$ by standard (equilateral) simplices and use the intrinsic
+length metric on each shell.
+
+\emph{The map $h_0\colon|T|\to\Sigma$.}
+\begin{itemize}
+\item On a triangle with one curved edge, use Lemma~\ref{lem:curvedtri}, with the curved edge parametrized by the
+pull-back of the fixed parametrization of $\tilde\gamma_e$. Precompose with the affine map from the standard simplex,
+and compose with $X_f$.
+\item On a straight triangle, use the affine map, composed with $X_f$.
+\end{itemize}
+Then:
+\begin{itemize}
+\item \emph{$h_0$ agrees on shared edges.}
+  \begin{itemize}
+  \item An interior straight edge is affine in $U_f$ on both sides.
+  \item An edge on $\tilde\gamma_e$ between faces $f$ and $g$ is $s\mapsto\tilde\gamma_e(t_0+s(t_1-t_0))$ from both
+  sides, by Lemma~\ref{lem:curvedtri}(a).
+  \item A seam edge lies inside $D_f$, and both sides use the same pull-back of the fixed parametrization of the
+  seam curve, so it is mapped the same way from both sides.
+  \end{itemize}
+\item \emph{$h_0$ is a homeomorphism.} It is a homeomorphism onto $\Sigma$, by Lemma~\ref{lem:curvedtri}(d) and the
+injectivity of $X_f$ on $D_f$.
+\item \emph{Regularity.} On each closed triangle $h_0$ is $C^1$ up to the boundary, with injective differential. This
+follows from Lemma~\ref{lem:curvedtri}(c),(d), since $X_f$ is $C^2$ regular on a neighbourhood of $D_f$.
+\end{itemize}
+
+\subsection{$h_0$ is bi-Lipschitz on each shell}
+On a shell, $|T|$ is compact and $h_0$ is injective, so it suffices that $h_0$ is locally bi-Lipschitz.
+\begin{itemize}
+\item \emph{Inside a face,} including across interior edges and at interior vertices of $T$: the map to $D_f$ is a
+piecewise-$C^1$ homeomorphism with invertible differential on each closed piece. Its tangent map at a vertex is a
+sectorwise linear, orientation-preserving map of the plane of degree one, hence a homeomorphism. Composing with the
+regular parametrization $X_f$ keeps it locally bi-Lipschitz.
+\item \emph{Along an edge (seams included), away from its end points:} by T the two inward tangent half-planes are
+distinct. For a seam they are opposite in the tangent plane of $S_f$. The angle between them is continuous and
+positive, hence bounded away from $0$ on compact subarcs; near the end points the vertex argument below takes over. So the tangent cone at
+each point is a union of two half-planes that meet only along their common line. This also covers vertices of $T$ that
+lie on $\tilde\gamma_e$: there the triangle sectors on each side tile the two half-planes.
+\item \emph{At a vertex $c_v$:} by T the tangent cone of $\Sigma$, the union of the tangent sectors of the edge graphs at
+the preimages of $c_v$, is an embedded disk; by R each sector has an opening angle in $(0,2\pi)$. $h_0$ is $C^1$ up to $c_v$ on every
+closed triangle, so the blow-up argument applies: rescale at $c_v$, pass to the tangent cone, and use $C^1$ convergence
+on each sector.
+\end{itemize}
+
+\subsection{Secant approximation}
+Refine $T$ by affine subdivision of each simplex; this keeps shape regularity and keeps $h_0$ $C^1$ on each original
+closed triangle. Let $S$ be the secant map: linear on each refined triangle and equal to $h_0$ at the vertices.
+\begin{itemize}
+\item \emph{The estimate.} On each triangle, $\operatorname{Lip}(S-h_0)\le C\,\omega(Dh_0,\mathrm{mesh})/\sin\theta_{\min}$ and
+$|S-h_0|\le\mathrm{mesh}\cdot\omega(Dh_0,\mathrm{mesh})$, where $\omega$ is a modulus of continuity. In the intrinsic
+metric of each shell these bounds are global.
+\item \emph{Within a shell.} Once $\operatorname{Lip}(S-h_0)$ is below the bi-Lipschitz constant of $h_0$, $S$ is
+injective there.
+\item \emph{Between shells.} $h_0$ maps different shells to disjoint compact sets at distance $\delta>0$. Once
+$|S-h_0|<\delta/2$, $S$ maps them to disjoint sets.
+\item \emph{Zones.} Once $|S-h_0|<m$: every point of a closed cell lies on a simplex of $T$ inside that cell, so
+$S(\bar\sigma)\subseteq\Z(\sigma)$ for vertices, edges and faces. In particular $S(\inter\sigma)\subseteq\Z(\sigma)$.
+\end{itemize}
+$S\circ h_0^{-1}\circ\phi$ is then a PL embedding of $|K|$, linear on the simplices of a triangulation that subdivides the
+cells of $K$, with every cell in its zone. That is a realization. $\square$
+
+\emph{Standard facts used without separate checking against a source:}
+\begin{itemize}
+\item existence of shape-regular triangulations of a polygonal region, possibly multiply connected, with prescribed
+boundary vertices and corner fans as described;
+\item the per-triangle secant-approximation estimate;
+\item that a sectorwise linear, orientation-preserving map of the plane of degree one is a homeomorphism;
+\item that a map that is $C^1$ up to the vertex on each sector, with an embedded tangent cone of positive opening
+angles, is locally bi-Lipschitz (blow-up);
+\item that an injective, locally bi-Lipschitz map of a compact space is bi-Lipschitz.
+\end{itemize}
+
+\section{Formal verification in Lean}\label{sec:lean}
+
+The following are proved in Lean~4 with Mathlib (repository directory \texttt{lean/}). The build has no
+\texttt{sorry}, and the results depend only on the axioms \texttt{propext}, \texttt{Classical.choice} and
+\texttt{Quot.sound}.
+
+\begin{center}\small
+\begin{tabular}{p{6.6cm}p{6.4cm}}
+\toprule
+Lean statement & Content \\
+\midrule
+\texttt{inner\_eq\_zero\_of\_conical} & at a nearest point $x$, $\langle p-x,x-a\rangle=0$ (Lemma~\ref{lem:cone}) \\
+\texttt{inner\_sub\_eq\_norm\_sq\_of\_conical} & $\langle p-x,p-a\rangle=|p-x|^2$ \\
+\texttt{not\_isCritical\_of\_conical} & $p$ is not critical (Lemma~\ref{lem:cone}) \\
+\texttt{not\_isCritical\_of\_conicalCover} & pointwise form of Corollary~\ref{cor:lambda} \\
+\texttt{carrier\_mono}, \texttt{carrier\_eq\_zone\_of\_mono} & carriers are monotone, and equal the zones when the
+zones are augmented \\
+\texttt{carried\_of\_realization}, \texttt{image\_closedCell\_subset\_carrier} & realizations are carried \\
+\texttt{carried\_straightLine}, \texttt{continuous\_straightLine} & Lemma~\ref{lem:carrier} when the carriers
+are convex \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The statements are for an arbitrary real inner product space. Criticality is formalized as
+$0\in\conv\{p-x:x\text{ nearest}\}$.
+
+\emph{How the Lean statements correspond to the paper.}
+\begin{itemize}
+\item The hypothesis \texttt{LocallyConicalAt M a r} is radial closure of $M$ inside the open ball $B(a,r)$. The
+paper's definition of $\rho(a)$ implies it for $r<\rho(a)$; the two are not the same statement.
+\item Lean's \texttt{Carried} is pointwise on open cells. By \texttt{carrier\_mono} it agrees with the paper's
+closed-cell definition.
+\item Positivity of $\lambda(M)$ for polyhedra (Corollary~\ref{cor:lambda}) is proved on paper only.
+\end{itemize}
+
+\begin{thebibliography}{99}
+
+\bibitem{APS00} L.-E. Andersson, T.~J. Peters, N.~F. Stewart, Equivalence of topological form for curvilinear
+geometric objects, \emph{Int.\ J.\ Comput.\ Geom.\ Appl.} 10(6) (2000) 609--622.
+
+\bibitem{ASZ07} L.-E. Andersson, N.~F. Stewart, M. Zidani, Error analysis for operations in solid modeling in the
+presence of uncertainty, \emph{SIAM J.\ Sci.\ Comput.} 29(2) (2007) 811--826.
+
+\bibitem{ASZ06} L.-E. Andersson, N.~F. Stewart, M. Zidani, Conditions for use of a non-selfintersection conjecture,
+\emph{Comput.\ Aided Geom.\ Design} 23(7) (2006) 599--611.
+
+\bibitem{CCS05} F. Chazal, D. Cohen-Steiner, A condition for isotopic approximation, \emph{Graphical Models} 67(5)
+(2005) 390--404.
+
+\bibitem{CCSL09dcg} F. Chazal, D. Cohen-Steiner, A. Lieutier, A sampling theory for compact sets in Euclidean space,
+\emph{Discrete Comput.\ Geom.} 41(3) (2009) 461--479.
+
+\bibitem{CCSL09cg} F. Chazal, D. Cohen-Steiner, A. Lieutier, Normal cone approximation and offset shape isotopy,
+\emph{Comput.\ Geom.} 42(6--7) (2009) 566--581.
+
+\bibitem{ChazalLieutier07} F. Chazal, A. Lieutier, Stability and computation of topological invariants of solids
+in $\mathbb R^n$, \emph{Discrete Comput.\ Geom.} 37 (2007) 601--617.
+
+\bibitem{dREG22} S. di Rocco, D. Eklund, O. Gäfvert, Computing geometric feature sizes for algebraic manifolds,
+arXiv:2209.01654.
+
+\bibitem{Durfee83} A.~H. Durfee, Neighborhoods of algebraic sets, \emph{Trans.\ Amer.\ Math.\ Soc.} 276(2) (1983) 517--530.
+
+\bibitem{Federer59} H. Federer, Curvature measures, \emph{Trans.\ Amer.\ Math.\ Soc.} 93(3) (1959) 418--491.
+
+\bibitem{Fu85} J.~H.~G. Fu, Tubular neighborhoods in Euclidean spaces, \emph{Duke Math.\ J.} 52(4) (1985) 1025--1046.
+
+\bibitem{Jackson95} D.~J. Jackson, Boundary representation modelling with local tolerances, in \emph{Proc.\ 3rd ACM
+Symp.\ Solid Modeling and Applications (SMA '95)}, 1995, 247--254.
+
+\bibitem{Milenkovic88} V.~J. Milenkovic, Verifiable implementations of geometric algorithms using finite precision
+arithmetic, \emph{Artificial Intelligence} 37(1--3) (1988) 377--401.
+
+
+\bibitem{Moise77} E.~E. Moise, \emph{Geometric Topology in Dimensions 2 and 3}, Graduate Texts in Mathematics 47,
+Springer, New York, 1977.
+
+\bibitem{OCCT} Open Cascade, \emph{OpenCascade Technology documentation}, version 8.0.1: BRep format specification,
+\S\S7.2--7.4 (shape tolerances).
+
+\bibitem{QiShapiro06} J. Qi, V. Shapiro, $\varepsilon$-topological formulation of tolerant solid modeling,
+\emph{Computer-Aided Design} 38(4) (2006) 367--377.
+
+\bibitem{QiShapiro06b} J. Qi, V. Shapiro, Geometric interoperability with epsilon solidity, \emph{J.\ Comput.\ Inf.\
+Sci.\ Eng.} 6(3) (2006) 213--220.
+
+\bibitem{SSP01} T. Sakkalis, G. Shen, N.~M. Patrikalakis, Topological and geometric properties of interval solid
+models, \emph{Graphical Models} 63(3) (2001) 163--175.
+
+\bibitem{SPB04} T. Sakkalis, T.~J. Peters, J. Bisceglio, Isotopic approximations and interval solids,
+\emph{Computer-Aided Design} 36 (2004) 1089--1100.
+
+\bibitem{Segal90} M. Segal, Using tolerances to guarantee valid polyhedral modeling results, \emph{Computer
+Graphics (Proc.\ SIGGRAPH '90)} 24(4) (1990) 105--114.
+
+\bibitem{Shapiro08} V. Shapiro, Homotopy conditions for tolerant geometric queries, in \emph{Reliable Implementation
+of Real Number Algorithms}, LNCS 5045, Springer, 2008, 162--180.
+
+\bibitem{SZ08} N.~F. Stewart, M. Zidani, Transfinite interpolation for well-definition in error analysis in solid
+modelling, in \emph{Reliable Implementation of Real Number Algorithms}, LNCS 5045, Springer, 2008, 181--192.
+
+\bibitem{Waldhausen68} F. Waldhausen, On irreducible 3-manifolds which are sufficiently large, \emph{Ann.\ of
+Math.} 87 (1968) 56--88.
+
+\bibitem{repo} Code, proofs and data repository; link withheld for double-anonymized review
+(public repository).
+
+\end{thebibliography}
+
+\end{document}
