@@ -1,0 +1,17 @@
+Dear Editors,
+
+Please consider the enclosed manuscript, "When does a tolerant B-rep define a solid? Existence, non-existence and uniqueness of realizations", for publication in Computer-Aided Design as a research paper.
+
+CAD kernels store boundary representations with vertex, edge and face tolerances, and the solid such a model describes is only implied. The manuscript makes this precise. It defines a realization as a PL embedding of the cell complex that keeps every cell in its tolerance zone, and proves:
+
+- uniqueness up to ambient isotopy for shells of genus at least one, under a collar condition that follows from a distance bound below the weak feature size of a reference surface;
+- an explicit lower bound for the weak feature size of polyhedral surfaces, with the key lemma machine-checked in Lean 4;
+- two existence constructions under stated hypotheses, and a checkable non-existence criterion for crossing planar patches.
+
+Experiments with OpenCascade 8.0.1 show that its validity checks decide neither question. An ordinary sewing operation produces a model that passes both checks and has no realization, and a model that passes both checks has two realizations whose solids are not homeomorphic. All scripts, results and the Lean formalization are publicly available.
+
+The manuscript is original, is not under consideration elsewhere, and a preprint may be posted on arXiv. The use of generative AI in the research and writing is declared in the manuscript. There are no competing interests.
+
+Sincerely,
+Guoqing Zhang
+ZENFLUX, Miami Gardens, Florida, USA
