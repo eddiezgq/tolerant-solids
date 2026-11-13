@@ -1,0 +1,927 @@
+{
+ "box (control), g=0.001": {
+  "n": 8,
+  "n_ok": 8,
+  "fails": {},
+  "edges_crossing": 2,
+  "n_edges": 12,
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.22913298439490068,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.24139592793018588,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.8976004166833988,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.20326449858212162,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.3381249844091052,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.378916041908201,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2266868746208514,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.17980390885280217,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   }
+  ]
+ },
+ "box (control), g=0.01": {
+  "n": 8,
+  "n_ok": 8,
+  "fails": {},
+  "edges_crossing": 2,
+  "n_edges": 12,
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2479613265669686,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.7658177428962913,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.23435762076355354,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.160301240647658,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.8975915173442471,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.300914652558868,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.20326316053344431,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.8704130221127278,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.3381237017107841,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.3454195437300696,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.37891451831435125,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.6310603949303824,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.21985416812119704,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.7603438258144455,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.17979584835871057,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.791558667346963,
+    "ok": true
+   }
+  ]
+ },
+ "chamfered box d1, g=0.001": {
+  "n": 24,
+  "n_ok": 24,
+  "fails": {},
+  "edges_crossing": 8,
+  "n_edges": 48,
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2857382160090211,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.1645099684965956,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.11672041422985938,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.591072663277691,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.15340920985290718,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.1405115903116787,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.11381954436322579,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.65002691991373,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.14565861698246166,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.16241191176597716,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2950050830732608,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.1681182732670568,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.1941202430947846,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2638713601010433,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.22293015126020102,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.1819449504920149,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.09003285093183051,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 12,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.07447189450563338,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.765477066598198,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.108052137024035,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.663621695739613,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0830433594913578,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.466592712491709,
+    "ok": true
+   },
+   {
+    "vertex": 15,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.1639143853312447,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.284599356066838,
+    "ok": true
+   },
+   {
+    "vertex": 16,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.3106193217045766,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 17,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.08841609099081132,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2933407779364679,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.05738528814537172,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 20,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.28719836462113646,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 21,
+    "valence": 4,
+    "rho": 0.95,
+    "L1": true,
+    "L2_min_gap_over_r": 0.09612308639598945,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 22,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2938142325604719,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 23,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.10073065147422101,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   }
+  ]
+ },
+ "chamfered box d1, g=0.01": {
+  "n": 24,
+  "n_ok": 24,
+  "fails": {},
+  "edges_crossing": 8,
+  "n_edges": 48,
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2855478882977109,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.38619937665683635,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.11700145888551186,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8254350584582368,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.15385899780148948,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.511385733748082,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.11380858589722001,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6523864428836879,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.14565806253326982,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.2700011969496743,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.16235033878551633,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7829560010405476,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.286268134553325,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7736443603195062,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.16796182775250224,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.36187876777307415,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2607100000403495,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9613524611250793,
+    "ok": true
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.250347950980803,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.030289125278315,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.18184674064530393,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5817045890968308,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.09001372740673734,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7948876533917394,
+    "ok": true
+   },
+   {
+    "vertex": 12,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.07275467786762933,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.12417301925723538,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.10846972631777715,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6323871970904648,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.08204907127856191,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8032136350398644,
+    "ok": true
+   },
+   {
+    "vertex": 15,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.16373260435483997,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.2125285229859451,
+    "ok": true
+   },
+   {
+    "vertex": 16,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.3101251175014769,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.32291472498226276,
+    "ok": true
+   },
+   {
+    "vertex": 17,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.08094602984971822,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6341884639633341,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2933463714090785,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5398596638382529,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.057199133017558156,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5832716576606207,
+    "ok": true
+   },
+   {
+    "vertex": 20,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2856579857640746,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6428872913114644,
+    "ok": true
+   },
+   {
+    "vertex": 21,
+    "valence": 4,
+    "rho": 0.95,
+    "L1": true,
+    "L2_min_gap_over_r": 0.09579464128974848,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.3447085234789909,
+    "ok": true
+   },
+   {
+    "vertex": 22,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2943283602904877,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.4867204627176681,
+    "ok": true
+   },
+   {
+    "vertex": 23,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.10034443112845874,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5660814777103012,
+    "ok": true
+   }
+  ]
+ },
+ "filleted box r2, g=0.01": {
+  "n": 24,
+  "n_ok": 24,
+  "fails": {},
+  "edges_crossing": 0,
+  "n_edges": 48,
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2855394875236695,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9065317928963458,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.19933336047675737,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9814520395902872,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.20933356673818426,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7474733705627624,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.23929712656461746,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9417531803910384,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.14557200499241477,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9568874946548237,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.07166448580994951,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7673155401867991,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.09886444932473532,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.0377582889002563,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.020503833625170043,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7645911660827807,
+    "ok": true
+   },
+   {
+    "vertex": 8,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.28791411894128305,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7173933292253659,
+    "ok": true
+   },
+   {
+    "vertex": 9,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.04869473398940179,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9742010422830675,
+    "ok": true
+   },
+   {
+    "vertex": 10,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.5028872392858516,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.2419706431180486,
+    "ok": true
+   },
+   {
+    "vertex": 11,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.10239237358246021,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9851113140945884,
+    "ok": true
+   },
+   {
+    "vertex": 12,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0784479297872944,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.5035476433228869,
+    "ok": true
+   },
+   {
+    "vertex": 13,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.05722574129281079,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9158472238681871,
+    "ok": true
+   },
+   {
+    "vertex": 14,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.293751773169097,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.022781465644544,
+    "ok": true
+   },
+   {
+    "vertex": 15,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.16348718810009932,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8007714586328868,
+    "ok": true
+   },
+   {
+    "vertex": 16,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.3852247204120629,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6729567388139055,
+    "ok": true
+   },
+   {
+    "vertex": 17,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2120962189280573,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9249168104264055,
+    "ok": true
+   },
+   {
+    "vertex": 18,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.06141537207904565,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.6985650962344274,
+    "ok": true
+   },
+   {
+    "vertex": 19,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.06857632573009083,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.7598725372816082,
+    "ok": true
+   },
+   {
+    "vertex": 20,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.0697780855649419,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.8455845592203494,
+    "ok": true
+   },
+   {
+    "vertex": 21,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.07355765169899121,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.9089417558839581,
+    "ok": true
+   },
+   {
+    "vertex": 22,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.3663186663686264,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.663044311267843,
+    "ok": true
+   },
+   {
+    "vertex": 23,
+    "valence": 4,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.10017589201304812,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 0.956532166504069,
+    "ok": true
+   }
+  ]
+ }
+}
