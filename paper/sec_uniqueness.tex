@@ -78,15 +78,16 @@ $\R^3$, supported in $U$ and fixed on $\partial U$, that carries $G$ to $\Psi^{-
   \end{itemize}
 \item[(b)] \emph{$G$ can be made horizontal.}
   \begin{itemize}
-  \item Apply Waldhausen's Proposition~3.1~\cite[pp.~65--67]{Waldhausen68} to $U\cong M\times I$ ($M$ orientable,
+  \item Apply Waldhausen's Proposition~3.1~\cite[pp.~65--68]{Waldhausen68} to $U\cong M\times I$ ($M$ orientable,
   not a sphere) and the incompressible surface $G$. Since $\partial G=\emptyset$, the condition
   ``$\partial G\subseteq F\times1$'' holds vacuously.
   \item It gives an isotopy, constant on $\partial U$, from $G$ to a surface $G'$ whose projection
   $p\colon G'\to M$ is a homeomorphism onto its image.
   \item $p(G')$ is open (invariance of domain) and closed in the connected surface $M$, so $p(G')=M$. Hence $G'$ is
   the graph of a function $s\colon M\to(-1,1)$.
-  \item Waldhausen's proof of Proposition~3.1 uses that $F\times I$ is irreducible~\cite[p.~66]{Waldhausen68}. For
-  closed $F$ of genus at least one this is Lemma~\ref{lem:irreducible} below.
+  \item Waldhausen's proof of Proposition~3.1 uses that $F\times I$ is irreducible, explicitly in the base case
+  ($F$ a disc, annulus or pair of pants, p.~66) and, through the induction on p.~67, for compact surfaces $F'$ with
+  boundary obtained by cutting. Lemma~\ref{lem:irreducible} below covers all these cases.
   \end{itemize}
 \item[(c)] \emph{Flatten.} The PL homeomorphisms of the fibres $\{x\}\times[-1,1]$ that fix both ends and send $s(x)$
 to $(1-t)s(x)$, $t\in[0,1]$, give an ambient isotopy of $U$, fixed on $\partial U$, from $G'$ to
@@ -98,13 +99,21 @@ gives one constant on $\partial U$. Both isotopies are fixed on $\partial U$ and
 \end{proof}
 
 \begin{lemma}\label{lem:irreducible}
-Let $F$ be a closed orientable PL surface of genus at least one. Then $F\times I$ is irreducible: every PL 2-sphere in
-$F\times I$ bounds a PL 3-cell in $F\times I$.
+Let $F$ be a compact orientable PL surface other than the 2-sphere. Then $F\times I$ is irreducible: every PL
+2-sphere $S\subset\inter(F\times I)$ bounds a PL 3-cell in $F\times I$. (Following Waldhausen's convention that surfaces
+are properly embedded, a 2-sphere in $F\times I$ is disjoint from the boundary.)
 \end{lemma}
 \begin{proof}
+\emph{Case $\partial F\ne\emptyset$.}
 \begin{itemize}
-\item A 2-sphere $S$ in $F\times I$ is closed, so it lies in $F\times(0,1)$ after the convention that surfaces are
-properly embedded; we may assume $S\subset F\times(0,1)$.
+\item Then $F\times I$ is a handlebody: a regular neighbourhood $H$ of a finite graph in $\R^3$, with $\partial H$
+connected (standard; not separately checked against a source). We work with $H\subset\R^3$.
+\item By the PL Schoenflies theorem~\cite[Thm.~17.12]{Moise77}, $S$ bounds a PL 3-cell $B\subset\R^3$. The set
+$\R^3\setminus H$ is connected (Alexander duality, as $\partial H$ is connected), unbounded and disjoint from $S$, so it
+lies in the unbounded component of $\R^3\setminus S$. Hence $B\subseteq H$.
+\end{itemize}
+\emph{Case $F$ closed, of genus at least one.}
+\begin{itemize}
 \item Let $q\colon\tilde F\times I\to F\times I$ be the universal covering, with deck group $\Gamma$ acting by
 $\gamma\times\mathrm{id}$. $\tilde F$ is a simply connected non-compact PL surface without boundary, so it is PL
 homeomorphic to $\R^2$ (standard; not separately checked against a source). Hence $\tilde F\times I\cong_{PL}\R^2\times
@@ -119,8 +128,10 @@ B$ for all $n\ge1$. $\Gamma$ is torsion-free, so the $\gamma^n$ are distinct, an
 move the compact set $\tilde B$ to meet itself. That contradicts proper discontinuity. The case $\tilde B\subseteq
 \gamma\tilde B$ is the same with $\gamma^{-1}$.
 \item So the translates of $\tilde B$ are pairwise disjoint, $q$ is injective on $\tilde B$, and $q(\tilde B)$ is a PL
-3-cell in $F\times I$ with boundary $S$.\qedhere
+3-cell in $F\times I$ with boundary $S$.
 \end{itemize}
+Also standard and not separately checked: that $\pi_1$ of a closed surface is torsion-free, and that deck groups act
+properly discontinuously.
 \end{proof}
 
 \subsection{The theorem}

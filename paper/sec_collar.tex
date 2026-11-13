@@ -36,7 +36,9 @@ By the uniqueness of semialgebraic neighbourhoods~\cite[Prop.~3.5]{Durfee83} the
 with $h_t|_M=\mathrm{id}$ for all $t$ and $h_1(\bar N_\delta(M))=R$. So $h_1$ is a homeomorphism of pairs
 $(\bar N_\delta(M),M)\to(R,M)$ that fixes $M$ pointwise. We take $\delta<r$.
 \item $M$ is a closed orientable surface in $\R^3$, hence two-sided, so $R\cong M\times[-1,1]$ with $M$ going to
-$M\times\{0\}$. Hence $(\bar N_\delta(M),M)\cong(M\times[-1,1],M\times\{0\})$. Its frontier $S_\delta=\{d=\delta\}$ has two
+$M\times\{0\}$. Hence $(\bar N_\delta(M),M)\cong(M\times[-1,1],M\times\{0\})$. Its frontier is $S_\delta=\{d=\delta\}$,
+because $\delta$ is not a critical value, so every point with $d=\delta$ is a limit of points with $d>\delta$ (the
+directional-derivative argument of Step~3). $S_\delta$ has two
 components, the images of $M\times\{\pm1\}$, and they lie in different components of $\R^3\setminus M$. The two halves
 $M\times(0,1]$ and $M\times[-1,0)$ are connected, so each lies in one of $\Omega_\pm$. Every neighbourhood of a point
 of $M=\partial\Omega_+=\partial\Omega_-$ meets both, so the halves lie in different ones. Write
@@ -97,7 +99,7 @@ points with $d>r$.
 \item By (a), there is a homeomorphism $g\colon M\times(-1,1)\to N_r(M)$.
 \item $g^{-1}(\bar N_d(M))$ is compact, so it lies in $M\times[-a,a]$ for some $a<1$. Take $a<b<1$ and
 $K=M\times[-b,b]$, a polyhedral 3-manifold with boundary in the PL 3-manifold $M\times(-1,1)$.
-\item The compact sets $g(K)$ and $\R^3\setminus N_r(M)$ are disjoint, and so are $g(\partial K)$ and $\bar N_d(M)$. Let
+\item The compact set $g(K)$ and the closed set $\R^3\setminus N_r(M)$ are disjoint, and so are the compact sets $g(\partial K)$ and $\bar N_d(M)$. Let
 $\varepsilon>0$ be smaller than both distances. By Moise's approximation theorem~\cite[Thm.~35.2]{Moise77} there is a
 PL homeomorphism $f$ of $K$ into $\R^3$ with $|f-g|<\varepsilon$ on $K$. Put $U=f(K)$.
 \item Then $U$ is a compact PL submanifold, $U\cong_{PL}M\times[-1,1]$, and $U\subseteq N_r(M)=\inter\bar N_r(M)$.
@@ -125,8 +127,9 @@ This uses (a) as well as (a$'$), and it uses the genus hypothesis: for a sphere 
 Standard facts used without separate checking against a source: the Jordan--Brouwer separation theorem,
 Tarski--Seidenberg, regular-neighbourhood theory (the regular neighbourhood of a two-sided closed surface is a product),
 invariance of boundary for topological manifolds, attaching a product collar along a boundary component, that surface
-groups are Hopfian (they are residually finite), asphericity of closed surfaces of positive genus, and Whitehead's
-theorem.
+groups are Hopfian (they are residually finite), asphericity of closed surfaces of positive genus, Whitehead's
+theorem, homotopy invariance of the mod-2 degree and its use to decide on which side of an embedded closed surface a
+point lies, and Alexander duality for the components of the complement of two disjoint closed surfaces.
 \end{proof}
 
 \subsection{An explicit lower bound for polyhedral surfaces}

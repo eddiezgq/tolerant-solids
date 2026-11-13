@@ -44,8 +44,8 @@ $h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$, where $\Z(\sigma)$
 \item \textbf{The collar condition} (Section~\ref{sec:collar}).
   \begin{itemize}
   \item The collar condition follows from a distance bound below the weak feature size $\wfs(M)$ of a reference
-  surface $M$ (Lemma~\ref{lem:collar}). One step relies on Moise's theorem on PL structures of 3-manifolds, whose
-  citation is still to be checked against the original.
+  surface $M$ (Lemma~\ref{lem:collar}). One step uses Moise's approximation of homeomorphisms by PL
+  homeomorphisms~\cite[Thm.~35.2]{Moise77}.
   \item For a polyhedral $M$ we prove $\wfs(M)\ge\lambda(M)>0$, where $\lambda$ is defined from the conical radii of
   $M$ (Corollary~\ref{cor:lambda}). The underlying cone lemma is machine-checked in Lean~4 with Mathlib.
   \item We compute lower bounds for $\wfs(M)$ with an octree search, up to stated floating-point qualifications.
@@ -136,8 +136,9 @@ $\wfs$.
 Gäfvert~\cite[Thm.~2.5]{dREG22} state it and attribute it to Fu. Fu~\cite[\S5.3]{Fu85} shows, via
 Tarski--Seidenberg, that the distance function of a compact semialgebraic set has finitely many critical values;
 since critical points lie off the set, the positive critical values have a positive minimum. Fu defines semialgebraic
-sets by one finite system of inequalities, but the argument uses only Tarski--Seidenberg and applies to finite unions
-such as our polyhedral surfaces. For subanalytic sets,
+sets by one finite system of inequalities, but his argument (Tarski--Seidenberg, a finite decomposition into smooth
+submanifolds, his Lemma~4.3 and Sard's theorem) does not use that restriction and applies to finite unions such as our
+polyhedral surfaces. For subanalytic sets,
 Chazal and Lieutier~\cite[Prop.~3.6]{ChazalLieutier07} prove it for bounded open sets; the extension to compact sets
 is stated in their \S4.3 without proof. We did not find the explicit bound $\lambda(M)$ in the
 literature we checked. That does not make it new.
