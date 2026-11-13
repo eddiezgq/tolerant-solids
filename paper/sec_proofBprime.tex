@@ -1,73 +1,102 @@
 \section{Proof of Proposition~\ref{prop:Bprime}}\label{sec:proofBprime}
 
-The idea: take the re-trimmed surface $\Sigma$ itself as the model of $|K|$ and the identity as a topological
-realization, then replace it by a fine secant approximation. The steps parallel the PL step of
-Appendix~\ref{sec:proof51}, but there are no fans or cones.
+The idea is to take the re-trimmed surface $\Sigma$ itself as the model of $|K|$, and the identity as a topological
+realization, then replace it by a fine secant approximation. Notation is that of Proposition~\ref{prop:Bprime}.
+\begin{itemize}
+\item $X_f\colon U_f\to\R^3$ are the face parametrizations, and $D_f\subset U_f$ the compact parameter regions.
+\item $\phi\colon|K|\to\Sigma$ is the homeomorphism of C.
+\end{itemize}
 
 \subsection{Margin}
-By C, the identity $\mathrm{id}\colon\Sigma\to\Sigma$, together with the cell isomorphism, maps each closed cell of $K$
-onto the corresponding closed cell of $\Sigma$. By B1--B3, every closed cell lies in the zone of its cell. Closed cells
-are compact and zones are open, so there is $m>0$ such that $N_m$ of every closed cell lies in its zone.
+By C, $\phi$ maps each closed cell of $K$ onto the corresponding closed cell of $\Sigma$. By B1--B3 each of these lies in
+the zone of its cell. Closed cells are compact and finitely many, and zones are open. So there is $m>0$ such that the
+$m$-neighbourhood of every closed cell of $\Sigma$ lies in its zone.
 
 \subsection{A curved triangulation of $\Sigma$}
+Fix a small $h>0$.
+\begin{enumerate}
+\item \emph{Edge vertices.} On each curve $\tilde\gamma_e$, fix one $C^2$ regular parametrization (by arc length, say),
+and choose vertices on it at 3D spacing about $h$, including its end points. A closed edge gets at least three
+vertices. These choices are made once, in $\R^3$, and are shared by all faces containing $e$ (both sides of a seam).
+\item \emph{Chord polygons.} In each $D_f$, pull back the edge vertices by $X_f$; this is possible because $X_f$ is
+injective on $D_f$. Join consecutive vertices along each boundary curve by chords. For small $h$ the resulting chord
+polygons are simple and bound a region close to $D_f$, by R: the boundary curves are simple, piecewise $C^2$ regular,
+with corner angles in $(0,2\pi)$.
+\item \emph{Triangulation.} Triangulate the chord region shape-regularly, with no extra vertices on its boundary. Put
+one interior vertex near each corner and join it to the corner, so that no triangle has two boundary chords. The
+shape-regularity constant depends on the smallest corner angle.
+\item \emph{Curved triangles.} Replace each boundary chord by its arc. An arc deviates from its chord by $O(h^2)\ll
+h\sin\theta_{\min}$, so the curved triangles tile $D_f$.
+\end{enumerate}
+Let $T$ be the resulting abstract complex. For small $h$ it is a simplicial complex, and it subdivides the cells of
+$\Sigma$, hence, through $\phi$, the cells of $K$. We metrize $|T|$ by standard (equilateral) simplices. On each shell we
+use the intrinsic length metric, and between shells a constant distance.
+
+\emph{The map $h_0\colon|T|\to\Sigma$.}
 \begin{itemize}
-\item \emph{Edges.} On each curve $\tilde\gamma_e$ fix one $C^2$ regular parametrization (say by arc length). Choose
-vertices on it, including its end points.
-\item \emph{Faces.} In the parameter domain of each $S_f$, the region of $\tilde P_f$ is bounded by the preimages of the
-$\tilde\gamma_e$; they carry the pulled-back parametrizations and vertices. Across a seam the parameter domain is
-glued periodically, so both sides of a seam use the same vertices.
-\item \emph{Curved triangles.} Subdivide each region into curved triangles with at most one curved edge each. The curved
-edges are pieces of the boundary curves, with their pulled-back parametrizations; the corners of the region (the
-preimages of the $c_v$) are vertices; and the triangles are shape-regular in the parameter domain. This is possible for
-a fine enough subdivision because the boundary curves are $C^2$ and meet at positive angles (R).
-\item \emph{Maps.} Map each straight reference triangle onto its curved triangle by a transformation that reproduces the
-prescribed parametrization on the curved edge and is affine on the straight edges~\cite{Lenoir86}
-\unverified{regularity up to the corners and invertibility of Lenoir's transformation}. Compose with the
-parametrization of $S_f$.
+\item On a triangle with one curved edge, use Lemma~\ref{lem:curvedtri}, with the curved edge parametrized by the
+pull-back of the fixed parametrization of $\tilde\gamma_e$. Precompose with the affine map from the standard simplex,
+and compose with $X_f$.
+\item On a straight triangle, use the affine map, composed with $X_f$.
 \end{itemize}
-This gives an abstract simplicial complex $T$ and a homeomorphism $h_0\colon|T|\to\Sigma$.
+Then:
 \begin{itemize}
-\item $T$ subdivides the cell structure of $\Sigma$, so by C it is a regular subdivision of $K$. It gives $|K|$ its PL
-structure (Section~\ref{sec:setting}).
-\item On each closed triangle, $h_0$ is $C^1$ up to the boundary, with injective differential.
-\item On a shared edge, the two adjacent triangle maps agree:
+\item \emph{$h_0$ agrees on shared edges.}
   \begin{itemize}
-  \item an interior straight edge of one face is affine in the parameter domain on both sides;
-  \item an edge on $\tilde\gamma_e$ reproduces the same 3D parametrization from both faces (or from both sides of a seam).
+  \item An interior straight edge is affine in $U_f$ on both sides.
+  \item An edge on $\tilde\gamma_e$ between faces $f$ and $g$ is $s\mapsto\tilde\gamma_e(t_0+s(t_1-t_0))$ from both
+  sides, by Lemma~\ref{lem:curvedtri}(a).
+  \item A seam edge is mapped the same way from both sides, because $X_f$ is periodic (clause P of
+  Proposition~\ref{prop:Bprime}).
   \end{itemize}
+\item \emph{$h_0$ is a homeomorphism.} It is a homeomorphism onto $\Sigma$, by Lemma~\ref{lem:curvedtri}(d) and the
+injectivity of $X_f$ on $D_f$.
+\item \emph{Regularity.} On each closed triangle $h_0$ is $C^1$ up to the boundary, with injective differential. This
+follows from Lemma~\ref{lem:curvedtri}(c),(d), since $X_f$ is $C^2$ regular on a neighbourhood of $D_f$.
 \end{itemize}
 
-\subsection{$h_0$ is bi-Lipschitz}
-Use the intrinsic length metric of $|T|$. $h_0$ is injective by C, and $|T|$ is compact, so it suffices that $h_0$ is
-locally bi-Lipschitz.
+\subsection{$h_0$ is bi-Lipschitz on each shell}
+On a shell, $|T|$ is compact and $h_0$ is injective, so it suffices that $h_0$ is locally bi-Lipschitz.
 \begin{itemize}
-\item \emph{Inside a face,} including across interior edges of the subdivision: $h_0$ is a composition of a
-bi-Lipschitz map onto the parameter region with the regular parametrization of $S_f$.
-\item \emph{Across a seam:} both sides lie on the same surface $S_f$, and in the periodic parameter domain the two
-triangles are adjacent, so the same argument applies; there is no crease.
-\item \emph{Along a non-seam edge:} the two patches meet along $\tilde\gamma_e$ at a dihedral angle in $(0,\pi)$ (T), so
-the tangent cone at each interior point of the edge is a union of two distinct half-planes.
-\item \emph{At a vertex $c_v$:} by T the tangent cone is an embedded disk made of sectors with positive opening angles,
-meeting only along common rays; by R the patch corners have positive angles.
-\item Hence $h_0$ is locally bi-Lipschitz everywhere, and so bi-Lipschitz.
+\item \emph{Inside a face,} including across interior edges and at interior vertices of $T$: the map to $D_f$ is a
+piecewise-$C^1$ homeomorphism with invertible differential on each closed piece. Its tangent map at a vertex is a
+sectorwise linear, orientation-preserving map of the plane of degree one, hence a homeomorphism. Composing with the
+regular parametrization $X_f$ keeps it locally bi-Lipschitz.
+\item \emph{Across a seam:} the same, in the periodic parameter domain; there is no crease.
+\item \emph{Along a non-seam edge,} end points included: by T the two inward tangent half-planes are distinct. By
+compactness of $\tilde\gamma_e$ and continuity, the angle between them is bounded away from $0$. So the tangent cone at
+each point is a union of two half-planes that meet only along their common line. This also covers vertices of $T$ that
+lie on $\tilde\gamma_e$: there the triangle sectors on each side tile the two half-planes.
+\item \emph{At a vertex $c_v$:} by T the tangent cone of $\Sigma$, the union of the tangent sectors of all corners
+over $c_v$, is an embedded disk; by R each sector has a positive opening angle. $h_0$ is $C^1$ up to $c_v$ on every
+closed triangle, so the blow-up argument applies: rescale at $c_v$, pass to the tangent cone, and use $C^1$ convergence
+on each sector.
 \end{itemize}
 
 \subsection{Secant approximation}
-Let $S$ be the secant map on $T$, refined if necessary: linear on each triangle and equal to $h_0$ at the vertices.
+Refine $T$ by affine subdivision of each simplex; this keeps shape regularity and keeps $h_0$ $C^1$ on each original
+closed triangle. Let $S$ be the secant map: linear on each refined triangle and equal to $h_0$ at the vertices.
 \begin{itemize}
-\item On each triangle, $h_0$ is $C^1$ up to the boundary, and the triangles are shape-regular. The standard estimate
-gives $\operatorname{Lip}(S-h_0)\le C\,\omega(Dh_0,\mathrm{mesh})/\sin\theta_{\min}$ and $|S-h_0|\le C\,\mathrm{mesh}$.
-\item In the intrinsic metric, these per-triangle bounds are global.
-\item For a fine enough mesh:
-  \begin{itemize}
-  \item $\operatorname{Lip}(S-h_0)$ is below the bi-Lipschitz constant of $h_0$, so $S$ is injective;
-  \item $|S-h_0|<m$, so $S$ maps every closed cell into its zone, and in particular $S(\inter\sigma)\subseteq\Z(\sigma)$.
-  \end{itemize}
+\item \emph{The estimate.} On each triangle, $\operatorname{Lip}(S-h_0)\le C\,\omega(Dh_0,\mathrm{mesh})/\sin\theta_{\min}$ and
+$|S-h_0|\le\mathrm{mesh}\cdot\omega(Dh_0,\mathrm{mesh})$, where $\omega$ is a modulus of continuity. In the intrinsic
+metric of each shell these bounds are global.
+\item \emph{Within a shell.} Once $\operatorname{Lip}(S-h_0)$ is below the bi-Lipschitz constant of $h_0$, $S$ is
+injective there.
+\item \emph{Between shells.} $h_0$ maps different shells to disjoint compact sets at distance $\delta>0$. Once
+$|S-h_0|<\delta/2$, $S$ maps them to disjoint sets.
+\item \emph{Zones.} Once $|S-h_0|<m$: every point of a closed cell lies on a simplex of $T$ inside that cell, so
+$S(\bar\sigma)\subseteq\Z(\sigma)$ for vertices, edges and faces. In particular $S(\inter\sigma)\subseteq\Z(\sigma)$.
 \end{itemize}
-$S$ is PL, so it is a realization. $\square$
+$S\circ h_0^{-1}\circ\phi$ is then a PL embedding of $|K|$, linear on the simplices of a triangulation that subdivides the
+cells of $K$, with every cell in its zone. That is a realization. $\square$
 
-\emph{Standard facts used without separate checking against a source:} existence of shape-regular curved
-triangulations of a planar region bounded by $C^2$ curves meeting at positive angles; the per-triangle
-secant-approximation estimate; that a map whose tangent cones are embedded disks with positive opening angles is
-locally bi-Lipschitz; bi-Lipschitz equivalence of the intrinsic and extrinsic metrics on a compact polyhedron; and the
-curved-triangle transformations cited above.
+\emph{Standard facts used without separate checking against a source:}
+\begin{itemize}
+\item existence of shape-regular triangulations of a simple polygon with prescribed boundary vertices and corner
+fans as described;
+\item the per-triangle secant-approximation estimate;
+\item that a sectorwise linear, orientation-preserving map of the plane of degree one is a homeomorphism;
+\item that a map that is $C^1$ up to the vertex on each sector, with an embedded tangent cone of positive opening
+angles, is locally bi-Lipschitz (blow-up);
+\item that an injective, locally bi-Lipschitz map of a compact space is bi-Lipschitz.
+\end{itemize}

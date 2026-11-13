@@ -132,10 +132,10 @@ junction crossings.
 \item Subdivide $Q_f$ into curved triangles, each with at most one curved edge. The curved edges are pieces of
 $\partial Q_f$ with their prescribed parametrizations, and the corners of $\partial Q_f$ are vertices. Triangulate the
 domain cell of $Q_f$ in $L$ to match.
-\item On each curved triangle, use a transformation from a straight triangle that reproduces the prescribed
-parametrization on the curved edge and is affine on the straight edges~\cite{Lenoir86}. Such maps are $C^1$ up to the
-boundary and invertible for a fine enough subdivision \unverified{Lenoir's construction: regularity up to the corners and
-invertibility}.
+\item On each curved triangle, use the map of Lemma~\ref{lem:curvedtri}. It reproduces the prescribed
+parametrization on the curved edge, is affine on the straight edges, is $C^1$ up to the corners, and is a diffeomorphism
+for a fine enough subdivision. As in Appendix~\ref{sec:proofBprime}, put one interior vertex near each corner of
+$\partial Q_f$ so that no triangle has two curved edges.
 \item Composed with the chart of $P_f$, this gives maps that are $C^1$ up to the boundary, have injective
 differential, and agree on shared edges.
 \end{itemize}
@@ -144,8 +144,9 @@ These cell maps agree on shared edges, so together they define a homeomorphism $
 sends each cell of $K$ onto the corresponding image cell.
 
 \subsection{The PL step}
-\emph{Metric.} We measure Lipschitz constants on $|L|$ in its intrinsic length metric. That metric is bi-Lipschitz
-equivalent to the extrinsic one, and in it a Lipschitz bound on each cell is a global bound.
+\emph{Metric.} We measure Lipschitz constants on each shell of $|L|$ in its intrinsic length metric. That metric is
+bi-Lipschitz equivalent to the extrinsic one, and in it a Lipschitz bound on each cell is a global bound. Between
+shells we use a constant distance. Injectivity between shells is argued separately at the end.
 
 \emph{$h$ is bi-Lipschitz.} $h$ is injective on a compact space, so it suffices that it is locally bi-Lipschitz.
 \begin{itemize}
@@ -237,8 +238,10 @@ respect to arc length $\ell u$.
 \item \emph{Conclusion.} With the intrinsic metric, $\operatorname{Lip}(S-h)\to0$ and $|S-h|\to0$ globally. For a fine
 enough triangulation:
   \begin{itemize}
-  \item $\operatorname{Lip}(S-h)$ is below the bi-Lipschitz constant of $h$, so $S$ is injective, by
+  \item $\operatorname{Lip}(S-h)$ is below the bi-Lipschitz constant of $h$, so $S$ is injective on each shell, by
   $|S(x)-S(y)|\ge|h(x)-h(y)|-\operatorname{Lip}(S-h)\,|x-y|$;
+  \item $h$ maps different shells to disjoint compact sets at some distance $\delta>0$, so once $|S-h|<\delta/2$,
+  $S$ maps them to disjoint sets;
   \item $|S-h|<m$, so $S(\inter\sigma)\subseteq\Z(\sigma)$.
   \end{itemize}
   $S$ is PL, so it is a realization. $\square$
@@ -248,5 +251,4 @@ enough triangulation:
 reach~\cite{Federer59}; the implicit function theorem; gluing disks along boundary arcs; the per-triangle
 secant-approximation estimate for $C^1$ maps; bi-Lipschitz equivalence of the intrinsic and extrinsic metrics on a
 compact polyhedron; that a map whose tangent cones are embedded disks with positive opening angles is locally
-bi-Lipschitz; that an injective, locally bi-Lipschitz map of a compact space is bi-Lipschitz; and the curved-triangle
-maps cited above.
+bi-Lipschitz; and that an injective, locally bi-Lipschitz map of a compact space is bi-Lipschitz.

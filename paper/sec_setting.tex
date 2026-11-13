@@ -1,17 +1,18 @@
 \section{Tolerant B-reps and realizations}\label{sec:setting}
 
 \subsection{Complexes}
-$K$ is a finite CW complex whose underlying space $|K|$ is a disjoint union of closed connected surfaces
-$|K_1|,\dots,|K_n|$ (the \emph{shells}). We write $\tau\le\sigma$ when $\tau$ is a face of $\sigma$ (including
+$K$ is a finite cell complex in the B-rep sense. Its 0-cells are points, its edges are arcs or closed curves, and
+its faces are compact surfaces, possibly with holes, whose interiors are the open faces. The underlying space $|K|$ is a
+disjoint union of closed connected surfaces $|K_1|,\dots,|K_n|$ (the \emph{shells}). We write $\tau\le\sigma$ when $\tau$ is a face of $\sigma$ (including
 $\tau=\sigma$). For the uniqueness theorem we assume $K$ is \emph{regular}: every closed cell $\bar\sigma$ is a
 ball whose boundary is a subcomplex. B-rep complexes with seam edges, closed edges or faces with holes are not
 regular, and must first be subdivided. A new cell inherits the zone of the open cell of $K$ that contains it.
 This keeps the zones monotone, and a realization of the original model is a realization of the subdivision, since
 $h(\inter\sigma')\subseteq h(\inter\sigma)\subseteq\Z(\sigma)$ for a new cell $\sigma'\subseteq\sigma$. The carrier
 condition of Section~\ref{sec:uniqueness} must then hold for the subdivided complex. A new edge inside a face $f$
-has carrier $\Z(f)$, so subdividing faces adds the hypothesis $\pi_1(\Z(f))=0$; contractible zones satisfy it. For regular $K$, $|K|$ carries
-the PL structure of the order complex of its face poset; for a B-rep complex we use the PL structure of a regular
-subdivision. New vertices created inside an edge or face inherit its zone, so the carrier condition requires those
+has carrier $\Z(f)$, so subdividing faces adds the hypothesis $\pi_1(\Z(f))=0$; contractible zones satisfy it. A map of $|K|$ is \emph{PL} if it is linear on the simplices of some triangulation of $|K|$ that subdivides its
+cells. In dimension two, any two such triangulations are related by a cell-preserving PL homeomorphism (standard; not
+separately checked against a source), so the notion does not depend on the choice. New vertices created inside an edge or face inherit its zone, so the carrier condition requires those
 zones to be path-connected. The existence results say where they apply to B-rep
 complexes directly.
 

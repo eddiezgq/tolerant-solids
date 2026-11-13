@@ -1,0 +1,64 @@
+\section{A curved-triangle lemma}\label{sec:curvedtri}
+
+Appendices~\ref{sec:proof51} and~\ref{sec:proofBprime} need maps of triangles with one curved side that reproduce a
+\emph{prescribed} parametrization of that side. This is what makes maps built separately on two adjacent faces agree
+on their common edge. We give an explicit construction.
+
+\begin{lemma}\label{lem:curvedtri}
+Let $\hat c\colon[t_0,t_1]\to\R^2$ be a $C^2$ regular curve, $a_1=\hat c(t_0)$, $a_2=\hat c(t_1)$, and $a_3$ a point.
+\begin{itemize}
+\item Put $\psi(s)=\hat c(t_0+s(t_1-t_0))-((1-s)a_1+sa_2)$ for $s\in[0,1]$.
+\item In barycentric coordinates $(\lambda_1,\lambda_2,\lambda_3)$ of the reference triangle $\Delta$, put
+$\mu=\lambda_1+\lambda_2$ and
+\[
+F(\lambda)=\lambda_1a_1+\lambda_2a_2+\lambda_3a_3+\mu^2\,\psi(\lambda_2/\mu)\qquad(F=a_3\text{ at }\mu=0).
+\]
+\end{itemize}
+Then:
+\begin{enumerate}
+\item[(a)] on the side $\lambda_3=0$, $F$ is $\lambda_2\mapsto\hat c(t_0+\lambda_2(t_1-t_0))$;
+\item[(b)] on the sides $\lambda_1=0$ and $\lambda_2=0$, $F$ is affine;
+\item[(c)] $F$ is $C^1$ on the closed triangle $\Delta$, including at its corners.
+\end{enumerate}
+Moreover, consider a family of such triangles in which the chord triangles $(a_1,a_2,a_3)$ are shape-regular with
+diameter $h\to0$, and $|t_1-t_0|$ times the speed of $\hat c$ is $O(h)$, with uniform $C^2$ bounds on $\hat c$. Then for
+small $h$:
+\begin{enumerate}
+\item[(d)] $F$ is a $C^1$ diffeomorphism of $\Delta$ onto the region bounded by the arc $\hat c([t_0,t_1])$ and the
+segments $[a_2,a_3]$ and $[a_3,a_1]$, and $DF=A(I+O(h))$, where $A$ is the derivative of the affine part.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) On $\lambda_3=0$ we have $\mu=1$, so $F=(1-\lambda_2)a_1+\lambda_2a_2+\psi(\lambda_2)=\hat c(t_0+\lambda_2(t_1-t_0))$.
+
+(b) $\psi(0)=\psi(1)=0$. On $\lambda_2=0$ the correction is $\mu^2\psi(0)=0$. On $\lambda_1=0$ it is
+$\mu^2\psi(1)=0$ (for $\mu>0$).
+
+(c) For $\mu>0$, $F$ is $C^1$ (indeed $C^2$). Write $G=\mu^2\psi(s)$ with $s=\lambda_2/\mu$. Then
+$dG=2\mu\psi(s)\,d\mu+\mu^2\psi'(s)\,ds$ with $|ds|=O(1/\mu)$, so $|dG|=O(\mu)\to0$ as $\mu\to0$. Hence $F$ is $C^1$ at
+$a_3$ as well, with $DF(a_3)=A$. At the other two corners $\mu=1$, and $\psi$ is $C^2$ on $[0,1]$.
+
+(d) \emph{Size of the correction.} $\psi''(s)=(t_1-t_0)^2\hat c''$ is $O(h^2)$, and $\psi(0)=\psi(1)=0$, so $|\psi|$ and
+$|\psi'|$ are $O(h^2)$. Hence $|DG|=O(h^2)$ on $\Delta$, in coordinates of the unit reference triangle.
+
+\emph{Injectivity.} By shape regularity $\|A^{-1}\|=O(1/h)$, so $DF=A+DG=A(I+O(h))$. For $x,y\in\Delta$ (which is
+convex),
+\[
+|F(x)-F(y)|\ge|A(x-y)|-Ch^2|x-y|\ge(ch-Ch^2)|x-y|>0
+\]
+for small $h$. So $F$ is injective, and its differential is invertible.
+
+\emph{Image.} $F$ maps $\partial\Delta$ homeomorphically onto the closed curve formed by the arc and the two segments.
+That curve is simple for small $h$: the arc stays within $O(h^2)$ of its chord, and the two segments make angles with
+the chord that are bounded below by shape regularity. An injective continuous map of a closed disk whose boundary goes
+onto a Jordan curve has as image the closed region bounded by that curve.
+\end{proof}
+
+\emph{Remark.} The classical blending map with $\mu\,\psi(\lambda_2/\mu)$ in place of $\mu^2\psi(\lambda_2/\mu)$ is
+exact on the curved side and affine on the straight sides. But it is only Lipschitz at $a_3$: its derivative there
+depends on the direction of approach. The factor $\mu^2$ is what gives (c).
+
+\emph{Standard facts used without separate checking against a source:} the Jordan curve theorem, and that an injective
+continuous map of a closed disk onto a set bounded by its image boundary curve has the closed Jordan region as its
+image (invariance of domain).

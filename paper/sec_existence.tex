@@ -101,24 +101,41 @@ Then the cellular map onto $\bigcup\tilde P_f$ is a realization.
 It is a PL homeomorphism onto $\bigcup\tilde P_f$, and each cell lands in its zone.
 \end{proof}
 
-\begin{proposition}[Curved, transversal]\label{prop:Bprime}
-Suppose every face lies on a $C^2$ surface $S_f$ with a $C^2$ regular parametrization, and there is a
-\emph{re-trimmed model}: compact patches $\tilde P_f\subseteq S_f$, curves $\tilde\gamma_e$ and points $c_v$ such that
-$\Sigma=\bigcup_f\tilde P_f$ bounds a solid.
+\begin{proposition}[Curved re-intersection]\label{prop:Bprime}
+Suppose there is a \emph{re-trimmed model}: compact patches $\tilde P_f$, curves $\tilde\gamma_e$ and points $c_v$, with
+$\Sigma=\bigcup_f\tilde P_f$, satisfying the following.
 \begin{description}
-\item[C] The patches, curves and points form a cell structure on $\Sigma$ isomorphic to $K$ as a B-rep complex: seams are
-glued to themselves and closed edges have one vertex. For an edge between two different faces $f,g$,
-$\tilde\gamma_e\subseteq S_f\cap S_g$; for a seam of $f$, $\tilde\gamma_e\subseteq S_f$.
-\item[R] In the parameter domain of $S_f$, each $\tilde P_f$ is a compact region bounded by finitely many $C^2$ regular
-curves, the preimages of the $\tilde\gamma_e$. They meet only at the preimages of the $c_v$, at positive interior angles
-(no cusps). Across a seam, the region continues periodically.
+\item[P] Each face has a $C^2$ regular parametrization $X_f\colon U_f\to\R^3$, where $U_f$ is open in $\R^2$ or in a
+quotient $\R^2/\Lambda_f$ by a lattice of periods (this is how seams are represented). There is a compact region
+$D_f\subset U_f$ with $X_f(D_f)=\tilde P_f$ and $X_f$ injective on $D_f$. Singular parametrizations, such as sphere
+poles and cone apices, are excluded.
+\item[C] There is a homeomorphism $\phi\colon|K|\to\Sigma$ mapping each open cell of $K$ onto the corresponding open cell
+of $\Sigma$. The open cells of $\Sigma$ are the points $c_v$, the curves $\tilde\gamma_e$ minus their end points, and the
+patches minus their boundary curves.
+\item[R] The boundary of each $D_f$ is a finite disjoint union of simple closed curves. Each is piecewise $C^2$ regular,
+with corners only at preimages of the points $c_v$. The interior angle of $D_f$ at each corner lies in $(0,2\pi)$.
 \item[B1--B3] $c_v\in\Z(v)$, $\tilde\gamma_e\subseteq\Z(e)$ and $\tilde P_f\subseteq\Z(f)$.
-\item[T] Along every non-seam edge, $S_f$ and $S_g$ meet at a positive angle (they are neither tangent nor folded). At
-every vertex $c_v$, the tangent cone of $\Sigma$ is a disk: the union of the tangent sectors of the incident patches, each
-with positive opening angle, glued in the cyclic order of the link and meeting only along their common boundary rays.
+\item[T] At every point of every edge curve $\tilde\gamma_e$, end points included, the inward tangent half-planes of the
+two adjacent patches (or of the two sides of a seam) are distinct: the surface does not fold back on itself. At every
+vertex $c_v$, the tangent cone of $\Sigma$ is an embedded disk. That cone is the union of the tangent sectors
+$dX_f(\text{tangent sector of }D_f)$ at all corners over $c_v$, and the condition means they meet only along common
+boundary rays, in the cyclic order of the link of $v$.
 \end{description}
 Then the tolerant B-rep has a realization.
 \end{proposition}
+
+\begin{remark}
+\begin{itemize}
+\item By C, $\Sigma$ is a disjoint union of closed surfaces, so it bounds a solid in the sense of
+Definition~\ref{def:solid}.
+\item C covers seams, closed edges and faces with inner wires.
+\item The edge part of T asks only that the surface does not fold. Transversal faces satisfy it, and so do tangent (G$^1$)
+edges, where the two half-planes are opposite. So the proposition applies in principle to filleted models, provided a
+re-trimmed model with the stated properties is available. Our computation builds the re-trimmed model by
+re-intersecting extended surfaces, which fails for tangent faces (Section~\ref{sec:experiments}); that is a limitation
+of the computation, not of the proposition.
+\end{itemize}
+\end{remark}
 The proof is in Appendix~\ref{sec:proofBprime}.
 
 \begin{remark}[Checking the hypotheses]
