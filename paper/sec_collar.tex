@@ -46,8 +46,8 @@ $S_\delta^\pm=S_\delta\cap\Omega_\pm$.
 \item \emph{Inner side.} Put $O=\Omega_-$. It is bounded and open, and for $x\in O$ the distance to $O^c$ equals
 $d(x)$, with the same nearest points (they lie on $\partial O=M$). So the critical points of the distance to $O^c$
 in $O$ are exactly the critical points of $d$ in $\Omega_-$. The criticality notions agree:
-\cite{ChazalLieutier07} use the vanishing of the generalized gradient, which holds iff $x\in\conv\Gamma(x)$
-(see~\cite[\S2.1]{CCSL09dcg}).
+\cite{ChazalLieutier07} use the vanishing of their gradient field, which holds iff $x$ lies in the convex hull of
+its nearest boundary points~\cite[Lemma~2.2]{ChazalLieutier07} (see also~\cite[\S2.1]{CCSL09dcg}).
 \item Since $r<\wfs(M)$, the shell $A_-$ contains no critical point. The isotopy lemma~\cite[Prop.~3.4]{ChazalLieutier07}
 gives a homeomorphism $A_-\cong S^-_\delta\times[\delta,r]$.
 \item \emph{Outer side.} Put $O=\Omega_+\cap B(0,\mathcal R)$ with $\mathcal R$ large. For $x\in O$ the distance to
@@ -61,9 +61,9 @@ $R^{-1}(\delta)=S^+_\delta\sqcup\{|x|=\mathcal R-\delta\}$ has exactly two compo
 The components of the product are $C\times[\delta,r]$ for the two components $C$. The shell near the sphere is one
 component of the union, so $A_+$ is the other: $A_+\cong C\times[\delta,r]$ with $C$ connected. Step~3 shows that
 $C\cong S^+_\delta$.
-\item We use Prop.~3.4 in its closed-shell form $\{\rho_1\le R\le\rho_2\}$, as quoted above
-\unverified{exact form of~\cite[Prop.~3.4]{ChazalLieutier07}; if the original only treats a half-open shell, the
-argument needs its level-preserving (flow) form}.
+\item We use Prop.~3.4 in its stated closed-shell form: for a bounded open $O$ and $R=d(\cdot,O^c)$, if the shell
+$\{x\in O:\rho_1\le R(x)\le\rho_2\}$ contains no critical point of $R$, it is homeomorphic to
+$R^{-1}(\rho_1)\times[\rho_1,\rho_2]$~\cite[Prop.~3.4]{ChazalLieutier07}.
 \end{itemize}
 
 \emph{Step 3: gluing.}
