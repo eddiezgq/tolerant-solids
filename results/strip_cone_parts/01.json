@@ -1,0 +1,91 @@
+{
+ "box (control), g=0.01": {
+  "n": 8,
+  "n_ok": 8,
+  "fails": {},
+  "edges_crossing": 2,
+  "n_edges": 12,
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2479613265669686,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.7658177428962913,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.23435762076355354,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.160301240647658,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.8975915173442471,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.300914652558868,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.20326316053344431,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.8704130221127278,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.3381237017107841,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.3454195437300696,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.37891451831435125,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 2.6310603949303824,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.21985416812119704,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.7603438258144455,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.17979584835871057,
+    "L2": true,
+    "L3_min_dist_over_tau_v": 1.791558667346963,
+    "ok": true
+   }
+  ]
+ }
+}

@@ -1,0 +1,91 @@
+{
+ "box (control), g=0.001": {
+  "n": 8,
+  "n_ok": 8,
+  "fails": {},
+  "edges_crossing": 2,
+  "n_edges": 12,
+  "rows": [
+   {
+    "vertex": 0,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.22913298439490068,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 1,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.24139592793018588,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 2,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.8976004166833988,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 3,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.20326449858212162,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 4,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.3381249844091052,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 5,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.378916041908201,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 6,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.2266868746208514,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   },
+   {
+    "vertex": 7,
+    "valence": 3,
+    "rho": 0.85,
+    "L1": true,
+    "L2_min_gap_over_r": 0.17980390885280217,
+    "L2": true,
+    "L3_min_dist_over_tau_v": Infinity,
+    "ok": true
+   }
+  ]
+ }
+}

@@ -255,11 +255,20 @@ def run_model(args):
 
 
 def main():
-    import multiprocessing as mp
+    """Usage: python3 strip_cone_check2.py [index]  -- with an index, run one model and write a part file;
+    without, merge the part files into ../results/strip_cone_check2.json."""
+    import os, glob
     jobs = [(n, g) for n in PARTS for g in GAPS]
-    with mp.get_context("spawn").Pool(min(len(jobs), max(1, mp.cpu_count()))) as pool:
-        res = dict(pool.map(run_model, jobs, chunksize=1))
+    if len(sys.argv) > 1:
+        key, r = run_model(jobs[int(sys.argv[1])])
+        os.makedirs("../results/strip_cone_parts", exist_ok=True)
+        json.dump({key: r}, open(f"../results/strip_cone_parts/{int(sys.argv[1]):02d}.json", "w"), indent=1, default=float)
+        return
+    res = {}
+    for f in sorted(glob.glob("../results/strip_cone_parts/*.json")):
+        res.update(json.load(open(f)))
     json.dump(res, open("../results/strip_cone_check2.json", "w"), indent=1, default=float)
+    print(len(res), "models merged")
 
 
 if __name__ == "__main__":
