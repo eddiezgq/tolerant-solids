@@ -94,7 +94,7 @@ sewn cylinder $g=0.01$ & fails at vertices & pass (curved) & 55\% / 35\% / 5.0\%
 sewn cylinder $g=0.05$ & fails at vertices & pass (curved) & 55\% / 11\% / 8.9\% \\
 sewn pipe $g=0.01$ & fails at vertices & pass (curved) & 53\% / 16\% / 5.1\% \\
 sewn wedges & fails at vertices & fails (edge outside tube) & no realization (Thm.~\ref{thm:obstruction}) \\
-sewn filleted box $g=0.001$ & fails at vertices & not applicable (tangent faces) & open \\
+sewn filleted box $g=0.001$ & fails at vertices & computation not applicable (tangent faces) & open \\
 \bottomrule
 \end{tabular}
 \caption{Constructions on exact and sewn models (sampled checks, double precision). $^*$Provisional: the checker
@@ -107,8 +107,9 @@ sewn plate only the dense re-check is available.}\label{tab:constr}
 \item \emph{Why the fans fail on sewn data.} The fan construction fails at the vertices of sewn models. Sewing sets
 $\tau_e=1.05\,\mathrm{dev}_e$, and the tube radius must exceed the deviation; but at a corner of a box three tubes of
 radius greater than $\mathrm{dev}$ do not fit disjointly into a vertex ball of radius about $\tau_e$.
-\item \emph{Re-intersection.} Re-intersection avoids this, but needs transversal faces. ``Pass (curved)'' refers to
-the edge part of the transversality hypothesis only; the vertex part is not checked.
+\item \emph{Re-intersection.} Re-intersection avoids this. Our computation of the re-trimmed model, which
+re-intersects the extended surfaces, needs transversal faces. ``Pass (curved)'' refers to the edge part of hypothesis T
+only; the vertex part is not checked.
 \item \emph{Sewn models with tangent edges remain open.} On the sewn filleted box, OpenCascade sets each vertex
 tolerance equal to the largest incident edge tolerance, the patch corners lie up to $0.85\,\tau_v$ from the vertex
 point, and none of our vertex constructions fits.

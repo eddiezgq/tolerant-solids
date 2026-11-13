@@ -5,7 +5,7 @@ Appendices~\ref{sec:proof51} and~\ref{sec:proofBprime} need maps of triangles wi
 on their common edge. We give an explicit construction.
 
 \begin{lemma}\label{lem:curvedtri}
-Let $\hat c\colon[t_0,t_1]\to\R^2$ be a $C^2$ regular curve, $a_1=\hat c(t_0)$, $a_2=\hat c(t_1)$, and $a_3$ a point.
+Let $\hat c\colon[t_0,t_1]\to\R^2$ be a $C^1$ regular curve, $a_1=\hat c(t_0)$, $a_2=\hat c(t_1)$, and $a_3$ a point.
 \begin{itemize}
 \item Put $\psi(s)=\hat c(t_0+s(t_1-t_0))-((1-s)a_1+sa_2)$ for $s\in[0,1]$.
 \item In barycentric coordinates $(\lambda_1,\lambda_2,\lambda_3)$ of the reference triangle $\Delta$, put
@@ -21,11 +21,11 @@ Then:
 \item[(c)] $F$ is $C^1$ on the closed triangle $\Delta$, including at its corners.
 \end{enumerate}
 Moreover, consider a family of such triangles in which the chord triangles $(a_1,a_2,a_3)$ are shape-regular with
-diameter $h\to0$, and $|t_1-t_0|$ times the speed of $\hat c$ is $O(h)$, with uniform $C^2$ bounds on $\hat c$. Then for
-small $h$:
+diameter $h\to0$, $|t_1-t_0|$ times the speed of $\hat c$ is $O(h)$, and $\hat c'$ has a uniform modulus of continuity
+$\omega$. Then for small $h$:
 \begin{enumerate}
 \item[(d)] $F$ is a $C^1$ diffeomorphism of $\Delta$ onto the region bounded by the arc $\hat c([t_0,t_1])$ and the
-segments $[a_2,a_3]$ and $[a_3,a_1]$, and $DF=A(I+O(h))$, where $A$ is the derivative of the affine part.
+segments $[a_2,a_3]$ and $[a_3,a_1]$, and $DF=A(I+O(\omega(h)))$, where $A$ is the derivative of the affine part.
 \end{enumerate}
 \end{lemma}
 
@@ -35,24 +35,29 @@ segments $[a_2,a_3]$ and $[a_3,a_1]$, and $DF=A(I+O(h))$, where $A$ is the deriv
 (b) $\psi(0)=\psi(1)=0$. On $\lambda_2=0$ the correction is $\mu^2\psi(0)=0$. On $\lambda_1=0$ it is
 $\mu^2\psi(1)=0$ (for $\mu>0$).
 
-(c) For $\mu>0$, $F$ is $C^1$ (indeed $C^2$). Write $G=\mu^2\psi(s)$ with $s=\lambda_2/\mu$. Then
-$dG=2\mu\psi(s)\,d\mu+\mu^2\psi'(s)\,ds$ with $|ds|=O(1/\mu)$, so $|dG|=O(\mu)\to0$ as $\mu\to0$. Hence $F$ is $C^1$ at
-$a_3$ as well, with $DF(a_3)=A$. At the other two corners $\mu=1$, and $\psi$ is $C^2$ on $[0,1]$.
+(c) For $\mu>0$, $F$ is $C^1$. Write $G=\mu^2\psi(s)$ with $s=\lambda_2/\mu$. Then
+\begin{itemize}
+\item $|G|\le\mu^2\max|\psi|=O(\mu^2)$, so $G$ is differentiable at $a_3$ with $DG(a_3)=0$;
+\item $dG=2\mu\psi(s)\,d\mu+\mu^2\psi'(s)\,ds$ with $|ds|=O(1/\mu)$, so $|dG|=O(\mu)\to0$ as $\mu\to0$.
+\end{itemize}
+Hence $F$ is $C^1$ at $a_3$, with $DF(a_3)=A$. At the other two corners $\mu=1$, and $\psi$ is $C^1$ on $[0,1]$.
 
-(d) \emph{Size of the correction.} $\psi''(s)=(t_1-t_0)^2\hat c''$ is $O(h^2)$, and $\psi(0)=\psi(1)=0$, so $|\psi|$ and
-$|\psi'|$ are $O(h^2)$. Hence $|DG|=O(h^2)$ on $\Delta$, in coordinates of the unit reference triangle.
+(d) \emph{Size of the correction.} Put $\Delta t=t_1-t_0$. Then $\psi'(s)=\Delta t\,\bigl(\hat c'(t_0+s\Delta t)-\overline{\hat
+c'}\bigr)$, where $\overline{\hat c'}$ is the mean of $\hat c'$ over $[t_0,t_1]$. So $|\psi'|\le|\Delta t|\,\omega(|\Delta
+t|)=O(h\,\omega(h))$, and since $\psi(0)=0$, also $|\psi|=O(h\,\omega(h))$. Hence $|DG|=O(h\,\omega(h))$ on $\Delta$, in
+coordinates of the unit reference triangle.
 
-\emph{Injectivity.} By shape regularity $\|A^{-1}\|=O(1/h)$, so $DF=A+DG=A(I+O(h))$. For $x,y\in\Delta$ (which is
+\emph{Injectivity.} By shape regularity $\|A^{-1}\|=O(1/h)$, so $DF=A+DG=A(I+O(\omega(h)))$. For $x,y\in\Delta$ (which is
 convex),
 \[
-|F(x)-F(y)|\ge|A(x-y)|-Ch^2|x-y|\ge(ch-Ch^2)|x-y|>0
+|F(x)-F(y)|\ge|A(x-y)|-Ch\,\omega(h)|x-y|\ge(ch-Ch\,\omega(h))|x-y|>0
 \]
 for small $h$. So $F$ is injective, and its differential is invertible.
 
 \emph{Image.} $F$ maps $\partial\Delta$ homeomorphically onto the closed curve formed by the arc and the two segments.
-That curve is simple for small $h$: the arc stays within $O(h^2)$ of its chord, and the two segments make angles with
-the chord that are bounded below by shape regularity. An injective continuous map of a closed disk whose boundary goes
-onto a Jordan curve has as image the closed region bounded by that curve.
+That curve is simple for small $h$: the arc stays within $O(h\,\omega(h))$ of its chord, and the two segments make
+angles with the chord that are bounded below by shape regularity. An injective continuous map of a closed disk whose
+boundary goes onto a Jordan curve has as image the closed region bounded by that curve.
 \end{proof}
 
 \emph{Remark.} The classical blending map with $\mu\,\psi(\lambda_2/\mu)$ in place of $\mu^2\psi(\lambda_2/\mu)$ is

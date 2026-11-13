@@ -111,15 +111,19 @@ $D_f\subset U_f$ with $X_f(D_f)=\tilde P_f$ and $X_f$ injective on $D_f$. Singul
 poles and cone apices, are excluded.
 \item[C] There is a homeomorphism $\phi\colon|K|\to\Sigma$ mapping each open cell of $K$ onto the corresponding open cell
 of $\Sigma$. The open cells of $\Sigma$ are the points $c_v$, the curves $\tilde\gamma_e$ minus their end points, and the
-patches minus their boundary curves.
-\item[R] The boundary of each $D_f$ is a finite disjoint union of simple closed curves. Each is piecewise $C^2$ regular,
-with corners only at preimages of the points $c_v$. The interior angle of $D_f$ at each corner lies in $(0,2\pi)$.
+patches minus all their edge curves (seams included).
+\item[R] Let $G_f\subset D_f$ be the \emph{edge graph} of $f$: the preimage under $X_f$ of all edge curves of $f$,
+including seams, which in the quotient parametrization lie inside $D_f$ rather than on its boundary. $G_f$ is a finite
+graph. Its vertices are the preimages of the points $c_v$. Its edges are simple $C^2$ regular arcs, or simple closed
+curves, meeting only at vertices. At each vertex of $G_f$, every sector of $D_f$ between two consecutive arcs has angle
+in $(0,2\pi)$. A smooth passage, with angle $\pi$, is allowed: for example a seam vertex on a smooth boundary curve.
 \item[B1--B3] $c_v\in\Z(v)$, $\tilde\gamma_e\subseteq\Z(e)$ and $\tilde P_f\subseteq\Z(f)$.
-\item[T] At every point of every edge curve $\tilde\gamma_e$, end points included, the inward tangent half-planes of the
-two adjacent patches (or of the two sides of a seam) are distinct: the surface does not fold back on itself. At every
-vertex $c_v$, the tangent cone of $\Sigma$ is an embedded disk. That cone is the union of the tangent sectors
-$dX_f(\text{tangent sector of }D_f)$ at all corners over $c_v$, and the condition means they meet only along common
-boundary rays, in the cyclic order of the link of $v$.
+\item[T] At every interior point of every edge curve $\tilde\gamma_e$, the inward tangent half-planes of the two adjacent
+patches (or of the two sides of a seam) are distinct: the surface does not fold back on itself. At every vertex $c_v$,
+the tangent cone of $\Sigma$ is an embedded disk. That cone is the union of the tangent sectors $dX_f(\text{sector})$,
+taken over all sectors of the edge graphs $G_f$ at preimages of $c_v$. The condition means these sectors meet only along
+common boundary rays, in the cyclic order of the link of $v$. (Together with the $C^1$ regularity up to the vertices,
+this also controls the edge condition at the end points of the edges.)
 \end{description}
 Then the tolerant B-rep has a realization.
 \end{proposition}
@@ -142,7 +146,7 @@ The proof is in Appendix~\ref{sec:proofBprime}.
 \begin{itemize}
 \item The re-trimmed model can be computed by extending the face surfaces and rebuilding the solid
 (OpenCascade's \texttt{BOPAlgo\_MakerVolume}). The hypotheses are then checked on samples
-(\texttt{compute/reintersect\_curved.py}), except the vertex part of the transversality hypothesis, which is not
+(\texttt{compute/reintersect\_curved.py}), except the vertex part of hypothesis T, which is not
 checked. That matters for the cylinder and the pipe, whose seam vertices lie on only two surfaces. The PL step of the
 proof is not carried out numerically; it is an existence argument.
 \item For the planar case, the hypotheses of Proposition~\ref{prop:B} for the sewn box and the sewn plate were also

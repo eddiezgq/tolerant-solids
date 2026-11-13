@@ -18,19 +18,22 @@ Fix a small $h>0$.
 \item \emph{Edge vertices.} On each curve $\tilde\gamma_e$, fix one $C^2$ regular parametrization (by arc length, say),
 and choose vertices on it at 3D spacing about $h$, including its end points. A closed edge gets at least three
 vertices. These choices are made once, in $\R^3$, and are shared by all faces containing $e$ (both sides of a seam).
-\item \emph{Chord polygons.} In each $D_f$, pull back the edge vertices by $X_f$; this is possible because $X_f$ is
-injective on $D_f$. Join consecutive vertices along each boundary curve by chords. For small $h$ the resulting chord
-polygons are simple and bound a region close to $D_f$, by R: the boundary curves are simple, piecewise $C^2$ regular,
-with corner angles in $(0,2\pi)$.
-\item \emph{Triangulation.} Triangulate the chord region shape-regularly, with no extra vertices on its boundary. Put
-one interior vertex near each corner and join it to the corner, so that no triangle has two boundary chords. The
-shape-regularity constant depends on the smallest corner angle.
-\item \emph{Curved triangles.} Replace each boundary chord by its arc. An arc deviates from its chord by $O(h^2)\ll
-h\sin\theta_{\min}$, so the curved triangles tile $D_f$.
+\item \emph{Cutting along the edge graph.} In each $D_f$, pull back the edge vertices by $X_f$; this is possible because
+$X_f$ is injective on $D_f$. Cut $D_f$ along its edge graph $G_f$ (R), seams included. The result is a finite union of
+compact regions, each bounded by arcs of $G_f$ (a seam arc bounds a region on each of its two sides). Join consecutive
+edge vertices along each arc by chords. For small $h$ each region's chord polygon is simple and bounds a region close to
+it, by R: the arcs are simple $C^2$ regular, and the sector angles lie in $(0,2\pi)$.
+\item \emph{Triangulation.} Triangulate each chord region shape-regularly, with no extra vertices on its boundary. At
+every vertex of $G_f$, including smooth passages such as seam vertices, put one interior vertex near it in each adjacent
+sector and join it to the vertex, so that no triangle has two curved edges. The shape-regularity constant depends on
+the smallest sector angle.
+\item \emph{Curved triangles.} Replace each chord by its arc. An arc deviates from its chord by $o(h)\cdot h$, which is
+much smaller than $h\sin\theta_{\min}$, so the curved triangles tile $D_f$, and every arc of $G_f$, seams included, is a
+union of edges of the triangulation.
 \end{enumerate}
 Let $T$ be the resulting abstract complex. For small $h$ it is a simplicial complex, and it subdivides the cells of
-$\Sigma$, hence, through $\phi$, the cells of $K$. We metrize $|T|$ by standard (equilateral) simplices. On each shell we
-use the intrinsic length metric, and between shells a constant distance.
+$\Sigma$, hence, through $\phi$, the cells of $K$. We metrize $|T|$ by standard (equilateral) simplices and use the intrinsic
+length metric on each shell.
 
 \emph{The map $h_0\colon|T|\to\Sigma$.}
 \begin{itemize}
@@ -62,13 +65,13 @@ On a shell, $|T|$ is compact and $h_0$ is injective, so it suffices that $h_0$ i
 piecewise-$C^1$ homeomorphism with invertible differential on each closed piece. Its tangent map at a vertex is a
 sectorwise linear, orientation-preserving map of the plane of degree one, hence a homeomorphism. Composing with the
 regular parametrization $X_f$ keeps it locally bi-Lipschitz.
-\item \emph{Across a seam:} the same, in the periodic parameter domain; there is no crease.
-\item \emph{Along a non-seam edge,} end points included: by T the two inward tangent half-planes are distinct. By
-compactness of $\tilde\gamma_e$ and continuity, the angle between them is bounded away from $0$. So the tangent cone at
+\item \emph{Along an edge (seams included), away from its end points:} by T the two inward tangent half-planes are
+distinct. For a seam they are opposite in the tangent plane of $S_f$. The angle between them is continuous and
+positive, hence bounded away from $0$ on compact subarcs; near the end points the vertex argument below takes over. So the tangent cone at
 each point is a union of two half-planes that meet only along their common line. This also covers vertices of $T$ that
 lie on $\tilde\gamma_e$: there the triangle sectors on each side tile the two half-planes.
-\item \emph{At a vertex $c_v$:} by T the tangent cone of $\Sigma$, the union of the tangent sectors of all corners
-over $c_v$, is an embedded disk; by R each sector has a positive opening angle. $h_0$ is $C^1$ up to $c_v$ on every
+\item \emph{At a vertex $c_v$:} by T the tangent cone of $\Sigma$, the union of the tangent sectors of the edge graphs at
+the preimages of $c_v$, is an embedded disk; by R each sector has an opening angle in $(0,2\pi)$. $h_0$ is $C^1$ up to $c_v$ on every
 closed triangle, so the blow-up argument applies: rescale at $c_v$, pass to the tangent cone, and use $C^1$ convergence
 on each sector.
 \end{itemize}
