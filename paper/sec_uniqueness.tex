@@ -85,17 +85,42 @@ $\R^3$, supported in $U$ and fixed on $\partial U$, that carries $G$ to $\Psi^{-
   $p\colon G'\to M$ is a homeomorphism onto its image.
   \item $p(G')$ is open (invariance of domain) and closed in the connected surface $M$, so $p(G')=M$. Hence $G'$ is
   the graph of a function $s\colon M\to(-1,1)$.
-  \item Waldhausen's proof of Proposition~3.1 is brief and uses the irreducibility of $F\times I$
-  \unverified{irreducibility of $F\times I$; to be checked in Hempel, ch.~10, or Moise, ch.~35}.
+  \item Waldhausen's proof of Proposition~3.1 uses that $F\times I$ is irreducible~\cite[p.~66]{Waldhausen68}. For
+  closed $F$ of genus at least one this is Lemma~\ref{lem:irreducible} below.
   \end{itemize}
 \item[(c)] \emph{Flatten.} The PL homeomorphisms of the fibres $\{x\}\times[-1,1]$ that fix both ends and send $s(x)$
 to $(1-t)s(x)$, $t\in[0,1]$, give an ambient isotopy of $U$, fixed on $\partial U$, from $G'$ to
 $\Psi^{-1}(M\times\{0\})$. This isotopy is topological.
-\item[(d)] The isotopy of (b) is an isotopy of $G$ constant on $\partial U$; by isotopy extension it is induced by an
-ambient isotopy of $U$ fixed on $\partial U$ \draftnote{confirm in Waldhausen's text whether Prop.~3.1 already gives
-an ambient isotopy; if it is not fixed near $\partial U$, taper it across a collar of $\partial U$}. Both isotopies are
-fixed on $\partial U$ and extend by the identity to $\R^3$.
+\item[(d)] The isotopy of (b) is already ambient: in Waldhausen's paper an isotopy of subspaces $Z_1,Z_2$ of $X$ is by
+definition an isotopy of the identity map of $X$ carrying $Z_1$ to $Z_2$~\cite[p.~57]{Waldhausen68}, and Proposition~3.1
+gives one constant on $\partial U$. Both isotopies are fixed on $\partial U$ and extend by the identity to $\R^3$.
 \end{enumerate}
+\end{proof}
+
+\begin{lemma}\label{lem:irreducible}
+Let $F$ be a closed orientable PL surface of genus at least one. Then $F\times I$ is irreducible: every PL 2-sphere in
+$F\times I$ bounds a PL 3-cell in $F\times I$.
+\end{lemma}
+\begin{proof}
+\begin{itemize}
+\item A 2-sphere $S$ in $F\times I$ is closed, so it lies in $F\times(0,1)$ after the convention that surfaces are
+properly embedded; we may assume $S\subset F\times(0,1)$.
+\item Let $q\colon\tilde F\times I\to F\times I$ be the universal covering, with deck group $\Gamma$ acting by
+$\gamma\times\mathrm{id}$. $\tilde F$ is a simply connected non-compact PL surface without boundary, so it is PL
+homeomorphic to $\R^2$ (standard; not separately checked against a source). Hence $\tilde F\times I\cong_{PL}\R^2\times
+I\subset\R^3$.
+\item $S$ is simply connected, so it lifts to a PL 2-sphere $\tilde S\subset\R^2\times(0,1)$, and the lifts $\gamma\tilde S$,
+$\gamma\in\Gamma$, are pairwise disjoint. By the PL Schoenflies theorem~\cite[Thm.~17.12]{Moise77}, $\tilde S$ bounds a
+PL 3-cell $\tilde B\subset\R^3$. Points of $\R^3$ outside $\R^2\times[0,1]$ are joined to infinity in the complement of
+$\tilde S$, so $\tilde B\subset\R^2\times I$.
+\item Let $\gamma\ne1$. The spheres $\tilde S$ and $\gamma\tilde S$ are disjoint, so the cells $\tilde B$ and
+$\gamma\tilde B$ are either disjoint or nested. If $\gamma\tilde B\subseteq\tilde B$, then $\gamma^n\tilde B\subseteq\tilde
+B$ for all $n\ge1$. $\Gamma$ is torsion-free, so the $\gamma^n$ are distinct, and infinitely many deck transformations
+move the compact set $\tilde B$ to meet itself. That contradicts proper discontinuity. The case $\tilde B\subseteq
+\gamma\tilde B$ is the same with $\gamma^{-1}$.
+\item So the translates of $\tilde B$ are pairwise disjoint, $q$ is injective on $\tilde B$, and $q(\tilde B)$ is a PL
+3-cell in $F\times I$ with boundary $S$.\qedhere
+\end{itemize}
 \end{proof}
 
 \subsection{The theorem}
