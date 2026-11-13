@@ -321,3 +321,71 @@ caveat on the claim in sec_open.
 ### Overall
 Ready as far as citations are concerned. The only remaining edit is the optional rewording of sec_proof51 line 50,
 plus an independent look at CL07 if desired.
+
+---
+
+## Follow-up on v0.8.3 (Chazal–Lieutier) (commit 84d7a47)
+
+Source: Chazal–Lieutier, DCG 37 (2007) 601–617. I used the text extract and rendered p. 608 to check the statement
+of Prop. 3.4.
+
+**Verdict.** Every use of ChazalLieutier07 matches the source, including the corrected Prop. 3.6 sentence. Both
+applications in collar Step 2 satisfy the hypotheses of Prop. 3.4. No new issues. With this, the claim in sec_open:4–6
+("checked against the originals") is now verified independently for every literature result used in a proof.
+
+### Uses checked
+- **sec_collar.tex:7, wfs ("see also").**
+  - Def. 3.1 (p. 606) defines wfs(O) of a bounded open O as the distance from O^c to the singular points of ∇.
+  - §3.2 (p. 608) restates it as the infimum of the critical values of R.
+  - §4.3 (p. 613) defines the wfs of a compact K as that of R^n∖K, "in the same way" although that set is unbounded.
+  - This agrees with the paper's definition: every critical point off M has a positive value. **OK.**
+- **sec_collar.tex:52–54, Lemma 2.2 (p. 604).** "A point x is a singular point of ∇ iff it lies in the convex hull of
+  Γ(x)." This matches "vanishing of their gradient field … iff x lies in the convex hull of its nearest boundary
+  points". **OK.**
+- **sec_collar.tex:55–56, "which they reproduce from Grove's critical point theory for distance functions".**
+  - p. 608: they "satisfy an Isotopy Lemma [21], that we reproduce below (Proposition 3.4)".
+  - [21] is K. Grove, *Critical point theory for distance functions*, Proc. Symp. Pure Math. 54.
+  - Accurate. (Grove–Shiohama [22] is cited separately for the origin of the critical-point notion.) **OK.**
+- **sec_collar.tex:68–72, closed-shell form.**
+  - Standing convention (§2.1, p. 603): O is a bounded open subset of R^n and R(x) = d(x, O^c).
+  - Prop. 3.4 (p. 608, checked on the rendered page): if 0 < ρ₁ < ρ₂ and $\overline{O}_{\rho_1}\setminus O_{\rho_2}$
+    contains no critical point of R, then the levels are homeomorphic topological manifolds, and
+    $\overline{O}_{\rho_1}\setminus O_{\rho_2}=\{\rho_1\le R\le\rho_2\}$ is homeomorphic to R⁻¹(ρ₁)×[ρ₁,ρ₂]. Here
+    O_ρ = {R > ρ}.
+  - The paper puts its hypothesis on the whole set {ρ₁ ≤ R ≤ ρ₂}. That set contains the source's
+    $\overline{O}_{\rho_1}\setminus O_{\rho_2}$, so the paper's hypothesis is at least as strong. Its conclusion is
+    the source's, word for word.
+  - The paper does not mention ρ₁ > 0, but it is automatic here (ρ₁ = δ > 0). **OK.**
+- **sec_intro.tex:115–116, "wfs and the isotopy of offsets below it are studied by CL07".** Fair.
+  - The Remark on p. 607 derives homeomorphism of O and O_d from Prop. 3.4.
+  - The proof of Thm 4.5 (p. 613) says that, by Prop. 3.4, the thickenings K^λ and K^μ are isotopic for
+    0 < λ, μ < wfs(K).
+- **sec_intro.tex:141–144, Prop. 3.6 and §4.3 (corrected sentence).** Accurate.
+  - Prop. 3.6 (p. 609): for a bounded subanalytic open O, the set of critical values of R is finite, so wfs(O) > 0.
+    It is stated without proof.
+  - The text then says it "has been proven by Fu [18, p. 1045] for semialgebraic sets. The proof adapts easily to
+    piecewise analytic sets and may be found in [7]". [7] is Chazal–Lieutier, *The λ-medial axis*, Graphical Models
+    67(4) (2005), an earlier paper of theirs.
+  - §4.3 defines wfs for compact sets via the complement, as the paper now says.
+  - The old wording ("prove it … extension stated in §4.3 without proof") was indeed unsupported. The correction is
+    right.
+
+### Do the Step 2 applications meet Prop. 3.4's hypotheses?
+- **Inner side.**
+  - O = Ω₋ is bounded and open.
+  - O^c = M ∪ Ω₊, and nearest points from Ω₋ lie on M. So R = d and Γ_O = Γ_M on Ω₋, and the criticality notions
+    agree by Lemma 2.2.
+  - Points with δ ≤ d ≤ r < wfs(M) are not critical.
+  - Hypotheses met with ρ₁ = δ > 0 and ρ₂ = r. **OK.**
+- **Outer side.**
+  - O = Ω₊ ∩ B(0, ℛ) is bounded and open, and R = min(d, ℛ − |x|).
+  - With ℛ > 2r + max_M |y|:
+    - d(x) ≤ r implies |x| ≤ max|y| + r, so ℛ − |x| > r ≥ d. Thus R = d and Γ_O = Γ_M (strict inequality).
+    - ℛ − |x| ≤ r implies |x| ≥ ℛ − r > max|y| + r, so d > r ≥ R. Thus Γ_O is the single radial point, which does not
+      equal x, so x is not critical.
+  - So the shell {δ ≤ R ≤ r} is the disjoint union described in the paper and contains no critical point. Prop. 3.4
+    applies. **OK.**
+  - Optional: say "strictly" for the comparison of the two distances, since the equality of Γ_O and Γ_M relies on it.
+
+### Bibliography
+ChazalLieutier07, DCG 37 (2007) 601–617, matches the source header. The issue number is not shown in the extract.
