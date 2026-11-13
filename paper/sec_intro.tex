@@ -144,8 +144,8 @@ that meets each fibre once.
   \item The carrier lemma (Lemma~\ref{lem:carrier}). With contractible carriers it makes every realization homotopic,
   inside the collar, to the reference surface. Together with the collar hypothesis that the reference surface's
   inclusion is a homotopy equivalence, this gives the $\pi_1$-isomorphism needed for Waldhausen's theorem
-  (Lemma~\ref{lem:separation}). So a separation-type hypothesis is still needed, but only for the single reference
-  surface, not for every realization as in~\cite{CCS05}, and no realization needs to meet each fibre once as
+  (Lemma~\ref{lem:separation}). So a hypothesis is still needed in place of separation, namely the homotopy-equivalence
+  condition, but only for the single reference surface, not for every realization as in~\cite{CCS05}, and no realization needs to meet each fibre once as
   in~\cite{SPB04}.
   \item A collar from the weak feature size (Lemma~\ref{lem:collar}), for PL reference surfaces. These may have sharp
   edges and triangulated small fillets. The result of~\cite{SPB04} is stated for a smooth closed reference surface, with
@@ -193,8 +193,10 @@ of the whole cell complex. They are of two different kinds.
   \item Theorem~\ref{thm:lemma0} constructs the realization from conditions on the data. It is proved for regular
   complexes only, and it is conditional: two of its hypotheses are non-local.
   \item Propositions~\ref{prop:B} and~\ref{prop:Bprime}, for sharp edges with tight tolerances, assume that a
-  re-trimmed candidate surface is already embedded and lies in the zones (clauses C and B1--B3), and turn it into a PL
-  realization. They check a given candidate rather than derive embeddedness. On curved models these clauses are
+  re-trimmed candidate surface is already embedded and lies in the zones (in Proposition~\ref{prop:Bprime}, clauses C
+  and B1--B3), and show that it gives a realization; for curved faces this needs a PL approximation. They check a given
+  candidate rather than derive embeddedness. Proposition~\ref{prop:B} is for planar faces and vertices of degree three;
+  Proposition~\ref{prop:Bprime} needs $C^2$ regular face parametrizations, without poles or cone apices. On curved models these clauses are
   checked on samples in double precision, and the vertex part of clause T is not checked.
   \end{itemize}
 \item \emph{How far we looked.} We did not find existence results of either kind for 3D B-reps with per-cell

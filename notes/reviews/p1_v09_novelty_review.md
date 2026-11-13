@@ -156,3 +156,38 @@ The scope statement is adequate.
 6. Minor G: add a Limits line for non-existence: planar, disk faces, simply connected edge zones.
 7. Minor H: align the abstract and "What we prove" with fix A. Optionally say "topological" for the isotopy.
 8. All other prior-work descriptions match their sources or the earlier checked paragraphs.
+
+---
+
+## Follow-up on v0.9 fixes (commit d5046cb)
+
+**Verdict.** Findings A–H are all resolved. The fixes introduce no new overclaims. Three small wording points
+remain (N1–N3), all optional.
+
+| Finding | Status | Where |
+|---|---|---|
+| A | Resolved | Existence "What we add" now separates the two kinds of result. Thm lemma0 constructs a realization, for regular complexes only, conditionally. Props. B/B′ assume an embedded candidate in the zones and only check it. Sampled double-precision checks and the unchecked vertex part of T are stated. "How far we looked" is narrowed to "either kind … with per-cell tolerance zones". |
+| B | Resolved | The carrier lemma now only gives a homotopy to the reference inside the collar. The π₁-isomorphism is attributed to that homotopy together with the collar's homotopy-equivalence hypothesis (Lemma separation). This matches the body. |
+| C | Resolved | Limits now state that the collar condition is a hypothesis, with Lemma collar's exact requirements: carried PL reference embedding, zones in N_d(M), d < r < wfs(M), disjoint closed r-neighbourhoods, genus ≥ 1. They also state "PL reference surfaces" with triangulated fillets, and "topological isotopy, of images". All match Lemma collar (a′)/(b) and Thm uniqueness. |
+| D | Resolved | SPB04 now says "is stated for a smooth closed reference surface", with the tube radius bounded by curvature *and* a double-normal distance. This matches the earlier checked paragraph (l.85–87), and the contrast is balanced ("ours needs a PL reference"). |
+| E | Resolved | "Hence for polyhedral surfaces" is gone, and the extension of Fu's argument is marked "our reading". |
+| F | Resolved | The text now says "positivity λ(M) > 0 is proved on paper and not formalized". |
+| G | Resolved | A Limits line for non-existence now matches the theorem's setting: one pair of planar faces, closed cells that are disks bounded by single wires, O3, and the curved case open. |
+| H | Resolved | The abstract says "(topologically) ambient isotopic", "conditional theorem for regular complexes", and that the re-intersection "assumes that the re-trimmed candidate is embedded". "What we prove" adds the same assumption. All three places now agree. |
+
+### Remaining nits (minor, optional)
+- **N1. Clause labels for Prop. B (sec_intro, Existence "What we add").** "(clauses C and B1–B3)" names clauses of
+  Prop. B′ only. Prop. B states the same assumptions as unlabelled bullets: zone containment, and simple polygons
+  meeting exactly in common edges and vertices. Also, for Prop. B the candidate is already PL, so "turn it into a PL
+  realization" applies to B′ only.
+  - Suggested wording: "(Prop. B: simple polygons meeting exactly in common edges and vertices, in the zones; Prop. B′:
+    clauses C and B1–B3)".
+- **N2. "Separation-type hypothesis" (Uniqueness, second item).** The reference hypothesis is that its inclusion into
+  the collar is a homotopy equivalence, not a separation property.
+  - Suggested wording: "a hypothesis on the reference (homotopy equivalence) takes the place of separation, and is
+    needed only for the single reference surface".
+- **N3. Setting restrictions of Props. B/B′ in the novelty section (optional).** Prop. B: planar faces, degree-three
+  vertices. Prop. B′: C² regular parametrizations, with no sphere poles or cone apices. These are in the body and are
+  not claimed away, so this is optional.
+
+Nothing else in the changed text goes beyond the body or misdescribes a source.
