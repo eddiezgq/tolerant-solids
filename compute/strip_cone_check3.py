@@ -416,6 +416,10 @@ def main():
     res = {}
     for f in sorted(glob.glob("../results/strip_cone_v3_parts/*.json")):
         res.update(json.load(open(f)))
+    for k, out in res.items():
+        # E4b applies to strip edges only
+        out["summary"]["E4b_min_angle_deg"] = min([e.get("E4b_min_angle_deg", 90) for e in out["edges"].values()
+                                                   if e.get("kind") == "strip"] + [90])
     json.dump(res, open("../results/strip_cone_check3.json", "w"), indent=1, default=float)
     print(len(res), "models merged")
 
