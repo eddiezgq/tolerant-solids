@@ -45,14 +45,14 @@ zones.
 \emph{Uniqueness.} Suppose every shell has genus at least one, the carriers of the cells are contractible, and each
 shell has a product collar containing its zones and a reference surface whose inclusion is a homotopy equivalence,
 with the collars pairwise disjoint. Then
-the images of all realizations are ambient isotopic, and so are the solids they bound. The collar condition follows
+the images of all realizations are (topologically) ambient isotopic, and so are the solids they bound. The collar condition follows
 from a distance bound below the weak feature size of a reference surface. For polyhedral reference surfaces we give an explicit lower bound for the weak feature size in terms of
 conical radii; the key lemma is machine-checked in Lean.
 
 \emph{Existence.} Two constructions give a realization under stated hypotheses. The first uses fans in the normal
-disks of the edges and cones at the vertices; it is a conditional theorem whose hypotheses include two non-local
+disks of the edges and cones at the vertices; it is a conditional theorem for regular complexes whose hypotheses include two non-local
 ones. The second, for sharp edges with tight tolerances, re-intersects the face
-surfaces.
+surfaces; it assumes that the re-trimmed candidate is embedded and turns it into a PL realization.
 
 \emph{Non-existence.} Under explicit conditions, if two planar patches cross transversally away from the shadows of
 all edge and vertex zones, there is no realization.

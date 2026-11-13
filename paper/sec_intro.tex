@@ -56,7 +56,8 @@ $h(\inter\sigma)\subseteq\Z(\sigma)$ for every cell $\sigma$, where $\Z(\sigma)$
   complexes (Theorem~\ref{thm:lemma0}), proved in Appendix~\ref{sec:proof51}.  Its hypotheses are local conditions on edges and
   vertices, global disjointness conditions (S1), and two non-local topological conditions (V1(b), P0).
   \item re-intersection of the face surfaces, for sharp edges with tight tolerances (Propositions~\ref{prop:B}
-  and~\ref{prop:Bprime}; the curved case is proved in Appendix~\ref{sec:proofBprime}).
+  and~\ref{prop:Bprime}; the curved case is proved in Appendix~\ref{sec:proofBprime}). These assume that the re-trimmed
+  candidate is embedded and lies in the zones, and turn it into a PL realization.
   \end{itemize}
 \item \textbf{Non-existence} (Theorem~\ref{thm:obstruction}). Under explicit conditions, if two planar patches cross
 transversally away from the projections (``shadows'') of all edge and vertex zones, there is no realization.
@@ -140,27 +141,39 @@ that meets each fibre once.
 \item \emph{What we add.}
   \begin{itemize}
   \item The statement for tolerant B-reps: per-cell zones, and realizations that keep every cell in its own zone.
-  \item The carrier lemma (Lemma~\ref{lem:carrier}). It derives the $\pi_1$-isomorphism needed for Waldhausen's
-  theorem from contractible carriers. One does not have to know in advance that a realization separates the two sides
-  of the collar, which is a hypothesis in~\cite{CCS05}, or that it meets each fibre once, as in~\cite{SPB04}.
-  \item A collar from the weak feature size (Lemma~\ref{lem:collar}). Reference surfaces may have sharp edges and
-  small fillets. The result of~\cite{SPB04} needs a smooth reference surface and a tube radius bounded by its
-  curvature.
+  \item The carrier lemma (Lemma~\ref{lem:carrier}). With contractible carriers it makes every realization homotopic,
+  inside the collar, to the reference surface. Together with the collar hypothesis that the reference surface's
+  inclusion is a homotopy equivalence, this gives the $\pi_1$-isomorphism needed for Waldhausen's theorem
+  (Lemma~\ref{lem:separation}). So a separation-type hypothesis is still needed, but only for the single reference
+  surface, not for every realization as in~\cite{CCS05}, and no realization needs to meet each fibre once as
+  in~\cite{SPB04}.
+  \item A collar from the weak feature size (Lemma~\ref{lem:collar}), for PL reference surfaces. These may have sharp
+  edges and triangulated small fillets. The result of~\cite{SPB04} is stated for a smooth closed reference surface, with
+  the tube radius bounded by curvature and by a double-normal distance. Each result has its own setting restriction:
+  ours needs a PL reference.
   \end{itemize}
-\item \emph{Limits.} Shells of genus $0$ are excluded, and we prove isotopy of images, not of embeddings.
+\item \emph{Limits.}
+  \begin{itemize}
+  \item The collar condition is a hypothesis. Lemma~\ref{lem:collar} supplies it only when the reference surface is a
+  carried PL embedding of the shell, every zone lies in $N_d(M)$ with $d<r<\wfs(M)$, the closed $r$-neighbourhoods of
+  different shells are pairwise disjoint, and the genus is at least one.
+  \item Shells of genus $0$ are excluded.
+  \item The isotopy is topological, and of images, not of embeddings.
+  \end{itemize}
 \end{itemize}
 
 \subsubsection*{The explicit bound $\wfs(M)\ge\lambda(M)$ (Corollary~\ref{cor:lambda})}
 \begin{itemize}
-\item \emph{Known.} That $\wfs(M)>0$ for compact semialgebraic $M$, hence for polyhedral surfaces. Fu~\cite[\S5.3]{Fu85}
+\item \emph{Known.} That $\wfs(M)>0$ for compact semialgebraic $M$. Fu~\cite[\S5.3]{Fu85}
 proves that the distance function of a compact semialgebraic set has finitely many critical values. di Rocco, Eklund and
 Gäfvert~\cite[Thm.~2.5]{dREG22} state positivity and attribute it to Fu. Chazal and
 Lieutier~\cite[Prop.~3.6]{ChazalLieutier07} state finiteness for bounded subanalytic open sets, attribute it to Fu for
 semialgebraic sets, and refer to an earlier paper of theirs for the adaptation. Fu defines semialgebraic sets by one
 finite system of inequalities; his argument (Tarski--Seidenberg, a finite decomposition into smooth submanifolds, his
-Lemma~4.3 and Sard's theorem) does not use that restriction.
+Lemma~4.3 and Sard's theorem) does not use that restriction; that it covers polyhedral surfaces is our reading.
 \item \emph{What we add.} An explicit lower bound in terms of conical radii, whose key cone lemma is machine-checked in
-Lean~4. We did not find such a bound. That does not make it new.
+Lean~4; the positivity $\lambda(M)>0$ is proved on paper and not formalized. We did not find such a bound. That does not
+make it new.
 \end{itemize}
 
 \subsubsection*{Existence (Theorem~\ref{thm:lemma0}, Propositions~\ref{prop:B} and~\ref{prop:Bprime})}
@@ -175,8 +188,17 @@ Lean~4. We did not find such a bound. That does not make it new.
   Their nontangentiality is close to our no-fold clause T.
   \end{itemize}
 \item \emph{What we add.} Sufficient conditions under which a 3D B-rep with per-cell tolerance zones has a realization
-of the whole cell complex. Theorem~\ref{thm:lemma0} is conditional: two of its hypotheses are non-local. Propositions~\ref{prop:B} and~\ref{prop:Bprime} cover sharp edges with tight tolerances.
-\item \emph{How far we looked.} We did not find an existence result of this kind for 3D B-reps.
+of the whole cell complex. They are of two different kinds.
+  \begin{itemize}
+  \item Theorem~\ref{thm:lemma0} constructs the realization from conditions on the data. It is proved for regular
+  complexes only, and it is conditional: two of its hypotheses are non-local.
+  \item Propositions~\ref{prop:B} and~\ref{prop:Bprime}, for sharp edges with tight tolerances, assume that a
+  re-trimmed candidate surface is already embedded and lies in the zones (clauses C and B1--B3), and turn it into a PL
+  realization. They check a given candidate rather than derive embeddedness. On curved models these clauses are
+  checked on samples in double precision, and the vertex part of clause T is not checked.
+  \end{itemize}
+\item \emph{How far we looked.} We did not find existence results of either kind for 3D B-reps with per-cell
+tolerance zones.
 \item \emph{Not covered.} Sewn models with tangent edges and OpenCascade's vertex tolerances. Whether they have
 realizations is open (Section~\ref{sec:open}).
 \end{itemize}
@@ -185,6 +207,8 @@ realizations is open (Section~\ref{sec:open}).
 \begin{itemize}
 \item \emph{What we add.} A checkable criterion for planar patches. We apply it to sewn models that pass both of
 OpenCascade's checks.
+\item \emph{Limits.} The theorem concerns one pair of planar faces whose closed cells are disks bounded by single wires,
+with simply connected edge zones (O3). A version for curved faces is open.
 \item \emph{How far we looked.} We did not find a non-existence criterion for tolerant B-reps in the literature we
 read.
 \end{itemize}
