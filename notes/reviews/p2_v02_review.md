@@ -227,3 +227,122 @@ narrowed to "the sampled tests L1–L4 passed", with the list above stated.
 | m6 | minor | references | P1 appendix letters are wrong. |
 | m7 | minor | Note 6 | "No tube radius" is overstated (the reach condition remains). |
 | m8 | minor | E4b | Wording. |
+
+---
+
+## Follow-up on v0.3 (notes/p2_strip_cone_v03.md)
+
+Scope: M1–M3 and m1–m8. M4 (the checker) is out of scope.
+
+**Verdict.**
+- **M1:** closed.
+- **M3:** closed. The new corner and apex arguments are correct, after one wording fix (N2).
+- **M2:** much improved but **not fully closed**. (R′a) is sound. (R′b,c) clash with how Step 4(i) uses them, and one
+  hypothesis is missing for faces that have re-trimmed edges (N1). The fix is short.
+- **m1–m8:** all addressed.
+- **New:** three minor wording points (N3–N5).
+
+### M1: closed
+- (E1′) now localizes b*_f(t) to the closed normal disk D(t) of radius ρ_e < min(τ_e, reach_e) on the edge's own arc
+  β_{f,e}. It requires a transversal crossing and a single swept sub-arc.
+- This gives a global C¹ selection. Uniqueness in the compact D(t) gives continuity (a limit of b*(t_n) lies in
+  β ∩ D(t)). The implicit function theorem then gives C¹.
+- E1′ is now well posed.
+- The rank-2 computation (m1) is correct, with |b* − γ_e| ≤ ρ_e < reach_e ≤ 1/κ. Optional: list "reach ≤ minimal
+  radius of curvature for a C² arc" as a standard fact.
+
+### M2: (R′) is mostly sound; one gap remains (N1, major but easy)
+- **(R′a)** is sound. q_e ∩ U is one properly embedded arc running from S_v to S_w. It has transversal patches along
+  it, transversal crossings of S_v and S_w, and q_e ⊂ Z(e). The renaming to q_e removes the clash with the chords χ_e.
+- **N1. The order of definitions in (R′b,c) and Step 4(i) is inconsistent.**
+  1. (R′b) says the discarded component "contains the part of β_{f,e} in U and **no other boundary of P_f^U**". But
+     P_f^U = P_f ∩ U has boundary arcs on the spheres as well. The discarded sliver between q_e and β_{f,e} always
+     contains a piece of P_f ∩ S_v at each end. Read literally, (b) cannot hold. It should say "no other part of
+     ∂P_f".
+  2. By (R′c), P̃_f ⊂ P_f^U ⊂ U for *every* face (for strip edges "unchanged" means P_f^U). Yet Step 4(i) splits
+     P̃_f by A_v(f) and says "the side containing the corner at v lies in int B_v". P̃_f contains no corner, and is
+     not yet known to be a disk.
+     - The step "P̃_f is a closed disk: P_f^U cut along re-trimmed arcs" assumes that P_f^U is a disk. Nothing proves
+       this.
+     - "It lies in U because it … contains points of the balls B_w" is self-contradictory, since B_w ⊄ U. The intended
+       claim is "lies outside int B_v".
+  3. The corner-separation argument must be run on **P_f**, which is a disk by (P0′). For that one needs **P_f ∩ S_v
+     to be a single arc** for each vertex v of f.
+     - For faces with only strip edges, this follows from (V1′b), because there P̃_f ∩ S_v = P_f ∩ S_v.
+     - For a face with a re-trimmed edge at v, (V1′b) only controls P̃_f ∩ S_v. The discarded side could meet S_v in
+       further arcs.
+- **Suggested repair.** Put this order into (R′) and (V1′):
+  - (i) P_f ∩ S_v is one arc A′_v(f), transversal, with ends on the two boundary arcs of P_f at v. Then the separation
+    argument on P_f makes P_f^U a closed disk.
+  - (ii) q_e ∩ U is a properly embedded arc in that disk with ends on A′_v(f) and A′_w(f), so it splits P_f^U into
+    two disks.
+  - (iii) The discarded one contains β_{f,e} ∩ U and no other part of ∂P_f.
+  - (iv) Then P̃_f is a closed disk, and A_v(f) is the kept sub-arc of A′_v(f), ending at q_e ∩ S_v.
+
+  With this, the mixed-vertex treatment (Steps 3 and 4(iii)–(v); λ_v's corner at q_e ∩ S_v) is sound.
+- **Step 4(ii), (iv) and Step 3 "no free boundary"** are correct once (i) is in place. That β_{f,e} outside J_f lies in
+  the balls follows from the separation on P_f.
+
+### M3: closed (with N2)
+- **The PL step.** The quoted lemma now matches what P1 Appendices B and C prove:
+  - bi-Lipschitz in the intrinsic metric of each shell;
+  - shape-regular triangles where h₀ is C¹ up to the boundary;
+  - radial triangles on the cone sectors with φ C¹ on each base segment;
+  - shells at positive distance;
+  - the two estimates, including D(S − h₀) constant along rays.
+
+  Triangulating the sectors radially over the vertices of λ_v, which include its corners, matches P1.
+- **Lemma A.1 use (m5).** Correct as now stated:
+  - strips in the C¹ (t, λ) chart, patches in C² charts;
+  - sphere arcs C¹ by the implicit function theorem;
+  - common parametrizations on shared curves;
+  - an extra interior vertex at corners.
+- **Corner of λ_v.**
+  - The no-cusp step is correct. H₁ and H₂ are distinct half-planes with common boundary line J ⊄ T_xS_v. Each meets
+    T_xS_v in one ray. The rays are distinct: if they coincided, that ray would lie in both planes, so in J, which
+    contradicts J ⊄ T_xS_v. If H₁ and H₂ are coplanar (smooth passage), the rays are opposite, which is fine.
+  - **N2 (wording, needed for correctness).** The outside part of the tangent cone is **not** H₁ ∪ H₂. Each H_i
+    contains the whole line J, including its inward half. The outside pieces are cut by S_v, so their tangent cones
+    are the sectors span⁺(j⁺, ℓ₁) and span⁺(j⁺, ℓ₂), where j⁺ is the outward ray of J. With that correction, the four
+    sectors are span⁺(ℓ₁, j⁺), span⁺(j⁺, ℓ₂), span⁺(ℓ₂, w), span⁺(w, ℓ₁).
+    - The outer pair lies in the closed outer half-space. It touches T_xS_v only in ℓ₁, ℓ₂, because j⁺ is strictly
+      outward. The two outer sectors meet only along j⁺ (E4b, or transversality along q_e).
+    - The inner pair lies in the inner half-space and does not fold, since ℓ₁ ≠ ℓ₂ and w is normal.
+    - So the tangent cone is an embedded disk. As written ("H₁ ∪ H₂, in the outer half-space") the claim is false and
+      must be corrected.
+- **Apex.** Correct.
+  - Since |φ − p_v| = r_v, the identity |aφ₁ − bφ₂|² = r_v²((a − b)² + ab|φ̂₁ − φ̂₂|²) gives the stated comparability
+    with |s₁ − s₂| + min(s₁, s₂)|y₁ − y₂| (φ̂ = unit vectors).
+  - φ is bi-Lipschitz because λ_v is a simple closed piecewise-C¹ curve without cusps.
+  - Homogeneity makes this global on the cone. It also covers the rays over corners of λ_v, which P1 had to treat
+    separately.
+- The along-junction, along-q_e and along-face-arc bullets are correct. The global step (injective + locally
+  bi-Lipschitz + compact) is as in P1.
+
+### m1–m8
+All addressed:
+- m1: Step 2.
+- m2: Step 3, quarter-disks.
+- m3: Step 4(i), subject to N1.
+- m4: Step 4(v).
+- m5: Step 6.
+- m6: the appendix letters are now correct (A = A.1, B = Federer and the PL step, C).
+- m7: Note 4.
+- m8: E4b wording.
+
+### New minor points
+- **N3.** Step 1 contains "The reviewer confirmed this step for v0.2." Remove it from any text meant for the paper.
+- **N4.** Remaining point 2 lists what the new checker must test, but omits (E4a,b) and (V1′a,b). Gaps 3 and 4 and
+  M4's list covered these. Keep the list complete.
+- **N5.** Note 4 says (E1′) is "weaker than P1's E1". That is not quite a comparison of like with like. The gain is
+  that no tube *separation* between different edges is needed (P1's S1/V-type conditions), not a weaker E1. Suggested
+  wording: "a radius condition of the same kind, but with no separation of tubes of different edges".
+
+### Summary
+| Item | Status |
+|---|---|
+| M1 | closed |
+| M2 | open in one place (N1): make P_f ∩ S_v one arc a hypothesis, run the separation on P_f, then cut along q_e; fix the "no other boundary" wording |
+| M3 | closed, with the N2 correction of the corner tangent cone |
+| m1–m8 | closed |
+| N2–N5 | minor wording |
