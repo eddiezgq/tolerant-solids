@@ -1,0 +1,117 @@
+{
+ "cylinder, top fillet r1, g=0.001": {
+  "key": "cylinder, top fillet r1, g=0.001",
+  "rho": 0.95,
+  "edges": {
+   "0": {
+    "reach": Infinity,
+    "rho_e": 9.99e-08,
+    "tau_e": 1e-07,
+    "kind": "seam/other (not covered)"
+   },
+   "1": {
+    "reach": 2.9999999999999996,
+    "rho_e": 0.0009483307994924567,
+    "tau_e": 0.0009492800795720287,
+    "kind": "re-trimmed",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 0.4202152619180318,
+    "transversality_min_cos": 0.9999999791971738,
+    "n_interval": 140,
+    "patches_cross": true,
+    "R_max_dist_to_gamma_over_tau_e": Infinity,
+    "R_ok": false
+   },
+   "2": {
+    "reach": 2.9999999999999996,
+    "rho_e": 0.0006054355879447132,
+    "tau_e": 0.0006060416295742874,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 33.20702823523582,
+    "transversality_min_cos": 0.999999857707003,
+    "n_interval": 143,
+    "patches_cross": false
+   },
+   "3": {
+    "reach": 0.9999999999999998,
+    "rho_e": 9.99e-08,
+    "tau_e": 1e-07,
+    "kind": "seam/other (not covered)"
+   },
+   "4": {
+    "reach": 1.9999999999999996,
+    "rho_e": 0.001504639898146079,
+    "tau_e": 0.0015061460441902694,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 2.890523136764894,
+    "transversality_min_cos": 0.9999997538187382,
+    "n_interval": 133,
+    "patches_cross": false
+   }
+  },
+  "vertices": {
+   "0": {
+    "V0_corners_inside": true,
+    "V0_ball_disjoint": true,
+    "V0_miss_faces_over_r": 1568.700951104647,
+    "V0_miss_strips_over_r": 1566.1732102847475,
+    "V1_min_gap_over_r": 0.225491929066107,
+    "V1_note": "edge 1: q_e does not reach S_v",
+    "V1_ok": false,
+    "ok": false
+   },
+   "1": {
+    "V0_corners_inside": true,
+    "V0_ball_disjoint": true,
+    "V0_miss_faces_over_r": 15631.159086774682,
+    "V0_miss_strips_over_r": 15630.093431525955,
+    "V1_min_gap_over_r": 0.14275893875813184,
+    "V1_note": "face 0: arc end not at a joint",
+    "V1_ok": false,
+    "ok": false
+   },
+   "2": {
+    "V0_corners_inside": true,
+    "V0_ball_disjoint": true,
+    "V0_miss_faces_over_r": 988.2199492508914,
+    "V0_miss_strips_over_r": 987.5571695780578,
+    "V1_min_gap_over_r": 0.3220477118886196,
+    "V1_note": "face 1: arc end not at a joint",
+    "V1_ok": false,
+    "ok": false
+   }
+  },
+  "global_": {
+   "face_face_min": 5.978635845284608e-05,
+   "strip_strip_min": 10.049003246693823,
+   "strip_face_min": 1.4126610440207872,
+   "surface_types": [
+    "Cylinder",
+    "Plane",
+    "Torus"
+   ]
+  },
+  "summary": {
+   "vertices_ok": "0/3",
+   "edges_strip": 2,
+   "edges_retrimmed": 1,
+   "edges_E1_fail": 0,
+   "retrimmed_R_fail": 1,
+   "E4b_min_angle_deg": 0.4202152619180318,
+   "face_face_min": 5.978635845284608e-05,
+   "strip_strip_min": 10.049003246693823,
+   "strip_face_min": 1.4126610440207872
+  }
+ }
+}

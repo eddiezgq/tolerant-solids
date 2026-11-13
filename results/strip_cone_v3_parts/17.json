@@ -1,0 +1,278 @@
+{
+ "stadium prism, g=0.01": {
+  "key": "stadium prism, g=0.01",
+  "rho": 0.95,
+  "edges": {
+   "0": {
+    "reach": Infinity,
+    "rho_e": 0.01621262272592574,
+    "tau_e": 0.016228851577503242,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 89.99999914622636,
+    "transversality_min_cos": 1.0,
+    "n_interval": 106,
+    "patches_cross": false
+   },
+   "1": {
+    "reach": Infinity,
+    "rho_e": 0.009448493681024702,
+    "tau_e": 0.00945795163265736,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 90.0,
+    "transversality_min_cos": 1.0,
+    "n_interval": 106,
+    "patches_cross": false
+   },
+   "2": {
+    "reach": Infinity,
+    "rho_e": 0.01519481702763285,
+    "tau_e": 0.015210027054687538,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 41.15753532806056,
+    "transversality_min_cos": 1.0,
+    "n_interval": 114,
+    "patches_cross": false
+   },
+   "3": {
+    "reach": Infinity,
+    "rho_e": 0.013339241591032693,
+    "tau_e": 0.013352594185217911,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 31.000203962164512,
+    "transversality_min_cos": 1.0,
+    "n_interval": 116,
+    "patches_cross": false
+   },
+   "4": {
+    "reach": Infinity,
+    "rho_e": 0.0045345471530356726,
+    "tau_e": 0.004539086239274947,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 79.18749844903569,
+    "transversality_min_cos": 1.0,
+    "n_interval": 109,
+    "patches_cross": false
+   },
+   "5": {
+    "reach": 1.9999999999999996,
+    "rho_e": 0.008551375490862996,
+    "tau_e": 0.008559935426289285,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 27.814271546013938,
+    "transversality_min_cos": 0.9999857950429647,
+    "n_interval": 115,
+    "patches_cross": false
+   },
+   "6": {
+    "reach": 1.9999999999999996,
+    "rho_e": 0.015825713869186533,
+    "tau_e": 0.015841555424611145,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 69.82831754995522,
+    "transversality_min_cos": 0.999983174037388,
+    "n_interval": 114,
+    "patches_cross": false
+   },
+   "7": {
+    "reach": Infinity,
+    "rho_e": 0.0148270780524738,
+    "tau_e": 0.014841919972446247,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 90.0,
+    "transversality_min_cos": 1.0,
+    "n_interval": 107,
+    "patches_cross": false
+   },
+   "8": {
+    "reach": Infinity,
+    "rho_e": 0.011595109776602521,
+    "tau_e": 0.011606716493095616,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 89.99999914622636,
+    "transversality_min_cos": 1.0,
+    "n_interval": 114,
+    "patches_cross": false
+   },
+   "9": {
+    "reach": Infinity,
+    "rho_e": 0.013570269416061676,
+    "tau_e": 0.013583853269331007,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 89.99999914622636,
+    "transversality_min_cos": 1.0,
+    "n_interval": 115,
+    "patches_cross": false
+   },
+   "10": {
+    "reach": 1.9999999999999996,
+    "rho_e": 0.00744951242753966,
+    "tau_e": 0.007456969396936596,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 66.95890626290749,
+    "transversality_min_cos": 0.9999888677574268,
+    "n_interval": 116,
+    "patches_cross": false
+   },
+   "11": {
+    "reach": 1.9999999999999996,
+    "rho_e": 0.016215388706641805,
+    "tau_e": 0.016231620326968774,
+    "kind": "strip",
+    "V0_end_chords_in_balls": true,
+    "E1_fail": 0,
+    "E1_examples": [],
+    "E4a_fail": 0,
+    "E4b_min_angle_deg": 87.00580222663802,
+    "transversality_min_cos": 0.9999923201837972,
+    "n_interval": 120,
+    "patches_cross": false
+   }
+  },
+  "vertices": {
+   "0": {
+    "V0_corners_inside": true,
+    "V0_ball_disjoint": true,
+    "V0_miss_faces_over_r": 195.23059352672087,
+    "V0_miss_strips_over_r": 193.53346671667532,
+    "V1_min_gap_over_r": 0.100724226262504,
+    "V1_note": "face 4: arc end not at a joint",
+    "V1_ok": false,
+    "ok": false
+   },
+   "1": {
+    "V0_corners_inside": true,
+    "V0_ball_disjoint": true,
+    "V0_miss_faces_over_r": 194.91787253759838,
+    "V0_miss_strips_over_r": 193.56663902384636,
+    "V1_min_gap_over_r": 0.08234344532430031,
+    "V1_note": "face 5: arc end not at a joint",
+    "V1_ok": false,
+    "ok": false
+   },
+   "2": {
+    "V0_corners_inside": true,
+    "V0_ball_disjoint": true,
+    "V0_miss_faces_over_r": 208.3106082927777,
+    "V0_miss_strips_over_r": 206.64067691708686,
+    "V1_min_gap_over_r": 0.0681735232373019,
+    "V1_note": "face 4: arc end not at a joint",
+    "V1_ok": false,
+    "ok": false
+   },
+   "3": {
+    "V0_corners_inside": true,
+    "V0_ball_disjoint": true,
+    "V0_miss_faces_over_r": 199.82667475966588,
+    "V0_miss_strips_over_r": 198.44480571411322,
+    "V1_min_gap_over_r": 0.07928930963166674,
+    "V1_note": "face 5: arc end not at a joint",
+    "V1_ok": false,
+    "ok": false
+   },
+   "4": {
+    "V0_corners_inside": true,
+    "V0_ball_disjoint": true,
+    "V0_miss_faces_over_r": 273.18625358113144,
+    "V0_miss_strips_over_r": 271.0812751757876,
+    "V1_min_gap_over_r": 0.273004917937649,
+    "V1_note": null,
+    "V1_ok": true,
+    "ok": true
+   },
+   "5": {
+    "V0_corners_inside": true,
+    "V0_ball_disjoint": true,
+    "V0_miss_faces_over_r": 199.8881548412795,
+    "V0_miss_strips_over_r": 198.69429216146736,
+    "V1_min_gap_over_r": 0.26647910542676767,
+    "V1_note": null,
+    "V1_ok": true,
+    "ok": true
+   },
+   "6": {
+    "V0_corners_inside": true,
+    "V0_ball_disjoint": true,
+    "V0_miss_faces_over_r": 213.57804364826796,
+    "V0_miss_strips_over_r": 211.61857175186725,
+    "V1_min_gap_over_r": 0.2994399210825032,
+    "V1_note": null,
+    "V1_ok": true,
+    "ok": true
+   },
+   "7": {
+    "V0_corners_inside": true,
+    "V0_ball_disjoint": true,
+    "V0_miss_faces_over_r": 194.82332727475435,
+    "V0_miss_strips_over_r": 193.80008247872465,
+    "V1_min_gap_over_r": 0.2876612505813264,
+    "V1_note": null,
+    "V1_ok": true,
+    "ok": true
+   }
+  },
+  "global_": {
+   "face_face_min": 0.0019908281778542695,
+   "strip_strip_min": 0.012484569090501847,
+   "strip_face_min": 0.014115679750908449,
+   "surface_types": [
+    "Cylinder",
+    "Plane"
+   ]
+  },
+  "summary": {
+   "vertices_ok": "4/8",
+   "edges_strip": 12,
+   "edges_retrimmed": 0,
+   "edges_E1_fail": 0,
+   "retrimmed_R_fail": 0,
+   "E4b_min_angle_deg": 27.814271546013938,
+   "face_face_min": 0.0019908281778542695,
+   "strip_strip_min": 0.012484569090501847,
+   "strip_face_min": 0.014115679750908449
+  }
+ }
+}

@@ -79,3 +79,40 @@ Open points before a theorem: handle pole and seam vertices in the checker (and 
 strip + cone map is a topological embedding with each cell in its zone and then PL-approximate it (the P1 secant
 argument should carry over); decide what to do at cusp corners (probably an obstruction, or a hypothesis that excludes
 them); and the mixed case where a crossing (re-trimmed) edge meets a strip edge at a vertex.
+
+---
+
+# Phase 2, step 1 results (checker v3, 2026-11-13 evening)
+
+Checker `compute/strip_cone_check3.py` tests the hypotheses of `notes/p2_strip_cone_v04.md` as stated (patches rebuilt
+from pcurves; chords in normal planes; q_e by surface intersection). 18 of 20 models done; the two filleted-box r = 2
+models are being rerun after a memory fix. Vertices passing all hypotheses:
+
+| model | g = 0.001 | g = 0.01 |
+| --- | --- | --- |
+| box | 8/8 | 8/8 |
+| chamfered box | 23/24 | 23/24 |
+| box, one edge filleted | 10/10 | 10/10 |
+| box, top edges filleted | 9/12 | 9/12 |
+| filleted box r = 0.5 | 22/24 | 19/24 |
+| L inner fillet 0.2 | 18/20 | 18/20 |
+| L all fillets 0.5 | 32/46 | 27/46 |
+| stadium prism | 4/8 | 4/8 |
+| cylinder, top fillet | 0/3 | 0/3 |
+
+Failure classes:
+1. **Tangent edges whose patches touch or cross along the edge (main finding).** Rebuilding the true patches shows that
+   at some tangent (G1) edges the two patches meet each other within 0–0.16 τ_e of the edge curve (L all fillets: 7–8 of
+   92 edges; filleted box r = 0.5 at g = 0.01: 2; top-filleted box: 1; filleted cylinder: 1). The phase-1 ray model
+   missed this because it treated tangent edges as never crossing. There the strip construction is not allowed
+   (S1′/E4a), and re-trimming along the crossing is ill-conditioned (nearly tangent surfaces; the surface–surface
+   intersection returns curves far from the edge, so R′ fails as computed). Most V1′ failures of the fillet models
+   ("q_e does not reach S_v") come from these edges. **This, not the vertex, is the hard core of the tangent-edge
+   case.**
+2. **E1′ fails on a few edges** (chamfered box g = 0.01: 1; filleted box r = 0.5: 1 each; L all fillets: 2–3): the patch
+   boundary leaves the normal disk of radius 0.999 τ_e. Sewing sets τ_e = 1.05 dev_e with dev_e measured at equal
+   parameters, and the normal-plane offset can exceed it. A chord at equal parameters would always stay within dev_e,
+   but its injectivity needs a different argument.
+3. **Cusp corners** (L inner fillet, 2 vertices) as before.
+4. **Unexplained / possibly checker artefacts:** stadium prism (4 vertices, "arc end not at a joint"), filleted cylinder
+   (seam vertices, not covered by the statement), a few "gap small" vertices. To be inspected.
