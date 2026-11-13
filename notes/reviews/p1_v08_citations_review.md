@@ -196,3 +196,51 @@ Two places still say the Moise citation is unchecked and describe the wrong Mois
 6. sec_intro:137–140: Fu's argument also uses a finite smooth decomposition and Sard, not only Tarski–Seidenberg.
 7. sec_experiments:59–60: "trefoil exterior" is stronger than what is certified (det = 3), though harmless.
 8. Durfee biblio: optionally add issue 2.
+
+---
+
+## Follow-up on v0.8.1 (commit 5716c78)
+
+**Verdict.** All requested fixes are correct. They introduce no new errors. M1 and M2 are resolved, and so are the
+minor items that were addressed. Nothing major remains.
+
+### M1: Lemma lem:irreducible (sec_uniqueness.tex)
+- **The statement is right.** It now covers compact orientable F ≠ S² and restricts to spheres in int(F×I). This
+  matches Waldhausen's definition of irreducibility (p. 58: a ball E with E ∩ S = ∂E).
+- **The case ∂F ≠ ∅ is correct.**
+  - F×I is PL homeomorphic to a handlebody H. Irreducibility is intrinsic, so the choice of embedding H ⊂ R³ does
+    not matter.
+  - ∂(F×I) = F×0 ∪ ∂F×I ∪ F×1 is connected when ∂F ≠ ∅. So R³∖∂H has two components (by Alexander duality, or
+    Jordan–Brouwer). One of them is int H, so R³∖H is connected and unbounded.
+  - R³∖H is disjoint from S ⊂ int H, so it lies in the unbounded component of R³∖S. Hence the Schoenflies cell
+    B ⊂ H.
+  - Disc, annulus, pants and every surface produced by cutting are covered. Orientability is what makes F×I a
+    handlebody that embeds in R³.
+- **The closed case is unchanged** and was already correct. The new sentence on torsion-freeness and proper
+  discontinuity is a good addition.
+- **The Waldhausen sentence in (b) is now accurate.** Irreducibility is used explicitly in the base case on p. 66 and,
+  through "similar arguments", at each level of the induction on p. 67. The proof ends on p. 68, and the citation is
+  now pp. 65–68.
+
+### M2: stale Moise text
+- The abstract (p1.tex) no longer mentions Moise. The intro (sec_intro.tex:47–48) now cites Thm 35.2 as an
+  approximation theorem, which is correct.
+- No remaining occurrences of "still to be checked", "Hauptvermutung" or "PL structures" in the .tex files.
+
+### Minors
+- **sec_collar Step 1.** The frontier justification is fine: δ < wfs, so the Step 3 directional-derivative argument
+  applies at level δ, and {d = δ} ⊂ Fr. The reverse inclusion is by continuity. The forward reference to Step 3 is
+  acceptable.
+- **sec_collar (a′).** The "compact / closed" wording is now correct.
+- **sec_collar, standard-facts list.** It now includes the mod-2 degree side test and Alexander duality.
+- **sec_intro, Fu.** The new wording is accurate. Fu's Lemma 4.3 exists (it is Ferry's lemma, on p. ~1041), and it is
+  the lemma used in §5.3. The trivial remark "since critical points lie off the set" is still there. It is harmless
+  and optional.
+- **sec_experiments.** "Trefoil exterior" is gone. The argument now rests only on det = 3, which is what the script
+  certifies.
+
+### Still open (unchanged, not v0.8.1 regressions)
+- CCS05: the `\unverified` mark and the draft note remain, as intended (remarks only).
+- Commit c2210c5 records checks of CL07 Prop. 3.4 / Lemma 2.2. I did not re-verify CCSL09dcg §§2.1–2.2 or Federer59
+  (sec_proof51), because no extracts were provided. The author should make sure the claim in sec_open:4–6 covers them.
+- Optional, not requested: issue number "(2)" for Durfee in the bibliography.
