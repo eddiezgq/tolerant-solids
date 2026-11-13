@@ -415,3 +415,72 @@ involved. One required change remains for Proposition 5.3: **N1**, putting seams
 the triangulation, which is about a paragraph. One required change remains for Appendix A: **N2**, the C¹ form of
 Lemma C.1. With these two, I consider the proof of Proposition 5.3 complete modulo the standard facts listed in
 Appendix B. N3–N6 are wording.
+
+---
+
+# Follow-up on v0.7.1
+
+Read at commit 6c361ba: Proposition `prop:Bprime` and its remarks (`sec_existence.tex`), `sec_proofBprime.tex`,
+`sec_curvedtri.tex`, `sec_setting.tex` §Complexes, the shell metric and Lemma C.1 use in `sec_proof51.tex` (l.128–149,
+241–243), `sec_experiments.tex` l.86–116 and `sec_open.tex`. No draft file was edited.
+
+## Status of N1–N6
+
+| # | Status | Check |
+|---|---|---|
+| N1 seams | **closed** | R now speaks of the edge graph G_f, seams included, with all sector angles in (0, 2π); smooth seam vertices are covered. C and `sec_setting.tex` now say open face = face minus all edges, seams included. T's vertex sectors are now dX_f of the G_f-sectors. Appendix B cuts D_f along G_f and puts a corner fan in every sector at every G_f-vertex. Seam arcs are now unions of T-edges (step 4), so T subdivides the cells and the zone step holds for seams. Step 1 (C² regular parametrization of each γ̃_e) is now supported by R and P for seams too. The seam case of the edge argument ("opposite in the tangent plane of S_f") is correct. |
+| N2 C¹ lemma | **closed** | Checked below. Appendix A's pieces k_{f,e} (C¹ in t) and A_{f,v} (C¹ regular φ) now meet the hypotheses: a finite family of compact C¹ curves has a uniform modulus. |
+| N3 T at end points | **closed** | T's edge clause is now stated for interior points only. The parenthesis in T and the bi-Lipschitz bullet ("near the end points the vertex argument takes over") are correct, because the blow-up argument gives a bi-Lipschitz constant on a whole neighbourhood of c_v, edge points included. |
+| N4 wording | **closed** | `sec_existence.tex` remark: "vertex part of hypothesis T". `sec_experiments.tex` l.110–112: transversality is now attributed to the computation only. Table row: "computation not applicable (tangent faces)". `sec_open.tex`: the new item "Re-trimmed models for tangent edges" replaces "Mixed vertices" and is consistent with the remark after the proposition and with "Tight vertices". Item 2's "(Proposition covers them)" is now true. |
+| N5 shell metric | **closed** | Both appendices now use the intrinsic metric per shell and argue between shells by δ/2. |
+| N6 G at a₃ | **closed** | C.1(c): |G| ≤ μ² max|ψ|. μ = 1 − λ₃ is comparable to |x − a₃|, so this gives DG(a₃) = 0, and |dG| = O(μ) gives continuity. |
+
+## Lemma C.1 (C¹ version): correct
+
+- (a), (b), (c): correct as written. For μ > 0, s = λ₂/μ is smooth and ψ ∈ C¹, so F ∈ C¹ off a₃; at a₃ see N6.
+- (d): ψ′(s) = Δt(ĉ′(t₀ + sΔt) − mean ĉ′) is right, because a₂ − a₁ = Δt · mean ĉ′. This gives
+  |ψ′| ≤ |Δt| ω(|Δt|) and |ψ| ≤ max|ψ′|, so |DG| ≤ 2|ψ| + |ψ′| = O(h ω(h)) and A⁻¹DG = O(ω(h)).
+- The injectivity estimate on convex Δ is correct.
+- The image argument is correct: the arc stays within O(hω(h)) = o(h) of its chord, its tangent at a₁ is within angle
+  O(ω(h)) of the chord, and the segments are at angle ≥ θ_min.
+- One small hypothesis gap, see M4.
+
+## New findings (all minor; no new major or fatal issue)
+
+**M1. That ∂D_f ⊆ G_f is used but only implied.**
+- The old R said ∂D_f consists of edge preimages. The new R speaks only of G_f, and step 2 ("each region bounded by arcs
+  of G_f") needs ∂D_f ⊆ G_f.
+- It does follow from C + P. Suppose p ∈ ∂D_f ∖ G_f. Then X_f(p) lies in the open face, which is open in Σ and
+  contained in X_f(D_f). Since X_f|D_f is a homeomorphism onto its image (compact, injective), p has a neighbourhood
+  in D_f that is an open disk. By invariance of domain in U_f, p is interior to D_f, a contradiction.
+- Fix: add "Since C makes each open face open in Σ, ∂D_f ⊆ G_f", or put ∂D_f ⊆ G_f into R.
+
+**M2. R: "Its edges are simple C² regular arcs, or simple closed curves."**
+- Every edge of K has a vertex, so a closed edge is a loop based at a vertex of G_f. A closed curve with no vertex is
+  not possible, but the wording allows it.
+- Also, at its base vertex a loop may have a corner. The sector condition covers that.
+- Fix: write "arcs between vertices, or loops at a vertex".
+
+**M3. After cutting, the regions need not be simple polygons.**
+- A face with inner wires gives a multiply connected region.
+- The quotient formulation also allows a face on a periodic surface without a seam edge (a flat annulus in ℝ²/Λ_f),
+  which is a flat surface, not a planar region.
+- The construction still works: triangulate locally with straight chords in the flat metric.
+- Fix: in step 2 and in the first standard fact, change "simple polygon" to "compact flat polygonal surface (possibly
+  multiply connected, or in the flat quotient) with prescribed boundary vertices".
+- Related, cosmetic: the seam bullet of "h₀ agrees on shared edges" no longer needs periodicity. Both sides use the same
+  pulled-back arc in U_f, since D_f lives in the quotient.
+
+**M4. Lemma C.1(d) needs the speed of ĉ bounded below.**
+- The hypothesis "|t₁ − t₀| times the speed is O(h)" bounds |Δt|·|ĉ′|. The estimate |ψ′| ≤ |Δt| ω(|Δt|) = O(hω(h))
+  needs |Δt| = O(h) itself, so it needs |ĉ′| ≥ c > 0 uniformly ("uniformly regular").
+- It also implicitly uses ω(Ch) ≤ C′ω(h), which holds for a subadditive (e.g. concave) modulus.
+- Both hold in both appendices (finitely many compact regular curves, arc-length-type parametrizations). Add
+  "with speed bounded below" and "ω subadditive" to the hypotheses of (d).
+
+## Verdict on v0.7.1
+
+**N1–N6 are closed.** Lemma C.1 in its C¹ form is correct and now applies in both appendices. The no-fold form of T,
+with the vertex clause, is sufficient. I found no new error and no overclaim; M1–M4 are wording or hypothesis-precision
+items. **I consider the proof of Proposition 5.3 complete, modulo the standard facts listed at the end of Appendix B
+and Appendix C, and acceptable for submission once M1–M4 are fixed.**

@@ -19,10 +19,14 @@ Fix a small $h>0$.
 and choose vertices on it at 3D spacing about $h$, including its end points. A closed edge gets at least three
 vertices. These choices are made once, in $\R^3$, and are shared by all faces containing $e$ (both sides of a seam).
 \item \emph{Cutting along the edge graph.} In each $D_f$, pull back the edge vertices by $X_f$; this is possible because
-$X_f$ is injective on $D_f$. Cut $D_f$ along its edge graph $G_f$ (R), seams included. The result is a finite union of
-compact regions, each bounded by arcs of $G_f$ (a seam arc bounds a region on each of its two sides). Join consecutive
-edge vertices along each arc by chords. For small $h$ each region's chord polygon is simple and bounds a region close to
-it, by R: the arcs are simple $C^2$ regular, and the sector angles lie in $(0,2\pi)$.
+$X_f$ is injective on $D_f$. Cut $D_f$ along its edge graph $G_f$ (R), seams included. Note that $\partial D_f\subseteq G_f$: a point of
+$\partial D_f$ off $G_f$ would be mapped by $X_f$ into the open face, which by C is an open surface homeomorphic, through
+$X_f^{-1}$, to an open subset of $U_f$; by invariance of domain such a point is interior to $D_f$. The result of cutting
+is a finite union of compact regions, each bounded by arcs of $G_f$ (a seam arc bounds a region on each of its two
+sides). A region need not be simply connected: faces with inner wires give multiply connected regions. Join consecutive
+edge vertices along each arc by chords. For small $h$ each boundary component of a region becomes a simple closed
+polygon, these polygons are disjoint, and they bound a polygonal region close to the original one, by R: the arcs are
+simple $C^2$ regular, and the sector angles lie in $(0,2\pi)$.
 \item \emph{Triangulation.} Triangulate each chord region shape-regularly, with no extra vertices on its boundary. At
 every vertex of $G_f$, including smooth passages such as seam vertices, put one interior vertex near it in each adjacent
 sector and join it to the vertex, so that no triangle has two curved edges. The shape-regularity constant depends on
@@ -49,8 +53,8 @@ Then:
   \item An interior straight edge is affine in $U_f$ on both sides.
   \item An edge on $\tilde\gamma_e$ between faces $f$ and $g$ is $s\mapsto\tilde\gamma_e(t_0+s(t_1-t_0))$ from both
   sides, by Lemma~\ref{lem:curvedtri}(a).
-  \item A seam edge is mapped the same way from both sides, because $X_f$ is periodic (clause P of
-  Proposition~\ref{prop:Bprime}).
+  \item A seam edge lies inside $D_f$, and both sides use the same pull-back of the fixed parametrization of the
+  seam curve, so it is mapped the same way from both sides.
   \end{itemize}
 \item \emph{$h_0$ is a homeomorphism.} It is a homeomorphism onto $\Sigma$, by Lemma~\ref{lem:curvedtri}(d) and the
 injectivity of $X_f$ on $D_f$.
@@ -95,8 +99,8 @@ cells of $K$, with every cell in its zone. That is a realization. $\square$
 
 \emph{Standard facts used without separate checking against a source:}
 \begin{itemize}
-\item existence of shape-regular triangulations of a simple polygon with prescribed boundary vertices and corner
-fans as described;
+\item existence of shape-regular triangulations of a polygonal region, possibly multiply connected, with prescribed
+boundary vertices and corner fans as described;
 \item the per-triangle secant-approximation estimate;
 \item that a sectorwise linear, orientation-preserving map of the plane of degree one is a homeomorphism;
 \item that a map that is $C^1$ up to the vertex on each sector, with an embedded tangent cone of positive opening
