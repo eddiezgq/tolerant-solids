@@ -244,3 +244,80 @@ minor items that were addressed. Nothing major remains.
 - Commit c2210c5 records checks of CL07 Prop. 3.4 / Lemma 2.2. I did not re-verify CCSL09dcg §§2.1–2.2 or Federer59
   (sec_proof51), because no extracts were provided. The author should make sure the claim in sec_open:4–6 covers them.
 - Optional, not requested: issue number "(2)" for Durfee in the bibliography.
+
+---
+
+## Follow-up on v0.8.2 (commit aeacfd5)
+
+**Verdict.** All three newly checked citations match their sources. The Federer deduction is correct. No
+`\unverified` or `\draftnote` markers remain. There is one wording point in sec_proof51 (minor) and one residual
+caveat on the claim in sec_open.
+
+### (1) CCS05, Thm 2.1 (Graphical Models 67 (2005), p. 392)
+- **Setting.** S and S′ are compact orientable surfaces embedded in R³ (§2).
+- **Definition 2.2.** A topological thickening M of S is the image of a homeomorphism Φ: S×[0,1] → M with
+  Φ(S×{1/2}) = S. Its sides are Φ(S×0) and Φ(S×1).
+- **Thm 2.1.** If (1) S′ ≅ S, (2) S′ ⊂ M and (3) S′ separates the sides of M, then S′ is isotopic to S in M.
+- **The paper's descriptions match.** sec_intro.tex:119–121 and sec_uniqueness.tex:167–169 ("compact orientable
+  surface S′ ≅ S lying in a thickening of S and separating its sides is isotopic to S in the thickening") are
+  accurate. Theorem numbering in the journal version is 2.1, so removing the `\unverified` mark is justified.
+  Bibliographic data (67(5), 390–404) match.
+
+### (2) CCSL09 DCG, §2.2 (p. 465)
+- **Critical points.** §2.2 ("Critical Point Theory for Distance Functions") defines them by ∇_K(x) = 0, and
+  "equivalently" as the points x lying in the convex hull of Γ_K(x). This is the same as 0 ∈ conv{x − y : y ∈ Γ(x)},
+  the paper's definition (sec_collar:5).
+- **wfs.** §2.2 defines wfs(K) as the infimum of the positive critical values.
+- Both the definition at sec_collar:6 ("§2.2") and the changed citation at sec_collar:54 ("see also §2.2") are now
+  correct. §2.1 is the gradient and flow, so the change from §2.1 was right.
+
+### (3) Federer 1959, Thm 4.8 (sec_proof51.tex:47–52)
+- **What the cited parts say.**
+  - 4.8(2), p. 434: P = {v : ξ(a+v) = a} ⊂ Q ⊂ Nor(A,a).
+  - 4.8(12), p. 435: if reach(A,a) > r > 0, then Nor(A,a) = {λv : λ ≥ 0, |v| = r, ξ(a+v) = a}.
+  - The page numbers are right.
+- **The deduction is correct.**
+  - Let v ∈ Nor(A,a) with 0 < |v| < reach(A) ≤ reach(A,a). Apply (12) with r = |v|: v = λw with |w| = |v|, so λ = 1
+    and ξ(a+v) = a.
+  - a+v lies in the ball of radius reach(A,a) about a, which is contained in Unp(A) by Definition 4.1. So a is the
+    unique nearest point.
+  - Strictly, only (12) and Definition 4.1 are needed. Citing (2) is harmless.
+- **The normal-cone claim is correct.**
+  - Nor(A,a) = Dual[Tan(A,a)] (Definition 4.4 / Remark 4.5).
+  - At an interior point of a C¹ regular arc, Tan is the tangent line, so Nor is the normal plane.
+  - At an end point, Tan is the ray {sγ′(a) : s ≥ 0}, so Nor is the half-space {v · γ′(a) ≤ 0}. This contains the
+    normal plane.
+  - Disjointness follows: a common point of D_e(t) and D_e(s) would have the unique nearest point γ(t) = γ(s), so
+    t = s by injectivity.
+  - The tangent-cone fact is now listed among the standard facts (line ~254). Good.
+- **Minor wording (line 50).** "The normal cone is the dual of the tangent cone, a line at interior points and a ray
+  at the end points" reads as if the *normal* cone were a line or a ray. Suggested wording: "The tangent cone is the
+  tangent line at interior points and a ray at the end points; its dual, the normal cone, is then the normal plane,
+  respectively a half-space, and contains the normal plane in both cases."
+- The paper assumes the disk radii are below reach(A). A compact embedded C² arc with end points has positive reach
+  (Federer §4, introduction: C² submanifolds with boundary), so this assumption can be met. No issue.
+
+### (4) Markers and the claim in sec_open
+- `grep` finds no `\unverified{` or `\draftnote{` uses. Only the macro definitions in p1.tex remain, which is fine.
+  An empty line is left at the end of sec_open.tex, which is harmless.
+- **Literature results used in proofs, and what I checked:**
+
+  | Citation | Used in proof for | Checked |
+  |---|---|---|
+  | Durfee83 | Defs. 3.1/3.4, Props. 3.5/3.7 | ✓ (by me) |
+  | Moise77 | Thms 17.12, 35.2 | ✓ |
+  | Waldhausen68 | pp. 57, 58, 65–68 | ✓ |
+  | CCSL09dcg | §2.2 | ✓ |
+  | Federer59 | Thm 4.8 | ✓ |
+  | ChazalLieutier07 | Lemma 2.2, Prop. 3.4 | author's check (commit c2210c5); I had no extract and did not re-verify |
+  | OCCT | definitions | documentation, not a mathematical result |
+
+  CCS05, APS00, Fu85 and dREG22 are cited only in the intro or in remarks. CCS05, APS00 and Fu85 are checked; dREG22
+  was not supplied to me.
+- So the claim in sec_open:4–6 is true for everything I could check. It rests on the author's own check for
+  ChazalLieutier07, whose original was not provided to this referee. If an independent check is wanted, supply the
+  CL07 PDF.
+
+### Overall
+Ready as far as citations are concerned. The only remaining edit is the optional rewording of sec_proof51 line 50,
+plus an independent look at CL07 if desired.
