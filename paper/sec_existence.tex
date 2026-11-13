@@ -102,35 +102,32 @@ It is a PL homeomorphism onto $\bigcup\tilde P_f$, and each cell lands in its zo
 \end{proof}
 
 \begin{proposition}[Curved, transversal]\label{prop:Bprime}
-Suppose every face lies on a $C^2$ surface $S_f$, and there is a \emph{re-trimmed model}: patches $\tilde P_f\subseteq
-S_f$, curves $\tilde\gamma_e$ and points $c_v$ bounding a solid, whose cell structure is isomorphic to $K$ (as a
-B-rep complex, respecting seams and closed edges). Assume:
-\begin{itemize}
-\item the closed cells lie in their zones;
-\item the cells are $C^2$ up to the boundary, the curves are regular, and there are no cusp corners;
-\item the surfaces meet at a positive angle along every non-seam edge;
-\item at every vertex the tangent cone is an embedded PL disk.
-\end{itemize}
-Then a realization exists.
+Suppose every face lies on a $C^2$ surface $S_f$ with a $C^2$ regular parametrization, and there is a
+\emph{re-trimmed model}: compact patches $\tilde P_f\subseteq S_f$, curves $\tilde\gamma_e$ and points $c_v$ such that
+$\Sigma=\bigcup_f\tilde P_f$ bounds a solid.
+\begin{description}
+\item[C] The patches, curves and points form a cell structure on $\Sigma$ isomorphic to $K$ as a B-rep complex: seams are
+glued to themselves and closed edges have one vertex. For an edge between two different faces $f,g$,
+$\tilde\gamma_e\subseteq S_f\cap S_g$; for a seam of $f$, $\tilde\gamma_e\subseteq S_f$.
+\item[R] In the parameter domain of $S_f$, each $\tilde P_f$ is a compact region bounded by finitely many $C^2$ regular
+curves, the preimages of the $\tilde\gamma_e$. They meet only at the preimages of the $c_v$, at positive interior angles
+(no cusps). Across a seam, the region continues periodically.
+\item[B1--B3] $c_v\in\Z(v)$, $\tilde\gamma_e\subseteq\Z(e)$ and $\tilde P_f\subseteq\Z(f)$.
+\item[T] Along every non-seam edge, $S_f$ and $S_g$ meet at a positive angle (they are neither tangent nor folded). At
+every vertex $c_v$, the tangent cone of $\Sigma$ is a disk: the union of the tangent sectors of the incident patches, each
+with positive opening angle, glued in the cyclic order of the link and meeting only along their common boundary rays.
+\end{description}
+Then the tolerant B-rep has a realization.
 \end{proposition}
-\begin{proof}[Proof sketch]
-\begin{itemize}
-\item Take $|K|$ to be the re-trimmed surface with its cells, and $h_0$ the identity.
-\item By compactness, $h_0(\bar\sigma)$ has a positive margin $m$ inside the open zone $\Z(\sigma)$.
-\item $h_0$ is bi-Lipschitz: within a cell by regularity, across an edge by the positive crease angle, and at a
-vertex by the tangent-cone condition.
-\item A secant approximation on a fine shape-regular curved triangulation is injective once its Lipschitz
-distance to $h_0$ is below the bi-Lipschitz constant, and it stays in the zones once its distance is below $m$.
-\end{itemize}
-\end{proof}
+The proof is in Appendix~\ref{sec:proofBprime}.
 
 \begin{remark}[Checking the hypotheses]
 \begin{itemize}
 \item The re-trimmed model can be computed by extending the face surfaces and rebuilding the solid
 (OpenCascade's \texttt{BOPAlgo\_MakerVolume}). The hypotheses are then checked on samples
 (\texttt{compute/reintersect\_curved.py}), except the vertex part of the transversality hypothesis, which is not
-checked. That matters for the cylinder and the pipe, whose seam vertices lie on only two surfaces. The PL step is
-not carried out.
+checked. That matters for the cylinder and the pipe, whose seam vertices lie on only two surfaces. The PL step of the
+proof is not carried out numerically; it is an existence argument.
 \item For the planar case, the hypotheses of Proposition~\ref{prop:B} for the sewn box and the sewn plate were also
 re-checked in exact rational arithmetic, including embeddedness.
 \item Results are in Section~\ref{sec:experiments}.
