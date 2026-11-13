@@ -271,6 +271,8 @@ def run(index, rho=RHO):
         arcs = {}
         for fi in {sd["fi"] for ei in inc[v] for sd in E[ei].sides}:
             S = BRepAdaptor_Surface(M.F[fi]); sph, _ = face_band(M, S, fi, pv, r, 1.2 * r)
+            if len(sph) > 1500:            # thin out very dense samples (keeps every k-th crossing point)
+                sph = sph[:: int(math.ceil(len(sph) / 1500))]
             arcs[fi] = sph
         joints, pieces, note = [], [], None
         for ei in inc[v]:
