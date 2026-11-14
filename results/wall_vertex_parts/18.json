@@ -1,0 +1,52 @@
+{
+ "key": "cylinder, top fillet r1, g=0.001",
+ "rho": 0.95,
+ "edge_wall": {
+  "0": "seam",
+  "1": "gamma",
+  "2": "gamma",
+  "3": "seam",
+  "4": "gamma"
+ },
+ "vertices": {
+  "0": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1568.700951104647,
+   "V0_miss_strips_over_r": 1566.1732102847475,
+   "V0_edges_reach_ball": true,
+   "status": "not tested: edge 0 seam, edge 3 seam",
+   "ok": null
+  },
+  "1": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 15631.159086774682,
+   "V0_miss_strips_over_r": 15630.093431525955,
+   "V0_edges_reach_ball": true,
+   "status": "not tested: edge 0 seam",
+   "ok": null
+  },
+  "2": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 988.2199492508914,
+   "V0_miss_strips_over_r": 987.5571695780578,
+   "V0_edges_reach_ball": true,
+   "status": "not tested: edge 3 seam",
+   "ok": null
+  }
+ },
+ "global_": {
+  "face_face_min": 5.978635845284608e-05,
+  "face_face_bad_pairs": [],
+  "bridge_bridge_min": 1.4132719083032765,
+  "bridge_face_min": 1.4126595067489058
+ },
+ "summary": {
+  "vertices_ok": 0,
+  "vertices_tested": 0,
+  "vertices": 3,
+  "global_ok": true
+ }
+}

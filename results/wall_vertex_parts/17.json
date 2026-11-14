@@ -1,0 +1,120 @@
+{
+ "key": "stadium prism, g=0.01",
+ "rho": 0.95,
+ "edge_wall": {
+  "0": "gamma",
+  "1": "gamma",
+  "2": "gamma",
+  "3": "gamma",
+  "4": "gamma",
+  "5": "gamma",
+  "6": "gamma",
+  "7": "gamma",
+  "8": "gamma",
+  "9": "gamma",
+  "10": "gamma",
+  "11": "gamma"
+ },
+ "vertices": {
+  "0": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 195.23059352672087,
+   "V0_miss_strips_over_r": 193.53346671667532,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.12890911901484245,
+   "V1_note": "face 4: arc end not at a joint",
+   "V1_ok": false,
+   "ok": false
+  },
+  "1": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 194.91787253759838,
+   "V0_miss_strips_over_r": 193.56663902384636,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.139399418263465,
+   "V1_note": "face 5: arc end not at a joint",
+   "V1_ok": false,
+   "ok": false
+  },
+  "2": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 208.3106082927777,
+   "V0_miss_strips_over_r": 206.64067691708686,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.10942825502480581,
+   "V1_note": "face 4: arc end not at a joint",
+   "V1_ok": false,
+   "ok": false
+  },
+  "3": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 199.82667475966588,
+   "V0_miss_strips_over_r": 198.44480571411322,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.1320595205144667,
+   "V1_note": "face 5: arc end not at a joint",
+   "V1_ok": false,
+   "ok": false
+  },
+  "4": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 273.18625358113144,
+   "V0_miss_strips_over_r": 271.0812751757876,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.2730060433480967,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "5": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 199.8881548412795,
+   "V0_miss_strips_over_r": 198.69429216146736,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.26632565726689306,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "6": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 213.57804364826796,
+   "V0_miss_strips_over_r": 211.61857175186725,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.304364445452928,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "7": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 194.82332727475435,
+   "V0_miss_strips_over_r": 193.80008247872465,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.2875559694289115,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  }
+ },
+ "global_": {
+  "face_face_min": 0.0019908281778542695,
+  "face_face_bad_pairs": [],
+  "bridge_bridge_min": 0.012822418987593467,
+  "bridge_face_min": 0.014495152147278726
+ },
+ "summary": {
+  "vertices_ok": 4,
+  "vertices_tested": 8,
+  "vertices": 8,
+  "global_ok": true
+ }
+}

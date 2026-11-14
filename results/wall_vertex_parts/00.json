@@ -1,0 +1,120 @@
+{
+ "key": "box (control), g=0.001",
+ "rho": 0.95,
+ "edge_wall": {
+  "0": "gamma",
+  "1": "gamma",
+  "2": "gamma",
+  "3": "gamma",
+  "4": "gamma",
+  "5": "gamma",
+  "6": "gamma",
+  "7": "gamma",
+  "8": "mid",
+  "9": "gamma",
+  "10": "gamma",
+  "11": "gamma"
+ },
+ "vertices": {
+  "0": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 9068.834652358248,
+   "V0_miss_strips_over_r": 9067.852072868416,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.12207690208245817,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "1": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 6720.562388042446,
+   "V0_miss_strips_over_r": 6719.623964471279,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.14712878190907877,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "2": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 6720.47293762212,
+   "V0_miss_strips_over_r": 6719.560910514021,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.18460067651908,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "3": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 8170.074363484363,
+   "V0_miss_strips_over_r": 8168.862662709833,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.1851624016260863,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "4": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 6920.265064609804,
+   "V0_miss_strips_over_r": 6919.480216811027,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.11962976104917876,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "5": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 7748.71198652928,
+   "V0_miss_strips_over_r": 7747.500881766898,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.1232339150779932,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "6": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 6486.0631533438955,
+   "V0_miss_strips_over_r": 6485.224510756272,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.17274522369044162,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "7": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 6486.091748675474,
+   "V0_miss_strips_over_r": 6484.923686135201,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.19081881512990229,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  }
+ },
+ "global_": {
+  "face_face_min": 0.00021790915951191557,
+  "face_face_bad_pairs": [],
+  "bridge_bridge_min": 0.0006899163652771041,
+  "bridge_face_min": 0.0011628973583609813
+ },
+ "summary": {
+  "vertices_ok": 8,
+  "vertices_tested": 8,
+  "vertices": 8,
+  "global_ok": true
+ }
+}

@@ -1,0 +1,274 @@
+{
+ "key": "L inner fillet 0.2, g=0.001",
+ "rho": 0.95,
+ "edge_wall": {
+  "0": "gamma",
+  "1": "gamma",
+  "2": "gamma",
+  "3": "gamma",
+  "4": "gamma",
+  "5": "gamma",
+  "6": "gamma",
+  "7": "chord",
+  "8": "gamma",
+  "9": "chord",
+  "10": "mid",
+  "11": "gamma",
+  "12": "gamma",
+  "13": "chord",
+  "14": "gamma",
+  "15": "gamma",
+  "16": "mid",
+  "17": "gamma",
+  "18": "gamma",
+  "19": "gamma",
+  "20": "re-trimmed",
+  "21": "gamma",
+  "22": "gamma",
+  "23": "gamma",
+  "24": "gamma",
+  "25": "gamma",
+  "26": "mid",
+  "27": "gamma",
+  "28": "gamma",
+  "29": "gamma",
+  "30": "gamma",
+  "31": "gamma",
+  "32": "gamma"
+ },
+ "vertices": {
+  "0": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 142.38775999383324,
+   "V0_miss_strips_over_r": 140.55455823900215,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.23212953479935686,
+   "V1_note": "edge 1: bridge end not on the arc of face 2",
+   "V1_ok": false,
+   "ok": false
+  },
+  "1": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1296.679838368048,
+   "V0_miss_strips_over_r": 1296.338662024856,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.13207810638913048,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "2": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 56.52336917645043,
+   "V0_miss_strips_over_r": 56.4621233060693,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.28793320507620085,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "3": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1296.6966076180292,
+   "V0_miss_strips_over_r": 1296.1377554064832,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.12051633908143258,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "4": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1383.4852891644641,
+   "V0_miss_strips_over_r": 1382.5030213953542,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.10329420567677837,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "5": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 149.69453304662352,
+   "V0_miss_strips_over_r": 148.56571286018325,
+   "V0_edges_reach_ball": true,
+   "status": "not tested: edge 20 re-trimmed",
+   "ok": null
+  },
+  "6": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1441.432941092526,
+   "V0_miss_strips_over_r": 1440.4968948818803,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.07423455803156927,
+   "V1_note": "edge 6: bridge end not on the arc of face 3",
+   "V1_ok": false,
+   "ok": false
+  },
+  "7": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 141.75893765628766,
+   "V0_miss_strips_over_r": 140.68313269992083,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.014310384560882914,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "8": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1321.7173111083755,
+   "V0_miss_strips_over_r": 1320.7275348320902,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.11730867464336096,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "9": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1191.052694406904,
+   "V0_miss_strips_over_r": 1190.3975900340586,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.11885144745521112,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "10": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1191.015121550858,
+   "V0_miss_strips_over_r": 1190.2441703935065,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.2172937647894562,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "11": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1345.7748350393044,
+   "V0_miss_strips_over_r": 1344.4383282867725,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.12673077440738192,
+   "V1_note": "face 3: 2 arcs",
+   "V1_ok": false,
+   "ok": false
+  },
+  "12": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1872.2660023389708,
+   "V0_miss_strips_over_r": 1870.825743317501,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.13210939625789178,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "13": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1480.9553670479095,
+   "V0_miss_strips_over_r": 1480.1738119222935,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.21899024754402402,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "14": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 149.23944794632794,
+   "V0_miss_strips_over_r": 148.21390670214768,
+   "V0_edges_reach_ball": true,
+   "status": "not tested: edge 20 re-trimmed",
+   "ok": null
+  },
+  "15": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 60.80180513440157,
+   "V0_miss_strips_over_r": 59.76213855611148,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.2503261705944962,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "16": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1567.0743002538147,
+   "V0_miss_strips_over_r": 1565.8276631847452,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.15865734587431887,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "17": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1319.722518365061,
+   "V0_miss_strips_over_r": 1318.5576152948402,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.12183969488353356,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "18": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1319.2071365723905,
+   "V0_miss_strips_over_r": 1318.4317431163195,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.12108155708572595,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "19": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 1837.4099727073824,
+   "V0_miss_strips_over_r": 1835.9964017332738,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.14905319832984726,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  }
+ },
+ "global_": {
+  "face_face_min": 0.0,
+  "face_face_bad_pairs": [
+   [
+    6,
+    7
+   ]
+  ],
+  "bridge_bridge_min": 1.4323734079238632e-05,
+  "bridge_face_min": 0.0
+ },
+ "summary": {
+  "vertices_ok": 15,
+  "vertices_tested": 18,
+  "vertices": 20,
+  "global_ok": false
+ }
+}

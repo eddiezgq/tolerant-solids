@@ -1,0 +1,172 @@
+{
+ "key": "box, top edges filleted r2, g=0.001",
+ "rho": 0.95,
+ "edge_wall": {
+  "0": "gamma",
+  "1": "gamma",
+  "2": "gamma",
+  "3": "mid",
+  "4": "gamma",
+  "5": "gamma",
+  "6": "gamma",
+  "7": "gamma",
+  "8": "gamma",
+  "9": "gamma",
+  "10": "gamma",
+  "11": "gamma",
+  "12": "gamma",
+  "13": "gamma",
+  "14": "gamma",
+  "15": "gamma",
+  "16": "gamma",
+  "17": "gamma",
+  "18": "gamma",
+  "19": "gamma"
+ },
+ "vertices": {
+  "0": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 5188.951373469126,
+   "V0_miss_strips_over_r": 5188.015072531172,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.12085720665023224,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "1": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 2468.9355276771475,
+   "V0_miss_strips_over_r": 2467.738672342629,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.11222610467804064,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "2": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 2397.7378505251795,
+   "V0_miss_strips_over_r": 2396.8842719586605,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.12143164915510533,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "3": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 5188.986668423107,
+   "V0_miss_strips_over_r": 5188.233601208675,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.1249893923627207,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "4": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 5376.382091248398,
+   "V0_miss_strips_over_r": 5375.272394998254,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.12231318582430138,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "5": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 2328.4290019922732,
+   "V0_miss_strips_over_r": 2327.471009778194,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.12219184604134312,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "6": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 2015.4704900841373,
+   "V0_miss_strips_over_r": 2014.8937758678296,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.22826028592315678,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "7": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 2836.674963990114,
+   "V0_miss_strips_over_r": 2835.8987158242417,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.2185095654876204,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "8": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 5143.259067512603,
+   "V0_miss_strips_over_r": 5142.130273392311,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.24562186251842566,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "9": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 2227.140518578479,
+   "V0_miss_strips_over_r": 2226.2353057445516,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.22982934754921996,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "10": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 2419.5931119411716,
+   "V0_miss_strips_over_r": 2418.617426268157,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.22088532070804906,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  },
+  "11": {
+   "V0_corners_inside": true,
+   "V0_ball_disjoint": true,
+   "V0_miss_faces_over_r": 2216.295163856945,
+   "V0_miss_strips_over_r": 2215.401424202527,
+   "V0_edges_reach_ball": true,
+   "V1_min_gap_over_r": 0.23340810161375175,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true
+  }
+ },
+ "global_": {
+  "face_face_min": 6.0832957356105305e-06,
+  "face_face_bad_pairs": [],
+  "bridge_bridge_min": 0.0006960266183996418,
+  "bridge_face_min": 0.0008869458265730128
+ },
+ "summary": {
+  "vertices_ok": 12,
+  "vertices_tested": 12,
+  "vertices": 12,
+  "global_ok": true
+ }
+}
