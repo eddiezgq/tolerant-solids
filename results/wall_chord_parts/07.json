@@ -11,20 +11,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 89.91357642164387,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 19.612967676745853,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -37,20 +49,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.92474916388038,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 81,
+    "min_cross_deg": 39.63646209229945,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -63,20 +87,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.39204517185426,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.69304851633552,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -89,20 +125,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 88.78459946062054,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.38660614958367,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -115,20 +163,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 88.50081980414129,
     "max_jump": 1.01430555929926,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.38917291137201,
     "max_jump": 1.0145567579014216,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 72,
+    "n_cut": 43,
+    "min_cross_deg": 20.982371994929906,
+    "max_jump": 1.0146448831152883,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -141,20 +201,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 72,
     "min_cross_deg": 89.87119242906655,
     "max_jump": 1.0251194246330968,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0251194246330968,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 72,
+    "n_cut": 39,
+    "min_cross_deg": 66.30590792333663,
+    "max_jump": 1.0251194246330968,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -167,20 +239,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.87500963363887,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.87500963363887,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 81,
+    "min_cross_deg": 21.99607238416532,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -193,20 +277,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.87125628484864,
     "max_jump": 1.0110040522220207,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0110040522220207,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 70,
+    "n_cut": 36,
+    "min_cross_deg": 1.1817946068088132,
+    "max_jump": 1.0110040522220207,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -219,20 +315,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.92474916388038,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.62374581939693,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 81,
+    "min_cross_deg": 8.768874880669124,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -245,21 +353,44 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 88.5527246765092,
     "max_jump": 1.0164463788562697,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.34279293593752,
     "max_jump": 1.0166847949239783,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
+   },
+   "chord": {
+    "fail": {
+     "W3 kept part re-enters the other side": 2
+    },
+    "examples": [
+     [
+      0.04347826086956534,
+      "W3 kept part re-enters the other side"
+     ],
+     [
+      0.05000000000000028,
+      "W3 kept part re-enters the other side"
+     ]
+    ],
+    "n_t": 72,
+    "n_cut": 34,
+    "min_cross_deg": 0.06535650867304134,
+    "max_jump": 1.0167937226233492,
+    "ends_reach_balls": true,
+    "ok": false
    }
   },
   "10": {
@@ -271,20 +402,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 72,
     "min_cross_deg": 89.92475097262528,
     "max_jump": 1.0071174304565342,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0071174304565342,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 72,
+    "n_cut": 40,
+    "min_cross_deg": 1.6120321161431652,
+    "max_jump": 1.0071174304565342,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -297,20 +440,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.92474916389006,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.92474916389006,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -323,20 +478,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 72,
     "min_cross_deg": 89.92475378017316,
     "max_jump": 1.0106192523919812,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0106192523919812,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 72,
+    "n_cut": 38,
+    "min_cross_deg": 1.156364713096923,
+    "max_jump": 1.0106192523919812,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -349,21 +516,40 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.33620568963094,
     "max_jump": 1.0048725317280995,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.6371155810502,
     "max_jump": 1.0049405424079627,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
+   },
+   "chord": {
+    "fail": {
+     "W3 kept part re-enters the other side": 1
+    },
+    "examples": [
+     [
+      0.2753623188405797,
+      "W3 kept part re-enters the other side"
+     ]
+    ],
+    "n_t": 70,
+    "n_cut": 29,
+    "min_cross_deg": 0.5161118348305868,
+    "max_jump": 1.0049657553567755,
+    "ends_reach_balls": true,
+    "ok": false
    }
   },
   "14": {
@@ -375,20 +561,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 71,
     "n_cut": 71,
     "min_cross_deg": 89.89343630598604,
     "max_jump": 1.0148736835521606,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 71,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0148736835521606,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 71,
+    "n_cut": 43,
+    "min_cross_deg": 31.51767248969805,
+    "max_jump": 1.0148736835521606,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -401,20 +599,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 83,
     "n_cut": 83,
     "min_cross_deg": 89.95802212568086,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 83,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 83,
+    "n_cut": 83,
+    "min_cross_deg": 67.47375277703516,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -427,20 +637,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0071331420969594,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0071331420969594,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 72,
+    "n_cut": 37,
+    "min_cross_deg": 18.981338563025147,
+    "max_jump": 1.0071331420969594,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -453,20 +675,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 74,
     "n_cut": 74,
     "min_cross_deg": 89.9593113765405,
     "max_jump": 1.0000000000000193,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 74,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0000000000000193,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 74,
+    "n_cut": 44,
+    "min_cross_deg": 22.32286810645522,
+    "max_jump": 1.0000000000000193,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -479,20 +713,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 89.92474916388038,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 71.69778460628447,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -505,20 +751,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 88.47748357077175,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 89.38049360421586,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -531,20 +789,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 89.84591335570389,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 89.84591335570389,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 78.74183540987833,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -557,20 +827,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.88067887395233,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -583,20 +865,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 88.77664295340817,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 89.37864964237083,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 80,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -609,20 +903,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.32780354371705,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.62880688819926,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 81,
+    "min_cross_deg": 31.428755356041314,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -635,21 +941,40 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 68,
     "n_cut": 68,
     "min_cross_deg": 89.92474916386584,
     "max_jump": 1.0002743626164632,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 68,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0002743626164632,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
+   },
+   "chord": {
+    "fail": {
+     "W3 kept part re-enters the other side": 1
+    },
+    "examples": [
+     [
+      0.9499999999999997,
+      "W3 kept part re-enters the other side"
+     ]
+    ],
+    "n_t": 68,
+    "n_cut": 41,
+    "min_cross_deg": 0.8333689648298663,
+    "max_jump": 1.0002743626164632,
+    "ends_reach_balls": true,
+    "ok": false
    }
   },
   "25": {
@@ -661,20 +986,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.68071670450469,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.86777827882352,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 81,
+    "min_cross_deg": 46.78319154780784,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -687,20 +1024,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.89391623543781,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 81,
+    "min_cross_deg": 13.151032308585485,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -713,20 +1062,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.92474916389006,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 81,
+    "min_cross_deg": 1.037379430518654,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -739,20 +1100,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 76,
     "n_cut": 76,
     "min_cross_deg": 89.924749163861,
     "max_jump": 1.003457875112055,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 76,
     "n_cut": 76,
     "min_cross_deg": 89.924749163861,
     "max_jump": 1.0034578751120542,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 76,
+    "n_cut": 41,
+    "min_cross_deg": 13.019640536602562,
+    "max_jump": 1.003457875112054,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -765,20 +1138,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 82,
     "n_cut": 82,
     "min_cross_deg": 89.87501998659019,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 83,
     "n_cut": 83,
     "min_cross_deg": 89.87501998659019,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 82,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -791,20 +1176,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 82,
     "n_cut": 82,
     "min_cross_deg": 89.91096484450324,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 82,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 82,
+    "n_cut": 82,
+    "min_cross_deg": 78.7312455921791,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -817,20 +1214,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 89.89207768182936,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 78.6898270033566,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -843,20 +1252,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 72,
     "min_cross_deg": 89.87545589267467,
     "max_jump": 1.0195623027406149,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 72,
     "min_cross_deg": 89.87545589267467,
     "max_jump": 1.0195642166533834,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 72,
+    "n_cut": 41,
+    "min_cross_deg": 10.868053680708398,
+    "max_jump": 1.019566133996084,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -869,20 +1290,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.88602679766329,
     "max_jump": 1.0213616067292384,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.88602679766329,
     "max_jump": 1.0213640424467283,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 69,
+    "n_cut": 40,
+    "min_cross_deg": 19.020255309696083,
+    "max_jump": 1.0212978373891457,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -895,20 +1328,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 89.85960025390911,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 89.85960025390911,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 80,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -921,20 +1366,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.32279273345245,
     "max_jump": 1.0083077869209882,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.62377374077454,
     "max_jump": 1.0083521030420532,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 70,
+    "n_cut": 37,
+    "min_cross_deg": 0.763234855592831,
+    "max_jump": 1.008367159769143,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -947,20 +1404,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.85990465401,
     "max_jump": 1.0046873009729493,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0046873009729493,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 70,
+    "n_cut": 33,
+    "min_cross_deg": 0.09994660340332022,
+    "max_jump": 1.0046873009729493,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -973,20 +1442,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.64321904909397,
     "max_jump": 1.0285407754010873,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.84120096526465,
     "max_jump": 1.0285664274131596,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 70,
+    "n_cut": 40,
+    "min_cross_deg": 64.95459362951185,
+    "max_jump": 1.0285770778846728,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -999,20 +1480,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 68,
     "n_cut": 68,
     "min_cross_deg": 89.7141895665699,
     "max_jump": 1.0304590497168182,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 68,
     "n_cut": 68,
     "min_cross_deg": 89.85431968796415,
     "max_jump": 1.0304656373126657,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 69,
+    "n_cut": 37,
+    "min_cross_deg": 75.60497867778759,
+    "max_jump": 1.0304722280602,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -1025,20 +1518,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.92474916389006,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.92474916389006,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -1051,20 +1556,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.8549994812973,
     "max_jump": 1.0307749645620992,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 70,
     "n_cut": 70,
     "min_cross_deg": 89.8549994812973,
     "max_jump": 1.030777622070734,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 70,
+    "n_cut": 39,
+    "min_cross_deg": 82.15206575658752,
+    "max_jump": 1.030780282731237,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -1077,20 +1594,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 74,
     "n_cut": 74,
     "min_cross_deg": 89.92475559973371,
     "max_jump": 1.0031206781968496,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 74,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0031206781968496,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 74,
+    "n_cut": 37,
+    "min_cross_deg": 1.8065343347746947,
+    "max_jump": 1.0031206781968496,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -1103,20 +1632,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 74,
     "n_cut": 74,
     "min_cross_deg": 88.74886537864414,
     "max_jump": 1.015380002511137,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 72,
     "min_cross_deg": 89.38085146434845,
     "max_jump": 1.0155653628605508,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 74,
+    "n_cut": 41,
+    "min_cross_deg": 23.516465374395132,
+    "max_jump": 1.0156281693942368,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -1129,20 +1670,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 89.91205333218318,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 89.63644165106469,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -1155,20 +1708,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 72,
     "min_cross_deg": 89.85443486144683,
     "max_jump": 1.000000000000097,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 72,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.000000000000097,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 72,
+    "n_cut": 34,
+    "min_cross_deg": 1.8754433774157118,
+    "max_jump": 1.000000000000097,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -1181,20 +1746,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 89.98838058188392,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 81,
+    "min_cross_deg": 62.46951581410413,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -1207,20 +1784,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 74,
     "n_cut": 74,
     "min_cross_deg": 89.9247489727288,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 74,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 74,
+    "n_cut": 40,
+    "min_cross_deg": 89.54641295107932,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -1233,20 +1822,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 75,
     "n_cut": 75,
     "min_cross_deg": 89.86858658151601,
     "max_jump": 1.0120669448229345,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 75,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0120669448229345,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 75,
+    "n_cut": 46,
+    "min_cross_deg": 1.3290644521920982,
+    "max_jump": 1.0120669448229345,
+    "ends_reach_balls": true,
     "ok": true
    }
   }

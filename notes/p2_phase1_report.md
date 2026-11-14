@@ -140,3 +140,29 @@ W_e ∩ Π(t).
 - In the example the wall is the plane y = y0 of the circular edge, and the two cut curves are circles within the
   axis offset (≈ τ_e) of γ_e.
 - To test next, and to check whether it also covers the sharp re-trimmed edges.
+
+## Step 3: "wall + chord" edge test (2026-11-13, night)
+
+Checker `compute/wall_chord_check.py` (results `results/wall_chord_check.json`, per model in `results/wall_chord_parts/`).
+In each normal plane Pi(t) it cuts the two patch sections along a wall line and bridges the two cut points (conditions
+W1–W5 in the script header). Three walls per edge, one choice for the whole edge: bisector line through gamma(t),
+bisector line through the midpoint of b_f, b_g, and the line through b_f, b_g (= the P2 strip). Edge interval as in
+checker v3. Only the section end lying on beta_{f,e} is used (inside a vertex ball the nearest section end can belong to
+another edge of the same face).
+
+| | edges | pass with some wall | v3 strip passed | v3 failed, wall passes | fail both |
+| --- | --- | --- | --- | --- | --- |
+| all 20 models (seams excluded) | 662 | 659 | 580 | 79 | 3 |
+
+- **Every overlapping same-surface edge passes** (L all fillets: 92/92 at both gaps; filleted boxes 48/48; top-fillet
+  box 20/20; filleted cylinder 3/3). This was the failure class 1 of step 1.
+- **Sharp crossing edges that v3 had to re-trim pass with the wall too** (box 2/2, chamfered box, one-fillet box), except
+  3: chamfered box g = 0.001 edge 9 (one sample at 0.07% of the edge, next to the vertex) and L inner fillet edge 20 at
+  both gaps (samples 3–6% from the cusp vertex 5). All three are re-trimmed edges with R′ passing in v3, so **every
+  edge of every model is covered by wall or re-trimming.** Edge 20 fails next to a cusp vertex, the known exception.
+- The E1′ failures of step 1 disappear: the wall cut points lie well inside D(t).
+- The bisector wall through gamma(t) suffices for 643 of 659 edges; the midpoint wall adds 12, the chord wall 4.
+- Conditioning: the minimum crossing angle between a patch section and its wall is 3.2° (5th percentile 45°); the cut
+  points move continuously (|Δa|/|Δγ| ≤ 1.07 between consecutive samples).
+- **Not yet tested:** vertices with wall cells (the cone over the new loop on S_v, V0/V1), and the global separation S1′
+  for the cut patches. The vertex test has to be redone with the wall construction before the theorem is rewritten.

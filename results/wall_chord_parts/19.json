@@ -1,0 +1,141 @@
+{
+ "key": "cylinder, top fillet r1, g=0.01",
+ "rho": 0.95,
+ "edges": {
+  "0": {
+   "kind": "seam/other (not covered)"
+  },
+  "1": {
+   "tau_e": 0.009492561897000167,
+   "reach": 2.9999999999999996,
+   "faces": [
+    0,
+    1
+   ],
+   "gamma": {
+    "fail": {},
+    "examples": [],
+    "n_t": 85,
+    "n_cut": 85,
+    "min_cross_deg": 89.62541999545714,
+    "max_jump": 1.0019976172264282,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "examples": [],
+    "n_t": 85,
+    "n_cut": 85,
+    "min_cross_deg": 89.92323000401795,
+    "max_jump": 1.0020036061757311,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
+    "examples": [],
+    "n_t": 85,
+    "n_cut": 49,
+    "min_cross_deg": 1.0467894373571793,
+    "max_jump": 1.0020062862786763,
+    "ends_reach_balls": true,
+    "ok": true
+   }
+  },
+  "2": {
+   "tau_e": 0.005768227815116935,
+   "reach": 2.9999999999999996,
+   "faces": [
+    0,
+    2
+   ],
+   "gamma": {
+    "fail": {},
+    "examples": [],
+    "n_t": 87,
+    "n_cut": 87,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.000973665515661,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "examples": [],
+    "n_t": 87,
+    "n_cut": 22,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0011601592508863,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {
+     "W3 patch never reaches its side": 19
+    },
+    "examples": [
+     [
+      0.08695652173913043,
+      "W3 patch never reaches its side"
+     ],
+     [
+      0.10144927536231883,
+      "W3 patch never reaches its side"
+     ],
+     [
+      0.11594202898550725,
+      "W3 patch never reaches its side"
+     ]
+    ],
+    "n_t": 87,
+    "n_cut": 32,
+    "min_cross_deg": 6.774707877312312,
+    "max_jump": 1.0013468533196586,
+    "ends_reach_balls": true,
+    "ok": false
+   }
+  },
+  "3": {
+   "kind": "seam/other (not covered)"
+  },
+  "4": {
+   "tau_e": 0.013568699000602301,
+   "reach": 1.9999999999999996,
+   "faces": [
+    1,
+    3
+   ],
+   "gamma": {
+    "fail": {},
+    "examples": [],
+    "n_t": 82,
+    "n_cut": 79,
+    "min_cross_deg": 89.92474916387553,
+    "max_jump": 1.0000000000000018,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "examples": [],
+    "n_t": 82,
+    "n_cut": 45,
+    "min_cross_deg": 89.62374581941147,
+    "max_jump": 1.0030144174065112,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
+    "examples": [],
+    "n_t": 82,
+    "n_cut": 41,
+    "min_cross_deg": 2.7012185539911266,
+    "max_jump": 1.0060287044833174,
+    "ends_reach_balls": true,
+    "ok": true
+   }
+  }
+ }
+}

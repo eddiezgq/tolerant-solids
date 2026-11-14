@@ -11,20 +11,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 77,
     "n_cut": 77,
     "min_cross_deg": 89.84949832776486,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 77,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 77,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -37,20 +49,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 77,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 77,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 77,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -63,20 +87,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 44.99999999999999,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 44.99999999999999,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 41.15753532806174,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -89,20 +125,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 44.99999999999999,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 44.99999999999999,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -115,20 +163,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 78,
     "n_cut": 78,
     "min_cross_deg": 89.84949832776002,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 78,
     "n_cut": 78,
     "min_cross_deg": 89.84949832776002,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 78,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -141,21 +201,48 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 44.99999999999999,
     "max_jump": 1.0012979359234677,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 15,
     "min_cross_deg": 44.99999999999999,
     "max_jump": 1.001872585863641,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
+   },
+   "chord": {
+    "fail": {
+     "W3 patch never reaches its side": 25
+    },
+    "examples": [
+     [
+      0.2608695652173913,
+      "W3 patch never reaches its side"
+     ],
+     [
+      0.2753623188405797,
+      "W3 patch never reaches its side"
+     ],
+     [
+      0.2898550724637681,
+      "W3 patch never reaches its side"
+     ]
+    ],
+    "n_t": 80,
+    "n_cut": 16,
+    "min_cross_deg": 28.047012850246478,
+    "max_jump": 1.00244984190932,
+    "ends_reach_balls": true,
+    "ok": false
    }
   },
   "6": {
@@ -167,21 +254,49 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 80,
     "min_cross_deg": 44.99999999999999,
     "max_jump": 1.0023766729636723,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 80,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0023766729636723,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
+   },
+   "chord": {
+    "fail": {
+     "W3 kept part re-enters the other side": 30,
+     "W3 patch never reaches its side": 27
+    },
+    "examples": [
+     [
+      0.2753623188405797,
+      "W3 kept part re-enters the other side"
+     ],
+     [
+      0.2898550724637681,
+      "W3 patch never reaches its side"
+     ],
+     [
+      0.30434782608695654,
+      "W3 kept part re-enters the other side"
+     ]
+    ],
+    "n_t": 81,
+    "n_cut": 15,
+    "min_cross_deg": 1.5586124255177682,
+    "max_jump": 1.0023766729636723,
+    "ends_reach_balls": true,
+    "ok": false
    }
   },
   "7": {
@@ -193,20 +308,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 77,
     "n_cut": 77,
     "min_cross_deg": 89.84949832776002,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 77,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 77,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -219,20 +346,32 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 44.99999999999999,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
+    "ends_reach_balls": true,
+    "ok": true
+   },
+   "chord": {
+    "fail": {},
     "examples": [],
+    "n_t": 81,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "ends_reach_balls": true,
     "ok": true
    }
   },
@@ -245,21 +384,48 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 44.99999999999999,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
+   },
+   "chord": {
+    "fail": {
+     "W3 patch never reaches its side": 91
+    },
+    "examples": [
+     [
+      0.0012992632226094094,
+      "W3 patch never reaches its side"
+     ],
+     [
+      0.0023873125906001464,
+      "W3 patch never reaches its side"
+     ],
+     [
+      0.004386533310618707,
+      "W3 patch never reaches its side"
+     ]
+    ],
+    "n_t": 91,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 0.0,
+    "ends_reach_balls": false,
+    "ok": false
    }
   },
   "10": {
@@ -271,21 +437,48 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 81,
     "min_cross_deg": 44.99999999999999,
     "max_jump": 1.0004071222149582,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 81,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0004071222149582,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
+   },
+   "chord": {
+    "fail": {
+     "W3 patch never reaches its side": 40
+    },
+    "examples": [
+     [
+      0.0007071067811865474,
+      "W3 patch never reaches its side"
+     ],
+     [
+      0.0012992632226094094,
+      "W3 patch never reaches its side"
+     ],
+     [
+      0.0023873125906001464,
+      "W3 patch never reaches its side"
+     ]
+    ],
+    "n_t": 82,
+    "n_cut": 3,
+    "min_cross_deg": 14.667202032980237,
+    "max_jump": 1.0004071222149582,
+    "ends_reach_balls": true,
+    "ok": false
    }
   },
   "11": {
@@ -297,21 +490,49 @@
    ],
    "gamma": {
     "fail": {},
+    "examples": [],
     "n_t": 83,
     "n_cut": 83,
     "min_cross_deg": 44.99999999999999,
     "max_jump": 1.0003525678324028,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
    },
    "mid": {
     "fail": {},
+    "examples": [],
     "n_t": 83,
     "n_cut": 0,
     "min_cross_deg": 90.0,
     "max_jump": 1.0003525678324028,
-    "examples": [],
+    "ends_reach_balls": true,
     "ok": true
+   },
+   "chord": {
+    "fail": {
+     "W3 kept part re-enters the other side": 34,
+     "W3 patch never reaches its side": 41
+    },
+    "examples": [
+     [
+      0.0007071067811865474,
+      "W3 kept part re-enters the other side"
+     ],
+     [
+      0.0012992632226094094,
+      "W3 kept part re-enters the other side"
+     ],
+     [
+      0.0023873125906001464,
+      "W3 kept part re-enters the other side"
+     ]
+    ],
+    "n_t": 83,
+    "n_cut": 4,
+    "min_cross_deg": 0.7487849509221838,
+    "max_jump": 1.0003525678324028,
+    "ends_reach_balls": true,
+    "ok": false
    }
   }
  }
