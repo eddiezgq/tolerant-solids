@@ -3249,7 +3249,7 @@
     "n_t": 90,
     "n_cut": 0,
     "min_cross_deg": 90.0,
-    "max_jump": 1.0003649738704719,
+    "max_jump": 1.0012316806817736,
     "ends_reach_balls": false,
     "ok": true
    },
@@ -3259,7 +3259,7 @@
     "n_t": 90,
     "n_cut": 44,
     "min_cross_deg": 24.6054870653274,
-    "max_jump": 1.0003649738704719,
+    "max_jump": 1.0012316806817736,
     "ends_reach_balls": false,
     "ok": true
    }

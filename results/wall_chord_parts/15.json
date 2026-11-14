@@ -489,8 +489,8 @@
     "fail": {},
     "examples": [],
     "n_t": 72,
-    "n_cut": 43,
-    "min_cross_deg": 1.6111997318796716,
+    "n_cut": 38,
+    "min_cross_deg": 1.6111997318796718,
     "max_jump": 1.0071174304565482,
     "ends_reach_balls": true,
     "ok": true
@@ -3294,7 +3294,7 @@
     "n_t": 87,
     "n_cut": 0,
     "min_cross_deg": 90.0,
-    "max_jump": 1.0003649738704719,
+    "max_jump": 1.0012316806817736,
     "ends_reach_balls": false,
     "ok": true
    },
@@ -3304,7 +3304,7 @@
     "n_t": 87,
     "n_cut": 41,
     "min_cross_deg": 24.72303413972834,
-    "max_jump": 1.0003649738704719,
+    "max_jump": 1.0012316806817736,
     "ends_reach_balls": false,
     "ok": true
    }

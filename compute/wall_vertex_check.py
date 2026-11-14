@@ -380,12 +380,8 @@ def run(index):
     balls = [BRepPrimAPI_MakeSphere(P(M.p[v]), rv[v]).Shape() for v in range(nv)]
     cutF = []
     for fi in range(len(M.F)):
-        sh = PF[fi]
-        for b in balls:
-            op = BRepAlgoAPI_Cut(); op.SetNonDestructive(True)
-            from OCP.TopTools import TopTools_ListOfShape
-            a1, a2 = TopTools_ListOfShape(), TopTools_ListOfShape(); a1.Append(sh); a2.Append(b)
-            op.SetArguments(a1); op.SetTools(a2); op.Build(); sh = op.Shape()
+        sh = BRepBuilderAPI_Copy(PF[fi]).Shape()   # deep copy: the cut must not change the shared patch
+        for b in balls: sh = BRepAlgoAPI_Cut(sh, b).Shape()
         cutF.append(sh)
     shared = {}
     for ei in range(len(M.E)):
