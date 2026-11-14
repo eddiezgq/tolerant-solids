@@ -1,0 +1,940 @@
+{
+ "key": "L inner fillet 0.2, g=0.01",
+ "rho": 0.95,
+ "edges": {
+  "0": {
+   "tau_e": 0.00945795163265739,
+   "reach": Infinity,
+   "faces": [
+    0,
+    1
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 80,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "1": {
+   "tau_e": 0.005497807626643237,
+   "reach": Infinity,
+   "faces": [
+    0,
+    2
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 60,
+    "n_cut": 60,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 60,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "2": {
+   "tau_e": 0.01622885157750267,
+   "reach": Infinity,
+   "faces": [
+    0,
+    3
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 77,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "3": {
+   "tau_e": 0.015210027054682407,
+   "reach": Infinity,
+   "faces": [
+    0,
+    4
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "4": {
+   "tau_e": 0.013352594185218168,
+   "reach": Infinity,
+   "faces": [
+    0,
+    5
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 81,
+    "n_cut": 81,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 82,
+    "n_cut": 82,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "5": {
+   "tau_e": 0.013552695974639364,
+   "reach": Infinity,
+   "faces": [
+    1,
+    6
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 77,
+    "min_cross_deg": 89.70660279562264,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "6": {
+   "tau_e": 0.012883461165114886,
+   "reach": Infinity,
+   "faces": [
+    1,
+    3
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "7": {
+   "tau_e": 0.013077992893317594,
+   "reach": Infinity,
+   "faces": [
+    1,
+    7
+   ],
+   "gamma": {
+    "fail": {
+     "W2 bridge end outside D(t)": 83
+    },
+    "n_t": 83,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 0.0,
+    "examples": [
+     [
+      0.000707106781186533,
+      "W2 bridge end outside D(t)"
+     ],
+     [
+      0.0012992632226094258,
+      "W2 bridge end outside D(t)"
+     ],
+     [
+      0.002387312590600119,
+      "W2 bridge end outside D(t)"
+     ]
+    ],
+    "ok": false
+   },
+   "mid": {
+    "fail": {
+     "W2 bridge end outside D(t)": 83
+    },
+    "n_t": 83,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 0.0,
+    "examples": [
+     [
+      0.000707106781186533,
+      "W2 bridge end outside D(t)"
+     ],
+     [
+      0.0012992632226094258,
+      "W2 bridge end outside D(t)"
+     ],
+     [
+      0.002387312590600119,
+      "W2 bridge end outside D(t)"
+     ]
+    ],
+    "ok": false
+   }
+  },
+  "8": {
+   "tau_e": 0.007309206051853561,
+   "reach": Infinity,
+   "faces": [
+    2,
+    8
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "9": {
+   "tau_e": 0.01476979422803866,
+   "reach": 0.2,
+   "faces": [
+    2,
+    6
+   ],
+   "gamma": {
+    "fail": {
+     "W2 bridge end outside D(t)": 60
+    },
+    "n_t": 68,
+    "n_cut": 8,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0535167964161063,
+    "examples": [
+     [
+      0.02721183701969225,
+      "W2 bridge end outside D(t)"
+     ],
+     [
+      0.028985507246376847,
+      "W2 bridge end outside D(t)"
+     ],
+     [
+      0.0434782608695652,
+      "W2 bridge end outside D(t)"
+     ]
+    ],
+    "ok": false
+   },
+   "mid": {
+    "fail": {
+     "W3 patch never reaches its side": 11,
+     "W2 bridge end outside D(t)": 32
+    },
+    "n_t": 67,
+    "n_cut": 24,
+    "min_cross_deg": 44.999999999999986,
+    "max_jump": 1.0651841516310323,
+    "examples": [
+     [
+      0.02721183701969225,
+      "W3 patch never reaches its side"
+     ],
+     [
+      0.028985507246376847,
+      "W3 patch never reaches its side"
+     ],
+     [
+      0.0434782608695652,
+      "W3 patch never reaches its side"
+     ]
+    ],
+    "ok": false
+   }
+  },
+  "10": {
+   "tau_e": 0.01592380229783638,
+   "reach": Infinity,
+   "faces": [
+    2,
+    9
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 77,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 75,
+    "n_cut": 75,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "11": {
+   "tau_e": 0.017670435661083794,
+   "reach": Infinity,
+   "faces": [
+    2,
+    10
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 80,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "12": {
+   "tau_e": 0.011606716493095965,
+   "reach": Infinity,
+   "faces": [
+    2,
+    4
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "13": {
+   "tau_e": 0.014605162266792928,
+   "reach": Infinity,
+   "faces": [
+    3,
+    7
+   ],
+   "gamma": {
+    "fail": {
+     "W2 bridge end outside D(t)": 89
+    },
+    "n_t": 89,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 0.0,
+    "examples": [
+     [
+      0.004386533310618707,
+      "W2 bridge end outside D(t)"
+     ],
+     [
+      0.0080599727747971,
+      "W2 bridge end outside D(t)"
+     ],
+     [
+      0.014492753623188406,
+      "W2 bridge end outside D(t)"
+     ]
+    ],
+    "ok": false
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 88,
+    "n_cut": 88,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "14": {
+   "tau_e": 0.015644540457128493,
+   "reach": Infinity,
+   "faces": [
+    3,
+    5
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 75,
+    "n_cut": 75,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "15": {
+   "tau_e": 0.010977856105143676,
+   "reach": Infinity,
+   "faces": [
+    4,
+    11
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 77,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 77,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "16": {
+   "tau_e": 0.011240989007194307,
+   "reach": Infinity,
+   "faces": [
+    4,
+    12
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 78,
+    "n_cut": 78,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "17": {
+   "tau_e": 0.011479777279423254,
+   "reach": Infinity,
+   "faces": [
+    5,
+    11
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 75,
+    "n_cut": 75,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "18": {
+   "tau_e": 0.003580279133255728,
+   "reach": Infinity,
+   "faces": [
+    5,
+    7
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 44.999999999999986,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 80,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "19": {
+   "tau_e": 0.010231934114140692,
+   "reach": Infinity,
+   "faces": [
+    6,
+    8
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 89.92879493543566,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "20": {
+   "tau_e": 0.014056697954323686,
+   "reach": 0.2,
+   "faces": [
+    6,
+    13
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 72,
+    "n_cut": 72,
+    "min_cross_deg": 44.999999999999986,
+    "max_jump": 3.1778799371138886,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 70,
+    "n_cut": 61,
+    "min_cross_deg": 44.999999999999986,
+    "max_jump": 1.1088349733905283,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "21": {
+   "tau_e": 0.006991585122098517,
+   "reach": Infinity,
+   "faces": [
+    7,
+    13
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 62,
+    "n_cut": 62,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 62,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "22": {
+   "tau_e": 0.014207641238165846,
+   "reach": Infinity,
+   "faces": [
+    7,
+    14
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 78,
+    "n_cut": 78,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 78,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "23": {
+   "tau_e": 0.012381372905876528,
+   "reach": Infinity,
+   "faces": [
+    8,
+    13
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 82,
+    "n_cut": 82,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 82,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "24": {
+   "tau_e": 0.01343195521921238,
+   "reach": Infinity,
+   "faces": [
+    8,
+    9
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "25": {
+   "tau_e": 0.0069640190978638985,
+   "reach": Infinity,
+   "faces": [
+    9,
+    10
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "26": {
+   "tau_e": 0.01108207083233928,
+   "reach": Infinity,
+   "faces": [
+    9,
+    13
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 88,
+    "n_cut": 88,
+    "min_cross_deg": 44.999999999999986,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 78,
+    "n_cut": 78,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "27": {
+   "tau_e": 0.015951419999689943,
+   "reach": Infinity,
+   "faces": [
+    10,
+    13
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 44.999999999999986,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 80,
+    "n_cut": 80,
+    "min_cross_deg": 44.999999999999986,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "28": {
+   "tau_e": 0.015395834871332366,
+   "reach": Infinity,
+   "faces": [
+    10,
+    12
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "29": {
+   "tau_e": 0.007567944713763078,
+   "reach": Infinity,
+   "faces": [
+    11,
+    12
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 76,
+    "min_cross_deg": 44.999999999999986,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 76,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "30": {
+   "tau_e": 0.011453217506862996,
+   "reach": Infinity,
+   "faces": [
+    11,
+    14
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 77,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "31": {
+   "tau_e": 0.008823776287443838,
+   "reach": Infinity,
+   "faces": [
+    12,
+    14
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 77,
+    "min_cross_deg": 44.99999999999999,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  },
+  "32": {
+   "tau_e": 0.012954845528154985,
+   "reach": Infinity,
+   "faces": [
+    13,
+    14
+   ],
+   "gamma": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 77,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   },
+   "mid": {
+    "fail": {},
+    "n_t": 77,
+    "n_cut": 0,
+    "min_cross_deg": 90.0,
+    "max_jump": 1.0,
+    "examples": [],
+    "ok": true
+   }
+  }
+ }
+}
