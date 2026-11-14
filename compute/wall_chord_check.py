@@ -45,7 +45,9 @@ OUT = "../results/wall_chord_parts"
 
 def section_chains(face, pln, gpt, R):
     """Section curves of a face by a plane, chained into polylines; only pieces within distance R of gpt."""
-    sec = BRepAlgoAPI_Section(face, pln, False); sec.ComputePCurveOn1(False); sec.Build()
+    sec = BRepAlgoAPI_Section(face, pln, False); sec.ComputePCurveOn1(False)
+    sec.SetNonDestructive(True)   # do not change tolerances of the patch (that changes later sections)
+    sec.Build()
     polys = []
     ex = TopExp_Explorer(sec.Shape(), TopAbs_EDGE)
     while ex.More():
