@@ -254,23 +254,103 @@ def run(index):
     rv_max = [RHOS[-1] * M.tv[v] for v in range(nv)]
 
     def sphere_arc(fi, pv, r):
-        """P_f ∩ S_v as a list of polylines (one per section edge)."""
-        # non-destructive: earlier Boolean operations must not change tolerances of the shared patch
+        """P_f ∩ S_v as a list of polylines: OCC section of the patch with the sphere (non-destructive), sampled
+        uniformly in arc length. Near patch boundaries OCC section curves can stop short of their own end vertex (up to
+        0.23 r seen); the vertex itself lies on the patch boundary and on S_v, so each curve is extended to its vertex
+        along the great circle of S_v (an approximation of the missing piece, recorded as V1_extended_over_r)."""
+        from OCP.TopExp import TopExp
         sec = BRepAlgoAPI_Section(PF[fi], BRepPrimAPI_MakeSphere(P(pv), r).Shape(), False)
         sec.SetNonDestructive(True); sec.Build()
         segs = []
         ex = TopExp_Explorer(sec.Shape(), TopAbs_EDGE)
         while ex.More():
-            c = BRepAdaptor_Curve(TopoDS.Edge(ex.Current()))
-            us = np.linspace(c.FirstParameter(), c.LastParameter(), 2000)
-            Q = np.array([L.V(c.Value(u)) for u in us])
-            # resample uniformly in arc length (the section curves are not parametrized by arc length)
+            e = TopoDS.Edge(ex.Current()); c = BRepAdaptor_Curve(e); a, b = c.FirstParameter(), c.LastParameter()
+            us_ = np.linspace(a, b, 2000); Q = np.array([L.V(c.Value(u)) for u in us_])
             sl = np.r_[0, np.cumsum(np.linalg.norm(np.diff(Q, axis=0), axis=1))]
             n = max(int(sl[-1] / (r / 400)), 2)
-            ut = np.interp(np.linspace(0, sl[-1], n), sl, us)
-            segs.append(np.array([L.V(c.Value(u)) for u in ut]))
+            Q = np.array([L.V(c.Value(u)) for u in np.interp(np.linspace(0, sl[-1], n), sl, us_)])
+            v1, v2 = TopExp.FirstVertex_s(e), TopExp.LastVertex_s(e)
+            V1, V2 = L.V(BRep_Tool.Pnt_s(v1)), L.V(BRep_Tool.Pnt_s(v2))
+            def slerp(x, y):
+                xa, ya = (x - pv) / r, (y - pv) / r
+                w = math.acos(max(-1.0, min(1.0, float(xa @ ya))))
+                if w < 1e-12: return np.zeros((0, 3))
+                k = max(int(w * 400), 2)
+                return np.array([pv + r * (math.sin((1 - s) * w) * xa + math.sin(s * w) * ya) / math.sin(w)
+                                 for s in np.linspace(0, 1, k)[1:]])
+            ext = 0.0
+            # orient: the vertex nearest each curve end
+            if np.linalg.norm(V1 - Q[0]) + np.linalg.norm(V2 - Q[-1]) > np.linalg.norm(V2 - Q[0]) + np.linalg.norm(V1 - Q[-1]):
+                V1, V2 = V2, V1
+            if np.linalg.norm(V1 - Q[0]) > 1e-6 * r:
+                ext = max(ext, np.linalg.norm(V1 - Q[0]) / r); Q = np.vstack([slerp(Q[0], V1)[::-1], Q])
+            if np.linalg.norm(V2 - Q[-1]) > 1e-6 * r:
+                ext = max(ext, np.linalg.norm(V2 - Q[-1]) / r); Q = np.vstack([Q, slerp(Q[-1], V2)])
+            ext_max[0] = max(ext_max[0], ext)
+            segs.append(Q)
             ex.Next()
         return segs
+
+    def sphere_arc_contour(fi, pv, r):
+        """Fallback for a face whose OCC section misses a joint: the zero contour of |S(u,v) - pv|^2 - r^2 on a fine
+        (u,v) grid around the projection of pv (one period near a pole; shifted by a period for periodic surfaces),
+        clipped by the face classifier, boundary crossings by bisection, duplicates removed."""
+        from skimage.measure import find_contours
+        from OCP.GeomAPI import GeomAPI_ProjectPointOnSurf
+        from OCP.BRepClass import BRepClass_FaceClassifier
+        from OCP.TopAbs import TopAbs_IN, TopAbs_ON
+        from OCP.gp import gp_Pnt2d
+        face = M.F[fi]
+        surf = BRep_Tool.Surface_s(face); S = BRepAdaptor_Surface(face)
+        pr = GeomAPI_ProjectPointOnSurf(P(pv), surf)
+        if pr.NbPoints() == 0: return []
+        u0, v0 = pr.LowerDistanceParameters()
+        p, du_, dv_ = gp_Pnt(), gp_Vec(), gp_Vec(); S.D1(u0, v0, p, du_, dv_)
+        hu, hv = 2.5 * r / max(du_.Magnitude(), 1e-300), 2.5 * r / max(dv_.Magnitude(), 1e-300)
+        fullu = S.IsUPeriodic() and 2 * hu >= S.UPeriod()
+        fullv = S.IsVPeriodic() and 2 * hv >= S.VPeriod()
+        if fullu: hu = 0.5 * S.UPeriod()
+        if fullv: hv = 0.5 * S.VPeriod()
+        ushift = [0.0] + ([S.UPeriod(), -S.UPeriod()] if S.IsUPeriodic() and not fullu else [])
+        vshift = [0.0] + ([S.VPeriod(), -S.VPeriod()] if S.IsVPeriodic() and not fullv else [])
+        X = lambda u, v: L.V(S.Value(u, v))
+        isin = lambda u, v: BRepClass_FaceClassifier(face, gp_Pnt2d(u, v), 1e-9).State() in (TopAbs_IN, TopAbs_ON)
+        out = []
+        N = 600 if (fullu or fullv) else 250
+        for su in ushift:
+            for sv in vshift:
+                us = np.linspace(u0 + su - hu, u0 + su + hu, N); vs = np.linspace(v0 + sv - hv, v0 + sv + hv, N)
+                F = np.array([[float(np.sum((X(u, v) - pv) ** 2) - r * r) for v in vs] for u in us])
+                for C in find_contours(F, 0.0):
+                    uv = np.stack([np.interp(C[:, 0], np.arange(N), us), np.interp(C[:, 1], np.arange(N), vs)], 1)
+                    inside = np.array([isin(u, v) for u, v in uv])
+                    if not inside.any(): continue
+                    idx = np.nonzero(inside)[0]
+                    for run in np.split(idx, np.nonzero(np.diff(idx) > 1)[0] + 1):
+                        pts = [uv[k] for k in run]
+                        for end_, nb in ((run[0], run[0] - 1), (run[-1], run[-1] + 1)):
+                            if 0 <= nb < len(uv):
+                                a, b = uv[end_], uv[nb]
+                                for _ in range(40):
+                                    m = 0.5 * (a + b)
+                                    if isin(*m): a = m
+                                    else: b = m
+                                if end_ == run[0]: pts.insert(0, a)
+                                else: pts.append(a)
+                        Q = np.array([X(u, v) for u, v in pts])
+                        out.append(pv + (Q - pv) * (r / np.linalg.norm(Q - pv, axis=1))[:, None])
+        kept = []
+        for Q in out:
+            if kept:
+                Kall = np.vstack(kept)
+                new = np.array([np.min(np.linalg.norm(Kall - q, axis=1)) > 1e-3 * r for q in Q])
+                if not new.any(): continue
+                idx = np.nonzero(new)[0]
+                for part in np.split(idx, np.nonzero(np.diff(idx) > 1)[0] + 1):
+                    kept.append(Q[max(part[0] - 1, 0):min(part[-1] + 1, len(Q) - 1) + 1])
+            else:
+                kept.append(Q)
+        return [K for K in kept if len(K) >= 2]
 
     def chain(runs, tol):
         """Join polylines whose ends coincide; returns the list of chains."""
@@ -290,8 +370,11 @@ def run(index):
             out.append(cur)
         return out
 
+    ext_max = [0.0]
+
     def vertex_test(v, rho):
         pv, r = M.p[v], rho * M.tv[v]
+        ext_max[0] = 0.0
         s3 = 0.95 / rho
         rec = dict(rho=rho, V0_corners_inside=v3[str(v)]["V0_corners_inside"],
                    V0_ball_disjoint=all(np.linalg.norm(pv - M.p[w]) > r + rv_max[w] for w in range(nv) if w != v),
@@ -299,10 +382,20 @@ def run(index):
                    V0_miss_strips_over_r=v3[str(v)]["V0_miss_strips_over_r"] * s3)
         note = None
         faces = sorted({fi for ei in inc[v] for fi, _ in M.uses[ei]})
+        bridges = {ei: WE[ei].bridge_arc(v, pv, r, PF) for ei in inc[v]}
+        jface = {}
+        for ei, A in bridges.items():
+            if len(A) >= 2:
+                jface.setdefault(WE[ei].f, []).append(A[0]); jface.setdefault(WE[ei].g, []).append(A[-1])
         arcs, chains = {}, {}
+        rec["V1_contour_faces"] = []
         for fi in faces:
+            secs = sphere_arc(fi, pv, r)
+            allp = np.vstack(secs) if secs else np.zeros((0, 3))
+            if any(len(allp) == 0 or np.min(np.linalg.norm(allp - q, axis=1)) > r / 20 for q in jface.get(fi, [])):
+                secs = sphere_arc_contour(fi, pv, r); rec["V1_contour_faces"].append(fi)
             runs = []
-            for S in chain(sphere_arc(fi, pv, r), 0.01 * r):   # OCC splits the section; rejoin first
+            for S in chain(secs, 0.01 * r):   # OCC splits the section; rejoin first
                 keep = np.ones(len(S), bool)
                 for ei in inc[v]:
                     fs = [x for x, _ in M.uses[ei]]
@@ -316,20 +409,20 @@ def run(index):
                 if len(idx):
                     br = np.nonzero(np.diff(idx) > 1)[0]
                     for part in np.split(idx, br + 1): runs.append(S[part])
-            chains[fi] = chain(runs, 1e-6 * r + 1e-9)
+            chains[fi] = chain(runs, 0.005 * r)
             arcs[fi] = np.vstack(chains[fi]) if chains[fi] else np.zeros((0, 3))
         pieces, joints = [], []
         for ei in inc[v]:
-            A = WE[ei].bridge_arc(v, pv, r, PF)
+            A = bridges[ei]
             if len(A) < 21: note = note or f"edge {ei}: bridge arc incomplete ({len(A)}/21)"
             if len(A) < 2: continue
             pieces.append(("bridge", ei, A)); joints += [A[0], A[-1]]
             for end_, fi in ((A[0], WE[ei].f), (A[-1], WE[ei].g)):
                 if len(arcs.get(fi, [])) == 0 or np.min(np.linalg.norm(arcs[fi] - end_, axis=1)) > r / 20:
-                    dk = float(np.min(np.linalg.norm(arcs[fi] - end_, axis=1)) / r) if len(arcs.get(fi, [])) else None
-                    da = float(min(np.min(np.linalg.norm(S - end_, axis=1)) for S in sphere_arc(fi, pv, r)) / r) \
+                    dk = round(float(np.min(np.linalg.norm(arcs[fi] - end_, axis=1)) / r), 4) if len(arcs.get(fi, [])) else None
+                    da = round(float(min(np.min(np.linalg.norm(S - end_, axis=1)) for S in sphere_arc(fi, pv, r)) / r), 4) \
                         if sphere_arc(fi, pv, r) else None
-                    note = note or f"edge {ei}: bridge end not on the arc of face {fi} (to kept arc {dk:.4f} r, to whole section {da:.4f} r)"
+                    note = note or f"edge {ei}: bridge end not on the arc of face {fi} (to kept arc {dk} r, to whole section {da} r)"
         if os.environ.get("WV_DUMP") == str(v):
             np.savez(f"/tmp/wv_dump_{v}_{rho}.npz", **{f"arc{fi}": A for fi, A in arcs.items()},
                      **{f"br{p[1]}": p[2] for p in pieces if p[0] == "bridge"},
@@ -358,6 +451,7 @@ def run(index):
                                   (np.linalg.norm(B - q, axis=1)[None, :] < 3 * r / 20), np.inf, Dm)
                 md = min(md, float(Dm.min()))
         rec["V1_min_gap_over_r"] = md / r
+        rec["V1_extended_over_r"] = ext_max[0]
         rec["V1_note"] = note
         rec["V1_ok"] = note is None and md / r > 0.005
         rec["ok"] = bool(rec["V0_corners_inside"] and rec["V0_ball_disjoint"] and rec["V0_miss_faces_over_r"] > 1
