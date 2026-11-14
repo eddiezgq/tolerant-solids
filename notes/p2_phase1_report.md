@@ -166,3 +166,42 @@ another edge of the same face).
   points move continuously (|Δa|/|Δγ| ≤ 1.07 between consecutive samples).
 - **Not yet tested:** vertices with wall cells (the cone over the new loop on S_v, V0/V1), and the global separation S1′
   for the cut patches. The vertex test has to be redone with the wall construction before the theorem is rewritten.
+
+## Step 4: vertices and global separation with the wall construction (2026-11-14, early morning)
+
+Checker `compute/wall_vertex_check.py` (results `results/wall_vertex_check.json`, parts in `results/wall_vertex_parts/`).
+Per edge the first wall (gamma, mid, chord) that passed step 3 and whose bridges enter both vertex balls; per vertex the
+first ball ratio in (0.95, 0.99, 0.999) that passes. Loop on S_v: face arcs = patch ∩ S_v minus the pieces removed by
+the walls; bridge arcs = where the bridges leave the ball (ends located by bisection). Tests: one arc per face, arc ends
+= bridge ends (r/20), pieces apart (0.005 r) away from the joints; V0 as in v3; global: cut patches apart except inside
+the wall tubes, bridges apart from each other and from non-incident patches.
+
+| | vertices | tested | pass | v3 passed |
+| --- | --- | --- | --- | --- |
+| all 20 models | 358 | 346 | 335 | 288 |
+
+- Not tested (12): at the 3 re-trimmed edges of step 3 (4 vertices of the chamfered box g = 0.001 and L inner fillet,
+  per gap) and the seam vertices of the filleted cylinder (6).
+- All vertices pass in 14 of the 20 runs, including the stadium prism (v3: 4/8, the "arc end not at a joint" cases were
+  a sampler artefact) and all filleted boxes (v3: 19–22/24).
+- Ball ratio: 0.95 suffices at 323 vertices, 0.99 at 9, 0.999 at 3 (any r_v < tau_v is allowed). The v3 failures
+  "bridge arc incomplete" at the last vertex of the box family were of this kind: one patch corner sits 0.4 r behind the
+  end of the edge curve, so the bridge only enters a slightly larger ball.
+- Failing (11 vertices): L all fillets (4 + 3: one edge whose bridge never enters the ball (edge 70 at vertex 27, both
+  gaps); face arcs in two pieces with end gaps 0.008–0.013 r at vertices 32, 33 (both gaps) and a 0.0004 r sliver at
+  vertex 28); L inner fillet (2 + 1, next to the cusp vertices); filleted box r = 0.5 g = 0.001 (vertex 22, a 0.001 r
+  sliver). Slivers and 0.01 r gaps may be sampling; not yet decided.
+- Global separation fails in the two L models only: patch pairs (6, 7) of the L inner fillet and (2, 5), (3, 6) of the
+  L all fillets touch outside the wall tubes; (2, 5) is the same-cylinder split of edge 9. Not yet explained.
+
+Checker problems found and fixed on the way (each changed results):
+1. OCC Boolean sections changed the tolerances stored on the shared patches, so later sections of the same patch gave
+   different curves (seen: a sphere section moved by 5e-5). All sections are now non-destructive (the edge results of
+   step 3 were rerun: unchanged, 659/662).
+2. OCC sphere sections can stop up to 0.23 r short of their own end vertex near a patch boundary, or miss a piece
+   entirely. Section curves are now extended along S_v to their end vertex (at most 0.027 r was added), and where a
+   bridge end lies on a patch but not on its OCC section, the face arc is recomputed as a (u,v) contour (5 faces).
+3. Arc ends were taken as the farthest pair of points, wrong for arcs longer than a half circle; arcs are now chained
+   curves with true ends.
+4. Wall cuts were applied beyond the end of an edge curve (points whose foot on the curve is its end point); now only in
+   the normal planes of the edge.

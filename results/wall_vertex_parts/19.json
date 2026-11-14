@@ -1,6 +1,10 @@
 {
  "key": "cylinder, top fillet r1, g=0.01",
- "rho": 0.95,
+ "rhos": [
+  0.95,
+  0.99,
+  0.999
+ ],
  "edge_wall": {
   "0": "seam",
   "1": "gamma",
@@ -10,29 +14,14 @@
  },
  "vertices": {
   "0": {
-   "V0_corners_inside": true,
-   "V0_ball_disjoint": true,
-   "V0_miss_faces_over_r": 157.3435043145008,
-   "V0_miss_strips_over_r": 154.9770423226764,
-   "V0_edges_reach_ball": true,
    "status": "not tested: edge 0 seam, edge 3 seam",
    "ok": null
   },
   "1": {
-   "V0_corners_inside": true,
-   "V0_ball_disjoint": true,
-   "V0_miss_faces_over_r": 1641.4354104659744,
-   "V0_miss_strips_over_r": 1640.3158222195416,
-   "V0_edges_reach_ball": true,
    "status": "not tested: edge 0 seam",
    "ok": null
   },
   "2": {
-   "V0_corners_inside": true,
-   "V0_ball_disjoint": true,
-   "V0_miss_faces_over_r": 109.53388430093948,
-   "V0_miss_strips_over_r": 108.79820715316872,
-   "V0_edges_reach_ball": true,
    "status": "not tested: edge 3 seam",
    "ok": null
   }

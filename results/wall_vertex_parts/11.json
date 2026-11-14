@@ -1,6 +1,10 @@
 {
  "key": "box, top edges filleted r2, g=0.01",
- "rho": 0.95,
+ "rhos": [
+  0.95,
+  0.99,
+  0.999
+ ],
  "edge_wall": {
   "0": "gamma",
   "1": "gamma",
@@ -25,136 +29,244 @@
  },
  "vertices": {
   "0": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 518.906211365665,
    "V0_miss_strips_over_r": 517.969664944111,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.12364716965673356,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12091466233573381,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "1": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 246.98209547163944,
    "V0_miss_strips_over_r": 245.7845719128132,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.11434650108812318,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.10999098853931948,
+   "V1_extended_over_r": 2.5462765013307844e-05,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "2": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 240.09562063148053,
    "V0_miss_strips_over_r": 239.24159847373375,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.12144376624352936,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.11921257571746305,
+   "V1_extended_over_r": 0.02267156619746094,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "3": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 518.9414554859521,
    "V0_miss_strips_over_r": 518.1883324449069,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.124485025757328,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.11948968127214477,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "4": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 537.4252786600235,
    "V0_miss_strips_over_r": 536.3152989840561,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.1262639305683275,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12069054104844151,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "5": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 233.09919158044832,
    "V0_miss_strips_over_r": 232.14132014892095,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.1262077157106275,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12070573266844399,
+   "V1_extended_over_r": 7.96205329525122e-06,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "6": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 201.25256824449042,
    "V0_miss_strips_over_r": 200.67602761708807,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.2320734820700361,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.22754391835853793,
+   "V1_extended_over_r": 2.8360722515759643e-06,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "7": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 283.71307478478496,
    "V0_miss_strips_over_r": 282.938655707685,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.2168939749546348,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.21216837561103413,
+   "V1_extended_over_r": 8.453799312298406e-06,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "8": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 514.4316813815225,
    "V0_miss_strips_over_r": 513.3027591304566,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.2338723514829897,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.2246515482767929,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "9": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 222.79977096980357,
    "V0_miss_strips_over_r": 221.89429386391586,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.22786446626812432,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.2227210700527768,
+   "V1_extended_over_r": 3.563734963338109e-06,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "10": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 241.76563267728508,
    "V0_miss_strips_over_r": 240.78994700427046,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.22088383259190916,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.21436344483013736,
+   "V1_extended_over_r": 5.5716199934734755e-06,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "11": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 221.3791688745355,
    "V0_miss_strips_over_r": 220.4854292201211,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.23594224696357635,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.22963795807271492,
+   "V1_extended_over_r": 5.7981118147928714e-06,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   }
  },
  "global_": {

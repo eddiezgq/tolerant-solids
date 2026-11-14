@@ -1,6 +1,10 @@
 {
  "key": "box (control), g=0.01",
- "rho": 0.95,
+ "rhos": [
+  0.95,
+  0.99,
+  0.999
+ ],
  "edge_wall": {
   "0": "gamma",
   "1": "gamma",
@@ -17,92 +21,164 @@
  },
  "vertices": {
   "0": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 906.5919212500773,
    "V0_miss_strips_over_r": 905.6089937930564,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.12595316901414597,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12121837559978574,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "1": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 671.8663876348681,
    "V0_miss_strips_over_r": 670.9275598569765,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.15145181915740835,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.1447361647878146,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "2": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 671.7765626332259,
    "V0_miss_strips_over_r": 670.8645355251266,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.1902989832188059,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.18341858318207788,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "3": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 816.7055673760862,
    "V0_miss_strips_over_r": 815.4939855961788,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.1817070890880664,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.18243842157208942,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "4": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 691.6868973110836,
    "V0_miss_strips_over_r": 690.902118870209,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.11942331407694975,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.11875855952972479,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "5": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 774.4876994522347,
    "V0_miss_strips_over_r": 773.2765946898539,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.12542282270857155,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12214040506017562,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "6": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 648.5065664824485,
    "V0_miss_strips_over_r": 647.6677719991873,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.16499128745096853,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.16121349490314874,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "7": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 648.5351491567277,
    "V0_miss_strips_over_r": 647.3670033303608,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.19690388602594502,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.19038559934091445,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   }
  },
  "global_": {

@@ -1,6 +1,10 @@
 {
  "key": "L inner fillet 0.2, g=0.01",
- "rho": 0.95,
+ "rhos": [
+  0.95,
+  0.99,
+  0.999
+ ],
  "edge_wall": {
   "0": "gamma",
   "1": "gamma",
@@ -38,220 +42,382 @@
  },
  "vertices": {
   "0": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 14.718835773048882,
    "V0_miss_strips_over_r": 12.87311177806685,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.23579849477510495,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.23553584356318014,
+   "V1_extended_over_r": 4.277908473834173e-05,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "1": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 129.16878078597165,
    "V0_miss_strips_over_r": 128.8275579533908,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.13208735900368382,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.13009109743914787,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "2": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 4.92558187308029,
    "V0_miss_strips_over_r": 4.867405197535716,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.28969745299639055,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.2852473912390288,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "3": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 129.18542639647603,
    "V0_miss_strips_over_r": 128.62664305764346,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.11970489551857359,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.11934974826562954,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "4": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 137.76966006437843,
    "V0_miss_strips_over_r": 136.78747378305684,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.10253362401755667,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.10273348820802777,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "5": {
-   "V0_corners_inside": true,
-   "V0_ball_disjoint": true,
-   "V0_miss_faces_over_r": 14.951715265147696,
-   "V0_miss_strips_over_r": 13.83715586090982,
-   "V0_edges_reach_ball": true,
    "status": "not tested: edge 20 re-trimmed",
    "ok": null
   },
   "6": {
+   "rho": 0.999,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
-   "V0_miss_faces_over_r": 144.12967520250805,
-   "V0_miss_strips_over_r": 143.19117199539787,
-   "V0_edges_reach_ball": false,
-   "V1_min_gap_over_r": 0.07425767513755195,
-   "V1_note": "edge 13: bridge arc incomplete (18/21)",
+   "V0_miss_faces_over_r": 137.06025169407673,
+   "V0_miss_strips_over_r": 136.16778117680477,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.06993278541388807,
+   "V1_extended_over_r": 0.0,
+   "V1_note": "edge 13: bridge arc incomplete (20/21)",
    "V1_ok": false,
-   "ok": false
+   "ok": false,
+   "tried": [
+    [
+     0.95,
+     "edge 13: bridge arc incomplete (18/21)",
+     false
+    ],
+    [
+     0.99,
+     "edge 13: bridge arc incomplete (20/21)",
+     false
+    ],
+    [
+     0.999,
+     "edge 13: bridge arc incomplete (20/21)",
+     false
+    ]
+   ]
   },
   "7": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 14.085956337572249,
    "V0_miss_strips_over_r": 13.000315387805866,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.014356999262653334,
-   "V1_note": "face 2: arc end not at a joint",
-   "V1_ok": false,
-   "ok": false
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.014308308710592797,
+   "V1_extended_over_r": 4.2939110290160776e-05,
+   "V1_note": null,
+   "V1_ok": true,
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "8": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 131.8406428134828,
    "V0_miss_strips_over_r": 130.85042076156589,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.12342358659836579,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.1176540999689225,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "9": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 118.78889828637136,
    "V0_miss_strips_over_r": 118.13431736760563,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.13531050551238957,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12777747979130197,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "10": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 118.751886930161,
    "V0_miss_strips_over_r": 117.9809357728095,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.21857316984127825,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.2097401399846893,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "11": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 134.65843371820944,
    "V0_miss_strips_over_r": 133.32160617401314,
-   "V0_edges_reach_ball": false,
-   "V1_min_gap_over_r": 0.12079170601940906,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12095564782980285,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": false
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "12": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 186.705974343149,
    "V0_miss_strips_over_r": 185.26571532167927,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.13211574901541218,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12588994116011418,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "13": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 147.35148416567708,
    "V0_miss_strips_over_r": 146.57001021991388,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.22619645060554266,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.21158207190688313,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "14": {
-   "V0_corners_inside": true,
-   "V0_ball_disjoint": true,
-   "V0_miss_faces_over_r": 14.500950530478669,
-   "V0_miss_strips_over_r": 13.471532125968187,
-   "V0_edges_reach_ball": true,
    "status": "not tested: edge 20 re-trimmed",
    "ok": null
   },
   "15": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 5.564339466707659,
    "V0_miss_strips_over_r": 4.535659915308021,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.2537883837931142,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.24361693864505052,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "16": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 156.45551007547286,
    "V0_miss_strips_over_r": 155.20911597729955,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.1575062783497096,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.155669780162818,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "17": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 131.9071081049173,
    "V0_miss_strips_over_r": 130.74220503469627,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.12244085924869,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12152295601765534,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "18": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 131.39015394133617,
    "V0_miss_strips_over_r": 130.61497985598479,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.12169008622625724,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12026654747351645,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "19": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 183.08433673206738,
    "V0_miss_strips_over_r": 181.6707657579588,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.1538109908532782,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.14916608386842903,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   }
  },
  "global_": {
@@ -266,7 +432,7 @@
   "bridge_face_min": 0.0
  },
  "summary": {
-  "vertices_ok": 15,
+  "vertices_ok": 17,
   "vertices_tested": 18,
   "vertices": 20,
   "global_ok": false

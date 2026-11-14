@@ -1,6 +1,10 @@
 {
  "key": "box, one edge filleted r2, g=0.01",
- "rho": 0.95,
+ "rhos": [
+  0.95,
+  0.99,
+  0.999
+ ],
  "edge_wall": {
   "0": "gamma",
   "1": "gamma",
@@ -20,114 +24,204 @@
  },
  "vertices": {
   "0": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 314.6486480006574,
    "V0_miss_strips_over_r": 313.0121527612208,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.2874381201330884,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.2681119423714706,
+   "V1_extended_over_r": 6.761984882506092e-05,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "1": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 518.8298825830666,
    "V0_miss_strips_over_r": 518.5004100100404,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.12591554455047083,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12283291881986005,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "2": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 195.66492393591744,
    "V0_miss_strips_over_r": 195.03598198754366,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.2003838903416325,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.18975542536960854,
+   "V1_extended_over_r": 4.218860010439032e-05,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "3": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 648.3573218279016,
    "V0_miss_strips_over_r": 647.3951549627689,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.12037715360757206,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.11530792094657513,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "4": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 514.204058749596,
    "V0_miss_strips_over_r": 513.5026264004489,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.12208534729610224,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.11849710603476382,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "5": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 201.6969065316424,
    "V0_miss_strips_over_r": 200.88701585979962,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.27542571903554497,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.26043246613842386,
+   "V1_extended_over_r": 4.7765316960180596e-05,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "6": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 621.1786274316992,
    "V0_miss_strips_over_r": 620.2102550394737,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.24557857270291467,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.2369925259819916,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "7": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 201.4772451338694,
    "V0_miss_strips_over_r": 200.7484661262542,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.11861468518453118,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.11765764038241053,
+   "V1_extended_over_r": 4.371296042750684e-05,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "8": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 672.4053454906374,
    "V0_miss_strips_over_r": 671.3144917514109,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.1219295159614765,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.1153669502277155,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   },
   "9": {
+   "rho": 0.95,
    "V0_corners_inside": true,
    "V0_ball_disjoint": true,
    "V0_miss_faces_over_r": 513.8669841732132,
    "V0_miss_strips_over_r": 513.1215430135001,
-   "V0_edges_reach_ball": true,
-   "V1_min_gap_over_r": 0.1249601240712368,
+   "V1_contour_faces": [],
+   "V1_min_gap_over_r": 0.12299470931254426,
+   "V1_extended_over_r": 0.0,
    "V1_note": null,
    "V1_ok": true,
-   "ok": true
+   "ok": true,
+   "tried": [
+    [
+     0.95,
+     null,
+     true
+    ]
+   ]
   }
  },
  "global_": {
